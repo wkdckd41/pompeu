@@ -45,4 +45,6 @@ public class MemberController {
   public Object delete(int no) {
     return memberDao.delete(no);
   }
+
+  // 히히
 }
