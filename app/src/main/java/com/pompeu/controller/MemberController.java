@@ -46,5 +46,4 @@ public class MemberController {
     return memberDao.delete(no);
   }
 
-  // 히히222
 }

@@ -16,6 +16,16 @@ public class Member {
   String birth;
   int gender;
   int snsNo;
+
+  @Override
+  public String toString() {
+    return "Member [no=" + no + ", name=" + name + ", email=" + email + ", phone=" + phone
+        + ", nickName=" + nickName + ", useCheck=" + useCheck + ", loginDate=" + loginDate
+        + ", joinDate=" + joinDate + ", modifyDate=" + modifyDate + ", adminCheck=" + adminCheck
+        + ", password=" + password + ", birth=" + birth + ", gender=" + gender + ", snsNo=" + snsNo
+        + "]";
+  }
+
   public int getNo() {
     return no;
   }
@@ -100,14 +110,7 @@ public class Member {
   public void setSnsNo(int snsNo) {
     this.snsNo = snsNo;
   }
-  @Override
-  public String toString() {
-    return "Member [no=" + no + ", name=" + name + ", email=" + email + ", phone=" + phone
-        + ", nickName=" + nickName + ", useCheck=" + useCheck + ", loginDate=" + loginDate
-        + ", joinDate=" + joinDate + ", modifyDate=" + modifyDate + ", adminCheck=" + adminCheck
-        + ", password=" + password + ", birth=" + birth + ", gender=" + gender + ", snsNo=" + snsNo
-        + "]";
-  }
+
 
 
 }
