@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.MerberDao">
+
+  <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>
+    <result column="login_date" property="loginDate"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="birth" property="birth"/>
+    <result column="gender" property="gender"/>
+    <result column="sns_no" property="snsNo"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from member
+  </select>
+  
+  <select id="findAll" resultMap="memberMap">
+    select 
+      member_no,
+      name,
+      email,
+      phone,
+      nickname,
+      login_date,
+      join_date
+    from 
+      member 
+    order by 
+      member_no asc
+  </select>
+  
+  <insert id="insert" parameterType="member">
+    insert into member(member_no,name,email,phone,nickname,use_check,join_date,modify_date,admin_check,password,birth,gender,sns_no) 
+    values(#{no},#{name},#{email},#{phone},#{nickName},#{useCheck},#{joinDate},#{modifyDate},#{adminCheck},#{password},#{birth},#{gender},#{snsNo})
+  </insert>
+  
+  <select id="findByNo" resultMap="memberMap" parameterType="int">
+    select 
+     member_no,
+      name,
+      email,
+      phone,
+      nickname,
+      use_check,
+      login_date,
+      join_date,
+      modify_date,
+      admin_check,
+      password,
+      birth,
+      gender,
+      sns_no
+    from 
+      member 
+    where 
+      member_no=#{no}
+  </select>
+
+  <update id="update" parameterType="member">
+    update ml_member set 
+	    #{no},
+	    #{name},
+	    #{email},
+	    #{phone},
+	    #{nickName},
+	    #{useCheck},
+	    #{joinDate},
+	    #{modifyDate},
+	    #{adminCheck},
+	    #{password},
+	    #{birth},
+	    #{gender},
+	    #{snsNo}
+    where 
+      member_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from member 
+    where member_no=#{no}
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
