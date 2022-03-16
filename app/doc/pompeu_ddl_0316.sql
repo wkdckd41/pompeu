@@ -100,14 +100,14 @@ CREATE SCHEMA MY_SCHEMA;
 -- 회원
 CREATE TABLE member (
   member_no   INTEGER     NOT NULL COMMENT '회원번호', -- 회원번호
-  join_date   DATETIME    NOT NULL DEFAULT now() COMMENT '가입일시', -- 가입일시
+  join_date   TIMESTAMP   NOT NULL DEFAULT now() COMMENT '가입일시', -- 가입일시
   name        VARCHAR(20) NOT NULL COMMENT '이름', -- 이름
   email       VARCHAR(40) NOT NULL COMMENT '이메일', -- 이메일
   phone       VARCHAR(30) NOT NULL COMMENT '휴대폰', -- 휴대폰
   nickname    VARCHAR(20) NOT NULL COMMENT '닉네임', -- 닉네임
   use_check   CHAR(1)     NOT NULL COMMENT '상태', -- 상태
-  login_date  DATETIME    NOT NULL COMMENT '최종접속일시', -- 최종접속일시
-  modify_date DATETIME    NULL     COMMENT '정보수정일시', -- 정보수정일시
+  login_date  TIMESTAMP   NOT NULL COMMENT '최종접속일시', -- 최종접속일시
+  modify_date TIMESTAMP   NULL     COMMENT '정보수정일시', -- 정보수정일시
   admin_check BOOLEAN     NOT NULL COMMENT '관리자여부', -- 관리자여부
   password    VARCHAR(50) NOT NULL COMMENT '비밀번호', -- 비밀번호
   birth       VARCHAR(8)  NULL     COMMENT '생년월일', -- 생년월일
@@ -199,7 +199,7 @@ CREATE TABLE class (
   end_date      TIME         NOT NULL COMMENT '종료일', -- 종료일
   class_price   INTEGER      NOT NULL DEFAULT 0 COMMENT '강좌료', -- 강좌료
   class_info    TEXT         NOT NULL COMMENT '수업소개', -- 수업소개
-  register_date DATETIME     NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
+  register_date TIMESTAMP    NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
   status        CHAR(1)      NOT NULL COMMENT '상태', -- 상태
   admin_message VARCHAR(255) NULL     COMMENT '비고', -- 비고
   total_rate    INTEGER      NOT NULL DEFAULT 0 COMMENT '전체평점', -- 전체평점
@@ -247,14 +247,14 @@ ALTER TABLE location
 
 -- 강좌문의
 CREATE TABLE myclass_ask (
-  COL                  INTEGER  NOT NULL COMMENT '강좌문의번호', -- 강좌문의번호
-  class_no             INTEGER  NOT NULL COMMENT '강좌번호', -- 강좌번호
-  users_no             INTEGER  NOT NULL COMMENT '이용자번호', -- 이용자번호
-  ask_content          TEXT     NOT NULL COMMENT '문의내용', -- 문의내용
-  register_date        DATETIME NOT NULL DEFAULT now() COMMENT '작성일시', -- 작성일시
-  answer_content       TEXT     NULL     COMMENT '답변내용', -- 답변내용
-  answer_register_date DATETIME NULL     COMMENT '답변일시', -- 답변일시
-  display              CHAR(1)  NULL     COMMENT '공개여부' -- 공개여부
+  COL                  INTEGER   NOT NULL COMMENT '강좌문의번호', -- 강좌문의번호
+  class_no             INTEGER   NOT NULL COMMENT '강좌번호', -- 강좌번호
+  users_no             INTEGER   NOT NULL COMMENT '이용자번호', -- 이용자번호
+  ask_content          TEXT      NOT NULL COMMENT '문의내용', -- 문의내용
+  register_date        TIMESTAMP NOT NULL DEFAULT now() COMMENT '작성일시', -- 작성일시
+  answer_content       TEXT      NULL     COMMENT '답변내용', -- 답변내용
+  answer_register_date TIMESTAMP NULL     COMMENT '답변일시', -- 답변일시
+  display              CHAR(1)   NULL     COMMENT '공개여부' -- 공개여부
 )
 COMMENT '강좌문의';
 
@@ -274,12 +274,12 @@ CREATE TABLE party (
   location_no   INTEGER      NOT NULL COMMENT '지역번호', -- 지역번호
   name          VARCHAR(100) NOT NULL COMMENT '소모임명', -- 소모임명
   content       TEXT         NOT NULL COMMENT '소모임내용', -- 소모임내용
-  start_date    DATETIME     NOT NULL COMMENT '시작일', -- 시작일
-  end_date      DATETIME     NOT NULL COMMENT '종료일', -- 종료일
+  start_date    TIMESTAMP    NOT NULL COMMENT '시작일', -- 시작일
+  end_date      TIMESTAMP    NOT NULL COMMENT '종료일', -- 종료일
   max_member    INTEGER      NOT NULL DEFAULT 0 COMMENT '최대인원', -- 최대인원
   in_out_ex     CHAR(1)      NOT NULL COMMENT '실내외운동', -- 실내외운동
-  register_date DATETIME     NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
-  modify_date   DATETIME     NULL     COMMENT '수정일' -- 수정일
+  register_date TIMESTAMP    NOT NULL DEFAULT now() COMMENT '등록일', -- 등록일
+  modify_date   TIMESTAMP    NULL     COMMENT '수정일' -- 수정일
 )
 COMMENT '소모임';
 
@@ -307,9 +307,9 @@ CREATE TABLE challenge (
   name          VARCHAR(100) NOT NULL COMMENT '챌린지명', -- 챌린지명
   content       VARCHAR(255) NOT NULL COMMENT '챌린지내용', -- 챌린지내용
   image         VARCHAR(255) NOT NULL COMMENT '이미지', -- 이미지
-  register_date DATETIME     NOT NULL DEFAULT now()
+  register_date TIMESTAMP    NOT NULL DEFAULT now()
    COMMENT '작성일', -- 작성일
-  modify_date   DATETIME     NULL     COMMENT '수정일시', -- 수정일시
+  modify_date   TIMESTAMP    NULL     COMMENT '수정일시', -- 수정일시
   view_count    INTEGER      NOT NULL DEFAULT 0 COMMENT '조회수' -- 조회수
 )
 COMMENT '챌린지';
@@ -378,11 +378,11 @@ CREATE TABLE notice (
   notice_no      INTEGER      NOT NULL COMMENT '공지사항번호', -- 공지사항번호
   member_type_no INTEGER      NOT NULL COMMENT '회원유형번호', -- 회원유형번호
   critical_check BOOLEAN      NOT NULL COMMENT '중요도체크', -- 중요도체크
-  register_date  DATETIME     NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
+  register_date  TIMESTAMP    NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
   view_count     INTEGER      NOT NULL DEFAULT 0 COMMENT '조회수', -- 조회수
   name           VARCHAR(100) NOT NULL COMMENT '공지제목', -- 공지제목
   content        TEXT         NOT NULL COMMENT '공지내용', -- 공지내용
-  modify_date    DATETIME     NULL     COMMENT '수정일' -- 수정일
+  modify_date    TIMESTAMP    NULL     COMMENT '수정일' -- 수정일
 )
 COMMENT '공지사항';
 
@@ -404,12 +404,12 @@ ALTER TABLE notice
 
 -- FAQ
 CREATE TABLE faq (
-  faq_no         INTEGER  NOT NULL COMMENT 'FAQ질문번호', -- FAQ질문번호
-  member_type_no INTEGER  NOT NULL COMMENT '회원유형번호', -- 회원유형번호
-  ask            TEXT     NOT NULL COMMENT '질문내용', -- 질문내용
-  answer         TEXT     NOT NULL COMMENT '답변내용', -- 답변내용
-  register_date  DATETIME NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
-  modify_date    DATETIME NULL     COMMENT '수정일' -- 수정일
+  faq_no         INTEGER   NOT NULL COMMENT 'FAQ질문번호', -- FAQ질문번호
+  member_type_no INTEGER   NOT NULL COMMENT '회원유형번호', -- 회원유형번호
+  ask            TEXT      NOT NULL COMMENT '질문내용', -- 질문내용
+  answer         TEXT      NOT NULL COMMENT '답변내용', -- 답변내용
+  register_date  TIMESTAMP NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
+  modify_date    TIMESTAMP NULL     COMMENT '수정일' -- 수정일
 )
 COMMENT 'FAQ';
 
@@ -434,13 +434,13 @@ CREATE TABLE coupon (
   code           VARCHAR(40)  NOT NULL COMMENT '쿠폰코드', -- 쿠폰코드
   users_no       INTEGER      NOT NULL COMMENT '이용자번호', -- 이용자번호
   name           VARCHAR(100) NOT NULL COMMENT '쿠폰명', -- 쿠폰명
-  create_date    DATETIME     NOT NULL DEFAULT now() COMMENT '발급일', -- 발급일
-  valid_date     DATETIME     NOT NULL COMMENT '유효일자', -- 유효일자
+  create_date    TIMESTAMP    NOT NULL DEFAULT now() COMMENT '발급일', -- 발급일
+  valid_date     TIMESTAMP    NOT NULL COMMENT '유효일자', -- 유효일자
   use_check      CHAR(1)      NOT NULL COMMENT '사용여부', -- 사용여부
-  use_date       DATETIME     NULL     COMMENT '사용날짜', -- 사용날짜
+  use_date       TIMESTAMP    NULL     COMMENT '사용날짜', -- 사용날짜
   content        VARCHAR(255) NOT NULL COMMENT '쿠폰내용', -- 쿠폰내용
   price          INTEGER      NOT NULL DEFAULT 0 COMMENT '쿠폰금액', -- 쿠폰금액
-  modify_date    DATETIME     NULL     COMMENT '수정일시', -- 수정일시
+  modify_date    TIMESTAMP    NULL     COMMENT '수정일시', -- 수정일시
   coupon_type_no INTEGER      NOT NULL COMMENT '쿠폰적용유형번호' -- 쿠폰적용유형번호
 )
 COMMENT '쿠폰';
@@ -469,11 +469,11 @@ CREATE TABLE payment (
   coupon_no       INTEGER     NOT NULL COMMENT '쿠폰번호', -- 쿠폰번호
   class_price     INTEGER     NULL     DEFAULT 0 COMMENT '강좌료', -- 강좌료
   pay_type        INTEGER     NOT NULL COMMENT '결제방식', -- 결제방식
-  pay_date        DATETIME    NOT NULL DEFAULT now() COMMENT '결제일시', -- 결제일시
+  pay_date        TIMESTAMP   NOT NULL DEFAULT now() COMMENT '결제일시', -- 결제일시
   pay_price       INTEGER     NOT NULL DEFAULT 0 COMMENT '최종결제금액', -- 최종결제금액
-  refund_date     DATETIME    NULL     COMMENT '환불일자', -- 환불일자
+  refund_date     TIMESTAMP   NULL     COMMENT '환불일자', -- 환불일자
   refund_status   CHAR(1)     NOT NULL COMMENT '환불상태', -- 환불상태
-  calculate_date  DATETIME    NULL     COMMENT '정산일자', -- 정산일자
+  calculate_date  TIMESTAMP   NULL     COMMENT '정산일자', -- 정산일자
   calculate_price INTEGER     NULL     DEFAULT 0 COMMENT '정산금액', -- 정산금액
   commission      INTEGER     NULL     DEFAULT 0 COMMENT '수수료', -- 수수료
   code            VARCHAR(40) NULL     COMMENT '쿠폰코드' -- 쿠폰코드
@@ -495,14 +495,14 @@ CREATE TABLE ask (
   ask_no             INTEGER      NOT NULL COMMENT '1:1문의번호', -- 1:1문의번호
   users_no           INTEGER      NOT NULL COMMENT '이용자번호', -- 이용자번호
   creator_no         INTEGER      NOT NULL COMMENT '크리에이터번호', -- 크리에이터번호
-  register_date      DATETIME     NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
+  register_date      TIMESTAMP    NOT NULL DEFAULT now() COMMENT '작성일', -- 작성일
   ask_content        TEXT         NOT NULL COMMENT '문의내용', -- 문의내용
   display            CHAR(1)      NOT NULL COMMENT '공개여부', -- 공개여부
   image              VARCHAR(255) NULL     COMMENT '이미지', -- 이미지
-  ask_modify_date    DATETIME     NULL     COMMENT '문의수정일시', -- 문의수정일시
+  ask_modify_date    TIMESTAMP    NULL     COMMENT '문의수정일시', -- 문의수정일시
   answer_content     TEXT         NULL     COMMENT '답변내용', -- 답변내용
-  answer_date        DATETIME     NULL     COMMENT '답변일시', -- 답변일시
-  answer_modify_date DATETIME     NULL     COMMENT '답변수정일시' -- 답변수정일시
+  answer_date        TIMESTAMP    NULL     COMMENT '답변일시', -- 답변일시
+  answer_modify_date TIMESTAMP    NULL     COMMENT '답변수정일시' -- 답변수정일시
 )
 COMMENT '1:1문의';
 
@@ -602,7 +602,7 @@ CREATE TABLE myclass_list (
   register_member INTEGER      NOT NULL DEFAULT 0 COMMENT '신청인원', -- 신청인원
   pay_status      CHAR(1)      NOT NULL COMMENT '상태', -- 상태
   content         VARCHAR(255) NULL     COMMENT '후기', -- 후기
-  register_date   DATETIME     NULL     DEFAULT now() COMMENT '후기작성일', -- 후기작성일
+  register_date   TIMESTAMP    NULL     DEFAULT now() COMMENT '후기작성일', -- 후기작성일
   rate            INTEGER      NOT NULL DEFAULT 0 COMMENT '평점' -- 평점
 )
 COMMENT '강좌신청자';
@@ -626,10 +626,10 @@ ALTER TABLE myclass_list
 
 -- 소모임참여자
 CREATE TABLE party_user (
-  users_no    INTEGER  NOT NULL COMMENT '이용자번호', -- 이용자번호
-  party_no    INTEGER  NOT NULL COMMENT '소모임번호', -- 소모임번호
-  party_maker BOOLEAN  NOT NULL COMMENT '방장여부', -- 방장여부
-  join_date   DATETIME NOT NULL DEFAULT now() COMMENT '소모임참가일시' -- 소모임참가일시
+  users_no    INTEGER   NOT NULL COMMENT '이용자번호', -- 이용자번호
+  party_no    INTEGER   NOT NULL COMMENT '소모임번호', -- 소모임번호
+  party_maker BOOLEAN   NOT NULL COMMENT '방장여부', -- 방장여부
+  join_date   TIMESTAMP NOT NULL DEFAULT now() COMMENT '소모임참가일시' -- 소모임참가일시
 )
 COMMENT '소모임참여자';
 
