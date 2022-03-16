@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.NoticeDao">
+
+  <resultMap type="notice" id="noticeMap">
+    <id column="notice_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="critical_check" property="criticalCheck"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="view_count" property="viewCount"/>
+    <result column="name" property="name"/>
+    <result column="content" property="content"/>
+    <result column="modify_date" property="modifyDate"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from notice
+  </select>
+  
+  <select id="findAll" resultMap="noticeMap">
+    select 
+      notice_no,
+      member_type_no,
+      critical_check,
+      register_date,
+      view_count,
+      name,
+      content,
+      modify_date
+    from 
+      notice
+    order by 
+      notice_no asc
+  </select>
+  
+  <insert id="insert" parameterType="notice">
+    insert into notice(member_type_no,critical_check,name,content,modify_date) 
+    values(#{memberTypeNo},#{criticalCheck},#{name},#{content},#{modifyDate})
+  </insert>
+  
+  <select id="findByNo" resultMap="noticeMap" parameterType="int">
+    select 
+      notice_no,
+      member_type_no,
+      critical_check,
+      register_date,
+      view_count,
+      name,
+      content,
+      modify_date
+    from 
+      notice
+    where 
+      notice_no=#{no}
+  </select>
+
+  <update id="update" parameterType="notice">
+    update notice set 
+	    member_type_no=#{memberTypeNo},
+	    critical_check=#{criticalCheck},
+	    name=#{name},
+	    content=#{content},
+	    modify_date=#{modifyDate},
+    where 
+      notice_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from notice
+    where notice_no=#{no}
+  </delete>
+  
+  <update id="increaseViewCount" parameterType="int">
+    update notice set 
+      view_count=view_count + 1 
+    where notice_no=#{no}
+  </update>
+
+</mapper>
+
+
+
+
+
+
+
+

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.SNSDao">
+
+  <resultMap type="sns" id="snsMap">
+    <id column="sns_no" property="no"/>
+    <result column="name" property="name"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from SNS
+  </select>
+  
+  <select id="findAll" resultMap="snsMap">
+    select 
+      sns_no,
+      name
+    from 
+      SNS
+    order by 
+      sns_no asc
+  </select>
+  
+  <insert id="insert" parameterType="sns">
+    insert into SNS(name) 
+    values(#{name})
+  </insert>
+  
+  <select id="findByNo" resultMap="snsMap" parameterType="int">
+    select 
+      sns_no,
+      name
+    from 
+      SNS 
+    where 
+      sns_no=#{no}
+  </select>
+
+  <update id="update" parameterType="sns">
+    update SNS set 
+	    name=#{name}
+    where 
+      sns_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from SNS
+    where sns_no=#{no}
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
