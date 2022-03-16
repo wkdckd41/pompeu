@@ -24,12 +24,11 @@
       account
     from 
       creator 
-    order by 
-      creator_no asc
+
   </select>
   
   <insert id="insert" parameterType="creator">
-    insert into creator(create_no,info,bank,account) 
+    insert into creator(creator_no,info,bank,account) 
     values(#{no},#{info},#{bank},#{account})
   </insert>
   
