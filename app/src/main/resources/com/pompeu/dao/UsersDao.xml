@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.UsersDao">
+
+  <resultMap type="users" id="usersMap">
+    <id column="users_no" property="no"/>
+    <result column="image" property="image"/>
+    <result column="ex_type_name" property="exTypeName"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from users
+  </select>
+  
+  <select id="findAll" resultMap="usersMap">
+    select 
+      users_no,
+      image,
+      ex_type_name
+    from 
+      users 
+    order by 
+      users_no asc
+  </select>
+  
+  <insert id="insert" parameterType="users">
+    insert into users(users_no, image, ex_type_name) 
+    values(#{no}, #{image}, #{exTypeName})
+  </insert>
+  
+  <select id="findByNo" resultMap="usersMap" parameterType="int">
+    select 
+      users_no,
+      image,
+      ex_type_name
+    from 
+      users 
+    where 
+      users_no=#{no}
+  </select>
+
+  <update id="update" parameterType="users">
+    update users set
+	    image=#{image},
+	    ex_type_name=#{exTypeName}
+    where 
+      users_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from users 
+    where users_no=#{no}
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+

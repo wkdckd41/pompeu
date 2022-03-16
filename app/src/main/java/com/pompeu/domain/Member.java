@@ -1,5 +1,7 @@
 package com.pompeu.domain;
 
+import java.sql.Date;
+
 public class Member {
 
   int no;
@@ -8,9 +10,9 @@ public class Member {
   String phone;
   String nickName;
   int useCheck;
-  java.sql.Date loginDate;
-  java.sql.Date joinDate;
-  java.sql.Date modifyDate;
+  Date loginDate;
+  Date joinDate;
+  Date modifyDate;
   int adminCheck;
   String password;
   String birth;
