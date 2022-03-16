@@ -26,7 +26,6 @@ public class MemberController {
     return memberDao.insert(member);
   }
 
-
   @RequestMapping("/member/get")
   public Object get(int no) {
     Member member = memberDao.findByNo(no);
