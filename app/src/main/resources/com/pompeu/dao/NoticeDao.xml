@@ -40,7 +40,7 @@
     insert into notice(member_type_no,critical_check,name,content,modify_date) 
     values(#{memberTypeNo},#{criticalCheck},#{name},#{content},#{modifyDate})
   </insert>
-  
+
   <select id="findByNo" resultMap="noticeMap" parameterType="int">
     select 
       notice_no,
