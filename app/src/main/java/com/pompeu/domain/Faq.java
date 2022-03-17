@@ -9,6 +9,12 @@ public class Faq {
   java.sql.Date registerDate;
   java.sql.Date modifyDate;
 
+  @Override
+  public String toString() {
+    return "Faq [no=" + no + ", memberTypeNo=" + memberTypeNo + ", ask=" + ask + ", answer="
+        + answer + ", registerDate=" + registerDate + ", modifyDate=" + modifyDate + "]";
+  }
+
   public int getNo() {
     return no;
   }
@@ -45,13 +51,6 @@ public class Faq {
   public void setModifyDate(java.sql.Date modifyDate) {
     this.modifyDate = modifyDate;
   }
-
-  @Override
-  public String toString() {
-    return "Faq [no=" + no + ", memberTypeNo=" + memberTypeNo + ", ask=" + ask + ", answer="
-        + answer + ", registerDate=" + registerDate + ", modifyDate=" + modifyDate + "]";
-  }
-
 
 }
 

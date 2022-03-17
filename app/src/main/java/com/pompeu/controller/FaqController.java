@@ -5,7 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.dao.FaqDao;
 import com.pompeu.domain.Faq;
-import com.pompeu.domain.Member;
 
 @RestController 
 public class FaqController {
@@ -30,11 +29,11 @@ public class FaqController {
 
   @RequestMapping("/faq/get")
   public Object get(int no) {
-    Member member = faqDao.findByNo(no);
-    if (member == null) {
+    Faq faq = faqDao.findByNo(no);
+    if (faq == null) {
       return "";
     }
-    return member;
+    return faq;
   }
 
   @RequestMapping("/faq/update")

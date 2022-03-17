@@ -32,8 +32,8 @@
   </select>
   
   <insert id="insert" parameterType="faq">
-    insert into faq(ask,answer,membertype_no) 
-    values(#{ask},#{answer}, #{membertype_no})
+    insert into faq(member_type_no,ask,answer) 
+    values(#{memberTypeNo},#{ask},#{answer})
   </insert>
   
   <select id="findByNo" resultMap="faqMap" parameterType="int">
@@ -41,18 +41,19 @@
       faq_no no,
       ask,
       answer,
-      register_date registerDate,
+      register_date,
       modify_date
-      from 
+    from 
       faq 
-       where 
+    where 
       faq_no=#{no}
   </select>
 
   <update id="update" parameterType="faq">
-    update faq set 
+    update faq set
+      member_type_no=#{memberTypeNo},
 	    ask=#{ask},
-	    answer=#{answer},
+	    answer=#{answer}
 	    where 
       faq_no=#{no}
   </update>
