@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.ChallengeDao">
+
+  <resultMap type="challenge" id="challengeMap">
+    <id column="challenge_no" property="no"/>
+    <result column="class_no" property="classNo"/>
+    <result column="users_no" property="usersNo"/>
+    <result column="name" property="name"/>
+    <result column="content" property="content"/>
+    <result column="image" property="image"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="view_count" property="viewCount"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from challenge
+  </select>
+  
+  <select id="findAll" resultMap="challengeMap">
+    select 
+      challenge_no,
+      class_no,
+      users_no,
+      name,
+      content,
+      image,
+      register_date,
+      modify_date,
+      view_count
+    from 
+      challenge
+    order by 
+      challenge_no desc
+  </select>
+  
+  <insert id="insert" parameterType="challenge">
+    insert into challenge(class_no,users_no,name,content,image,modify_date) 
+    values(#{classNo},#{usersNo},#{name},#{content},#{image},#{modifyDate})
+  </insert>
+
+  <select id="findByNo" resultMap="challengeMap" parameterType="int">
+    select 
+      challenge_no,
+      class_no,
+      users_no,
+      name,
+      content,
+      image,
+      register_date,
+      modify_date,
+      view_count
+    from 
+      challenge
+    where 
+      challenge_no=#{no}
+  </select>
+
+  <update id="update" parameterType="challenge">
+    update challenge set 
+	    class_no=#{classNo},
+	    users_no=#{usersNo},
+	    name=#{name},
+	    content=#{content},
+	    image=#{image},
+	    modify_date=#{modifyDate}
+    where 
+      challenge_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from challenge
+    where challenge_no=#{no}
+  </delete>
+  
+  <update id="increaseViewCount" parameterType="int">
+    update notice set 
+      view_count=view_count + 1 
+    where notice_no=#{no}
+  </update>
+
+</mapper>
+
+
+
+
+
+
+
+
