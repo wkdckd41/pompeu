@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+.nav{
+	width:1200px;
+  height:15px;
+}
+
+.header {
+	width:1200px;
+	height:50px;
+}
+
+.main{
+  width:1200px;
+  height:500px;	
+}
+
+ .memu {
+  border-style: none;
+  background-color:mintcream;
+  float: left; 
+  width: 150px;
+  height: 350px;
+  padding: 10px;
+  margin: 50px;
+  text-align: left
+}
+
+ .content {
+  float : left;
+  width : 150px;
+  height : 400px;
+  font-size: xx-large;
+ }
+ 
+ .footer {
+   width:1200px;
+   height:100px; 
+ }
+ 
+  #title {
+ font-weight: bold;
+ font-size: xx-large;
+ }
