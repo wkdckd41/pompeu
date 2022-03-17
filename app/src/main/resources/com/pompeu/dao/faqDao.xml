@@ -32,8 +32,8 @@
   </select>
   
   <insert id="insert" parameterType="faq">
-    insert into faq(ask,answer) 
-    values(#{ask},#{answer})
+    insert into faq(ask,answer,membertype_no) 
+    values(#{ask},#{answer}, #{membertype_no})
   </insert>
   
   <select id="findByNo" resultMap="faqMap" parameterType="int">
