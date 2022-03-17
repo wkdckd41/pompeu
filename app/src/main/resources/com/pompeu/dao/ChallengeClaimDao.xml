@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.ChallengeClaimDao">
+
+  <resultMap type="challengeClaim" id="challengeClaimMap">
+    <id column="challenge_no" property="cno"/>
+    <id column="users_no" property="uno"/>
+    <result column="status" property="status"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from users
+  </select>
+  
+  <select id="findAll" resultMap="challengeClaimMap">
+    select
+			challenge_no,
+			users_no,
+      status
+    from 
+      challenge_claim 
+    order by 
+      challenge_no asc, users_no asc
+  </select>
+  
+  <insert id="insert" parameterType="ChallengeClaim">
+    insert into challenge_claim(challenge_no, users_no, status) 
+    values(#{cno}, #{uno}, #{status})
+  </insert>
+  
+  <select id="findByNo" resultMap="challengeClaimMap" parameterType="int">
+    select 
+			challenge_no,
+			users_no,
+      status
+    from 
+      challenge_claim 
+    where 
+      challenge_no=#{cno} and users_no=#{uno}
+  </select>
+
+  <update id="update" parameterType="ChallengeClaim">
+    update challenge_claim set
+	    status=#{status}
+    where 
+      challenge_no=#{cno} and users_no=#{uno}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from challenge_claim 
+    where 
+    challenge_no=#{cno} and users_no=#{uno}
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
