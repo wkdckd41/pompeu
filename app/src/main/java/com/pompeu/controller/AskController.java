@@ -69,5 +69,4 @@ public class AskController {
   public Object delete(int no) {
     return askDao.delete(no);
   }
-
 }

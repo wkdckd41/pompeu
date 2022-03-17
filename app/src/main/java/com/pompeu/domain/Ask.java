@@ -89,5 +89,4 @@ public class Ask {
     this.answerModifyDate = answerModifyDate;
   }
 
-
 }
