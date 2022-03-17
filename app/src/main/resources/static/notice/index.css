@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-.todo-checked {
-  text-decoration: line-through;
-  color: gray;
+.menu {
+  border: 1px solid blue;
+  text-align: left
 }
