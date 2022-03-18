@@ -15,7 +15,7 @@ public interface ChallengeLikeDao {
 
   List<ChallengeLike> findByNo(ChallengeLike challengelike);
 
-  int update(ChallengeLike challengelike);
+  //  int update(ChallengeLike challengelike);
 
   int delete(ChallengeLike challengelike);
 

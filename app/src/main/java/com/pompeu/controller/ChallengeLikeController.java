@@ -38,10 +38,10 @@ public class ChallengeLikeController {
     return like;
   }
 
-  @RequestMapping("/challengeLike/update")
-  public Object update(ChallengeLike challengelike) {
-    return challengeLikeDao.update(challengelike);
-  }
+  //  @RequestMapping("/challengeLike/update")
+  //  public Object update(ChallengeLike challengelike) {
+  //    return challengeLikeDao.update(challengelike);
+  //  }
 
   @RequestMapping("/challengeLike/delete")
   public Object delete(ChallengeLike challengelike) {
