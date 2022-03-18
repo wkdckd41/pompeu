@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.PartyWishlistDao">
+
+  <resultMap type="partyWishlist" id="partyWishlistMap">
+    <id column="party_no" property="partyNo"/>
+    <id column="users_no" property="usersNo"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from party_wishlist
+  </select>
+  
+  <select id="findAll" resultMap="partyWishlistMap">
+    select
+			party_no,
+			users_no
+    from 
+      party_wishlist 
+    order by 
+      party_no asc 
+  </select>
+  
+  <insert id="insert" parameterType="PartyWishlist">
+    insert into party_wishlist(party_no, users_no) 
+    values(#{partyNo}, #{usersNo})
+  </insert>
+  
+  <select id="findByNo" resultMap="partyWishlistMap" parameterType="int">
+    select 
+			party_no,
+			users_no
+    from 
+      party_wishlist
+    where 
+      party_no=#{partyNo}
+  </select>
+
+  <!--update id="update" parameterType="ChallengeLike">
+    update party_wishlist set
+     party_no=#{partyNo},
+     users_no=#{usersNo} 
+    where 
+      users_no=#{usersNo} and party_no=#{partyNo}
+  </update> -->
+
+  <delete id="delete" parameterType="int">
+    delete from party_wishlist
+    where 
+    party_no=#{partyNo} and users_no=#{usersNo}
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
