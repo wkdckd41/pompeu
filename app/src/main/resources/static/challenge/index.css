@@ -10,12 +10,36 @@
 	height:50px;
 }
 
-#class-image {
-	width : 200px;
-  height: 200px;
+
+
+
+
+
+#ch-container {
   border: 1px dashed black;
   margin-left: 30px;
 }
+
+#ch-image {
+	width : 200px;
+  height: 200px;
+  border: 1px dashed black;
+  margin: 10px;
+  display: inline-block;
+}
+
+.ch-div{
+  width : 170px;
+  height: 50px;
+  border: 1px solid black;
+  margin-left: 25px;
+  margin-bottom: 20px;
+}
+ 
+ 
+ 
+ 
+ 
  
  .footer {
    width:1200px;
