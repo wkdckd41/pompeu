@@ -34,14 +34,15 @@
 			users_no,
 			challenge_no
     from 
-      challenge_Like
+      challenge_like
     where 
       users_no=#{usersNo}
   </select>
 
   <update id="update" parameterType="ChallengeLike">
     update challenge_like set
-     challenge_no=#{challengNo} 
+     users_no=#{usersNo},
+     challenge_no=#{challengeNo} 
     where 
       users_no=#{usersNo}
   </update>
@@ -49,7 +50,7 @@
   <delete id="delete" parameterType="int">
     delete from challenge_like
     where 
-      users_no=#{usersNo} and challenge_no=#{challengNo} 
+      users_no=#{usersNo}
   </delete>
 
 </mapper>
