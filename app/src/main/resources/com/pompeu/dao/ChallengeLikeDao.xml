@@ -44,7 +44,7 @@
      users_no=#{usersNo},
      challenge_no=#{challengeNo} 
     where 
-      users_no=#{usersNo}
+      users_no=#{usersNo} and challenge_no=#{challengeNo}
   </update>
 
   <delete id="delete" parameterType="int">

@@ -13,7 +13,7 @@ public interface ChallengeLikeDao {
 
   int insert(ChallengeLike challengelike);
 
-  ChallengeLike findByNo(ChallengeLike challengelike);
+  List<ChallengeLike> findByNo(ChallengeLike challengelike);
 
   int update(ChallengeLike challengelike);
 
