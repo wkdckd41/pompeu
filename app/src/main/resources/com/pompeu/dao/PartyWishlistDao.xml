@@ -39,13 +39,13 @@
       party_no=#{partyNo}
   </select>
 
-  <!--update id="update" parameterType="ChallengeLike">
+  <update id="update" parameterType="PartyWishlist">
     update party_wishlist set
      party_no=#{partyNo},
      users_no=#{usersNo} 
     where 
       users_no=#{usersNo} and party_no=#{partyNo}
-  </update> -->
+  </update>
 
   <delete id="delete" parameterType="int">
     delete from party_wishlist
