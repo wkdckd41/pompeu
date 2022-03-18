@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.ClassWishlistDao">
+
+  <resultMap type="classwishlist" id="classWishlistMap">
+    <id column="users_no" property="usersNo"/>
+    <id column="class_no" property="classNo"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from classWishlist
+  </select>
+  
+  <select id="findAll" resultMap="classWishlistMap">
+    select
+			users_no,
+			class_no
+    from 
+      class_wishlist
+    order by 
+      users_no asc 
+  </select>
+  
+  <insert id="insert" parameterType="ClassWishlist">
+    insert into class_wishlist(users_no, class_no) 
+    values(#{usersNo}, #{classNo})
+  </insert>
+  
+  <select id="findByNo" resultMap="classWishlistMap" parameterType="int">
+    select 
+			users_no,
+			class_no
+    from 
+      class_wishlist
+    where 
+      users_no=#{usersNo}
+  </select>
+  
+    <!--
+    <update id="update" parameterType="ChallengeLike">
+    update challenge_like set
+     users_no=#{usersNo},
+     challenge_no=#{challengeNo} 
+    where 
+      users_no=#{usersNo} and challenge_no=#{challengeNo}
+    </update>
+    -->
+
+  <delete id="delete" parameterType="int">
+    delete from class_wishlist
+    where 
+      users_no=#{usersNo}
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
