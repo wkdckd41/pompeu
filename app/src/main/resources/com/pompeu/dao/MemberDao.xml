@@ -90,6 +90,43 @@
     delete from member 
     where member_no=#{no}
   </delete>
+  
+  <select id="findCount" resultType="hashmap">
+    select count(*)                                                    as total
+		    ,  count(case when use_check = 0 then 1 else null end )        as creator
+		    ,  count(case when use_check = 1 then 1 else null end )        as user
+		  from member
+		 where use_check in (0, 1)
+  </select>
+  
+  <select id="srchMember" parameterType="member" resultMap="memberMap">
+    select 
+      member_no,
+      use_check,
+      name,
+      email,
+      phone,
+      nickname,
+      login_date,
+      join_date
+    from 
+      member 
+    where 1=1
+    <if test="useCheck != null">
+      and use_check = #{useCheck}
+    </if>
+    <if test="nickName != null">
+      and nickname = #{nickName}
+    </if>
+    <if test="phone != null">
+      and phone = #{phone}
+    </if>
+    <if test="email != null">
+      and phone = #{email}
+    </if>
+    order by 
+      member_no asc
+  </select>
 
 </mapper>
 

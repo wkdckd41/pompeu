@@ -45,4 +45,15 @@ public class MemberController {
     return memberDao.delete(no);
   }
 
+  @RequestMapping("/member/findCount")
+  public Object memberList() {
+    return memberDao.findCount();
+  }
+
+  @RequestMapping("/member/srchMember")
+  public Object srchMember(Member member) {
+    return memberDao.srchMember(member);
+  }
+
+
 }

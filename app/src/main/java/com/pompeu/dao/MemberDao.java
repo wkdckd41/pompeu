@@ -19,6 +19,9 @@ public interface MemberDao {
 
   int delete(int no);
 
+  List<Integer> findCount();
+
+  List<Member> srchMember(Member member);
 }
 
 

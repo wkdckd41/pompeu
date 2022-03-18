@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: #96D4D4;
+  }
+  </style>
+  
+</head>
+
+<body>
+<div class="container">
+  <h1>회원현황</h1>
+  <div style="width:80%;">
+    <input type="button" id="excelSave" name="excelSave" value="엑셀저장" style="float:right;"/>
+  </div>
+  <div>
+    <table style="width:80%">
+      <thead>
+			  <tr>
+			    <th>전체</th>
+			    <th>크리에이터</th>
+			    <th>이용자</th>
+			  </tr>
+			</thead>
+			<tbody id="tbody1">
+      </tbody>
+    </table>
+  </div>
+  
+  <h1>회원조회</h1>  
+  <div style="width:80%;">    
+    <input type="button" id="clearBtn" name="clearBtn" value="초기화" style="float:right;"/>
+    <input type="button" id="srchBtn" name="srchBtn" value=" 검색" style="float:right;"/>
+  </div>
+  <div>
+    <table style="width:80%">
+      <tr>
+        <td style="width:50%">
+          회원구분
+        </td>
+        <td>
+          <select name="use_check" id="use_check">
+            <option value="">전체</option>
+            <option value="0">크리에이터</option>
+            <option value="1">이용자</option>            
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          아이디
+        </td>
+        <td>
+          <input type="text" id="nick_name" name="nick_name"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          휴대폰번호
+        </td>
+        <td>
+          <input type="text" id="phone" name="phone"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          이메일
+        </td>
+        <td>
+          <input type="text" id="email" name="email"/>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  <h1>회원 검색 결과</h1>
+  <div>
+    <table style="width:80%;">
+      <thead>
+			  <tr>
+			    <th>No.</th>
+			    <th>회원구분</th>
+			    <th>아이디</th>
+			    <th>이름</th>
+			    <th>이메일</th>
+			    <th>전화번호</th>
+			  </tr>
+			</thead>
+			<tbody id="tbody2">
+			</tbody>      
+    </table>
+  </div>
+  
+</div>
+  
+</body>
+<script src="memberList.js"></script>
+</html>

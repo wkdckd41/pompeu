@@ -11,7 +11,7 @@
   </resultMap>
 
   <select id="countAll" resultType="int">
-    select count(*) from challengeLike
+    select count(*) from challenge_like
   </select>
   
   <select id="findAll" resultMap="challengeLikeMap">
@@ -52,7 +52,7 @@
   <delete id="delete" parameterType="int">
     delete from challenge_like
     where 
-      users_no=#{usersNo}
+      challenge_no=#{challengeNo}
   </delete>
 
 </mapper>
