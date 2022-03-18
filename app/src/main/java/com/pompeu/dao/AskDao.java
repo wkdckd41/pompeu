@@ -26,7 +26,6 @@ public interface AskDao {
   int answerUpdate(Ask ask);
 
   int delete(int no);
-
 }
 
 
