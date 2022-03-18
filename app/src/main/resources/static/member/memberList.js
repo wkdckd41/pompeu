@@ -33,12 +33,17 @@ btn.addEventListener('click', function() {
     })
     .then(function(result) {
       console.log(result);
+      var count = 0;
+      
       for (var rst of result) {
+        count = count + 1;
+        
         var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${rst.total}</td>
+        tr.innerHTML = `<td>`+count+`</td>
+        <td>${rst.creator}</a></td>
         <td>${rst.creator}</a></td>
         <td>${rst.user}</td>`;
-        document.querySelector("#tbody1").appendChild(tr);
+        document.querySelector("#tbody2").appendChild(tr);
       }
     });
   
