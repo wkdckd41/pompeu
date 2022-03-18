@@ -1,5 +1,6 @@
 package com.pompeu.controller;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,7 +31,7 @@ public class ChallengeLikeController {
 
   @RequestMapping("/challengeLike/get")
   public Object get(ChallengeLike challengelike) {
-    ChallengeLike like = challengeLikeDao.findByNo(challengelike);
+    List<ChallengeLike> like = challengeLikeDao.findByNo(challengelike);
     if (like == null) {
       return "";
     }
