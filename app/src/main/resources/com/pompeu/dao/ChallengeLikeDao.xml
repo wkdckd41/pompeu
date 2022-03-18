@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.ChallengeLikeDao">
+
+  <resultMap type="challengeLike" id="challengeLikeMap">
+    <id column="users_no" property="usersNo"/>
+    <id column="challenge_no" property="challengeNo"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from challengeLike
+  </select>
+  
+  <select id="findAll" resultMap="challengeLikeMap">
+    select
+			users_no,
+			challenge_no
+    from 
+      challenge_like 
+    order by 
+      users_no asc 
+  </select>
+  
+  <insert id="insert" parameterType="ChallengeLike">
+    insert into challenge_like(users_no, challenge_no) 
+    values(#{usersNo}, #{challengeNo})
+  </insert>
+  
+  <select id="findByNo" resultMap="challengeLikeMap" parameterType="int">
+    select 
+			users_no,
+			challenge_no
+    from 
+      challenge_Like
+    where 
+      users_no=#{usersNo}
+  </select>
+
+  <update id="update" parameterType="ChallengeLike">
+    update challenge_like set
+     challenge_no=#{challengNo} 
+    where 
+      users_no=#{usersNo}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from challenge_like
+    where 
+      users_no=#{usersNo} and challenge_no=#{challengNo} 
+  </delete>
+
+</mapper>
+
+
+
+
+
+
+
+
