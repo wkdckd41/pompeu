@@ -63,7 +63,7 @@
 	    critical_check=#{criticalCheck},
 	    name=#{name},
 	    content=#{content},
-	    modify_date=#{modifyDate},
+	    modify_date=#{modifyDate}
     where 
       notice_no=#{no}
   </update>
