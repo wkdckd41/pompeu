@@ -2,6 +2,15 @@
 # Created by https://www.gitignore.io/api/java,linux,macos,gradle,windows,eclipse,java-web,visualstudiocode
 # Edit at https://www.gitignore.io/?templates=java,linux,macos,gradle,windows,eclipse,java-web,visualstudiocode
 
+# Created by https://www.toptal.com/developers/gitignore/api/dbeaver
+# Edit at https://www.toptal.com/developers/gitignore?templates=dbeaver
+
+### DBeaver ###
+# ide config file
+.dbeaver-data-sources*.xml
+.dbeaver
+
+
 ### Eclipse ###
 .metadata
 bin/
