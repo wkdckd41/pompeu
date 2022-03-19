@@ -1,6 +1,7 @@
 package com.pompeu.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Member;
 
@@ -21,7 +22,7 @@ public interface MemberDao {
 
   List<Integer> findCount();
 
-  List<Member> srchMember(Member member);
+  List<Map<String,Object>> srchMember(Member member);
 }
 
 

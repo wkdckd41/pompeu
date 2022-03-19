@@ -30,22 +30,28 @@ btn.addEventListener('click', function() {
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
   
-  if( memberTypeNo == "" || memberTypeNo == null || memberTypeNo == undefined || ( memberTypeNo != null && typeof memberTypeNo == "object" && !Object.keys(memberTypeNo).length ) ){ 
-    memberTypeNo = null; 
-  }
-
   
-  fetch(`/member/srchMember?nickName=${nickName}&phone=${phone}&email=${email}&memberTypeNo=${memberTypeNo}`)
+  
+  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}`)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
+      console.log("AAA");
       console.log(result);
       var count = 0;
       
       for (var rst of result) {
         count = count + 1;
         
+        var tr = document.createElement("tr");
+        tr.innerHTML = `<td>`+count+`</td>
+        <td>${rst.member_type_no_name}</a></td>
+        <td>${rst.nickname}</td>
+        <td>${rst.name}</td>
+        <td>${rst.email}</td>
+        <td>${rst.phone}</td>`;
+        document.querySelector("#tbody2").appendChild(tr);
         
       }
     });

@@ -21,6 +21,7 @@
     <result column="gender" property="gender"/>
     <result column="sns_no" property="snsNo"/>
     <result column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type_no_name" property="memberTypeNoName"/>
   </resultMap>
 
   <select id="countAll" resultType="int">
@@ -100,18 +101,21 @@
 		 where use_check in (0, 1)
   </select>
   
-  <select id="srchMember" parameterType="member" resultMap="memberMap">
+  <select id="srchMember" parameterType="member" resultType="hashmap">
     select 
-      member_no,
-      memeber_type_no  as member_type_no,
-      nickname,
-      name,
-      email,
-      phone
+      member_no                                           as member,  
+      memeber_type_no                                     as member_type_no,
+      case when memeber_type_no = 1 then '이용자' 
+           when memeber_type_no = 2 then '크리에이터'
+       end                                                as member_type_no_name,
+      nickname                                            as nickname,
+      name                                                as name,
+      email                                               as email,
+      phone                                               as phone
     from 
       member 
     where 1=1      
-    <if test="memberTypeNo != null">
+    <if test="memberTypeNo != null and memberTypeNo != 0">
       and memeber_type_no = #{memberTypeNo}
     </if>
     <if test="nickName != null">
