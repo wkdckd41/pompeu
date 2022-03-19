@@ -11,7 +11,7 @@
     <result column="email" property="email"/>
     <result column="phone" property="phone"/>
     <result column="nickname" property="nickName"/>
-    <result column="use_check;" property="useCheck"/>
+    <result column="use_check;" property="useCheck"/>    
     <result column="login_date" property="loginDate"/>
     <result column="join_date" property="joinDate"/>
     <result column="modify_date" property="modifyDate"/>
