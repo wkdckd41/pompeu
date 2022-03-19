@@ -18,6 +18,8 @@ public class Member {
   String birth;
   int gender;
   int snsNo;
+  int memnberTypeNo;
+
 
   @Override
   public String toString() {
@@ -25,7 +27,7 @@ public class Member {
         + ", nickName=" + nickName + ", useCheck=" + useCheck + ", loginDate=" + loginDate
         + ", joinDate=" + joinDate + ", modifyDate=" + modifyDate + ", adminCheck=" + adminCheck
         + ", password=" + password + ", birth=" + birth + ", gender=" + gender + ", snsNo=" + snsNo
-        + "]";
+        + ", memnberTypeNo=" + memnberTypeNo + "]";
   }
 
   public int getNo() {
@@ -64,22 +66,22 @@ public class Member {
   public void setUseCheck(int useCheck) {
     this.useCheck = useCheck;
   }
-  public java.sql.Date getLoginDate() {
+  public Date getLoginDate() {
     return loginDate;
   }
-  public void setLoginDate(java.sql.Date loginDate) {
+  public void setLoginDate(Date loginDate) {
     this.loginDate = loginDate;
   }
-  public java.sql.Date getJoinDate() {
+  public Date getJoinDate() {
     return joinDate;
   }
-  public void setJoinDate(java.sql.Date joinDate) {
+  public void setJoinDate(Date joinDate) {
     this.joinDate = joinDate;
   }
-  public java.sql.Date getModifyDate() {
+  public Date getModifyDate() {
     return modifyDate;
   }
-  public void setModifyDate(java.sql.Date modifyDate) {
+  public void setModifyDate(Date modifyDate) {
     this.modifyDate = modifyDate;
   }
   public int getAdminCheck() {
@@ -112,6 +114,13 @@ public class Member {
   public void setSnsNo(int snsNo) {
     this.snsNo = snsNo;
   }
+  public int getMemnberTypeNo() {
+    return memnberTypeNo;
+  }
+  public void setMemnberTypeNo(int memnberTypeNo) {
+    this.memnberTypeNo = memnberTypeNo;
+  }
+
 
 
 

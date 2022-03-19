@@ -55,7 +55,7 @@ public class MemberController {
     System.out.println("srchMember : " + member.getNickName());
     System.out.println("srchMember : " + member.getPhone());
     System.out.println("srchMember : " + member.getEmail());
-    System.out.println("srchMember : " + member.getUseCheck());
+    System.out.println("srchMember : " + member.getMemnberTypeNo());
     return memberDao.srchMember(member);
   }
 
