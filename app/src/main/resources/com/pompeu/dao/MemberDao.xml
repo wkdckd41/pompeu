@@ -20,6 +20,7 @@
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
     <result column="sns_no" property="snsNo"/>
+    <result column="member_type_no" property="memberTypeNo"/>
   </resultMap>
 
   <select id="countAll" resultType="int">
@@ -102,18 +103,16 @@
   <select id="srchMember" parameterType="member" resultMap="memberMap">
     select 
       member_no,
-      use_check,
+      memeber_type_no  as member_type_no,
+      nickname,
       name,
       email,
-      phone,
-      nickname,
-      login_date,
-      join_date
+      phone
     from 
       member 
-    where 1=1
-    <if test="useCheck != null">
-      and use_check = #{useCheck}
+    where 1=1      
+    <if test="memberTypeNo != null">
+      and memeber_type_no = #{memberTypeNo}
     </if>
     <if test="nickName != null">
       and nickname = #{nickName}
@@ -122,7 +121,7 @@
       and phone = #{phone}
     </if>
     <if test="email != null">
-      and phone = #{email}
+      and email = #{email}
     </if>
     order by 
       member_no asc

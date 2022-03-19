@@ -18,8 +18,7 @@ public class Member {
   String birth;
   int gender;
   int snsNo;
-  int memnberTypeNo;
-
+  int memberTypeNo;
 
   @Override
   public String toString() {
@@ -27,7 +26,7 @@ public class Member {
         + ", nickName=" + nickName + ", useCheck=" + useCheck + ", loginDate=" + loginDate
         + ", joinDate=" + joinDate + ", modifyDate=" + modifyDate + ", adminCheck=" + adminCheck
         + ", password=" + password + ", birth=" + birth + ", gender=" + gender + ", snsNo=" + snsNo
-        + ", memnberTypeNo=" + memnberTypeNo + "]";
+        + ", memberTypeNo=" + memberTypeNo + "]";
   }
 
   public int getNo() {
@@ -114,12 +113,15 @@ public class Member {
   public void setSnsNo(int snsNo) {
     this.snsNo = snsNo;
   }
-  public int getMemnberTypeNo() {
-    return memnberTypeNo;
+  public int getMemberTypeNo() {
+    return memberTypeNo;
   }
-  public void setMemnberTypeNo(int memnberTypeNo) {
-    this.memnberTypeNo = memnberTypeNo;
+  public void setMemberTypeNo(int memberTypeNo) {
+    this.memberTypeNo = memberTypeNo;
   }
+
+
+
 
 
 
