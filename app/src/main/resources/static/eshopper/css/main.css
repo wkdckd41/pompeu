@@ -5,6 +5,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
+
 body {
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -826,14 +827,14 @@ h2.title:before {
 }
 
 h2.title {
-    color: #FE980F;
+    color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin: 0 15px;
+    margin: 10px 15px;
     text-transform: uppercase;
     margin-bottom: 30px;
-    position: relative;
+    text-align: left;
 }
 
 .product-image-wrapper {
@@ -851,7 +852,7 @@ h2.title {
     position: absolute;
     top: 0;
     right: 0;
-    width: 20%;
+    width: 25%;
     
 }
 
@@ -1058,7 +1059,7 @@ h2.title {
 }
 
 .recommended_items h2 {
-	margin-top:10px;
+  margin-top:10px;
 }
 
 .our_partners {
@@ -1550,7 +1551,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
-    content: " ";
+    content: " ";
 }
 
 #cart_items .cart_info {
@@ -2348,30 +2349,28 @@ textarea {
 }
 
 .letter {
-	word-break: keep-all;
+  word-break: keep-all;
 }
 
 .letter2 {
-	word-break: keep-all;
+  word-break: keep-all;
 }
 
 .subList {
-	margin-left: 25px;
-  margin-top:15px;	
+  margin-left: 25px;
+  margin-top:15px;  
   font-size: 19px;
     font-weight: 600;
 }
 
 .exCategory {
-	text-align : left;
-	margin-left: 10px;
-	margin-top : 10px;
+  text-align : left;
+  margin-left: 10px;
+  margin-top : 10px;
 }
 
 .exPrice {
-	text-align : left;
+  text-align : left;
   margin-left: 10px;
   margin-top : 20px;
 }
-
-
