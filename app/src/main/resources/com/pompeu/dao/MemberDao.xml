@@ -118,13 +118,13 @@
     <if test="memberTypeNo != null and memberTypeNo != 0">
       and memeber_type_no = #{memberTypeNo}
     </if>
-    <if test="nickName != null">
+    <if test="nickName != ''">
       and nickname = #{nickName}
     </if>
-    <if test="phone != null">
+    <if test="phone != ''">
       and phone = #{phone}
     </if>
-    <if test="email != null">
+    <if test="email != ''">
       and email = #{email}
     </if>
     order by 

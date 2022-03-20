@@ -21,18 +21,21 @@ btn.addEventListener('click', function() {
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
-  
-  
 
-  
   console.log("nickName : " + nickName);
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
   
+  var tbody2 = document.querySelector("#tbody2");
+
+    while (tbody2.hasChildNodes()) {
+        tbody2.removeChild(tbody2.firstChild);
+    }
+
+
   
-  
-  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}`)
+  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&nickName=${nickName}&phone=${phone}&email=${email}`)
     .then(function(response) {
       return response.json();
     })
@@ -43,7 +46,7 @@ btn.addEventListener('click', function() {
       
       for (var rst of result) {
         count = count + 1;
-        
+
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.member_type_no_name}</a></td>
@@ -51,7 +54,7 @@ btn.addEventListener('click', function() {
         <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
-        document.querySelector("#tbody2").appendChild(tr);
+        tbody2.appendChild(tr);
         
       }
     });
