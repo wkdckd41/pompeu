@@ -5,68 +5,8 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
   <style>
-    html* {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-    }
-
-    /* .main-container {
-      display: flex;
-      max-width: 1280px;
-      margin: 0 auto;
-      height: 50vw;
-      padding: 0 0 40px 0;
-    }
-
-    .sidebar {
-      flex: 0 0 300px;
-      flex-direction: row;
-      height: 100%;
-      margin: 0 20px 0 20px;
-      padding: 30px 0 30px 0;
-      background: #2C3E50;
-    }
-
-    .sidebar-item {
-      margin: 0 20px 0 20px;
-      padding: 30px 0 30px 0;
-      height: auto;
-    }
-
-    .maincol {
-      flex: 1 1 auto;
-      margin: 0 20px 0 0;
-      padding: 30px 0 30px 0;
-      background: #1ABC9C0A;
-    }
-
-    .maincol-1 {
-      display: flex;
-      justify-content: space-around;
-      margin: 0 20px 0 0;
-      padding: 30px 0 30px 0;
-    }
-
-    .main-item {
-      width: 300px;
-      height: 150px;
-      background: blueviolet;
-    }
-
-    .maincol-2 {
-      display: flex;
-      justify-content: space-around;
-      margin: 0 20px 0 0;
-      padding: 30px 0 30px 0;
-    }
-
-    .maincol-3 {
-      display: flex;
-    } */
 
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
 @media(min-width:768px) {
@@ -75,9 +15,20 @@
     }
     /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
 }
+body{
+    margin:  0;
+}
 
 #wrapper {
-    padding-left: 0;    
+    padding-left: 0;
+    max-width: 1280px;    
+}
+
+#header{
+  width: 100%;
+}
+.header_top{
+  
 }
 
 #page-wrapper {
@@ -238,8 +189,9 @@
 <!--/head-->
 
 <body>
-
-
+<!-- <div id="throbber" style="display:none; min-height:120px;"></div>
+<div id="noty-holder"></div> -->
+<div id="wrapper">
   <header id="header">
     <!--header-->
     <div class="header_top">
@@ -260,53 +212,8 @@
       </div>
     </div>
     <!--/header_top-->
-
-
-
-    <!-- <div class="header-middle" style="background-color: #2C3E50;">
-      header-middle
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4 clearfix">
-            <div class="logo pull-left">
-              <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
-            </div>
-            <div class="btn-group pull-right clearfix">
-              <ul class="nav navbar-nav">
-                <li><a href="#"><i class="fa fa-dribbble"></i></a>클래스</li>
-                <li><a href="#"><i class="fa fa-google-plus"></i></a>소모임</li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-sm-3">
-            <div class="search_box pull-right">
-              <input type="text" placeholder="Search" />
-            </div>
-          </div>
-          <div class="col-md-8 clearfix">
-            <div class="shop-menu clearfix pull-right">
-              <ul class="nav navbar-nav">
-                <li><a href=""><i class="fa fa-user"></i> Account</a></li>
-                <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
-                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    /header-middle
-  </header> 
-  /header-->
-
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-
-<div id="throbber" style="display:none; min-height:120px;"></div>
-<div id="noty-holder"></div>
-<div id="wrapper">
+  </header>
+  <!-- /header -->
   <!-- Navigation -->
   <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -318,7 +225,7 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="https://bryanrojasq.wordpress.com">
-        <img src="http://placehold.it/200x50&text=LOGO" alt="LOGO">
+        <img src="//http://placehold.it/200x50&text=LOGO" alt="LOGO">
       </a>
     </div>
     <!-- Top Menu Items -->
@@ -376,52 +283,26 @@
     <div class="container-fluid">
       <!-- Page Heading -->
       <div class="row" id="main">
-        <div class="col-sm-12 col-md-12 well" id="content">
-          <h1>Welcome Admin!</h1>
+        <div class="row">
+          <div class="col-md-6"><h1>Welcome Admin!</h1></div>
+          <div class="col-md-6">.col-md-6</div>
         </div>
+         <div class="row">
+          <div class="col-md-6"><h1>Welcome Admin!</h1></div>
+          <div class="col-md-6">.col-md-6</div>
+        </div>
+        <!-- <div class="col-sm-12 col-md-12 well" id="content">
+          <h1>Welcome Admin!</h1>
+        </div> -->
       </div>
       <!-- /.row -->
     </div>
     <!-- /.container-fluid -->
   </div>
   <!-- /#page-wrapper -->
-</div><!-- /#wrapper -->
 
-  <!-- <main>
-    <div class="main-container">
-      <aside class="sidebar">
-        <div class="sidebar-container">
-          <div class="sidebar-item"><span>관리자 대시보드</span></div>
-          <div class="sidebar-item"><span>회원 관리</span></div>
-          <div class="sidebar-item"><span>클래스 관리</span></div>
-          <div class="sidebar-item"><span>게시판 관리</span></div>
-          <div class="sidebar-item"><span>결제 관리</span></div>
-          <div class="sidebar-item"><span>정산 관리</span></div>
-          <div class="sidebar-item"><span>쿠폰 관리</span></div>
-          <div class="sidebar-item"><span>고객지원 관리</span></div>
-        </div>
-      </aside>
-      <section class="maincol">
-        <div class="maincol-1">
-          <div class="main-item"></div>
-          <div class="main-item"></div>
-        </div>
-        <div class="maincol-2">
-          <div class="main-item"></div>
-          <div class="main-item"></div>
-        </div>
-        <div class="maincol-3">
-        <div></div>
-       </div>
-      </section>
-    </div>
-  </main> -->
 
   
-
-
-
-
 
 
 
@@ -490,6 +371,7 @@
 
   </footer>
   <!--/Footer-->
+</div><!-- /#wrapper -->
 
 
 
@@ -499,9 +381,55 @@
   <script src="js/price-range.js"></script>
   <script src="js/jquery.prettyPhoto.js"></script>
   <script src="js/main.js"></script>
+  <script>$(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+      $(".side-nav .collapse").on("hide.bs.collapse", function () {
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+      });
+      $('.side-nav .collapse').on("show.bs.collapse", function () {
+        $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+      });
+    })    
+  </script>
 </body>
 
 </html>
+
+<!-- <div class="header-middle" style="background-color: #2C3E50;">
+      header-middle
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 clearfix">
+            <div class="logo pull-left">
+              <a href="index.html"><img src="images/home/logo.png" alt="" /></a>
+            </div>
+            <div class="btn-group pull-right clearfix">
+              <ul class="nav navbar-nav">
+                <li><a href="#"><i class="fa fa-dribbble"></i></a>클래스</li>
+                <li><a href="#"><i class="fa fa-google-plus"></i></a>소모임</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="search_box pull-right">
+              <input type="text" placeholder="Search" />
+            </div>
+          </div>
+          <div class="col-md-8 clearfix">
+            <div class="shop-menu clearfix pull-right">
+              <ul class="nav navbar-nav">
+                <li><a href=""><i class="fa fa-user"></i> Account</a></li>
+                <li><a href=""><i class="fa fa-star"></i> Wishlist</a></li>
+                <li><a href="login.html"><i class="fa fa-lock"></i> Login</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    /header-middle-->
+
+
 <!--
 <section>
   <div class="container">
