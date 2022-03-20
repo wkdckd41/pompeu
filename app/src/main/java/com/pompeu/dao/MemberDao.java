@@ -23,6 +23,8 @@ public interface MemberDao {
   List<Integer> findCount();
 
   List<Map<String,Object>> srchMember(Member member);
+
+  int memberRegi(Member member);
 }
 
 
