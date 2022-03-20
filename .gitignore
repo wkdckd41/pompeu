@@ -10,6 +10,8 @@
 .dbeaver-data-sources*.xml
 .dbeaver
 
+### Sensitive Data ###
+src/main/resources/application.properties
 
 ### Eclipse ###
 .metadata
