@@ -856,10 +856,11 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #FE980F;
+    color: black;
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 900;
+    word-break: keep-all;
 }
 
 .product-overlay h2 {
@@ -873,7 +874,7 @@ h2.title {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #696763;
+    color: black;
 }
 
 .productinfo img {
@@ -1056,7 +1057,9 @@ h2.title {
     background: #ccccc6;
 }
 
-.recommended_items h2 {}
+.recommended_items h2 {
+	margin-top:20px;
+}
 
 .our_partners {
     overflow: hidden;
@@ -2357,6 +2360,18 @@ textarea {
   margin-top:15px;	
   font-size: 19px;
     font-weight: 600;
+}
+
+.exCategory {
+	text-align : left;
+	margin-left: 10px;
+	margin-top : 10px;
+}
+
+.exPrice {
+	text-align : left;
+  margin-left: 10px;
+  margin-top : 10px;
 }
 
 
