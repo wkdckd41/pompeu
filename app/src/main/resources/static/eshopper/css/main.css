@@ -97,6 +97,7 @@ a#scrollUp i {
 
 .social-icons ul li {
     display: inline-block;
+    margin: 10px;
 }
 
 .social-icons ul li a i {
@@ -190,8 +191,8 @@ a#scrollUp i {
 
 .shop-menu ul li {
     display: inline-block;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    margin-top: 5px;
 }
 
 .shop-menu ul li:last-child {
@@ -262,10 +263,12 @@ a#scrollUp i {
     height: 35px;
     outline: medium none;
     padding-left: 10px;
-    width: 155px;
+    width: 330px;
     background-image: url(../images/home/searchicon.png);
     background-repeat: no-repeat;
-    background-position: 130px;
+    background-position: 300px;
+    margin-right: -150px;
+    margin-top: 5px;
 }
 
 
@@ -2347,4 +2350,11 @@ textarea {
 
 .letter2 {
 	word-break: keep-all;
+}
+
+.subList {
+	margin-left: 25px;
+  margin-top:15px;	
+  font-size: 19px;
+    font-weight: 600;
 }
