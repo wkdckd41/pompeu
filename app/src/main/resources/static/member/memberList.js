@@ -15,9 +15,11 @@ document.addEventListener("DOMContentLoaded", function(){
     });
 });
 
-var btn = document.getElementById("srchBtn");
+  var btn = document.getElementById("srchBtn");
+
 btn.addEventListener('click', function() {
-  var nickName = document.querySelector("#nick_name").value;
+	
+	var nickName = document.querySelector("#nick_name").value;
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
@@ -29,11 +31,10 @@ btn.addEventListener('click', function() {
   
   var tbody2 = document.querySelector("#tbody2");
 
+
     while (tbody2.hasChildNodes()) {
         tbody2.removeChild(tbody2.firstChild);
     }
-
-
   
   fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&nickName=${nickName}&phone=${phone}&email=${email}`)
     .then(function(response) {
@@ -58,5 +59,13 @@ btn.addEventListener('click', function() {
         
       }
     });
-  
 });
+
+function hihi() {
+	
+	document.querySelector("#nick_name").value = '';
+  document.querySelector("#phone").value = '';
+  document.querySelector("#email").value = '';
+  document.querySelector("#member_type_no").value = 0;
+	
+}
