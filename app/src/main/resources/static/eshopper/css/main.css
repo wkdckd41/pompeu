@@ -5,6 +5,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
+
 body {
     font-family: 'Roboto', sans-serif;
     position: relative;
@@ -97,6 +98,7 @@ a#scrollUp i {
 
 .social-icons ul li {
     display: inline-block;
+    margin: 10px;
 }
 
 .social-icons ul li a i {
@@ -190,8 +192,8 @@ a#scrollUp i {
 
 .shop-menu ul li {
     display: inline-block;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 30px;
+    margin-top: 5px;
 }
 
 .shop-menu ul li:last-child {
@@ -262,10 +264,12 @@ a#scrollUp i {
     height: 35px;
     outline: medium none;
     padding-left: 10px;
-    width: 155px;
+    width: 330px;
     background-image: url(../images/home/searchicon.png);
     background-repeat: no-repeat;
-    background-position: 130px;
+    background-position: 300px;
+    margin-right: -150px;
+    margin-top: 5px;
 }
 
 
@@ -823,14 +827,14 @@ h2.title:before {
 }
 
 h2.title {
-    color: #FE980F;
+    color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin: 0 15px;
+    margin: 10px 15px;
     text-transform: uppercase;
     margin-bottom: 30px;
-    position: relative;
+    text-align: left;
 }
 
 .product-image-wrapper {
@@ -848,13 +852,16 @@ h2.title {
     position: absolute;
     top: 0;
     right: 0;
+    width: 25%;
+    
 }
 
 .productinfo h2 {
-    color: #FE980F;
+    color: black;
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 900;
+    word-break: keep-all;
 }
 
 .product-overlay h2 {
@@ -868,7 +875,7 @@ h2.title {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: #696763;
+    color: black;
 }
 
 .productinfo img {
@@ -1051,7 +1058,9 @@ h2.title {
     background: #ccccc6;
 }
 
-.recommended_items h2 {}
+.recommended_items h2 {
+  margin-top:10px;
+}
 
 .our_partners {
     overflow: hidden;
@@ -1542,7 +1551,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
-    content: " ";
+    content: " ";
 }
 
 #cart_items .cart_info {
@@ -2340,9 +2349,28 @@ textarea {
 }
 
 .letter {
-	word-break: keep-all;
+  word-break: keep-all;
 }
 
 .letter2 {
-	word-break: keep-all;
+  word-break: keep-all;
+}
+
+.subList {
+  margin-left: 25px;
+  margin-top:15px;  
+  font-size: 19px;
+    font-weight: 600;
+}
+
+.exCategory {
+  text-align : left;
+  margin-left: 10px;
+  margin-top : 10px;
+}
+
+.exPrice {
+  text-align : left;
+  margin-left: 10px;
+  margin-top : 20px;
 }
