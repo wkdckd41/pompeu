@@ -5,13 +5,11 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
-
 body {
     font-family: 'Roboto', sans-serif;
     position: relative;
     font-weight: 400px;
 }
-
 
 ul li {
     list-style: none;
@@ -98,7 +96,6 @@ a#scrollUp i {
 
 .social-icons ul li {
     display: inline-block;
-    margin: 10px;
 }
 
 .social-icons ul li a i {
@@ -192,8 +189,8 @@ a#scrollUp i {
 
 .shop-menu ul li {
     display: inline-block;
-    padding-left: 30px;
-    margin-top: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 .shop-menu ul li:last-child {
@@ -264,12 +261,10 @@ a#scrollUp i {
     height: 35px;
     outline: medium none;
     padding-left: 10px;
-    width: 330px;
+    width: 155px;
     background-image: url(../images/home/searchicon.png);
     background-repeat: no-repeat;
-    background-position: 300px;
-    margin-right: -150px;
-    margin-top: 5px;
+    background-position: 130px;
 }
 
 
@@ -353,7 +348,7 @@ ul.sub-menu {
 }
 
 .companyinfo {
-    margin-top: 20px;
+    margin-top: 57px;
 }
 
 .companyinfo h2 {
@@ -364,7 +359,7 @@ ul.sub-menu {
 }
 
 .companyinfo h2 span {
-    color: darkturquoise;
+    color: #FE980F;
 }
 
 .companyinfo p {
@@ -372,7 +367,6 @@ ul.sub-menu {
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     font-weight: 300;
-    line-height:23px;
 }
 
 .footer-top .col-sm-3 {
@@ -473,11 +467,10 @@ ul.sub-menu {
 .single-widget h2 {
     color: #666663;
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
-    font-weight: 900;
+    font-size: 16px;
+    font-weight: 500;
     margin-bottom: 22px;
     text-transform: uppercase;
-    margin-left: 50px;
 }
 
 .single-widget h2 i {
@@ -490,7 +483,6 @@ ul.sub-menu {
     font-size: 14px;
     font-weight: 300;
     padding: 5px 0;
-    margin-left: 50px;
 }
 
 .single-widget ul li a i {
@@ -827,14 +819,14 @@ h2.title:before {
 }
 
 h2.title {
-    color: black;
+    color: #FE980F;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin: 10px 15px;
+    margin: 0 15px;
     text-transform: uppercase;
     margin-bottom: 30px;
-    text-align: left;
+    position: relative;
 }
 
 .product-image-wrapper {
@@ -852,16 +844,13 @@ h2.title {
     position: absolute;
     top: 0;
     right: 0;
-    width: 25%;
-    
 }
 
 .productinfo h2 {
-    color: black;
+    color: #FE980F;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
-    font-weight: 900;
-    word-break: keep-all;
+    font-size: 24px;
+    font-weight: 700;
 }
 
 .product-overlay h2 {
@@ -875,7 +864,7 @@ h2.title {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     font-weight: 400;
-    color: black;
+    color: #696763;
 }
 
 .productinfo img {
@@ -1058,9 +1047,7 @@ h2.title {
     background: #ccccc6;
 }
 
-.recommended_items h2 {
-  margin-top:10px;
-}
+.recommended_items h2 {}
 
 .our_partners {
     overflow: hidden;
@@ -1551,7 +1538,7 @@ h2.title {
 }
 
 .breadcrumbs .breadcrumb>li+li:before {
-    content: " ";
+    content: " ";
 }
 
 #cart_items .cart_info {
@@ -2348,29 +2335,107 @@ textarea {
     left: 5px
 }
 
-.letter {
-  word-break: keep-all;
+
+/*************************
+******* Contact CSS ********
+**************************/
+
+.contact-map {
+    width: 100%;
+    height: 385px;
+    margin-bottom: 70px
 }
 
-.letter2 {
-  word-break: keep-all;
+.contact-info .heading,
+.contact-form .heading {
+    text-transform: capitalize;
 }
 
-.subList {
-  margin-left: 25px;
-  margin-top:15px;  
-  font-size: 19px;
-    font-weight: 600;
+.contact-form .form-group {
+    margin-bottom: 20px;
 }
 
-.exCategory {
-  text-align : left;
-  margin-left: 10px;
-  margin-top : 10px;
+#contact-page .form-control::-moz-placeholder {
+    color: #8D8D8D;
 }
 
-.exPrice {
-  text-align : left;
-  margin-left: 10px;
-  margin-top : 20px;
+#contact-page .form-control {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #696763;
+    height: 46px;
+    padding: 6px 12px;
+    width: 100%;
+    font-size: 16px;
+    border-radius: 4px;
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+}
+
+#contact-page #message {
+    height: 160px;
+    resize: none;
+}
+
+#main-contact-form .btn-primary {
+    margin-bottom: 15px;
+    margin-top: 20px;
+}
+
+#contact-page .form-control:focus,
+#contact-page .form-control:hover {
+    -webkit-box-shadow: inherit;
+    box-shadow: inherit;
+    border-color: #FDB45E;
+}
+
+#contact-page .contact-info {
+    padding: 0 20px;
+}
+
+#contact-page .contact-info address {
+    margin-bottom: 40px;
+    margin-top: -5px;
+}
+
+#contact-page .contact-info p {
+    margin-bottom: 0;
+    color: #696763;
+    font-size: 16px;
+    line-height: 25px;
+}
+
+.social-networks {
+    overflow: hidden;
+    text-align: center;
+}
+
+.social-networks ul {
+    margin-top: -5px;
+    padding: 0;
+    display: inline-block;
+}
+
+.social-networks ul li {
+    float: left;
+    text-decoration: none;
+    list-style: none;
+    margin-right: 20px;
+}
+
+.social-networks ul li:last-child {
+    margin-right: 0;
+}
+
+.social-networks ul li a {
+    color: #999;
+    font-size: 25px;
+}
+
+.contact-info .social-networks ul li a i {
+    background: none;
+}
+
+.contact-info .social-networks ul li a:hover {
+    color: #FE980F;
 }
