@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function(){
 });
 
 
+
   var btn = document.getElementById("srchBtn");
 
 btn.addEventListener('click', function() {
