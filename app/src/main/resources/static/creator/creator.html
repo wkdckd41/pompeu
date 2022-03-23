@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+    
     <title>Document</title>
+    <link href="../css/common.css" rel="stylesheet">
     <style>
     @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
-    
     @media(min-width:768px) {
     body {
     margin-top: 50px;
@@ -39,6 +46,7 @@
     
     .top-nav {
     padding: 0 15px;
+    color: white;
     }
     
     .top-nav>li {
@@ -150,14 +158,17 @@
     .navbar-brand {
     padding: 5px 15px;
     }
+    
+    #iu {
+    width: 50px;
+    height: 50px;
+    }
+    
     </style>
 </head>
 <body>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
-    
+
+    <div class="container">
     <div id="throbber" style="display:none; min-height:120px;"></div>
     <div id="noty-holder"></div>
     <div id="wrapper">
@@ -172,17 +183,24 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="https://bryanrojasq.wordpress.com">
-                    <img src="http://placehold.it/200x50&text=LOGO" alt="LOGO">
+                    <img id= "iu" src="https://lh3.googleusercontent.com/4DbTyLTD4AX9EjJRWaQ2B_JroFNmro2JrCwxSm0bZ-_lTGqdg5AowkS1CLMB3L-VVUc" alt="LOGO">
                 </a>
             </div>
             <!-- Top Menu Items -->
-            <ul class="nav navbar-right top-nav">
-                <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i
-                            class="fa fa-bar-chart-o"></i>
+            <ul class="nav navbar-right top-nav" id="people">
+                 <li><a href="#" data-placement="bottom" data-toggle="tooltip" href="#" data-original-title="Stats"><i
+                             class="fa fa-male" aria-hidden="true"></i>
                     </a>
                 </li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin User <b
+                <li >
+                    <a href="#" class="toggle" >크리에이터 1</a>
+                </li>
+                <li>
+                    <a href="#" class="toggle" >로그아웃 </a>
+                </li>
+                
+                 <!--  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">로그아웃 <b
                             class="fa fa-angle-down"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="#"><i class="fa fa-fw fa-user"></i> Edit Profile</a></li>
@@ -190,41 +208,46 @@
                         <li class="divider"></li>
                         <li><a href="#"><i class="fa fa-fw fa-power-off"></i> Logout</a></li>
                     </ul>
-                </li>
+                </li>-->
+                
+                
             </ul>
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-            <div class="collapse navbar-collapse navbar-ex1-collapse">
-                <ul class="nav navbar-nav side-nav">
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-fw fa-search"></i> MENU
-                            1 <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                        <ul id="submenu-1" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.1</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.2</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 1.3</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-fw fa-star"></i> MENU 2
-                            <i class="fa fa-fw fa-angle-down pull-right"></i></a>
-                        <ul id="submenu-2" class="collapse">
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.1</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.2</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> SUBMENU 2.3</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="investigaciones/favoritas"><i class="fa fa-fw fa-user-plus"></i> MENU 3</a>
-                    </li>
-                    <li>
-                        <a href="sugerencias"><i class="fa fa-fw fa-paper-plane-o"></i> MENU 4</a>
-                    </li>
-                    <li>
-                        <a href="faq"><i class="fa fa-fw fa fa-question-circle"></i> MENU 5</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav side-nav">
+         <li>
+          <a href="investigaciones/favoritas"><i class="fa fa-delicious" aria-hidden="true"></i> &nbsp; 대시보드</a>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-bars"></i> &nbsp; 클래스관리 <i
+              class="fa fa-fw fa-angle-down pull-right"></i></a>
+          <ul id="submenu-1" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 조회</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 등록</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-bars"></i> &nbsp; 커뮤니티 관리 <i
+              class="fa fa-fw fa-angle-down pull-right"></i></a>
+          <ul id="submenu-2" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 문의 관리</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-bars"></i> &nbsp; 고객지원 <i
+              class="fa fa-fw fa-angle-down pull-right"></i></a>
+          <ul id="submenu-3" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 공지사항</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; FAQ</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 1:1 문의</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-bars"></i> &nbsp; 크리에이터 정보</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
         </nav>
     
         <div id="page-wrapper">
@@ -232,7 +255,7 @@
                 <!-- Page Heading -->
                 <div class="row" id="main">
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>Welcome Admin!</h1>
+                        <h1>크리에이터 페이지 양식입니다</h1>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -241,6 +264,15 @@
         </div>
         <!-- /#page-wrapper -->
     </div><!-- /#wrapper -->
+    </div>
+      <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.scrollUp.min.js"></script>
+  <script src="js/price-range.js"></script>
+  <script src="js/jquery.prettyPhoto.js"></script>
+  <script src="js/main.js"></script>
+    
+    
     <script>
         $(function () {
                 $('[data-toggle="tooltip"]').tooltip();
