@@ -364,7 +364,7 @@ ul.sub-menu {
 }
 
 .companyinfo h2 span {
-    color: darkturquoise;
+    color: #006A71;
 }
 
 .companyinfo p {
@@ -827,7 +827,7 @@ h2.title:before {
 }
 
 h2.title {
-    color: black;
+    color: #006A71;
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
