@@ -39,7 +39,7 @@ fetch("/ask/list")
       var titleTdOption = "";
       if (ask.done) {
         checkedOption = "checked";
-        titleTdOption = "class='ask-checked'";
+        titleTdOption = "lecture='ask-checked'";
       }
       $("<tr>").attr("data-no", ask.no)
                .html(`<td><input type="checkbox" ${checkedOption} onchange="checkTodo(${ask.no}, event.target.checked)"></td>
