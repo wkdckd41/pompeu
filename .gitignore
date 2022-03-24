@@ -83,7 +83,7 @@ local.properties
 .sts4-cache/
 
 ### Java ###
-# Compiled class file
+# Compiled lecture file
 *.class
 
 # Log file
