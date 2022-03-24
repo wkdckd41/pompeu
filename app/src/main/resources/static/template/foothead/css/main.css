@@ -94,27 +94,21 @@ a#scrollUp i {
     border-radius: 0;
     color: #696763;
     padding: 0px;
+    padding-right: 0;
+    
 }
 
-.social-icons ul li {
-    display: inline-block;
-    margin: 10px;
+.social-icons ul li:last-child {
+    padding-right: 0;
 }
 
 .social-icons ul li a i {
-    padding: 11px 15px;
-    transition: all 0.9s ease 0s;
-    -moz-transition: all 0.9s ease 0s;
-    -webkit-transition: all 0.9s ease 0s;
-    -o-transition: all 0.9s ease 0s;
+    margin-right:3px;
 }
 
 .social-icons ul li a i:hover {
     color: #fff;
-    transition: all 0.9s ease 0s;
-    -moz-transition: all 0.9s ease 0s;
-    -webkit-transition: all 0.9s ease 0s;
-    -o-transition: all 0.9s ease 0s;
+    
 }
 
 .fa-facebook:hover {
@@ -364,7 +358,7 @@ ul.sub-menu {
 }
 
 .companyinfo h2 span {
-    color: darkturquoise;
+    color: #018383;
 }
 
 .companyinfo p {
