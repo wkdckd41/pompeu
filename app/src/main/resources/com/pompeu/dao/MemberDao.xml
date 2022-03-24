@@ -104,9 +104,9 @@
   <select id="srchMember" parameterType="member" resultType="hashmap">
     select 
       member_no                                           as member,  
-      memeber_type_no                                     as member_type_no,
-      case when memeber_type_no = 1 then '이용자' 
-           when memeber_type_no = 2 then '크리에이터'
+      member_type_no                                     as member_type_no,
+      case when member_type_no = 1 then '이용자' 
+           when member_type_no = 2 then '크리에이터'
        end                                                as member_type_no_name,
       nickname                                            as nickname,
       name                                                as name,
@@ -116,7 +116,7 @@
       member 
     where 1=1      
     <if test="memberTypeNo != null and memberTypeNo != 0">
-      and memeber_type_no = #{memberTypeNo}
+      and member_type_no = #{memberTypeNo}
     </if>
     <if test="nickName != ''">
       and nickname = #{nickName}
@@ -145,7 +145,7 @@
                       , birth
                       , gender
                       , sns_no
-                      , memeber_type_no
+                      , member_type_no
                         ) 
                 values (
                         #{name}
