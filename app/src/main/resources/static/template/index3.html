@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="ko" data-dark="false">
+    <head>
+        <meta charset="utf-8" />
+        <title>NAVER</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=1190" />
+        <meta name="apple-mobile-web-app-title" content="NAVER" />
+        <meta name="robots" content="index,nofollow" />
+        <meta name="description" content="네이버 메인에서 다양한 정보와 유용한 컨텐츠를 만나 보세요" />
+        <meta property="og:title" content="네이버" />
+        <meta property="og:url" content="https://www.naver.com/" />
+        <meta property="og:image" content="https://s.pstatic.net/static/www/mobile/edit/2016/0705/mobile_212852414260.png" />
+        <meta property="og:description" content="네이버 메인에서 다양한 정보와 유용한 컨텐츠를 만나 보세요" />
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="" />
+        <meta name="twitter:url" content="https://www.naver.com/" />
+        <meta name="twitter:image" content="https://s.pstatic.net/static/www/mobile/edit/2016/0705/mobile_212852414260.png" />
+        <meta name="twitter:description" content="네이버 메인에서 다양한 정보와 유용한 컨텐츠를 만나 보세요" />
+        <link rel="stylesheet" href="https://pm.pstatic.net/dist/css/nmain.20220317.css" />
+        <link rel="stylesheet" href="https://ssl.pstatic.net/sstatic/search/pc/css/sp_autocomplete_210318.css" />
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?1" />
+        <link rel="apple-touch-icon" sizes="114x114" href="https://s.pstatic.net/static/www/u/2014/0328/mma_204243574.png" />
+        <link rel="apple-touch-icon" href="https://s.pstatic.net/static/www/u/2014/0328/mma_20432863.png" />
+        <script>
+            (window.nmain = window.nmain || {}), (window.nmain.supportFlicking = !1);
+            var nsc = "navertop.v4",
+                ua = navigator.userAgent,
+                useIeJSFlag = "1";
+            (window.nmain.isIE = "0" === useIeJSFlag),
+                document.getElementsByTagName("html")[0].setAttribute("data-useragent", ua),
+                window.nmain.isIE &&
+                    (Object.create = function (n) {
+                        function e() {}
+                        return (e.prototype = n), new e();
+                    });
+        </script>
+        <script>
+            var darkmode = false;
+            (window.naver_corp_da = window.naver_corp_da || { main: {} }),
+                (window.naver_corp_da.main = window.naver_corp_da.main || {}),
+                (window.naver_corp_da.main.darkmode = darkmode),
+                (window.gladsdk = window.gladsdk || { cmd: [] }),
+                window.gladsdk.cmd.push(function () {
+                    window.gladsdk.setHostMeta("theme", darkmode ? "dark" : "light");
+                }),
+                (window.ndpsdk = window.ndpsdk || { cmd: [], polyfill: { cmd: [] } }),
+                window.ndpsdk.cmd.push(function () {
+                    window.ndpsdk.setHostMeta("theme", darkmode ? "dark" : "light");
+                });
+        </script>
+        <script async src="https://ssl.pstatic.net/tveta/libs/glad/prod/gfp-core.js"></script>
+        <script async src="https://ssl.pstatic.net/tveta/libs/ndpsdk/prod/ndp-loader.js"></script>
+        <script>
+            window.nmain.gv = {
+                isLogin: false,
+                useId: null,
+                daInfo: {
+                    BEAUTY: {
+                        menu: "BEAUTY",
+                        childMenu: "",
+                        adType: "singleDom",
+                        multiDomAdUrl: "",
+                        multiDomUnit: "",
+                        infoList: [
+                            {
+                                adposId: "1000163",
+                                singleDomAdUrl: "https://siape.veta.naver.com/fxshow",
+                                param: { da_dom_id: "p_main_beauty_1", tb: "BEAUTY_1", unit: "SU10595", calp: "-" },
+                                type: { position: "abs", positionIndex: 4, subject: "contents" },
+                                dom: null,
+                            },
+                            {
+                                adposId: "1000164",
+                                singleDomAdUrl: "https://siape.veta.naver.com/fxshow",
+                                param: { da_dom_id: "p_main_beauty_2", tb: "BEAUTY_1", unit: "SU10596", calp: "-" },
+                                type: { position: "abs", positionIndex: 8, subject: "contents" },
+                                dom: null,
+                            },
+                        ],
+                    },
+                    LIVING: {
+                        menu: "LIVING",
+                        childMenu: "",
+                        adType: "singleDom",
+                        multiDomAdUrl: "",
+                        multiDomUnit: "",
+                        infoList: [
+                            {
+                                adposId: "1000183",
+                                singleDomAdUrl: "https://siape.veta.naver.com/fxshow",
+                                param: { da_dom_id: "p_main_living_1", tb: "LIVING_1", unit: "SU10597", calp: "-" },
+                                type: { position: "abs", positionIndex: 4, subject: "contents" },
+                                dom: null,
+                            },
+                            {
+                                adposId: "1000184",
+                                singleDomAdUrl: "https://siape.veta.naver.com/fxshow",
+                                param: { da_dom_id: "p_main_living_2", tb: "LIVING_1", unit: "SU10606", calp: "-" },
+                                type: { position: "abs", positionIndex: 8, subject: "contents" },
+                                dom: null,
+                            },
+                        ],
+                    },
+                    LIVINGHOME: {
+                        menu: "LIVINGHOME",
+                        childMenu: "",
+                        adType: "singleDom",
+                        multiDomAdUrl: "",
+                        multiDomUnit: "",
+                        infoList: [
+                            {
+                                adposId: "1000185",
+                                singleDomAdUrl: "https://siape.veta.naver.com/fxshow",
+                                param: { da_dom_id: "p_main_livinghome_1", tb: "LIVINGHOME_1", unit: "SU10571", calp: "-" },
+                                type: { position: "abs", positionIndex: 4, subject: "contents" },
+                                dom: null,
+                            },
+                            {
+                                adposId: "1000186",
+                                singleDomAdUrl: "https://siape.veta.naver.com/fxshow",
+                                param: { da_dom_id: "p_main_livinghome_2", tb: "LIVINGHOME_1", unit: "SU10572", calp: "-" },
+                                type: { position: "abs", positionIndex: 8, subject: "contents" },
+                                dom: null,
+                            },
+                        ],
+                    },
+                },
+                svt: 20220320181544,
+            };
+        </script>
+
+        <script>
+            window.nmain.newsstand = {
+                rcode: "11200103",
+                newsCastSubsInfo: "",
+                newsStandSubsInfo: "",
+            };
+            window.etc = {};
+            window.svr = "<!--aweb22-->";
+        </script>
+        <script src="https://ssl.pstatic.net/tveta/libs/assets/js/pc/main/min/pc.veta.core.min.js" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/external.ddbc4808.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/preload.8c094b12.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/polyfill.6a84e956.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/vendors~more~nmain~notice~search~sidebar_notice.ff68e9aa.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/search.68d48ec7.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/vendors~more~nmain~sidebar_notice.657a96a7.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <script src="https://pm.pstatic.net/dist/js/nmain.57007f93.js?o=www" type="text/javascript" crossorigin="anonymous" defer="defer"></script>
+        <style>
+            :root {
+                color-scheme: light;
+            }
+            #_nx_kbd .setkorhelp a {
+               display: none;
+            }
+        </style>
+    </head>
+
+    <body>
+            <div id="wrap">
+            <style>
+                ._1syGnXOL {
+                    padding-right: 18px;
+                    font-size: 14px;
+                    line-height: 0;
+                    letter-spacing: -0.25px;
+                    color: #000;
+                }
+                ._1syGnXOL span,
+                ._1syGnXOL strong {
+                    line-height: 49px;
+                }
+                ._1syGnXOL:before {
+                    display: inline-block;
+                    content: "";
+                    vertical-align: top;
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123@2x.png);
+                    background-repeat: no-repeat;
+                    background-size: 116px 112px;
+                    width: 18px;
+                    height: 18px;
+                    margin: 16px 8px 0 0;
+                    background-position: -98px 0;
+                }
+                [data-useragent*="MSIE 8"] ._1syGnXOL:before {
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123.png);
+                }
+                ._1syGnXOL._3dsvmZg2:before {
+                    background-position: -47px -85px;
+                }
+                ._1syGnXOL._1NBFx1WK:before {
+                    width: 20px;
+                    height: 20px;
+                    margin: 15px 8px 0 0;
+                    background-position: -21px -89px;
+                }
+                ._1syGnXOL._2mcQEKCd:before {
+                    width: 22px;
+                    height: 22px;
+                    margin: 14px 7px 0 0;
+                    background-position: -47px -63px;
+                }
+                ._1syGnXOL._36slsKuJ:before {
+                    width: 21px;
+                    height: 49px;
+                    margin: 0 14px 0 0;
+                    background-position: 0 -63px;
+                }
+                ._1syGnXOL._3di88A4c {
+                    padding-right: 12px;
+                    font-size: 17px;
+                }
+                ._1syGnXOL._3di88A4c:before {
+                    content: none;
+                }
+                ._1syGnXOL ._19K4X1CD {
+                    text-decoration: underline;
+                }
+                ._2aeXMlrb {
+                    display: inline-block;
+                    position: relative;
+                    font-size: 12px;
+                    height: 49px;
+                    width: 78px;
+                    text-decoration: none;
+                    color: #fff;
+                    font-weight: 700;
+                    letter-spacing: -0.5px;
+                    vertical-align: top;
+                }
+                ._2aeXMlrb span {
+                    text-align: center;
+                    margin: 9px 0;
+                    height: 31px;
+                    display: block;
+                    line-height: 31px;
+                    border-radius: 15px;
+                }
+                ._2aeXMlrb span:before {
+                    display: inline-block;
+                    content: "";
+                    vertical-align: top;
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123@2x.png);
+                    background-repeat: no-repeat;
+                    background-size: 116px 112px;
+                }
+                [data-useragent*="MSIE 8"] ._2aeXMlrb span:before {
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123.png);
+                }
+                ._2aeXMlrb.BMgpjddw {
+                    font-size: 11px;
+                    width: 94px;
+                }
+                ._2aeXMlrb.BMgpjddw span:before {
+                    margin: 9px 3px 0 0;
+                    width: 17px;
+                    height: 13px;
+                    background-position: -89px -63px;
+                }
+                ._3h-N8T9V {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    background: rgba(0, 0, 0, 0);
+                }
+                ._1KncATpM {
+                    display: inline-block;
+                    content: "";
+                    vertical-align: top;
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123@2x.png);
+                    background-repeat: no-repeat;
+                    background-size: 116px 112px;
+                    margin-top: 14px;
+                    float: left;
+                    width: 98px;
+                    height: 21px;
+                    background-position: 0 -21px;
+                }
+                [data-useragent*="MSIE 8"] ._1KncATpM {
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123.png);
+                }
+                ._1KncATpM._2v3uxv2x {
+                    background-position: 0 0;
+                }
+                ._1KncATpM._1yl_Ow6o {
+                    background-position: 0 -42px;
+                }
+                ._20PYt6lT {
+                    font-size: 11px;
+                    height: 49px;
+                    cursor: pointer;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    color: #666;
+                    opacity: 0.7;
+                }
+                ._20PYt6lT:after {
+                    width: 15px;
+                    height: 15px;
+                    margin-left: 4px;
+                    background-position: -98px -33px;
+                    display: inline-block;
+                    content: "";
+                    vertical-align: top;
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123@2x.png);
+                    background-repeat: no-repeat;
+                    background-size: 116px 112px;
+                }
+                [data-useragent*="MSIE 8"] ._20PYt6lT:after {
+                    background-image: url(https://static-whale.pstatic.net/main/sprite-20211123.png);
+                }
+                ._20PYt6lT._39oMCV2N:after {
+                    background-position: -98px -18px;
+                }
+                ._20PYt6lT._3MOWOORv {
+                    color: #c3c2c2;
+                }
+                ._20PYt6lT._3MOWOORv:after {
+                    background-position: -80px -85px;
+                }
+                ._20PYt6lT._3wm5EzmJ {
+                    color: #fff;
+                }
+                ._20PYt6lT._3wm5EzmJ:after {
+                    background-position: -65px -85px;
+                }
+                ._1hiMWemA {
+                    height: 49px;
+                }
+                ._1hiMWemA .tY_u8r23 {
+                    position: relative;
+                    width: 1130px;
+                    margin: 0 auto;
+                }
+                ._1hiMWemA .tY_u8r23 a {
+                    text-decoration: none;
+                }
+                ._1hiMWemA._23U_6TM_ {
+                    position: relative;
+                }
+                ._1hiMWemA._23U_6TM_:after {
+                    position: absolute;
+                    z-index: 1;
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 1px;
+                    bottom: 0;
+                    background-color: rgba(0, 0, 0, 0.050980392156862744);
+                }
+            </style>
+           
+            <!-- header -->
+            <div id="header" role="banner">
+                <div class="special_bg">
+                    <div class="group_flex">
+                        <div class="logo_area">
+                            <h1 class="logo_default">
+                                <a href="/" class="logo_naver" data-clk="top.logo"><span class="blind">네이버</span></a>
+                            </h1>
+                        </div>
+                        <div class="service_area">
+                            <a id="NM_set_home_btn" href="https://help.naver.com/support/welcomePage/guide.help" class="link_set" data-clk="top.mkhome">홈화면</a>
+                           <i class="sa_bar"></i> 
+                            <a href="https://jr.naver.com" class="link_jrnaver" data-clk="top.jrnaver"><span class="blind">😎😎😎😎😎😎></a>
+                            <i class="ico_happybin"></i><span class="blind">해피빈</span></a>
+                        </div>
+
+                        <div id="search" class="search_area" data-clk-prefix="sch">
+                            <form id="sform" name="sform" action="https://search.naver.com/search.naver" method="get" role="search">
+                                <fieldset>
+                                   
+                                    <div class="green_window" style="">
+                                        <!-- [AU] data-atcmp-element 에 해당하는 attribute를 추가해주세요. -->
+                                        <input
+                                            id="query"
+                                            name="query"
+                                            type="text"
+                                            title="검색어 입력"
+                                            maxlength="255"
+                                            class="input_text"
+                                            tabindex="1"
+                                            accesskey="s"
+                                            style="ime-mode: active;"
+                                            autocomplete="off"
+                                            placeholder="검색어를 입력해 주세요."
+                                            onclick="document.getElementById('fbm').value=1;"
+                                            value=""
+                                            data-atcmp-element
+                                        />
+                                    </div>
+                                    <button id="search_btn" type="submit" title="검색" tabindex="3" class="btn_submit" onclick="window.nclick(this,'sch.action','','',event);" style="">
+                                        <span class="blind">검색</span>
+                                        <span class="ico_search_submit"></span>
+                                    </button>
+                                </fieldset>
+                            </form>
+                            <!-- 한글입력기 -->
+                            
+                            
+                            
+                            <a href="#" id="ke_kbd_btn" role="button" class="btn_keyboard" onclick="return false;"><span class="blind">한글 입력기</span><span class="ico_keyboard"></span></a>
+                            <div id="_nx_kbd" style="display: none;"></div>
+                            <div class="autocomplete">
+                                <!-- 자동완성 열린 경우 fold 클래스 추가, 딤드인 경우 dim 추가 -->
+                                <a href="#" role="button" id="nautocomplete" tabindex="2" class="btn_arw _btn_arw fold" aria-pressed="false" data-atcmp-element><span class="blind">자동완성 레이어</span><span class="ico_arr"></span></a>
+                            </div>
+                         
+                                        <!-- [AU] _atcmp_layer 클래스를 추가해주세요. -->
+                                        <div class="atcmp_fixer _atcmp_layer" style="display: none;">
+                                            <!-- [AU] _words 클래스를 추가해주세요. -->
+                                            <div class="atcmp_container _words">
+                                                <!-- 정답형 템플릿 : 로또당첨번호 -->
+                                                <!-- [AU] _answer 클래스를 추가해주세요. -->
+                                                <!-- [AU] data-template-type="answer_3" data-code="@code@" data-keyword="@1@" attribute를 추가해주세요. -->
+                                                <div class="atcmp_correct type_lotto _answer" data-template-type="answer_3" data-code="@code@" data-keyword="@1@">
+                                                    <a href="#" class="link_item">
+                                                        <span class="common_ico_kwd"><i class="imsc ico_search"></i></span>
+                                                        <div class="dsc_area">
+                                                            <span class="tit">@5@회차 당첨번호</span>
+                                                            <span class="dsc"> <span class="item">추첨 @13@.</span><span class="item">지급기한 1년</span> </span>
+                                                        </div>
+                                                        <span class="etc_area">
+                                                            <span class="etc lotto">
+                                                                <em class="n@6@">@6@</em><em class="n@7@">@7@</em><em class="n@8@">@8@</em><em class="n@9@">@9@</em><em class="n@10@">@10@</em><em class="n@11@">@11@</em>
+                                                                <em class="imsc_bf bonus n@12@">@12@</em>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <!-- 정답형 템플릿 : 환율 -->
+                                                <!-- [AU] _answer 클래스를 추가해주세요. -->
+                                                <!-- [AU] data-template-type="answer_9" data-code="@code@" data-keyword="@1@" attribute를 추가해주세요. -->
+                                                <div class="atcmp_correct type_exchange _answer" data-template-type="answer_9" data-code="@code@" data-keyword="@1@">
+                                                    <!-- [D] 상승 up, 하락 down 추가 -->
+                                                    <a href="#" class="link_item @11@">
+                                                        <!-- [D] 국가별 class 가나다순
+ZAR 남아프리카 공화국
+NPR 네팔
+NOK 노르웨이
+NZD 뉴질랜드
+TWD 대만
+DKK 덴마크
+RUB 러시아
+MOP 마카오
+MYR 말레이시아
+MXN 멕시코
+MNT 몽골
+USD 미국
+BHD 바레인
+BDT 방글라데시
+VND 베트남
+BRL 브라질
+SAR 사우디아라비아
+SEK 스웨덴
+CHF 스위스
+SGD 싱가포르
+AED 아랍에미리트
+GBP 영국
+EUR 유럽연합
+ILS 이스라엘
+EGP 이집트
+INR 인도
+IDR 인도네시아
+JPY 일본
+CNY 중국
+CZK 체코
+CLP 칠레
+KZT 카자흐스탄
+QAR 카타르
+CAD 캐나다
+KWD 쿠웨이트
+THB 태국
+TRY 터키
+PKR 파키스탄
+PLN 폴란드
+PHP 필리핀
+HUF 헝가리
+AUD 호주
+HKD 홍콩
+-->
+                                                        <span class="common_ico_kwd"><i class="imsc ico @12@">@14@</i></span>
+                                                        <div class="dsc_area">
+                                                            <span class="tit">@txt@<span class="sub">@currency@</span></span>
+                                                            <span class="dsc">
+                                                                <span class="item"><i class="imsc ico_arr"></i>@8@(@9@%)</span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="etc_area">
+                                                            <span class="etc"><em class="num">@6@</em>원</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <!-- 정답형 템플릿 : 날씨(국내11, 해외12) -->
+                                                <!-- [AU] _answer 클래스를 추가해주세요. -->
+                                                <!-- [AU] data-template-type="answer_11" data-code="@code@" data-keyword="@1@" attribute를 추가해주세요. -->
+                                                <div class="atcmp_correct type_weather _answer" data-template-type="answer_11" data-code="@code@" data-keyword="@1@">
+                                                    <!-- [D] 상승 up, 하락 down 추가 -->
+                                                    <a href="#" class="link_item @12@">
+                                                        <span class="common_ico_kwd"><i class="imsc ico_search"></i></span>
+                                                        <div class="dsc_area">
+                                                            <span class="tit">@txt@</span>
+                                                            <span class="dsc">
+                                                                <span class="item">@7@, @message@</span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="etc_area">
+                                                            <span class="etc">
+                                                           
+                                                           
+                                                           
+                                                           
+                                                           
+                                                                <!-- [D] 날씨별 class
+ico1 맑음(낮)
+ico2 맑음(밤)
+ico3 구름조금(낮)
+ico4 구름조금(밤)
+ico5 구름많음(낮)
+ico6 구름많음(밤)
+ico7 흐림
+ico8 약한비
+ico9 비
+ico10 강한비
+ico11 약한눈
+ico12 눈
+ico13 강한눈
+ico14 진눈깨비
+ico15 소나기
+ico16 안개
+ico17 소낙눈
+ico18 번개뇌우
+ico19 우박
+ico20 황사
+ico21 비또는눈
+ico22 가끔비
+ico23 가끔눈
+ico24 가끔비또는눈
+ico25 흐린후갬
+ico26 뇌우후갬
+ico27 비후갬
+ico28 눈후갬
+ico29 흐려져비
+ico30 흐려져눈
+-->
+                                                                <span class="ico_weather"><i class="imsc ico ico@iconNo@">@7@</i></span>
+                                                                <em class="degree">@8@<sup class="celsius">°</sup></em>
+                                                            </span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <!-- 정답형 템플릿 : 사이트 바로가기 -->
+                                                <!-- [AU] _answer 클래스를 추가해주세요. -->
+                                                <!-- [AU] data-template-type="answer_17" data-code="@code@" data-keyword="@1@" attribute를 추가해주세요. -->
+                                                <div class="atcmp_correct type_site _answer" data-template-type="answer_17" data-code="@code@" data-keyword="@1@">
+                                                    <a href="@5@" class="link_item" target="_blank">
+                                                        <span class="common_ico_kwd"><i class="imsc ico_url"></i></span>
+                                                        <div class="dsc_area">
+                                                            <span class="tit">@txt@</span>
+                                                            <span class="dsc">
+                                                                <span class="item">@5@</span>
+                                                            </span>
+                                                        </div>
+                                                        <span class="etc_area">
+                                                            <span class="etc">바로가기</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                                <!-- [AU] _kwd_list 클래스를 추가해주세요. -->
+                                                <ul class="kwd_lst _kwd_list">
+                                                    <!-- [AU] 자동완성 검색어 템플릿 -->
+                                                    <!-- [AU] _item 클래스를 추가해주세요. -->
+                                                    <!-- [AU] data-rank="@rank@" data-template-type="suggestion" data-keyword="@in_txt@" attribute를 추가해주세요. -->
+                                                    <li class="item _item" data-rank="@rank@" data-template-type="suggestion" data-keyword="@in_txt@">
+                                                        <a href="#" class="kwd">
+                                                            <span class="fix">
+                                                                <span class="common_ico_kwd"><i class="imsc ico_search"></i></span>@txt@
+                                                            </span>
+                                                        </a>
+                                                        <span class="etc">
+                                                            <a href="#" role="button" class="bt_item _add" aria-pressed="false"><i class="imsc ico_insert">추가</i></a>
+                                                        </span>
+                                                    </li>
+                                                    <!-- [AU] 최근검색어 템플릿 -->
+                                                    <!-- [AU] _item 클래스를 추가해주세요. -->
+                                                    <!-- [AU] data-rank="@rank@" data-template-type="history" data-keyword="@in_txt@" attribute를 추가해주세요. -->
+                                                    <li class="item has_correct _item" data-rank="@rank@" data-template-type="history" data-keyword="@in_txt@">
+                                                        <a href="#" class="kwd">
+                                                            <span class="fix">
+                                                                <span class="common_ico_kwd"><i class="imsc ico_search"></i></span>@txt@
+                                                            </span>
+                                                        </a>
+                                                        <span class="etc">
+                                                            <!-- 최근검색어 있으면 날짜 표시 -->
+                                                            <em class="date">@date@.</em>
+                                                            <a href="#" role="button" class="bt_item _add" aria-pressed="false"><i class="imsc ico_insert">추가</i></a>
+                                                        </span>
+                                                    </li>
+                                                </ul>
+                                                <!-- [AU] 문맥검색 템플릿 -->
+                                                <!-- [AU] _item 클래스를 추가해주세요. -->
+                                                <!-- [AU] data-rank="@rank@" data-template-type="intend" data-keyword="@transQuery@" attribute를 추가해주세요. -->
+                                                <li class="item has_correct _item" data-rank="@rank@" data-intend-rank="@intendRank@" data-template-type="intend" data-keyword="@transQuery@">
+                                                    <a href="#" class="kwd">
+                                                        <span class="fix">
+                                                            <span class="common_ico_kwd"><i class="imsc ico_search"></i></span>@query@ <span class="context">@intend@</span>
+                                                        </span>
+                                                    </a>
+                                                    <span class="etc">
+                                                        <a href="#" role="button" class="bt_item _add" aria-pressed="false"><i class="imsc ico_insert">추가</i></a>
+                                                    </span>
+                                                </li>
+                                                <!-- [D] 선거안내문구 -->
+                                                <!-- [AU] _alert 클래스를 추가해주세요. -->
+                                                <div class="atcmp_alert _alert">
+                                                    <div class="dsc_election">
+                                                        <p class="dsc"><i class="imsc ico_election"></i><span class="_alert_passage"></span></p>
+                                                        <span class="dsc_inner">
+                                                            <!-- [AU] _alert_passage2 클래스를 추가해주세요. -->
+                                                            <span class="_alert_passage2"></span>
+                                                            <!-- [AU] _alert_link 클래스를 추가해주세요. -->
+                                                            <a href="#" class="link _alert_link" target="_blank">자세히보기</a>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <!-- [AU] _plus 클래스를 추가해주세요. -->
+                                                <div class="atcmp_plus _plus">
+                                                    <div class="dsc_plus">
+                                                        <a href="https://help.naver.com/support/alias/search/word/word_16.naver" class="link_dsc" data-clk="sug.cxhelp" target="_blank">
+                                                            관심사를 반영한 컨텍스트 자동완성<i class="imsc ico_help">도움말</i>
+                                                        </a>
+                                                    </div>
+                                                    <div class="switch">
+                                                        <!-- [D] 선택시 aria-pressed="ture/false" -->
+                                                        <!-- [AU] _plus_btn 클래스를 추가해주세요. -->
+                                                        <a role="button" href="#" class="bt_switch active _plus_btn" aria-pressed="false"><i class="imsc ico_option">컨텍스트 자동완성</i></a>
+                                                    </div>
+                                                    <!-- [AU] _plus_layer 클래스를 추가해주세요. -->
+                                                    <div class="layer_plus _plus_layer">
+                                                        <strong class="tit">컨텍스트 자동완성</strong>
+                                                        <!-- [AU] _plus_layer_isloggedin 클래스를 추가해주세요. -->
+                                                        <!-- [AU] style="display:none" 추가해주세요. -->
+                                                        <div class="_plus_layer_isloggedin" style="display: none;">
+                                                            <p class="dsc">
+                                                                ON/OFF 설정은<br />
+                                                                해당기기(브라우저)에 저장됩니다.
+                                                            </p>
+                                                            <div class="btn_area">
+                                                                <a href="https://help.naver.com/support/alias/search/word/word_16.naver" class="btn btn_view" data-clk="sug.cxlink" target="_blank">자세히</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- [AU] _plus_layer_isnotloggedin 클래스를 추가해주세요. -->
+                                                        <!-- [AU] style="display:none" 추가해주세요. -->
+                                                        <div class="_plus_layer_isnotloggedin" style="display: none;">
+                                                            <p class="dsc">
+                                                                <em class="txt">동일한 시간대/연령/남녀별</em> 사용자 그룹의<br />
+                                                                관심사에 맞춰 자동완성을 제공합니다.
+                                                            </p>
+                                                            <div class="btn_area">
+                                                                <a href="https://nid.naver.com/nidlogin.login" class="btn btn_login" data-clk="sug.cxlogin">로그인</a>
+                                                                <a href="https://help.naver.com/support/alias/search/word/word_16.naver" class="btn btn_view" data-clk="sug.cxlink" target="_blank">자세히</a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- [AU] _plus_layer_close 클래스를 추가해주세요. -->
+                                                        <a href="#" role="button" class="btn_close _plus_layer_close"><i class="imsc ico_close">컨텍스트 자동완성 레이어 닫기</i></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="atcmp_footer">
+                                                <span class="side_opt_area">
+                                                    <span class="opt_item"><a href="https://help.naver.com/support/service/main.help?serviceNo=605&categoryNo=1987" data-clk="sug.help" target="_blank">도움말</a></span>
+                                                    <span class="opt_item"><a href="https://help.naver.com/support/contents/contents.help?serviceNo=605&categoryNo=18215" class="report" data-clk="sug.report" target="_blank">신고</a></span>
+                                                </span>
+                                                <span class="rside_opt_area">
+                                                    <span class="opt_item">
+                                                        <!-- [AU] _suggestOnOff 클래스를 추가해주세요. -->
+                                                        <a href="#" class="close _suggestOnOff">자동완성 끄기</a>
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!--EMPTY-->
+                <div id="gnb">
+                    <div id="NM_FAVORITE" class="gnb_inner">
+                        <div class="group_nav">
+                            <ul class="list_nav type_fix">
+                                <li class="nav_item">
+                                    <a href="https://mail.naver.com/" class="nav" data-clk="svc.mail"><i class="ico_mail"></i>메일</a>
+                                </li>
+                                <li class="nav_item"><a href="https://section.cafe.naver.com/" class="nav" data-clk="svc.cafe">카페</a></li>
+                                <li class="nav_item"><a href="https://section.blog.naver.com/" class="nav" data-clk="svc.blog">블로그</a></li>
+                                <li class="nav_item"><a href="https://kin.naver.com/" class="nav" data-clk="svc.kin">지식iN</a></li>
+                                <li class="nav_item">
+                                    <a href="https://shopping.naver.com/" class="nav shop" data-clk="svc.shopping"><span class="blind">쇼핑</span></a>
+                                </li>
+                                <li class="nav_item">
+                                    <a href="https://shoppinglive.naver.com/home" class="nav shoplive" data-clk="svc.shoppinglive"><span class="blind">쇼핑LIVE</span></a>
+                                </li>
+                                <li class="nav_item"><a href="https://order.pay.naver.com/home" class="nav" data-clk="svc.pay">Pay</a></li>
+                                <li class="nav_item">
+                                    <a href="https://tv.naver.com/" class="nav" data-clk="svc.tvcast"><i class="ico_tv"></i>TV</a>
+                                </li>
+                            </ul>
+                            <ul class="list_nav NM_FAVORITE_LIST">
+                                <li class="nav_item"><a href="https://dict.naver.com/" class="nav" data-clk="svc.dic">사전</a></li>
+                                <li class="nav_item"><a href="https://news.naver.com/" class="nav" data-clk="svc.news">뉴스</a></li>
+                                <li class="nav_item"><a href="https://finance.naver.com/" class="nav" data-clk="svc.stock">증권</a></li>
+                                <li class="nav_item"><a href="https://land.naver.com/" class="nav" data-clk="svc.land">부동산</a></li>
+                                <li class="nav_item"><a href="https://map.naver.com/" class="nav" data-clk="svc.map">지도</a></li>
+                                <li class="nav_item"><a href="https://vibe.naver.com/" class="nav" data-clk="svc.vibe">VIBE</a></li>
+                                <li class="nav_item"><a href="https://book.naver.com/" class="nav" data-clk="svc.book">책</a></li>
+                                <li class="nav_item"><a href="https://comic.naver.com/" class="nav" data-clk="svc.webtoon">웹툰</a></li>
+                            </ul>
+                            <ul class="list_nav type_empty" style="display: none;"></ul>
+                            <a href="#" role="button" class="btn_more" data-clk="svc.more">더보기</a>
+                            <div class="ly_btn_area">
+                                <a href="more.html" class="btn NM_FAVORITE_ALL" data-clk="map.svcmore">서비스 전체보기</a>
+                                <a href="#" role="button" class="btn btn_set" data-clk="map.edit">메뉴설정</a>
+                                <a href="#" role="button" class="btn btn_reset" data-clk="edt.reset">초기화</a>
+                                <a href="#" role="button" class="btn btn_save" data-clk="edt.save">저장</a>
+                            </div>
+                        </div>
+                        <div id="NM_WEATHER" class="group_weather">
+                            <div>
+                                <a data-clk="squ.weat" href="https://weather.naver.com/today/11200103" class="weather_area ico_w01">
+                                    <div class="current_box"><strong class="current" aria-label="현재기온">6.0°</strong><strong class="state">맑음</strong></div>
+                                    <div class="degree_box"><span class="min" aria-label="최저기온">2.0°</span><span class="max" aria-label="최고기온">8.0°</span></div>
+                                    <span class="location">만수동</span>
+                                </a>
+                            </div>
+                            <div>
+                                <a data-clk="squ.dust" href="https://weather.naver.com/today/11200103" class="air_area">
+                                    <ul class="list_air">
+                                        <li class="air_item">미세<strong class="state state_good">좋음</strong></li>
+                                        <li class="air_item">초미세<strong class="state state_good">좋음</strong></li>
+                                    </ul>
+                                    <span class="location">만수동</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ly_service">
+                        <div class="group_service NM_FAVORITE_ALL_LY"></div>
+                        <div class="group_service NM_FAVORITE_EDIT_LY" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
