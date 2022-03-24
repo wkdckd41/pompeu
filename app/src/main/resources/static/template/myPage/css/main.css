@@ -651,7 +651,7 @@ ul.sub-menu {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     font-weight: 700;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
     text-align: center;
     text-transform: uppercase;
     position: relative;
@@ -703,6 +703,10 @@ h2.title:before {
     margin-bottom: 0px;
 }
 
+.panel-area {
+	margin-left: 40px;
+}
+
 .category-products .panel-default .panel-heading {
     background-color: #FFFFFF;
     border: 0 none;
@@ -711,11 +715,13 @@ h2.title:before {
 }
 
 .category-products .panel-default .panel-heading .panel-title a {
-    color: #696763;
+    color: black;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 18px;
+    font-weight: 540;
     text-decoration: none;
     text-transform: uppercase;
+    line-height: 40px;
 }
 
 .panel-group .panel-heading+.panel-collapse .panel-body {
@@ -847,7 +853,7 @@ h2.title {
 }
 
 .productinfo h2 {
-    color: #FE980F;
+    color: black;
     font-family: 'Roboto', sans-serif;
     font-size: 24px;
     font-weight: 700;
@@ -862,9 +868,10 @@ h2.title {
 
 .productinfo p {
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
-    font-weight: 400;
+    font-size: 18px;
+    font-weight: 700;
     color: #696763;
+    margin-bottom : 30px;
 }
 
 .productinfo img {
