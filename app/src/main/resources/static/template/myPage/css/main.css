@@ -855,7 +855,7 @@ h2.title {
 .productinfo h2 {
     color: black;
     font-family: 'Roboto', sans-serif;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
 }
 
@@ -868,7 +868,7 @@ h2.title {
 
 .productinfo p {
     font-family: 'Roboto', sans-serif;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
     color: #696763;
     margin-bottom : 30px;
