@@ -469,7 +469,7 @@ ul.sub-menu {
 .single-widget h2 {
     color: #666663;
     font-family: 'Roboto', sans-serif;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 900;
     margin-bottom: 22px;
     text-transform: uppercase;
@@ -483,7 +483,7 @@ ul.sub-menu {
 .single-widget ul li a {
     color: #8C8C88;
     font-family: 'Roboto', sans-serif;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 300;
     padding: 5px 0;
     margin-left: 50px;
