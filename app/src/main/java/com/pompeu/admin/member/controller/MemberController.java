@@ -3,23 +3,23 @@ package com.pompeu.admin.member.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.admin.member.dao.MemberDao;
+import com.pompeu.admin.member.service.MemberService;
 import com.pompeu.domain.Member;
 
 @RestController
 public class MemberController {
 
   @Autowired
-  MemberDao memberDao;
+  MemberService memberService;
 
   @RequestMapping("/member/list")
   public Object list() {
-    return memberDao.findAll();
+    return memberService.findAll();
   }
 
   @RequestMapping("/member/get")
   public Object get(int no) {
-    Member member = memberDao.findByNo(no);
+    Member member = memberService.findByNo(no);
     if (member == null) {
       return "";
     }
@@ -28,7 +28,7 @@ public class MemberController {
 
   @RequestMapping("/member/findCount")
   public Object memberList() {
-    return memberDao.findCount();
+    return memberService.findCount();
   }
 
   @RequestMapping("/member/srchMember")
@@ -39,7 +39,7 @@ public class MemberController {
     System.out.println("srchMember : " + member.getEmail());
     System.out.println("srchMember : " + member.getMemberTypeNo());
 
-    return memberDao.srchMember(member);
+    return memberService.srchMember(member);
   }
 
   @RequestMapping("/member/memberRegi")
@@ -53,7 +53,7 @@ public class MemberController {
     System.out.println("memberRegi : " + member.getBirth());
     System.out.println("memberRegi : " + member.getGender());
 
-    return memberDao.memberRegi(member);
+    return memberService.memberRegi(member);
   }
 
 
