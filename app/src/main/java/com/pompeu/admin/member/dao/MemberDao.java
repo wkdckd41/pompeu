@@ -55,7 +55,7 @@ public interface MemberDao {
   List<Member> findByphone(String phone);
 
   /**
-   * 회원 상세 조회
+   * 회원 조건 조회
    * @param member
    * @return
    */
