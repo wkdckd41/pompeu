@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>POMPEU!</title>
   <link rel="stylesheet" href="/css/common.css">
+  <link href="/admin/css/admin.css" rel="stylesheet">
   <style>
   table, th, td {
     border: 1px solid black;
@@ -18,17 +19,17 @@
 
 <body>
 <div class="container">
-  <h1>회원현황</h1>
-  <div style="width:80%;">
-    <input type="button" id="excelSave" name="excelSave" value="엑셀저장" style="float:right;"/>
+  <h2 style="margin-left: 30px;">회원현황</h2>
+  <div style="width:70%;">
+    <button type="button" class="btn btn-secondary" style=" background-color:#E0E0E0; float:right; height:30px; margin-bottom: 3px; margin-right: -30px">엑셀저장</button>
   </div>
   <div>
-    <table style="width:80%">
+    <table style="margin-left: 30px; width:70%">
       <thead>
 			  <tr>
-			    <th>전체</th>
-			    <th>크리에이터</th>
-			    <th>이용자</th>
+			    <th class="table-current">전체</th>
+			    <th class="table-current">크리에이터</th>
+			    <th class="table-current">이용자</th>
 			  </tr>
 			</thead>
 			<tbody id="tbody1">
@@ -36,15 +37,15 @@
     </table>
   </div>
   
-  <h1>회원조회</h1>  
-  <div style="width:80%;">    
-    <input type="button" id="clearBtn" name="clearBtn" value="초기화" style="float:right;" onclick="hihi()"/>
-    <input type="button" id="srchBtn" name="srchBtn" value=" 검색" style="float:right;"/>
+  <h2 style="margin-left: 30px; margin-top: 50px;">회원조회</h2>  
+  <div style="width:70%;">    
+    <button type="button" class="btn btn-secondary" style=" background-color:#99CCFF; float:right; height:30px; margin-bottom: 3px; margin-right: -30px">초기화</button>
+    <button type="button" class="btn btn-secondary" style=" background-color:#99CCFF; float:right; height:30px; margin-bottom: 3px; margin-right: 10px">검색</button>
   </div>
   <div>
-    <table style="width:80%">
+    <table style="margin-left: 30px; width:70%">
       <tr>
-        <td style="width:50%">
+        <td class="table-info" >
           회원구분
         </td>
         <td>
@@ -56,43 +57,42 @@
         </td>
       </tr>
       <tr>
-        <td>
+        <td class="table-info">
           아이디
         </td>
-        <td>
-          <input type="text" id="nick_name" name="nick_name" value=""/>
+        <td style="text-align: center;">
+          <input type="text" id="phone" name="phone" value=""/ style="height:25px; width:525px;">
         </td>
       </tr>
       <tr>
-        <td>
+        <td class="table-info">
           휴대폰번호
         </td>
-        <td>
-          <input type="text" id="phone" name="phone" value=""/>
+        <td style="text-align: center;">
+          <input type="text" id="phone" name="phone" value=""/ style="height:25px; width:525px;">
         </td>
       </tr>
       <tr>
-        <td>
+        <td class="table-info">
           이메일
         </td>
-        <td>
-          <input type="text" id="email" name="email" value=""/>
+        <td style="text-align: center;">
+          <input type="text" id="phone" name="phone" value=""/ style="height:25px; width:525px;">
         </td>
       </tr>
     </table>
   </div>
   
-  <h1>회원 검색 결과</h1>
+  <h2 style="margin-left: 30px; margin-top:50px;">회원 검색 결과</h2>
   <div>
-    <table style="width:80%;">
+    <table style="margin-left: 30px; width:70%;">
       <thead>
 			  <tr>
-			    <th>No.</th>
-			    <th>회원구분</th>
-			    <th>아이디</th>
-			    <th>이름</th>
-			    <th>이메일</th>
-			    <th>전화번호</th>
+			    <th class="table-top">No.</th>
+			    <th class="table-top">회원구분</th>
+			    <th class="table-top">이름</th>
+			    <th class="table-top">이메일</th>
+			    <th class="table-top">전화번호</th>
 			  </tr>
 			</thead>
 			<tbody id="tbody2">

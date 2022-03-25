@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--
+    namespace => 인터페이스의 패키지 및 이름과 일치해야 한다
+-->
+<mapper namespace="com.pompeu.admin.member.dao.MemberDao">
+
+    <resultMap type="member" id="memberMap">
+    
+        <id column="member_no" property="no"/>
+        <result column="name" property="name"/>
+        <result column="email" property="email"/>
+        <result column="phone" property="phone"/>
+        <result column="birth" property="birth"/>
+        <result column="nickname" property="nickName"/>
+        <result column="gender" property="gender"/>
+        <result column="password" property="password"/>
+        <result column="join_date" property="joinDate"/>
+        <result column="login_date" property="loginDate"/>
+        <result column="modify_date" property="modifyDate"/>
+        <result column="use_check" property="useCheck"/>
+        <result column="admin_check" property="admin_check"/>
+        <result column="sns_no" property="snsNo"/>
+        <result column="member_type_no" property="memberTypeNo"/>
+        <result column="member_type_no_name" property="memberTypeNoName"/>
+    </resultMap>
+
+
+    <!-- 회원 현황 -->
+    <select id="countAll" resultType="int">
+        select count(*) from member
+    </select>
+    
+    <!-- 회원 현황 -->
+    <select id="findCount" resultType="hashmap">
+        select 
+            count(*)                                                    as total
+            ,  count(case when use_check = 0 then 1 else null end )     as creator
+            ,  count(case when use_check = 1 then 1 else null end )     as user
+        from 
+            member
+        where 
+            use_check in (0, 1)
+    </select>
+	  
+    <!-- 회원 목록 -->
+    <select id="findAll" resultType="memberMap">
+        select
+            member_no,
+            member_type_no,
+            name,
+            email,
+            phone
+        from
+            member
+        order by
+            memner_no asc
+    </select>
+    
+    <!--회원 상세 조회-->
+    <select id="findByNo" resultMap="memberMap" parameterType="int">
+        select
+            member_no,
+            member_type_no,
+            name,
+            nickname,
+            email,
+            phone,
+            birth,
+            join_date,
+            login_date,
+        from
+            member
+        where
+            member_no=#{memberNo}
+    </select>
+            
+    <!--회원 상세 구분 조회-->
+    <select id="findByMemberTypeNo" resultMap="memberMap" parameterType="int">
+        select
+            member_type_no,
+            name,
+            nickname,
+            email,
+            phone,
+            birth,
+            join_date,
+            login_date,
+        from
+            member
+        where
+            member_type_no=#{memberTypeNo}
+    
+    <!--회원 상세 이름 조회-->
+    <select id="findByName" resultMap="memberMap" parameterType="String">
+        select
+            member_type_no,
+            name,
+            nickname,
+            email,
+            phone,
+            birth,
+            join_date,
+            login_date,
+        from
+            member
+        where
+            name=#{name}
+    </select>
+            
+    <!--회원 상세 휴대번호 조회-->
+    <select id="findByPhone" resultMap="memberMap" parameterType="String">
+        select
+            member_type_no,
+            name,
+            nickname,
+            email,
+            phone,
+            birth,
+            join_date,
+            login_date,
+        from
+            member
+        where
+            phone=#{phone}
+    </select>        
+
+  <!-- 회원 상세 조회 -->
+   <select id="srchMember" parameterType="member" resultType="hashmap">
+        select 
+            member_no                                           as member,  
+            member_type_no                                     as member_type_no,
+	     case 
+	        when member_type_no = 1 then '이용자' 
+	        when member_type_no = 2 then '크리에이터'
+	     end                                                 as member_type_no_name,
+	        nickname                                            as nickname,
+	        name                                                as name,
+	        email                                               as email,
+	        phone                                               as phone
+        from 
+            member 
+        where 1=1      
+		    <if test="memberTypeNo != null and memberTypeNo != 0">
+		      and member_type_no = #{memberTypeNo}
+		    </if>
+		    <if test="nickName != ''">
+		      and nickname = #{nickName}
+		    </if>
+		    <if test="phone != ''">
+		      and phone = #{phone}
+		    </if>
+		    <if test="email != ''">
+		      and email = #{email}
+		    </if>
+		order by 
+		    member_no asc
+  </select>
+  
+  <insert id="memberRegi" parameterType="member">
+    insert into member (
+                        name
+                      , email
+                      , phone
+                      , nickname
+                      , use_check
+                      , join_date
+                      , modify_date
+                      , admin_check
+                      , password
+                      , birth
+                      , gender
+                      , sns_no
+                      , member_type_no
+                        ) 
+                values (
+                        #{name}
+                      , #{email}
+                      , #{phone}
+                      , #{nickName}
+                      , 0
+                      , now()
+                      , null
+                      , 'N'
+                      , #{password}
+                      , #{birth}
+                      , #{gender}
+                      , 1
+                      , 1
+                        )
+  </insert>
+
+    
+</mapper>
