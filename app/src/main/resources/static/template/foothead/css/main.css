@@ -90,6 +90,7 @@ a#scrollUp i {
 }
 
 .social-icons ul li a {
+	font-size: 12px;
     border: 0 none;
     border-radius: 0;
     color: #696763;
@@ -200,7 +201,7 @@ a#scrollUp i {
     background: #FFFFFF;
     color: #696763;
     font-family: 'Roboto', sans-serif;
-    font-size: 15px;
+    font-size: 12px;
     font-weight: 300;
     padding: 0;
     padding-right: 0;
