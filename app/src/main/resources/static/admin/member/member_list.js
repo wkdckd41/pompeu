@@ -34,6 +34,7 @@ btn.addEventListener('click', function() {
   console.log("memberTypeNo : " + memberTypeNo);
   console.log(mT);
   
+  
   var tbody2 = document.querySelector("#tbody2");
 
 
