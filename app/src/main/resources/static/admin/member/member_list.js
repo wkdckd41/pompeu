@@ -21,12 +21,12 @@ document.addEventListener("DOMContentLoaded", function(){
 
 btn.addEventListener('click', function() {
 	
-	var nickName = document.querySelector("#nick_name").value;
+	var name = document.querySelector("#name").value;
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
 
-  console.log("nickName : " + nickName);
+  console.log("name : " + name);
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
@@ -38,7 +38,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&nickName=${nickName}&phone=${phone}&email=${email}`)
+  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
     .then(function(response) {
       return response.json();
     })
@@ -53,7 +53,6 @@ btn.addEventListener('click', function() {
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.member_type_no_name}</a></td>
-        <td>${rst.nickname}</td>
         <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
@@ -65,7 +64,7 @@ btn.addEventListener('click', function() {
 
 function hihi() {
 	
-	document.querySelector("#nick_name").value = '';
+	document.querySelector("#name").value = '';
   document.querySelector("#phone").value = '';
   document.querySelector("#email").value = '';
   document.querySelector("#member_type_no").value = 0;
