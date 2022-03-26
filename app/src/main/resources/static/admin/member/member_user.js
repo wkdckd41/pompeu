@@ -1,19 +1,74 @@
-document.addEventListener("DOMContentLoaded", function(){
-   fetch("/member/findCount")
+
+
+  var memberTypeNo = document.querySelector("#member_type_no");
+  var name = document.querySelector("#name");
+  var nickname = document.querySelector("#nickName");
+  var email = document.querySelector("#email");
+  var phone = document.querySelector("#phone");
+  var joinDate = document.querySelector("#join_date");
+  var loginDate = document.querySelector("login_date");
+
+  fetch(`/member/get?no=${no}`)
     .then(function(response) {
       return response.json();
     })
-    .then(function(result) {
-      console.log(result);
-      for (var rst of result) {
-        var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${rst.total}</td>
-        <td>${rst.creator}</a></td>
-        <td>${rst.user}</td>`;
-        document.querySelector("#tbody1").appendChild(tr);
-      }
+      .then(function(member) {
+      // 4) 연락처 상세 정보를 화면에 출력한다.
+      member.value = member.memberTypeNo;
+      name.value = member.name;
+      nickname.value = member.nickName;
+      email.value = member.email;
+      xPrice.value = member.phone;
+      xReadDate.value = member.joinDate;
+      xFeed.value = member.loginDate;
     });
-});
+    
+    
+    
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,15 +80,11 @@ btn.addEventListener('click', function() {
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
-  var memberType = document.getElementById("member_type_no");
-  mT = memberType.options[memberType.selectedIndex].text;
 
   console.log("name : " + name);
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
-  console.log(mT);
-  
   
   var tbody2 = document.querySelector("#tbody2");
 
@@ -56,7 +107,7 @@ btn.addEventListener('click', function() {
 
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
-        <td>${mT}</td>
+        <td>${rst.member_type_no_name}</a></td>
         <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
