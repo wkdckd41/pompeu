@@ -26,7 +26,7 @@ btn.addEventListener('click', function() {
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
   var memberType = document.getElementById("member_type_no");
-  mT = memberType.options[s.selectedIndex].text;
+  mT = memberType.options[memberType.selectedIndex].text;
 
   console.log("name : " + name);
   console.log("phone : " + phone);
