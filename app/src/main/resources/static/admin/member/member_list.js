@@ -25,11 +25,15 @@ btn.addEventListener('click', function() {
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
+  var memberType = document.getElementById("member_type_no");
+  mT = memberType.options[s.selectedIndex].text;
 
   console.log("name : " + name);
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
+  console.log(mT);
+  
   
   var tbody2 = document.querySelector("#tbody2");
 
@@ -52,7 +56,7 @@ btn.addEventListener('click', function() {
 
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
-        <td>${rst.memberType}</a></td>
+        <td>${mT}</td>
         <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
