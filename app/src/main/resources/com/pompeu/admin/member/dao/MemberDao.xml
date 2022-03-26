@@ -28,7 +28,6 @@
     <result column="member_type" property="memberType"/>
   </resultMap>
 
-
   <select id="countAll" resultType="int">
     select count(*) from member
   </select>
