@@ -7,21 +7,25 @@
 
   <resultMap type="member" id="memberMap">
     <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
     <result column="name" property="name"/>
     <result column="email" property="email"/>
     <result column="phone" property="phone"/>
     <result column="nickname" property="nickName"/>
     <result column="use_check;" property="useCheck"/>    
     <result column="login_date" property="loginDate"/>
-    <result column="join_date" property="joinDate"/>
     <result column="modify_date" property="modifyDate"/>
     <result column="admin_check" property="adminCheck"/>
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
-    <result column="sns_no" property="snsNo"/>
-    <result column="member_type_no" property="memberTypeNo"/>
-    <result column="member_type_no_name" property="memberTypeNoName"/>
+  </resultMap>
+
+  <resultMap type="memberType" id="memberTypeMap">
+    <id column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
   </resultMap>
 
 
@@ -96,10 +100,10 @@
   
   <select id="findCount" resultType="hashmap">
     select count(*)                                                    as total
-		    ,  count(case when use_check = 0 then 1 else null end )        as creator
-		    ,  count(case when use_check = 1 then 1 else null end )        as user
+		    ,  count(case when member_type_no = 1 then 1 else null end )        as user
+		    ,  count(case when member_type_no = 2 then 1 else null end )        as creator
 		  from member
-		 where use_check in (0, 1)
+		 where member_type_no in (1, 2)
   </select>
   
   <select id="srchMember" parameterType="member" resultType="hashmap">
