@@ -24,8 +24,6 @@ public interface MemberDao {
 
   List<Map<String,Object>> srchMember(Member member);
 
-  int memberRegi(Member member);
-
 }
 
 
