@@ -117,6 +117,7 @@
       left outer join memberType mt on m.member_type_no=mt.member_type_no 
     where 1=1
           
+          
     <if test="memberTypeNo != null and memberTypeNo != 0">
       and member_type_no = #{memberTypeNo}
     </if>
