@@ -33,7 +33,7 @@
   </select>
   
   <select id="findAll" resultMap="memberMap">
-    select o
+    select 
       member_no,
       name,
       email,

@@ -38,7 +38,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/member/srchMember?member_type_no=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
+  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
     .then(function(response) {
       return response.json();
     })
