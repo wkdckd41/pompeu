@@ -60,19 +60,6 @@ public class MemberController {
     return memberDao.srchMember(member);
   }
 
-  @RequestMapping("/member/memberRegi")
-  public Object memberRegi(Member member) {
-
-    System.out.println("memberRegi : " + member.getName());
-    System.out.println("memberRegi : " + member.getEmail());
-    System.out.println("memberRegi : " + member.getPassword());
-    System.out.println("memberRegi : " + member.getPhone());
-    System.out.println("memberRegi : " + member.getNickName());
-    System.out.println("memberRegi : " + member.getBirth());
-    System.out.println("memberRegi : " + member.getGender());
-
-    return memberDao.memberRegi(member);
-  }
 
 
 }

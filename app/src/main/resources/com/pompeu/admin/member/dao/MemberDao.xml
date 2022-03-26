@@ -134,38 +134,7 @@
       member_no asc
   </select>
   
-  <insert id="memberRegi" parameterType="member">
-    insert into member (
-                        name
-                      , email
-                      , phone
-                      , nickname
-                      , use_check
-                      , join_date
-                      , modify_date
-                      , admin_check
-                      , password
-                      , birth
-                      , gender
-                      , sns_no
-                      , member_type_no
-                        ) 
-                values (
-                        #{name}
-                      , #{email}
-                      , #{phone}
-                      , #{nickName}
-                      , 0
-                      , now()
-                      , null
-                      , 'N'
-                      , #{password}
-                      , #{birth}
-                      , #{gender}
-                      , 1
-                      , 1
-                        )
-  </insert>
+
 
 </mapper>
 
