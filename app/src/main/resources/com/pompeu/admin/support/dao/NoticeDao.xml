@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.pompeu.dao.NoticeDao">
+<mapper namespace="com.pompeu.admin.support.dao.NoticeDao">
 
   <resultMap type="notice" id="noticeMap">
     <id column="notice_no" property="no"/>
