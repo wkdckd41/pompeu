@@ -20,8 +20,8 @@ document.addEventListener("DOMContentLoaded", function(){
   var btn = document.getElementById("srchBtn");
 
 btn.addEventListener('click', function() {
-	
-	var name = document.querySelector("#name").value;
+  
+  var name = document.querySelector("#name").value;
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
@@ -38,7 +38,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/member/srchMember?member_type_no=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
+  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
     .then(function(response) {
       return response.json();
     })
@@ -63,10 +63,10 @@ btn.addEventListener('click', function() {
 });
 
 function hihi() {
-	
-	document.querySelector("#name").value = '';
+  
+  document.querySelector("#name").value = '';
   document.querySelector("#phone").value = '';
   document.querySelector("#email").value = '';
   document.querySelector("#member_type_no").value = 0;
-	
+  
 }
