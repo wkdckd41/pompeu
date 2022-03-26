@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="/admin/css/admin.css" rel="stylesheet">
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: rgb(249,252,251);
+  }
+  </style>
+  
+</head>
+
+<body>
+<div class="container">
+  <h2 style="margin-left: 30px;">회원 상세정보</h2>
+  <h3 style="margin-left: 60px; margin-top: 40px;">회원 정보</h3>
+  
+  <div style="margin-left: 50px;">
+    <table  style="width:80%">
+      <tr>
+        <td class="table-info">
+          회원구분
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info">
+          이름
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info">
+          닉네임
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info">
+          이메일
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info">
+          휴대폰 번호
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info">
+          가입일자
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info"">
+          최종접속일시
+        </td>
+        <td class="table-infos">
+        </td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div style="margin-left: 60px; margin-top: 40px; margin-bottom: 20px;">
+  <h3>수강목록</h3>
+  </div>
+  
+  <div style="margin-left: 50px;">
+    <table style="width:80%;">
+      <thead>
+			  <tr>
+			    <th class="table-top">No.</th>
+			    <th class="table-top">클래스명</th>
+			    <th class="table-top">시작일</th>
+			    <th class="table-top">종료일</th>
+			    <th class="table-top">상태</th>
+			  </tr>
+			</thead>
+			<tbody id="tbody2">
+			</tbody>      
+    </table>
+  </div>
+  
+</div>
+  
+</body>
+<script src="memberList.js"></script>
+</html>

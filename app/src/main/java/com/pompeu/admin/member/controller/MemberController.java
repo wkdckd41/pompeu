@@ -1,9 +1,9 @@
-package com.pompeu.controller;
+package com.pompeu.admin.member.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.dao.MemberDao;
+import com.pompeu.admin.member.dao.MemberDao;
 import com.pompeu.domain.Member;
 
 @RestController 
@@ -56,24 +56,10 @@ public class MemberController {
     System.out.println("srchMember : " + member.getNickName());
     System.out.println("srchMember : " + member.getPhone());
     System.out.println("srchMember : " + member.getEmail());
-    System.out.println("srchMember : " + member.getMemberTypeNo());
 
     return memberDao.srchMember(member);
   }
 
-  @RequestMapping("/member/memberRegi")
-  public Object memberRegi(Member member) {
-
-    System.out.println("memberRegi : " + member.getName());
-    System.out.println("memberRegi : " + member.getEmail());
-    System.out.println("memberRegi : " + member.getPassword());
-    System.out.println("memberRegi : " + member.getPhone());
-    System.out.println("memberRegi : " + member.getNickName());
-    System.out.println("memberRegi : " + member.getBirth());
-    System.out.println("memberRegi : " + member.getGender());
-
-    return memberDao.memberRegi(member);
-  }
 
 
 }

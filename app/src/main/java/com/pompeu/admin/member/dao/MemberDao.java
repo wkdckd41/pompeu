@@ -1,4 +1,4 @@
-package com.pompeu.dao;
+package com.pompeu.admin.member.dao;
 
 import java.util.List;
 import java.util.Map;
@@ -24,7 +24,6 @@ public interface MemberDao {
 
   List<Map<String,Object>> srchMember(Member member);
 
-  int memberRegi(Member member);
 }
 
 
