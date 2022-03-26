@@ -21,7 +21,4 @@ public class MemberType {
   public void setMemberType(String memberType) {
     this.memberType = memberType;
   }
-
-
-
 }
