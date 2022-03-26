@@ -18,8 +18,6 @@ public class Member {
   String birth;
   int gender;
   int snsNo;
-  int memberTypeNo;
-
 
   @Override
   public String toString() {
@@ -27,7 +25,7 @@ public class Member {
         + ", nickName=" + nickName + ", useCheck=" + useCheck + ", loginDate=" + loginDate
         + ", joinDate=" + joinDate + ", modifyDate=" + modifyDate + ", adminCheck=" + adminCheck
         + ", password=" + password + ", birth=" + birth + ", gender=" + gender + ", snsNo=" + snsNo
-        + ", memberTypeNo=" + memberTypeNo + "]";
+        + "]";
   }
 
   public int getNo() {
@@ -114,12 +112,8 @@ public class Member {
   public void setSnsNo(int snsNo) {
     this.snsNo = snsNo;
   }
-  public int getMemberTypeNo() {
-    return memberTypeNo;
-  }
-  public void setMemberTypeNo(int memberTypeNo) {
-    this.memberTypeNo = memberTypeNo;
-  }
+
+
 
 
 }
