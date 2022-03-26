@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.pompeu.dao.MemberDao">
+<mapper namespace="com.pompeu.admin.member.dao.MemberDao">
 
   <resultMap type="member" id="memberMap">
     <id column="member_no" property="no"/>
@@ -72,18 +72,18 @@
 
   <update id="update" parameterType="member">
     update member set 
-        name=#{name},
-        email=#{email},
-        phone=#{phone},
-        nickname=#{nickName},
-        use_check=#{useCheck},
-        join_date=#{joinDate},
-        modify_date=#{modifyDate},
-        admin_check=#{adminCheck},
-        password=#{password},
-        birth=#{birth},
-        gender=#{gender},
-        sns_no=#{snsNo}
+	    name=#{name},
+	    email=#{email},
+	    phone=#{phone},
+	    nickname=#{nickName},
+	    use_check=#{useCheck},
+	    join_date=#{joinDate},
+	    modify_date=#{modifyDate},
+	    admin_check=#{adminCheck},
+	    password=#{password},
+	    birth=#{birth},
+	    gender=#{gender},
+	    sns_no=#{snsNo}
     where 
       member_no=#{no}
   </update>
@@ -95,10 +95,10 @@
   
   <select id="findCount" resultType="hashmap">
     select count(*)                                                    as total
-            ,  count(case when use_check = 0 then 1 else null end )        as creator
-            ,  count(case when use_check = 1 then 1 else null end )        as user
-          from member
-         where use_check in (0, 1)
+		    ,  count(case when use_check = 0 then 1 else null end )        as creator
+		    ,  count(case when use_check = 1 then 1 else null end )        as user
+		  from member
+		 where use_check in (0, 1)
   </select>
   
   <select id="srchMember" parameterType="member" resultType="hashmap">
@@ -165,4 +165,8 @@
   </insert>
 
 </mapper>
+
+
+
+
 
