@@ -105,7 +105,7 @@
 		 where member_type_no in (1, 2)
   </select>
   
-  <select id="srchMember" parameterType="member" resultMap="hashMap">
+  <select id="srchMember" parameterType="member" resultMap="memberMap">
     select 
       m.member_no                                           as member,  
       mt.member_type                                     as member_type,
