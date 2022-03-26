@@ -93,7 +93,7 @@
             member
         where
             member_type_no=#{memberTypeNo}
-    
+        </select>
     <!--회원 상세 이름 조회-->
     <select id="findByName" resultMap="memberMap" parameterType="String">
         select
