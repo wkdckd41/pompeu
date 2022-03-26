@@ -24,6 +24,11 @@ public interface MemberDao {
 
   List<Map<String,Object>> srchMember(Member member);
 
+<<<<<<< HEAD
+=======
+  int memberRegi(Member member);
+
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 }
 
 
