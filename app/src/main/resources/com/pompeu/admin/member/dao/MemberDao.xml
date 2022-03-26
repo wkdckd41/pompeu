@@ -105,7 +105,7 @@
 		 where member_type_no in (1, 2)
   </select>
   
-  <select id="srchMember" parameterType="member" resultMap="hashMap">
+  <select id="srchMember" parameterType="member" resultMap="memberMap">
     select 
       m.member_no                                           as member,  
       mt.member_type                                     as member_type,
@@ -116,8 +116,7 @@
       member m 
       left outer join memberType mt on m.member_type_no=mt.member_type_no 
     where 1=1
-          
-          
+        
     <if test="memberType != ''">
       and member_type_no = #{memberTypeNo}
     </if>
@@ -134,38 +133,7 @@
       member_no asc
   </select>
   
-  <insert id="memberRegi" parameterType="member">
-    insert into member (
-                        name
-                      , email
-                      , phone
-                      , nickname
-                      , use_check
-                      , join_date
-                      , modify_date
-                      , admin_check
-                      , password
-                      , birth
-                      , gender
-                      , sns_no
-                      , member_type_no
-                        ) 
-                values (
-                        #{name}
-                      , #{email}
-                      , #{phone}
-                      , #{nickName}
-                      , 0
-                      , now()
-                      , null
-                      , 'N'
-                      , #{password}
-                      , #{birth}
-                      , #{gender}
-                      , 1
-                      , 1
-                        )
-  </insert>
+
 
 </mapper>
 
