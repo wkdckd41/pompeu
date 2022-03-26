@@ -21,10 +21,4 @@ public class MemberType {
   public void setMemberType(String memberType) {
     this.memberType = memberType;
   }
-
-<<<<<<< HEAD
-=======
-
-
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 }
