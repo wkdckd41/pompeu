@@ -3,7 +3,8 @@ package com.pompeu.admin.member.dao;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
-import com.pompeu.domain.Member;
+import com.pompeu.admin.member.domain.Member;
+
 
 @Mapper
 public interface MemberDao {

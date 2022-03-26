@@ -4,7 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.admin.member.dao.MemberDao;
-import com.pompeu.domain.Member;
+import com.pompeu.admin.member.domain.Member;
+
 
 @RestController
 public class MemberController {
