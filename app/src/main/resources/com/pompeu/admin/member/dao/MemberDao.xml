@@ -128,6 +128,23 @@
             phone=#{phone}
     </select>        
 
+    <!--회원 상세 이메일 조회-->
+    <select id="findByName" resultMap="memberMap" parameterType="String">
+        select
+            member_type_no,
+            name,
+            nickname,
+            email,
+            phone,
+            birth,
+            join_date,
+            login_date,
+        from
+            member
+        where
+            email=#{email}
+    </select>
+
   <!-- 회원 상세 조회 -->
    <select id="srchMember" parameterType="member" resultType="hashmap">
         select 
