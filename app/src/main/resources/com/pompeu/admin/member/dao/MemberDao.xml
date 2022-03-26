@@ -105,10 +105,10 @@
 		 where member_type_no in (1, 2)
   </select>
   
-  <select id="srchMember" parameterType="member" resultType="hashmap">
+  <select id="srchMember" parameterType="member" resultMap="hashMap">
     select 
       m.member_no                                           as member,  
-      m.member_type_no                                     as member_type_no,
+      mt.member_type                                     as member_type,
       m.name                                                as name,
       m.email                                               as email,
       m.phone                                               as phone
@@ -118,7 +118,7 @@
     where 1=1
           
           
-    <if test="memberTypeNo != null and memberTypeNo != 0">
+    <if test="memberType != ''">
       and member_type_no = #{memberTypeNo}
     </if>
     <if test="name != ''">
