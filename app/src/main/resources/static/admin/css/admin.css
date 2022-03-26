@@ -1,0 +1,42 @@
+﻿/*************************
+*******Typography******
+**************************/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+.table-current {
+	 font-weight: bolder;
+  width:35%; 
+  background-color: #E0E0E0; 
+  height: 30px; 
+  text-align: center;
+}
+
+.table-option {
+	height: 20px;
+}
+
+#member_type_no {
+	height: 30px;
+   width:200px;
+   margin-left:4px;
+}
+
+.table-info {
+	font-weight: bolder;
+	width:35%; 
+	background-color: #E0E0E0; 
+	height: 40px; 
+	text-align: center;
+}
+
+.table-infos {
+	text-align: center;
+}
+
+.table-top {
+	background-color: #E0E0E0; 
+  height: 40px;
+}

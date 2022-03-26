@@ -1,4 +1,4 @@
-package com.pompeu.dao;
+package com.pompeu.admin.member.dao;
 
 import java.util.List;
 import java.util.Map;

@@ -20,7 +20,6 @@ public class Member {
   int snsNo;
   int memberTypeNo;
 
-
   @Override
   public String toString() {
     return "Member [no=" + no + ", name=" + name + ", email=" + email + ", phone=" + phone
@@ -120,11 +119,6 @@ public class Member {
   public void setMemberTypeNo(int memberTypeNo) {
     this.memberTypeNo = memberTypeNo;
   }
-
-
-
-
-
 
 
 }
