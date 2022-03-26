@@ -22,18 +22,19 @@
   
   <select id="findAll" resultMap="noticeMap">
     select 
-      notice_no,
-      member_type_no,
-      critical_check,
-      register_date,
-      view_count,
-      name,
-      content,
-      modify_date
+      n.notice_no,
+      t.member_type,
+      n.critical_check,
+      n.name,
+      n.content,
+      n.view_count,
+      n.register_date,
+      n.modify_date
     from 
-      notice
+      member_type t left outer join notice n on t.member_type_no=n.member_type_no
     order by 
-      notice_no asc
+      notice_no desc
+      
   </select>
   
   <insert id="insert" parameterType="notice">
