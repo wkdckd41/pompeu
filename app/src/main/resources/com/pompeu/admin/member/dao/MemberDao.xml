@@ -48,8 +48,8 @@
   </select>
   
   <insert id="insert" parameterType="member">
-    insert into member(name,email,phone,nickname,use_check,join_date,modify_date,admin_check,password,birth,gender,sns_no) 
-    values(#{name},#{email},#{phone},#{nickName},#{useCheck},#{joinDate},#{modifyDate},#{adminCheck},#{password},#{birth},#{gender},#{snsNo})
+    insert into member(member_type_no, name,email,phone,nickname,use_check,join_date,modify_date,admin_check,password,birth,gender,sns_no) 
+    values(#{memberTypeNo},#{name},#{email},#{phone},#{nickName},#{useCheck},#{joinDate},#{modifyDate},#{adminCheck},#{password},#{birth},#{gender},#{snsNo})
   </insert>
   
   <select id="findByNo" resultMap="memberMap" parameterType="int">
