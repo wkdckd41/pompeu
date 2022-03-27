@@ -43,6 +43,7 @@ btn.addEventListener('click', function() {
     }
   
   fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
+  /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
     })
@@ -56,7 +57,8 @@ btn.addEventListener('click', function() {
 
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
-        <td>${mT}</td>
+        <td>${rst.memberType.memberType}</td> 
+
         <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
@@ -65,6 +67,8 @@ btn.addEventListener('click', function() {
       }
     });
 });
+
+         /* rst.memberType.memberType */
 
 function hihi() {
   

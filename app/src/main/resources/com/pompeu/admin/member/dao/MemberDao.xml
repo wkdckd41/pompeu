@@ -5,6 +5,12 @@
   
 <mapper namespace="com.pompeu.admin.member.dao.MemberDao">
 
+  <resultMap type="memberType" id="memberTypeMap">
+    <id column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
+  </resultMap>
+
+
   <resultMap type="member" id="memberMap">
     <id column="member_no" property="no"/>
     <result column="member_type_no" property="memberTypeNo"/>
@@ -21,12 +27,10 @@
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
+		<collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
-  <resultMap type="memberType" id="memberTypeMap">
-    <id column="member_type_no" property="memberTypeNo"/>
-    <result column="member_type" property="memberType"/>
-  </resultMap>
+
 
   <select id="countAll" resultType="int">
     select count(*) from member
@@ -114,12 +118,12 @@
           m.phone                                               as phone
     from 
           member  m
-          left outer join member_type mt 
+          join member_type mt 
                 on m.member_type_no = mt.member_type_no 
     where 1=1
         
-    <if test="memberType != ''">
-        and mt.member_type_no = #{memberTypeNo}
+    <if test="memberTypeNo != ''">
+        and m.member_type_no = #{memberTypeNo}
     </if>
     <if test="name != ''">
         and m.name = #{name}
@@ -129,7 +133,7 @@
     </if>
     <if test="email != ''">
         and m.email = #{email}
-    </if>
+    </if> 
        order by 
           m.member_no asc
   </select>
