@@ -58,8 +58,7 @@ btn.addEventListener('click', function() {
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.memberType.memberType}</td> 
-
-        <td>${rst.name}</td>
+        <td><a href="member_user.html?no=${rst.no}">${rst.name}</a></td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
         tbody2.appendChild(tr);
