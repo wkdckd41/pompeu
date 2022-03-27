@@ -1,28 +1,46 @@
+  var memberTypeNo = document.querySelector("#member_type_nos");
+  var naame = document.querySelector("#names");
+  var nickname = document.querySelector("#nickNames");
+  var email = document.querySelector("#emails");
+  var phone = document.querySelector("#phones");
+  var joinDate = document.querySelector("#join_dates");
+  var loginDate = document.querySelector("#login_dates");
 
 
-  var memberTypeNo = document.querySelector("#member_type_no");
-  var naame = document.querySelector("#name");
-  var nickname = document.querySelector("#nickName");
-  var email = document.querySelector("#email");
-  var phone = document.querySelector("#phone");
-  var joinDate = document.querySelector("#join_date");
-  var loginDate = document.querySelector("#login_date");
+  // 1) URL에서 쿼리스트링(query string)을 추출한다.
+  var arr = location.href.split("?");
+  console.log(arr);
 
-document.addEventListener("DOMContentLoaded", function(){
-  fetch(`/member/list`)
+  if (arr.length == 1) {
+    alert("요청 형식이 옳바르지 않습니다.")
+    throw "URL 형식 오류!";
+  }
+
+  var qs = arr[1];
+  console.log(qs);
+
+  // 2) 쿼리 스트링에서 email 값을 추출한다.
+  var params = new URLSearchParams(qs);
+  var no = params.get("no");
+
+  if (no == null) {
+    alert("독서록 번호가 없습니다.");
+    throw "파라미터 오류!";
+  }
+  console.log(no);
+
+  fetch(`/member/get?no=${no}`)
     .then(function(response) {
       return response.json();
     })
       .then(function(result) {
-	      console.log(result[0]);
+         console.log(result);
       // 4 연락처 상세 정보를 화면에 출력한다.
-      memberTypeNo.value = result[0].memberTypeNo;
-      naame.value = result[0].name;
-      nickname.value = result[0].nickName;
-      email.value = result[0].email;
-      phone.value = result[0].phone;
-      joinDate.value = result[0].joinDate;
-      loginDate = result[0].loginDate;
+      memberTypeNo.innerHTML = result.memberTypeNo;
+      naame.innerHTML = result.name;
+      nickname.innerHTML = result.nickName;
+      email.innerHTML = result.email;
+      phone.innerHTML = result.phone;
+      joinDate.innerHTML = result.joinDate;
+      loginDate.innerHTML = result.loginDate;
     });
-});
-    
