@@ -1,4 +1,10 @@
+<<<<<<< HEAD
   var memberTypeNo = document.querySelector("#member_type_nos");
+=======
+
+
+  var memberType = document.querySelector("#member_type_nos");
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
   var naame = document.querySelector("#names");
   var nickname = document.querySelector("#nickNames");
   var email = document.querySelector("#emails");
@@ -36,11 +42,17 @@
       .then(function(result) {
          console.log(result);
       // 4 연락처 상세 정보를 화면에 출력한다.
-      memberTypeNo.innerHTML = result.memberTypeNo;
+      memberType.innerHTML = result.memberType.memberType;
       naame.innerHTML = result.name;
       nickname.innerHTML = result.nickName;
       email.innerHTML = result.email;
       phone.innerHTML = result.phone;
       joinDate.innerHTML = result.joinDate;
       loginDate.innerHTML = result.loginDate;
+<<<<<<< HEAD
     });
+=======
+    });
+
+    
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
