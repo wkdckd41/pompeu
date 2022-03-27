@@ -71,7 +71,8 @@
       password,
       birth,
       gender,
-      sns_no
+      sns_no,
+      member_type_no
     from 
       member 
     where 
@@ -111,7 +112,7 @@
   
 <select id="srchMember" parameterType="member" resultMap="memberMap">
     select 
-          m.member_no                                           as member,  
+          m.member_no                                           as no,  
           mt.member_type                                        as member_type,
           m.name                                                as name,
           m.email                                               as email,

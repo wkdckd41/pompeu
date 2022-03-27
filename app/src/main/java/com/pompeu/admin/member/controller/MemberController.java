@@ -53,11 +53,12 @@ public class MemberController {
   @RequestMapping("/member/srchMember")
   public Object srchMember(Member member) {
 
+    System.out.println("srchMember : " + member.getNo());
     System.out.println("srchMember : " + member.getName());
     System.out.println("srchMember : " + member.getPhone());
     System.out.println("srchMember : " + member.getEmail());
 
-
+    System.out.println(memberDao.srchMember(member));
     return memberDao.srchMember(member);
   }
 

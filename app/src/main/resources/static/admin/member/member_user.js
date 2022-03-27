@@ -1,28 +1,28 @@
 
 
-  var memberTypeNo = document.querySelector("#member_type_no");
-  var naame = document.querySelector("#name");
-  var nickname = document.querySelector("#nickName");
-  var email = document.querySelector("#email");
-  var phone = document.querySelector("#phone");
-  var joinDate = document.querySelector("#join_date");
-  var loginDate = document.querySelector("login_date");
+  var memberTypeNo = document.querySelector("#member_type_nos");
+  var naame = document.querySelector("#names");
+  var nickname = document.querySelector("#nickNames");
+  var email = document.querySelector("#emails");
+  var phone = document.querySelector("#phones");
+  var joinDate = document.querySelector("#join_dates");
+  var loginDate = document.querySelector("#login_dates");
 
 document.addEventListener("DOMContentLoaded", function(){
-  fetch(`/member/list`)
+  fetch(`/member/get?no={no}`)
     .then(function(response) {
       return response.json();
     })
       .then(function(result) {
-	      console.log(result[0]);
+	      console.log(result);
       // 4 연락처 상세 정보를 화면에 출력한다.
-      memberTypeNo.value = result[0].memberTypeNo;
-      naame.value = result[0].name;
-      nickname.value = result[0].nickName;
-      email.value = result[0].email;
-      phone.value = result[0].phone;
-      joinDate.value = result[0].joinDate;
-      loginDate = result[0].loginDate;
+      memberTypeNo.innerHTML = result.memberTypeNo;
+      naame.innerHTML = result.name;
+      nickname.innerHTML = result.nickName;
+      email.innerHTML = result.email;
+      phone.innerHTML = result.phone;
+      joinDate.innerHTML = result.joinDate;
+      loginDate.innerHTML = result.loginDate;
     });
 });
     
