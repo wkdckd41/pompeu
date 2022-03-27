@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="kor">
 
 <head>
     <meta charset="UTF-8">
@@ -9,10 +9,11 @@
   <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
   <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
- 
+  <link href="../css/common.css" rel="stylesheet">
+  
     
     <title>Document</title>
-    <link href="../css/common.css" rel="stylesheet">
+   
     <style>
     @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
     @media(min-width:768px) {
@@ -35,7 +36,10 @@
     
     @media(min-width:768px) {
     #wrapper {
-    padding-left: 225px;
+    /*padding-left: 225px;*/
+      padding: 20px;
+        margin-bottom: 20px;
+        border: 1px solid #bcbcbc;
     }
     
     #page-wrapper {
@@ -52,7 +56,7 @@
     
     .top-nav>li {
     display: inline-block;
-    float: left;
+    /*float: left;*/
     }
     
     .top-nav>li>a {
@@ -68,21 +72,26 @@
     .top-nav>.open>a:hover,
     .top-nav>.open>a:focus {
     color: #fff;
-    background-color: rgba(46, 204, 113,.3);
+    background-color: #1a242f;
     }
+    
+    /*
     
     .top-nav>.open>.dropdown-menu {
     float: left;
     position: absolute;
     margin-top: 0;
-    /*border: 1px solid rgba(0,0,0,.15);*/
+
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     background-color: #fff;
-    -webkit-box-shadow: 0 6px 12px rgba(46, 204, 113,.175);
-    box-shadow: 0 6px 12px rgba(46, 204, 113,.175);
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgbargba(0,0,0,.175);
     }
     
+ 
+        /*border: 1px solid rgba(0,0,0,.15);*/
+        
     .top-nav>.open>.dropdown-menu>li>a {
     white-space: normal;
     }
@@ -91,38 +100,54 @@
     
     @media(min-width:768px) {
     .side-nav {
-    position: fixed;
+    
+    width: 260px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: right;
+        border: 1px solid #bcbcbc;
+    
+   /* 
+   
+         position: fixed;
     top: 60px;
     left: 225px;
     width: 225px;
     margin-left: -225px;
     border: none;
     border-radius: 0;
-    border-top: 1px rgba(46, 204, 113,.5) solid;
+    border-top: 1px rgba(0,0,0,.5) solid;
     overflow-y: auto;
-    background-color: #7175b7; /* 사이드바 색상 */  
-    /*background-color: #5A6B7D;*/
+    background-color: #222;
+    background-color: #5A6B7D;
     bottom: 0;
     overflow-x: hidden;
-    padding-bottom: 40px;
+    padding-bottom: 40px; 
+    */
+    
+    
     }
+    
+     
+     
+    
     
     .side-nav>li>a {
     width: 225px;
-    border-bottom: 1px rgba(46, 204, 113,.3) solid;
+    border-bottom: 1px rgba(0,0,0,.3) solid;
     font-size : 16px; /* depth 밖 폰트사이즈 */
     }
     
     .side-nav li a:hover,
     .side-nav li a:focus {
     outline: none;
-    background-color: rgba(46, 204, 113,.3) !important;
+    background-color: #1a242f !important;
     }
     }
     
     .side-nav>li>ul {
     padding: 0;
-    border-bottom: 1px rgba(46, 204, 113,.3) solid;
+    border-bottom: 1px rgba(0,0,0,.3) solid;
     }
     
     .side-nav>li>ul>li>a {
@@ -170,15 +195,38 @@
     .navbar-inverse .navbar-nav>li>a {
     color: white;
     }
-    
-    #ihead {
-    background-color: #465865; /* 헤더 색상 #007f66 */
-    }
-    
+
+
     .tog {
     font-size: 12px
     }
 
+ #main{
+ 
+        width: 580px;
+        padding: 20px;
+        margin-bottom: 20px;
+        float: left;
+        border: 1px solid #bcbcbc;
+       
+       /* 
+       position: fixed;
+    top: 60px;
+    right: 225px;
+    width: 940px;
+    margin-right: -255px;
+    border: none;
+    border-radius: 0;
+    border-top: 1px rgba(0,0,0,.5) solid;
+    overflow-y: auto;
+    background-color: white;
+     background-color: #5A6B7D; 
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+    */
+   
+    }
     
     </style>
 </head>
@@ -204,11 +252,11 @@
             </div>
             <!-- Top Menu Items -->
             <ul class="nav navbar-right top-nav" id="people">
-                <li >
+                <li>
                     <a href="#" class="tog" >
                       <i class="fa fa-user">
                       </i>
-                    &nbsp; 크리에이터 1</a>
+                    &nbsp; 관리자</a>
                 </li>
                 <li>
                     <a href="#" class="tog" >로그아웃 </a>
@@ -224,17 +272,63 @@
                         <li><a href="#"><i lecture="fa fa-fw fa-power-off"></i> Logout</a></li>
                     </ul>
                 </li>-->
-                
-                
             </ul>
+            
+            
+            
+             <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row" id="main">
+                    <div class="col-sm-12 col-md-12 well" id="content">
+                        <h1>관리자  컨텐츠영역입니다</h1>
+<form>
+이름*: <input id="x-name" type="text"><br>
+<div id="x-tel-div-container">
+<div class="x-tel-div">
+전화*: <select>
+        <option value="1">전화</option>
+        <option value="2">팩스</option>
+        <option value="3">휴대전화</option>
+        <option value="4">직장전화</option>
+        <option value="5">직장팩스</option>
+       </select> 
+       <input type="text">
+       <button type="button" onclick="deleteDiv(event)">삭제</button>
+</div>
+</div>
+<button type="button" id="x-add-tel-btn">전화번호 추가입력</button><br>
+이메일*: <input id="x-email" type="text"><br>
+회사: <input id="x-company" type="text"><br>
+별표(*) 항목은 필수 입력입니다.<br>
+<button id="x-update-btn" type="button">변경</button>
+<button id="x-delete-btn" type="button">삭제</button>
+<button id="x-cancel-btn" type="button">취소</button>
+</form>
+                        
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div>
+        <!-- /#page-wrapper -->  
+            
+            
+            
+            
+            
+            
+            
+            
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse" id=ihead>
       <ul class="nav navbar-nav side-nav">
          <li>
-          <a href="investigaciones/favoritas"><i class="fa fa-delicious" aria-hidden="true"></i> &nbsp; 대시보드</a>
+          <a href="#"><i class="fa fa-delicious" aria-hidden="true"></i> &nbsp; 대시보드</a>
         </li>
         <li>
-          <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-bars"></i> &nbsp; 클래스관리 <i
+          <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-bars"></i> &nbsp; 회원 관리 <i
               class="fa fa-fw fa-angle-down pull-right"></i></a>
           <ul id="submenu-1" class="collapse">
             <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 조회</a></li>
@@ -242,14 +336,18 @@
           </ul>
         </li>
         <li>
-          <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-bars"></i> &nbsp; 커뮤니티 관리 <i
+          <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-bars"></i> &nbsp; 클래스 관리 <i
               class="fa fa-fw fa-angle-down pull-right"></i></a>
-          <ul id="submenu-2" class="collapse">
-            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 문의 관리</a></li>
+          <ul id="submenu-1" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 조회</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 개설 요청</a></li>
           </ul>
         </li>
+         <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-bars"></i> &nbsp; 소모임 관리</a>
+        </li>
         <li>
-          <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-bars"></i> &nbsp; 고객지원 <i
+          <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-bars"></i> &nbsp; 고객지원 관리 <i
               class="fa fa-fw fa-angle-down pull-right"></i></a>
           <ul id="submenu-3" class="collapse">
             <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 공지사항</a></li>
@@ -257,27 +355,12 @@
             <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 1:1 문의</a></li>
           </ul>
         </li>
-        <li>
-          <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-bars"></i> &nbsp; 크리에이터 정보</a>
-        </li>
       </ul>
     </div>
     <!-- /.navbar-collapse -->
         </nav>
     
-        <div id="page-wrapper">
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <div class="row" id="main">
-                    <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>크리에이터 페이지 양식입니다</h1>
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div>
-        <!-- /#page-wrapper -->
+     
     </div><!-- /#wrapper -->
     </div>
       <script src="js/jquery.js"></script>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+  <link rel="stylesheet" href="../css/common.css">
+<style>
+.headers {
+border-style: dotted;
+}
+.footers{
+border-style: dotted;
+}
+</style>
+
+</head>
+<body>
+<div class="headers" id="headers"></div>
+
+
+
+<div class="container">
+<h1>POMPEU 오신 걸 환영합니다!</h1>
+<p> pompeu 프로젝트입니다.</p>
+<ul>
+  <li><a href="exerciseTest/exerciseTest.html">운동추천</a></li>
+  <li><a href="clss/index.html">클래스</a></li>
+  <li><a href="party/index.html">소모임</a></li>
+  <li><a href="mypage/index.html">마이페이지</a></li>
+  <li><a href="center/index.html">고객센터</a></li>
+  <li><a href="login/index.html">로그인</a></li>
+  <li><a href="join/index.html">회원가입</a></li>
+</ul>
+</div>
+
+
+<div class="footers" id="footers"></div>
+</body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script type="text/javascript">
+console.log("dddd");
+
+//반환된 HTML을 일치하는 요소에 넣는방법 
+// 기본구조 
+// $( "#result" ).load( "ajax/test.html" );
+$(".headers").load("/page/headers.html");
+$("#footers").load("/page/footers.html");
+//$("#footers").load("/page/footers.html #pompeu");
+
+</script>
+
+
+
+
+</html>

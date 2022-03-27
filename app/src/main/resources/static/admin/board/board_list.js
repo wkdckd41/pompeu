@@ -1,19 +1,73 @@
-document.addEventListener("DOMContentLoaded", function(){
-   fetch("/member/findCount")
+
+
+  var partyNo = document.querySelector("#party_no");
+  var name = document.querySelector("#name");
+  // var nickname = document.querySelector("#");
+  // var email = document.querySelector("#");
+  var registerDate = document.querySelector("#register_date");
+  var status = document.querySelector("#status");
+
+  fetch(`/party/get?no=${no}`)
     .then(function(response) {
       return response.json();
     })
-    .then(function(result) {
-      console.log(result);
-      for (var rst of result) {
-        var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${rst.total}</td>
-        <td>${rst.creator}</a></td>
-        <td>${rst.user}</td>`;
-        document.querySelector("#tbody1").appendChild(tr);
-      }
+      .then(function(party) {
+      no.value = party.partyNo;
+      name.value = party.name;
+      // nickname.value = member.nickName;
+      // email.value = member.email;
+      registerDate.value = party.registerDate;
+      status.value = party.status;
     });
-});
+    
+    
+    
+    
+    
+    
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -25,15 +79,11 @@ btn.addEventListener('click', function() {
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
-  var memberType = document.getElementById("member_type_no");
-  mT = memberType.options[memberType.selectedIndex].text;
 
   console.log("name : " + name);
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
-  console.log(mT);
-  
   
   var tbody2 = document.querySelector("#tbody2");
 
@@ -43,7 +93,6 @@ btn.addEventListener('click', function() {
     }
   
   fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
-  /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
     })
@@ -57,8 +106,8 @@ btn.addEventListener('click', function() {
 
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
-        <td>${rst.memberType.memberType}</td> 
-        <td><a href="member_user.html?no=${rst.no}">${rst.name}</a></td>
+        <td>${rst.member_type_no_name}</a></td>
+        <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
         tbody2.appendChild(tr);
@@ -67,14 +116,11 @@ btn.addEventListener('click', function() {
     });
 });
 
-         /* rst.memberType.memberType */
-
 function hihi() {
   
-  //document.querySelector("#name").value = '';
-  //document.querySelector("#phone").value = '';
-  //document.querySelector("#email").value = '';
-  //document.querySelector("#member_type_no").value = 0;
-location.reload();
+  document.querySelector("#name").value = '';
+  document.querySelector("#phone").value = '';
+  document.querySelector("#email").value = '';
+  document.querySelector("#member_type_no").value = 0;
   
 }

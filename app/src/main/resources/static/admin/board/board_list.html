@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="/admin/css/boardList.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="..css/font-awesome.min.css" rel="stylesheet">
+  <link href="..css/prettyPhoto.css" rel="stylesheet">
+  <link href="..css/price-range.css" rel="stylesheet">
+  <link href="..css/animate.css" rel="stylesheet">
+  <link href="..css/main.css" rel="stylesheet">
+  <link href="..css/responsive.css" rel="stylesheet">
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: rgb(249,252,251);
+  }
+  
+  </style>
+  
+</head>
+
+<body>
+<div class="container">
+  <h2 style="margin-left: 30px;">소모임 관리</h2>
+  
+    <button type="button" id="totalBtn" class="btnMenu" >전체</button>
+    <button type="button" id="partyBtn" class="btnMenu">소모임</button>
+    <button type="button" id="claimBtn" class="btnMenu">신고게시글</button>
+
+ <br>
+
+<!--
+  <div class="search">
+    <input id="input-box" type="text" placeholder="검색어를 입력하세요">
+    <button id="input-button"><i class="fa fa-dribbble"></i></button>
+  </div>
+-->
+
+  <div style="margin-left: 50px;">
+    <table style="width:80%;">
+      <thead>
+        <tr>
+          <th class="table-top">No.</th>
+          <th class="table-top">제목</th>
+          <th class="table-top">글쓴이</th>
+          <th class="table-top">조회</th>
+          <th class="table-top">날짜</th>
+          <th class="table-top">신고여부</th>
+        </tr>
+      </thead>
+      <tbody id="tbody">
+      </tbody>      
+    </table>
+  </div>
+  
+</div>
+  
+</body>
+<script src="memberList.js"></script>
+</html>

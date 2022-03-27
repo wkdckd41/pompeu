@@ -29,10 +29,7 @@ public class MemberController {
   @RequestMapping("/member/get")
   public Object get(int no) {
     Member member = memberDao.findByNo(no);
-    if (member == null) {
-      return "";
-    }
-    return member;
+    return member != null ? member : "";
   }
 
   @RequestMapping("/member/update")

@@ -1,0 +1,101 @@
+﻿/*************************
+*******Typography******
+**************************/
+
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel);
+
+
+button {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.btnMenu {
+	margin: 0;
+	padding: 0.5rem 1rem;
+	font-size: 10px;
+	font-weight:400;
+	text-align: center;
+	text-decoration: none;
+	
+	position:relative;
+	left:40px;
+	
+	display: inline-block;
+	width: auto;
+	
+	border:none;
+	outline:none;
+	background-color: transparent;
+}
+
+.btnMenu {
+    margin: 5px;
+    text-decoration: none;
+    color: gray;
+    font-size: 18px;
+    font-weight: bold;  
+  }
+
+
+/**
+.search {
+	height: 30px;
+	width: 180px;
+	border: 1px solid #E0E0E0;
+	background :#ffffff;
+}
+
+#input-box {
+	font-size: 10px;
+	width: 110px;
+	height: 10px;
+	padding:10px;
+	border: 0px;
+	outline: none;
+}
+
+#input-button {
+	font-size:10px;
+	width: 30px;
+	height: 30px;
+	border: 0px
+	background #E0E0E0;
+	outline: none;
+	float: right;
+	color: #ffffff;
+}
+
+**/
+.table-current {
+	font-weight: bolder;
+  width:35%; 
+  background-color: #E0E0E0; 
+  height: 30px; 
+  text-align: center;
+}
+
+.table-option {
+	height: 20px;
+}
+
+
+.table-info {
+	font-weight: bolder;
+	width:35%; 
+	background-color: #E0E0E0; 
+	height: 40px; 
+	text-align: center;
+}
+
+.table-infos {
+	text-align: center;
+}
+
+.table-top {
+	background-color: #E0E0E0; 
+  height: 40px;
+}
