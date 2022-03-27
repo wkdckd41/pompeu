@@ -72,9 +72,10 @@ btn.addEventListener('click', function() {
 
 function hihi() {
   
-  document.querySelector("#name").value = '';
-  document.querySelector("#phone").value = '';
-  document.querySelector("#email").value = '';
-  document.querySelector("#member_type_no").value = 0;
+  //document.querySelector("#name").value = '';
+  //document.querySelector("#phone").value = '';
+  //document.querySelector("#email").value = '';
+  //document.querySelector("#member_type_no").value = 0;
+location.reload();
   
 }
