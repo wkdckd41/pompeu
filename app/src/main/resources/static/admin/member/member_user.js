@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-  var memberTypeNo = document.querySelector("#member_type_nos");
-=======
 
 
   var memberType = document.querySelector("#member_type_nos");
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
   var naame = document.querySelector("#names");
   var nickname = document.querySelector("#nickNames");
   var email = document.querySelector("#emails");
@@ -49,10 +45,6 @@
       phone.innerHTML = result.phone;
       joinDate.innerHTML = result.joinDate;
       loginDate.innerHTML = result.loginDate;
-<<<<<<< HEAD
-    });
-=======
     });
 
     
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git

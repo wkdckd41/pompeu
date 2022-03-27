@@ -63,8 +63,8 @@
           m.nickname                                            as nickname,
           m.email                                               as email,
           m.phone                                               as phone,
-					m.join_date                                           as join_date,
-					m.login_date                                          as login_date
+               m.join_date                                           as join_date,
+               m.login_date                                          as login_date
     from 
           member  m
           join member_type mt 
