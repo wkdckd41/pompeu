@@ -58,7 +58,6 @@ btn.addEventListener('click', function() {
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.memberType.memberType}</td> 
-
         <td>${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
