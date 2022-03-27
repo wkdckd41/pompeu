@@ -20,16 +20,20 @@ document.addEventListener("DOMContentLoaded", function(){
   var btn = document.getElementById("srchBtn");
 
 btn.addEventListener('click', function() {
-	
-	var name = document.querySelector("#name").value;
+  
+  var name = document.querySelector("#name").value;
   var phone = document.querySelector("#phone").value;
   var email = document.querySelector("#email").value;
   var memberTypeNo = document.querySelector("#member_type_no").value;
+  var memberType = document.getElementById("member_type_no");
+  mT = memberType.options[memberType.selectedIndex].text;
 
   console.log("name : " + name);
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
+  console.log(mT);
+  
   
   var tbody2 = document.querySelector("#tbody2");
 
@@ -39,6 +43,7 @@ btn.addEventListener('click', function() {
     }
   
   fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
+  /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
     })
@@ -52,8 +57,8 @@ btn.addEventListener('click', function() {
 
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
-        <td>${rst.member_type_no_name}</a></td>
-        <td>${rst.name}</td>
+        <td>${rst.memberType.memberType}</td> 
+        <td><a href="member_user.html?no=${rst.no}">${rst.name}</td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
         tbody2.appendChild(tr);
@@ -62,11 +67,14 @@ btn.addEventListener('click', function() {
     });
 });
 
+         /* rst.memberType.memberType */
+
 function hihi() {
-	
-	document.querySelector("#name").value = '';
-  document.querySelector("#phone").value = '';
-  document.querySelector("#email").value = '';
-  document.querySelector("#member_type_no").value = 0;
-	
+  
+  //document.querySelector("#name").value = '';
+  //document.querySelector("#phone").value = '';
+  //document.querySelector("#email").value = '';
+  //document.querySelector("#member_type_no").value = 0;
+location.reload();
+  
 }
