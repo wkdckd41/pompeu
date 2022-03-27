@@ -26,10 +26,8 @@
       t.member_type,
       n.critical_check,
       n.name,
-      n.content,
       n.view_count,
-      n.register_date,
-      n.modify_date
+      n.register_date
     from 
       member_type t left outer join notice n on t.member_type_no=n.member_type_no
     order by 
@@ -44,16 +42,16 @@
 
   <select id="findByNo" resultMap="noticeMap" parameterType="int">
     select 
-      notice_no,
-      member_type_no,
-      critical_check,
-      register_date,
-      view_count,
-      name,
-      content,
-      modify_date
-    from 
-      notice
+      n.notice_no,
+      t.member_type_no,
+      n.critical_check,
+      n.register_date,
+      n.view_count,
+      n.name,
+      n.content,
+      n.modify_date
+      from 
+      member_type t left outer join notice n on t.member_type_no=n.member_type_no
     where 
       notice_no=#{no}
   </select>
