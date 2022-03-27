@@ -6,7 +6,7 @@
   var email = document.querySelector("#email");
   var phone = document.querySelector("#phone");
   var joinDate = document.querySelector("#join_date");
-  var loginDate = document.querySelector("login_date");
+  var loginDate = document.querySelector("#login_date");
 
   fetch(`/member/get?no=${no}`)
     .then(function(response) {
