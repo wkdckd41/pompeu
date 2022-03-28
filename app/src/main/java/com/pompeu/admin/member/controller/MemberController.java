@@ -59,6 +59,4 @@ public class MemberController {
     return memberDao.srchMember(member);
   }
 
-
-
 }
