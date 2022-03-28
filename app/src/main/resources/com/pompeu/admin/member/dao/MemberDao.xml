@@ -30,6 +30,7 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
+
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
     <result column="image" property="image"/>
@@ -70,10 +71,7 @@
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
-  </resultMap>
-
-
-
+  </resultMap> 
 
   <select id="countAll" resultType="int">
     select count(*) from member
@@ -116,6 +114,8 @@
       m.member_no=#{no}
   </select>
 
+<<<<<<< HEAD
+=======
   <!--select id="findByNoClass" resultMap="HashMap" parameterType="int">
     select  
           c.name                                                as name,
@@ -136,6 +136,7 @@
       m.member_no=#{no}
   </select--> 
 
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
   <update id="update" parameterType="member">
     update member set 
         name=#{name},
@@ -194,6 +195,26 @@
     </if> 
        order by 
           m.member_no asc
+  </select>
+
+  <select id="findByNoClass" resultType="HashMap" parameterType="int">
+    select  
+          c.name                                                as name,
+          c.start_date                                          as startDate,
+          c.end_date                                            as endDate,
+          c.status                                              as status
+    from 
+          member as m
+    join users as u 
+          on m.member_no = u.users_no
+    join myclass_list as ml 
+          on u.users_no = ml.users_no
+		join class_time as ct 
+          on ml.class_time_no = ct.class_time_no 
+		join class as c
+          on ct.class_no = c.class_no
+    where 
+      m.member_no=#{no}
   </select>
 
 

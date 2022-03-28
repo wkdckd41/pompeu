@@ -47,4 +47,40 @@
       loginDate.innerHTML = result.loginDate;
     });
 
+
+
+  var tbody2 = document.querySelector("#tbody2");
+
+    while (tbody2.hasChildNodes()) {
+        tbody2.removeChild(tbody2.firstChild);
+    }
+  
+  fetch(`/member/getClass?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      var count = 0;
+      
+      for (var rst of result) {
+        count = count + 1;
+
+        var tr = document.createElement("tr");
+        tr.innerHTML = `<td>`+count+`</td>
+        <td>${rst.name}</td> 
+        <td>${rst.startDate}</td>
+        <td>${rst.endDate}</td>
+        <td>${rst.status}</td>`;
+        tbody2.appendChild(tr);
+        
+      }
+    });
+
+
+
+
+
+
     

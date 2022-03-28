@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class myclassList {
 
-  int myclassListNo;
+  int no;
   int usersNo;
   int classTimeNo;
   int registerMember;
