@@ -116,6 +116,7 @@
       m.member_no=#{no}
   </select>
 
+
   <select id="findByNoClass" resultMap="HashMap" parameterType="int">
     select  
           c.name                                                as name,
