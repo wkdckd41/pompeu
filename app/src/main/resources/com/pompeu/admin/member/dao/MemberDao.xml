@@ -114,6 +114,29 @@
       m.member_no=#{no}
   </select>
 
+<<<<<<< HEAD
+=======
+  <!--select id="findByNoClass" resultMap="HashMap" parameterType="int">
+    select  
+          c.name                                                as name,
+          c.start_date                                          as start_date,
+          c.end_date                                            as end_date,
+          c.status                                              as status
+    from 
+          member as m
+    join users as u 
+          on m.member_no = u.users_no
+    join myclass_list as ml 
+          on u.users_no = ml.users_no
+      join class_time as ct 
+          on ml.class_time_no = ct.class_time_no 
+      join class as c
+          on ct.class_no = c.class_no
+    where 
+      m.member_no=#{no}
+  </select--> 
+
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
   <update id="update" parameterType="member">
     update member set 
         name=#{name},

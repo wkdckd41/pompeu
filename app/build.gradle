@@ -4,7 +4,10 @@ plugins {
   id 'java'
   id 'eclipse'
   id "io.freefair.lombok" version "6.4.1"
+<<<<<<< HEAD
+=======
   
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 }
 
 group = 'com.pompeu'

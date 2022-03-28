@@ -59,11 +59,10 @@ public class MemberController {
     return memberDao.srchMember(member);
   }
 
+
   @RequestMapping("/member/getClass")
   public Object getClass(int no) {
     return memberDao.findByNoClass(no);
   }
-
-
 
 }

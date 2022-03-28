@@ -28,6 +28,3 @@ public interface MemberDao {
 
 }
 
-
-
-
