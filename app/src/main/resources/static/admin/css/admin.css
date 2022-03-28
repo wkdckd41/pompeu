@@ -1,4 +1,4 @@
-﻿/*************************
+﻿﻿/*************************
 *******Typography******
 **************************/
 
@@ -40,7 +40,6 @@
 	background-color: #E0E0E0; 
   height: 40px;
 }
-
 
 button {
   -webkit-appearance: none;
@@ -145,4 +144,29 @@ button {
   height:40px;
 }
 
+.parent{
+	display:flex;
+}
 
+.user-list {
+	height:400px;
+  width:365px;
+  background-color: #E0E0E0; 
+  margin-left: 50px;
+  margin-bottom: 20px;
+}
+
+.party-summary {
+	height:400px;
+  width:300px;
+  background-color: #E0E0E0; 
+  margin-left: 30px;
+}
+
+.party-detail {
+	height:400px;
+  width:700px;
+  background-color: #E0E0E0; 
+  margin-left: 50px;
+  margin-bottom: 20px;
+}

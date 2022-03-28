@@ -116,8 +116,7 @@
       m.member_no=#{no}
   </select>
 
-
-  <select id="findByNoClass" resultMap="HashMap" parameterType="int">
+  <!--select id="findByNoClass" resultMap="HashMap" parameterType="int">
     select  
           c.name                                                as name,
           c.start_date                                          as start_date,
@@ -129,14 +128,13 @@
           on m.member_no = u.users_no
     join myclass_list as ml 
           on u.users_no = ml.users_no
-		join class_time as ct 
+      join class_time as ct 
           on ml.class_time_no = ct.class_time_no 
-		join class as c
+      join class as c
           on ct.class_no = c.class_no
     where 
       m.member_no=#{no}
-  </select>
-
+  </select--> 
 
   <update id="update" parameterType="member">
     update member set 
