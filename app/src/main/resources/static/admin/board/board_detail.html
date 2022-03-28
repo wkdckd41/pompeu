@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="/admin/css/boardList.css" rel="stylesheet">
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="..css/font-awesome.min.css" rel="stylesheet">
+  <link href="..css/prettyPhoto.css" rel="stylesheet">
+  <link href="..css/price-range.css" rel="stylesheet">
+  <link href="..css/animate.css" rel="stylesheet">
+  <link href="/admin/css/admin.css" rel="stylesheet">
+  <link href="..css/responsive.css" rel="stylesheet">
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: rgb(249,252,251);
+  }  
+  </style>
+  
+</head>
+
+<body>
+<div class="container">
+  <h2 style="margin-left: 30px;">소모임 관리_상세</h2>
+  
+  <div class="claim-container">
+  <div class="claim-container-detail">
+  <h2>신고내역</h2>
+    <span>신고인 : </span> <span id="claim_user">이용자 아이디</span>
+    <span> │ 신고일시 : </span> <span id="claim_date">신고 날짜</span>
+    <br>
+    <br>
+    <span>신고사유 : </span>
+    <br>
+    <div class="claim-detail">
+    </div>
+      <button type="button" class="btn-claim-cancel">게시글 신고해제</button>
+      <button type="button" class="btn-claim-hide">게시글 가리기</button>
+    </div>
+    
+  </div>
+</div>
+</body>
+<script src="memberList.js"></script>
+</html>
