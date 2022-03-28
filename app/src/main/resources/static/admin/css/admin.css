@@ -40,3 +40,44 @@
 	background-color: #E0E0E0; 
   height: 40px;
 }
+
+.claim-container {
+	height:250px;
+	width:700px;
+	background-color: #E0E0E0; 
+	border-radius: 30px;
+	margin-left: 50px;
+	margin-bottom: 30px;
+}
+
+.claim-container-detail {
+	margin-top: 20px;
+	margin-left:30px;
+}
+
+.claim-detail {
+	height:50px;
+  width:640px;
+  background-color: rgb(240, 240, 240);
+  margin-top: 10px;
+}
+
+.btn-claim-cancel{
+	background-color:#00CC66;
+	color:#F3ECEC;
+	height:40px;
+	font-size: 20x;
+	font-weight: bolder;
+	margin-left : 420px;
+	margin-top : 13px;
+	margin-right: 5px;
+}
+
+.btn-claim-hide{
+  background-color:#F62C6F;
+  color:#F3ECEC;
+  font-weight: bolder;
+  height:40px;
+}
+
+

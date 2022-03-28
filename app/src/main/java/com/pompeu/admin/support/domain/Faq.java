@@ -1,4 +1,4 @@
-package com.pompeu.domain;
+package com.pompeu.admin.support.domain;
 
 import lombok.Data;
 

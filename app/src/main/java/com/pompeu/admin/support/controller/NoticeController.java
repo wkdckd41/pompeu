@@ -33,6 +33,7 @@ public class NoticeController {
     if (notice == null) {
       return "";
     }
+    noticeDao.increaseViewCount(no);
     return notice;
   }
 
