@@ -114,8 +114,6 @@
       m.member_no=#{no}
   </select>
 
-<<<<<<< HEAD
-=======
   <!--select id="findByNoClass" resultMap="HashMap" parameterType="int">
     select  
           c.name                                                as name,
@@ -136,7 +134,6 @@
       m.member_no=#{no}
   </select--> 
 
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
   <update id="update" parameterType="member">
     update member set 
         name=#{name},
