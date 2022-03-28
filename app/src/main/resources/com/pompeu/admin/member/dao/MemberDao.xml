@@ -30,6 +30,49 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
+  <resultMap type="users" id="usersMap">
+    <id column="users_no" property="no"/>
+    <result column="image" property="image"/>
+    <result column="ex_type_no" property="exTypeNo"/>
+  </resultMap>
+
+  <resultMap type="myclassList" id="myclassListMap">
+    <id column="myclass_list_no" property="no"/>
+    <result column="users_no" property="usersNo"/>
+    <result column="class_time_no" property="classTimeNo"/>
+    <result column="register_member" property="registerMember"/>
+    <result column="pay_status" property="payStatus"/>
+    <result column="content" property="content"/>
+    <result column="registerDate" property="registerDate"/>
+    <result column="rate" property="rate"/>
+  </resultMap>
+
+  <resultMap type="classTime" id="classTimeMap">
+    <id column="class_time_no" property="no"/>
+    <result column="class_no" property="classNo"/>
+    <result column="start_time" property="startTime"/>
+    <result column="end_time" property="endTime"/>
+    <result column="max_member" property="maxMember"/>
+  </resultMap>
+
+  <resultMap type="class" id="classMap">
+    <id column="class_no" property="no"/>
+    <result column="location_no" property="locationNo"/>
+    <result column="creator_no" property="creatorNo"/>
+    <result column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
+    <result column="start_date" property="startDate"/>
+    <result column="end_date" property="endDate"/>
+    <result column="class_price" property="classPrice"/>
+    <result column="class_info" property="classInfo"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="status" property="status"/>
+    <result column="admin_message" property="adminMessage"/>
+    <result column="total_rate" property="totalRate"/>
+    <result column="in_out_ex" property="inOutEx"/>
+  </resultMap>
+
+
 
 
   <select id="countAll" resultType="int">
@@ -72,6 +115,27 @@
     where 
       m.member_no=#{no}
   </select>
+
+  <select id="findByNoClass" resultMap="HashMap" parameterType="int">
+    select  
+          c.name                                                as name,
+          c.start_date                                          as start_date,
+          c.end_date                                            as end_date,
+          c.status                                              as status
+    from 
+          member as m
+    join users as u 
+          on m.member_no = u.users_no
+    join myclass_list as ml 
+          on u.users_no = ml.users_no
+		join class_time as ct 
+          on ml.class_time_no = ct.class_time_no 
+		join class as c
+          on ct.class_no = c.class_no
+    where 
+      m.member_no=#{no}
+  </select>
+
 
   <update id="update" parameterType="member">
     update member set 
