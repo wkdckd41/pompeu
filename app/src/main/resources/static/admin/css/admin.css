@@ -2,9 +2,11 @@
 *******Typography******
 **************************/
 
+{
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
+}
 
 .table-current {
 	font-weight: bolder;
@@ -20,8 +22,8 @@
 
 #member_type_no {
 	height: 30px;
-   width:200px;
-   margin-left:4px;
+  width:200px;
+  margin-left:4px;
 }
 
 .table-info {
@@ -56,7 +58,7 @@ button {
   text-decoration: none;
   
   position:relative;
-  left:40px;
+  left: 40px;
   
   display: inline-block;
   width: auto;
@@ -102,7 +104,6 @@ button {
   float: right;
   color: #ffffff;
 }
-
 **/
 
 .claim-container {
@@ -126,7 +127,7 @@ button {
   margin-top: 10px;
 }
 
-.btn-claim-cancel{
+.btn-claim-cancel {
 	background-color:#00CC66;
 	color:#F3ECEC;
 	height:40px;
@@ -137,14 +138,14 @@ button {
 	margin-right: 5px;
 }
 
-.btn-claim-hide{
+.btn-claim-hide {
   background-color:#F62C6F;
   color:#F3ECEC;
   font-weight: bolder;
   height:40px;
 }
 
-.parent{
+.parent {
 	display:flex;
 }
 
