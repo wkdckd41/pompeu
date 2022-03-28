@@ -20,7 +20,7 @@
   th, td {
     background-color: rgb(249,252,251);
   }
-  
+/**
   .topMenu { 
     height: 30px;
     width: 700px;
@@ -38,7 +38,7 @@
     text-align: center;
   }
   
-  .topMenu .menuLink {
+  .topMenu .nav-link {
     text-decoration: none;
     color: gray;
     display: block;
@@ -47,10 +47,11 @@
     font-weight: bold;  
   }
 
-  .topMenu .menuLink:hover {
+  .topMenu .nav-Link:hover {
     color: black;
     font-weight: bold;
   }
+  **/
   </style>
   
 </head>
@@ -62,15 +63,15 @@
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-Total" href="#">Pompeu</a>
+      <a class="navbar-brand" href="#">POMPEU</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navabar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="topMenu">
+      <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-        <li class="nav-item"><a class="menuLink" href="#">전체</a></li>
-        <li class="nav-item"><a class="menuLink" href="#">소모임</a></li>
-        <li class="nav-item"><a class="menuLink" href="#">신고게시글</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">전체</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">소모임</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">신고게시글</a></li>
       </ul>
       </div>
     </div>
