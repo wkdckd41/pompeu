@@ -23,13 +23,13 @@ public class NoticeController {
 
   @RequestMapping("/notice/add")
   public Object add(Notice notice) {
-    return noticeDao.insert(notice);
+    return noticeService.add(notice);
   }
 
 
   @RequestMapping("/notice/get")
   public Object get(int no) {
-    Notice notice = noticeDao.findByNo(no);
+    Notice notice = noticeService.get(no);
     if (notice == null) {
       return "";
     }
