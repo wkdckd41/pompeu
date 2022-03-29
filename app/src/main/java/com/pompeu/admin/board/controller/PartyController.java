@@ -1,9 +1,9 @@
-package com.pompeu.controller;
+package com.pompeu.admin.board.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.dao.PartyDao;
+import com.pompeu.admin.board.dao.PartyDao;
 import com.pompeu.domain.Party;
 
 @RestController 
