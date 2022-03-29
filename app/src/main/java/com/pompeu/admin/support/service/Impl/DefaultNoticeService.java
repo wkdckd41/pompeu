@@ -14,8 +14,8 @@ public class DefaultNoticeService implements NoticeService{
   NoticeDao noticeDao;
 
   @Override
-  public  add(Notice notice) {
-
+  public int add(Notice notice) {
+    return noticeDao.insert(notice);
   }
 
   @Override
@@ -25,7 +25,7 @@ public class DefaultNoticeService implements NoticeService{
 
   @Override
   public Notice get(int no) {
-    return null;
+    return noticeDao.findByNo(no);
   }
 
   @Override
