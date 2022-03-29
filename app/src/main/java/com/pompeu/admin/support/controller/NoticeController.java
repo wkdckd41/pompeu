@@ -14,7 +14,7 @@ public class NoticeController {
   //   Spring Boot가 NoticeController 객체를 만들 때 NoticeDao 구현체를 찾아 자동으로 주입한다. 
   //
   @Autowired
-  NoticeService  noticeService;
+  NoticeService noticeService;
 
   @RequestMapping("/notice/list")
   public Object list() {
