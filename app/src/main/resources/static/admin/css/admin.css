@@ -8,6 +8,14 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 }
 
+.nav-link {
+	font-size: 15px;
+}
+
+.collapse navbar-collapse{
+	width:50px;
+}
+
 .table-current {
 	font-weight: bolder;
   width:35%; 
@@ -39,8 +47,22 @@
 }
 
 .table-top {
+	font-size : 13px;
 	background-color: #E0E0E0; 
   height: 40px;
+}
+
+.bg-light {
+	background-color: transparent;
+}
+
+.navbar-brand{
+  padding-inline: 20px;
+  margin-right: 0rem;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
 }
 
 button {
