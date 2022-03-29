@@ -68,11 +68,34 @@
         count = count + 1;
 
         var tr = document.createElement("tr");
+				var st
+				
+				switch (rst.status) {
+  			case 1:
+    		st = "개설신청";
+   			break;
+  			case 2:
+    		st = "수강대기";
+   			break;
+  			case 3:
+    		st = "수강중";
+   			break;
+  			case 4:
+    		st = "수강완료";
+   			break;
+  			case 9:
+    		st = "승인보류";
+   			break;
+  			default:
+    		st = "값이 없쪙";
+}
+				
+				
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.name}</td> 
         <td>${rst.startDate}</td>
         <td>${rst.endDate}</td>
-        <td>${rst.status}</td>`;
+        <td>${st}</td>`;
         tbody2.appendChild(tr);
         
       }
