@@ -54,6 +54,7 @@
     <result column="start_time" property="startTime"/>
     <result column="end_time" property="endTime"/>
     <result column="max_member" property="maxMember"/>
+    <result column="no_member" property="noMember"/>
   </resultMap>
 
   <resultMap type="class" id="classMap">
@@ -72,6 +73,15 @@
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
   </resultMap> 
+
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="no"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+  </resultMap>
+
+
 
   <select id="countAll" resultType="int">
     select count(*) from member
@@ -113,26 +123,6 @@
     where 
       m.member_no=#{no}
   </select>
-
-  <!--select id="findByNoClass" resultMap="HashMap" parameterType="int">
-    select  
-          c.name                                                as name,
-          c.start_date                                          as start_date,
-          c.end_date                                            as end_date,
-          c.status                                              as status
-    from 
-          member as m
-    join users as u 
-          on m.member_no = u.users_no
-    join myclass_list as ml 
-          on u.users_no = ml.users_no
-      join class_time as ct 
-          on ml.class_time_no = ct.class_time_no 
-      join class as c
-          on ct.class_no = c.class_no
-    where 
-      m.member_no=#{no}
-  </select--> 
 
   <update id="update" parameterType="member">
     update member set 
@@ -194,7 +184,7 @@
           m.member_no asc
   </select>
 
-  <select id="findByNoClass" resultType="HashMap" parameterType="int">
+  <select id="findUserClass" resultType="HashMap" parameterType="int">
     select  
           c.name                                                as name,
           c.start_date                                          as startDate,
@@ -212,6 +202,45 @@
           on ct.class_no = c.class_no
     where 
       m.member_no=#{no}
+  </select>
+
+  <select id="findCreatorClass" resultType="HashMap" parameterType="int">
+    select  
+          c.name                                                as name,
+          c.start_date                                          as startDate,
+          c.end_date                                            as endDate,
+          ct.no_member                                          as noMember,
+          ct.max_member                                         as maxMember,
+          c.status                                              as status
+    from 
+          member as m
+    join creator as cr 
+          on m.member_no = cr.creator_no
+    join class as c 
+          on cr.creator_no = c.creator_no
+    join class_time as ct 
+          on c.class_no = ct.class_no 
+    where 
+      m.member_no=#{no}
+  </select>
+
+  <select id="findApplyingClass" resultType="HashMap" parameterType="int">
+    select  
+          c.name                                                as name,
+          c.start_date                                          as startDate,
+          c.end_date                                            as endDate,
+          ct.max_member                                         as maxMember,
+          c.status                                              as status
+    from 
+          member as m
+    join creator as cr 
+          on m.member_no = cr.creator_no
+    join class as c 
+          on cr.creator_no = c.creator_no
+    join class_time as ct 
+          on c.class_no = ct.class_no 
+    where 
+      m.member_no=#{no} and (c.status=1 or c.status=9)
   </select>
 
 

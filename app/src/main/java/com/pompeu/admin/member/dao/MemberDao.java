@@ -24,6 +24,10 @@ public interface MemberDao {
 
   List<Member> srchMember(Member member);
 
-  List<Map<Object, Object>> findByNoClass(int no);
+  List<Map<Object, Object>> findUserClass(int no);
+
+  List<Map<Object, Object>> findCreatorClass(int no);
+
+  List<Map<Object, Object>> findApplyingClass(int no);
 
 }

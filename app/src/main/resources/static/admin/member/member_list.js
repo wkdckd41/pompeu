@@ -55,10 +55,25 @@ btn.addEventListener('click', function() {
       for (var rst of result) {
         count = count + 1;
 
+				var mt = rst.memberType.memberType;
+				console.log(mt)
+				var url;
+				
+				switch (mt) {
+  			case "이용자":
+    		url = "member_user.html?no=";
+   			break;
+  			case "크리에이터":
+    		url = "member_creator.html?no=";
+   			break;
+  			default:
+    		url = "값이 없쪙";
+}
+
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.memberType.memberType}</td> 
-        <td><a href="member_user.html?no=${rst.no}">${rst.name}</a></td>
+        <td><a href=${url}${rst.no}>${rst.name}</a></td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
         tbody2.appendChild(tr);
