@@ -24,4 +24,6 @@ public class Member {
   MemberType memberType;
 
 
+
+
 }
