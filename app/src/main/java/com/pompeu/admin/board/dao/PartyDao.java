@@ -1,10 +1,11 @@
-package com.pompeu.dao;
+package com.pompeu.admin.board.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Party;
 
-@Mapper
+
+@Mapper  
 public interface PartyDao {
 
   int countAll();
@@ -19,8 +20,8 @@ public interface PartyDao {
 
   int delete(int no);
 
+
+
+
 }
-
-
-
 
