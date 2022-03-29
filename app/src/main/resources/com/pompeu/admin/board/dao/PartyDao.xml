@@ -102,6 +102,7 @@
     where party_no=#{no}
   </delete>
 
+
 </mapper>
 
 
