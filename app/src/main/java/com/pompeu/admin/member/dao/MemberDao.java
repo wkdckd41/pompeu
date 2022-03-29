@@ -27,4 +27,3 @@ public interface MemberDao {
   List<Map<Object, Object>> findByNoClass(int no);
 
 }
-

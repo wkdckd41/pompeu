@@ -206,9 +206,9 @@
           on m.member_no = u.users_no
     join myclass_list as ml 
           on u.users_no = ml.users_no
-		join class_time as ct 
+      join class_time as ct 
           on ml.class_time_no = ct.class_time_no 
-		join class as c
+      join class as c
           on ct.class_no = c.class_no
     where 
       m.member_no=#{no}
