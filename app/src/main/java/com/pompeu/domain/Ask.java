@@ -7,8 +7,10 @@ public class Ask {
 
   int no;
   int memberNo;
+  String name;
   String askContent;
   String answerContent;
   java.sql.Date registerDate;
   java.sql.Date answerDate;
+  Boolean answerCheck;
 }
