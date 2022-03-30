@@ -45,7 +45,7 @@ public class PartyController {
   public Object srchParty(Party party, Member member, PartyClaim partyclaim ) {
 
 
-    System.out.println("srchParty : " + party.getNo());
+    System.out.println("srchParty : " + party.getPartyNo());
     System.out.println("srchParty : " + party.getName());
     System.out.println("srchParty : " + member.getName());
     System.out.println("srchParty : " + party.getRegisterDate());

@@ -1,16 +1,16 @@
 
 
-  var btn = document.getElementById("board-search");
+  var btn = document.getElementById("search");
 
 btn.addEventListener('click', function() {
   
-  var no = document.querySelector("#party_no").value;
+  var partyNo = document.querySelector("#party_no").value;
   var partyName = document.querySelector("#party_name").value;
   var name = document.querySelector("#name").value;
   var registerDate = document.querySelector("#register_date").value;
   var status = document.querySelector("#status").value;
 
-  console.log("no. : " + no);
+  console.log("no. : " + partyNo);
   console.log("제목 : " + partyName);
   console.log("작성자 : " + name);
   console.log("등록일 : " + registerDate);
@@ -43,12 +43,13 @@ btn.addEventListener('click', function() {
         tr.innerHTML = `
         <td>${rst.partyNo}</td> 
         <td><a href=${url}${rst.no}>${rst.name}</a></td>
-        <td>${rst.register_date}</td>
+        <td>${rst.registerDate}</td>
         <td>${rst.status}</td>`;
         tbody2.appendChild(tr);
         
       }
     });
+    
 });
 
          /* rst.memberType.memberType */

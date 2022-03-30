@@ -6,7 +6,7 @@
 <mapper namespace="com.pompeu.admin.board.dao.PartyDao">
 
   <resultMap type="party" id="partyMap">
-    <id column="party_no" property="no"/>
+    <id column="party_no" property="partyNo"/>
     <result column="location_no" property="locationNo"/>
     <result column="name" property="name"/>
     <result column="content" property="content"/>
@@ -137,7 +137,7 @@
     join member as mb 
           on u.users_no = mb.member_no 
     where 
-      p.party_no=#{no}
+      1=1
         
     <if test="partyNo != ''">
         and p.party_no = #{partyNo}
@@ -155,7 +155,7 @@
         and pc.status = #{status}
     </if> 
        order by 
-          p.party_no asc
+          p.p_no asc
   </select>
 
 </mapper>
