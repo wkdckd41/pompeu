@@ -7,16 +7,11 @@
 
   <resultMap type="ask" id="askMap">
     <id column="ask_no" property="no"/>
-    <result column="users_no" property="usersNo"/>
-    <result column="creator_no" property="creatorNo"/>
-    <result column="register_date" property="registerDate"/>
+    <result column="member_no" property="memberNo"/>
     <result column="ask_content" property="askContent"/>
-    <result column="display" property="display"/>
-    <result column="image" property="image"/>
-    <result column="ask_modify_date" property="askModifyDate"/>
     <result column="answer_content" property="answerContent"/>
+    <result column="register_date" property="registerDate"/>
     <result column="answer_date" property="answerDate"/>
-    <result column="answer_modify_date" property="answerModifyDate"/>
   </resultMap>
 
   <select id="countAll" resultType="int">
@@ -24,53 +19,31 @@
   </select>
   
   <!--일반회원 1:1 문의 목록 -->
-  <select id="usersFindAll" resultMap="askMap">
+  <select id="findAll" resultMap="askMap">
     select 
-      ask_no,
-      display,
-      users_no,
-      register_date
-    from 
-      ask
-    order by 
-      ask_no desc
-  </select>
+      a.ask_no,
+      a.name,
+      a.register_date,
+      m.name,
+      m.member_type_no,
+      a.answer_check
 
-  <!--크리에이터 1:1 문의 목록 -->
-  <select id="creatorFindAll" resultMap="askMap">
-    select 
-      ask_no,
-      display,
-      creator_no,
-      register_date
     from 
-      ask
+      member m 
+      inner join ask a on m.member_no=a.member_no
     order by 
       ask_no desc
   </select>
   
-    <!--관리자 1:1 문의 목록  -->
-  <select id="adminFindAll" resultMap="askMap">
-    select 
-      ask_no,
-      display,
-      register_date,
-      creator_no,
-      users_no
-    from 
-      ask
-    order by 
-      ask_no desc
-  </select>
   
   <!-- 1:1 문의 등록 //  -->
   <insert id="insert" parameterType="ask">
-    insert into ask(users_no,creator_no,register_date,ask_content,display,image) 
+    insert into ask(users_no,,register_date,ask_content,display,image) 
     values(#{usersNo},#{creatorNo},#{registerDate},#{askContent},#{display},#{image})
   </insert>
 
   <!--일반회원 1:1 문의상세 -->
-  <select id="usersFindByNo" resultMap="askMap" parameterType="int"> 
+  <select id="findByNo" resultMap="askMap" parameterType="int"> 
     select 
       ask_no,
       users_no,
@@ -85,37 +58,9 @@
     where 
       ask_no=#{no}
   </select>
-
-  <!--크리에이터 1:1 문의상세 -->
-  <select id="creatorFindByNo" resultMap="askMap" parameterType="int"> 
-    select 
-      ask_no,
-      creator_no,
-      register_date,
-      ask_content
-      display,
-      image,
-      answer_content,
-      answer_date
-    from 
-      ask
-    where 
-      ask_no=#{no}
-  </select>
-  
-  <!-- 1:1 문의 수정 -->
-  <update id="askUpdate" parameterType="ask">
-    update ask set 
-      ask_content=#{askContent},
-      display=#{display},
-      image=#{image},
-      ask_modify_date=#{askModifyDate}
-    where 
-      ask_no=#{no}
-  </update>
   
   <!-- 1:1 문의 답변 -->
-  <update id="answer" parameterType="ask">
+  <update id="update" parameterType="ask">
     update ask set 
       answer_content=#{answerContent},
       display=#{display},
@@ -124,15 +69,6 @@
       ask_no=#{no}
   </update>
   
-  <!-- 1:1 문의 답변 수정 -->
-  <update id="answerUpdate" parameterType="ask">
-    update ask set 
-      answer_content=#{answerContent},
-      display=#{display},
-      answer_modify_date=#{answerModifyDate}
-    where 
-      ask_no=#{no}
-  </update>
 
  <!--  1:1 문의 삭제 -->
   <delete id="delete" parameterType="int">
