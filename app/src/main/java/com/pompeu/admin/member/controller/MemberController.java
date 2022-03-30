@@ -62,7 +62,17 @@ public class MemberController {
 
   @RequestMapping("/member/getClass")
   public Object getClass(int no) {
-    return memberDao.findByNoClass(no);
+    return memberDao.findUserClass(no);
+  }
+
+  @RequestMapping("/member/creatorClass")
+  public Object creatorClass(int no) {
+    return memberDao.findCreatorClass(no);
+  }
+
+  @RequestMapping("/member/applyingClass")
+  public Object applyingClass(int no) {
+    return memberDao.findApplyingClass(no);
   }
 
 }

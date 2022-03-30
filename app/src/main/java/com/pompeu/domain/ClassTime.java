@@ -11,5 +11,6 @@ public class ClassTime {
   Date startTime;
   Date endTime;
   int maxMember;
+  int noMember;
 
 }

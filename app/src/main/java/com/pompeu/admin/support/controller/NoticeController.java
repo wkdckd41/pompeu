@@ -3,6 +3,7 @@ package com.pompeu.admin.support.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.pompeu.admin.support.dao.NoticeDao;
 import com.pompeu.admin.support.service.NoticeService;
 import com.pompeu.domain.Notice;
 
@@ -14,7 +15,10 @@ public class NoticeController {
   //   Spring Boot가 NoticeController 객체를 만들 때 NoticeDao 구현체를 찾아 자동으로 주입한다. 
   //
   @Autowired
-  NoticeService  noticeService;
+  NoticeService noticeService;
+
+  @Autowired
+  NoticeDao noticeDao; // noticeDao들어간 부분에서 에러뜨길래 임시로 넣어놓음. 나중에 수정요 (효범)
 
   @RequestMapping("/notice/list")
   public Object list() {
@@ -23,13 +27,13 @@ public class NoticeController {
 
   @RequestMapping("/notice/add")
   public Object add(Notice notice) {
-    return noticeDao.insert(notice);
+    return noticeService.add(notice);
   }
 
 
   @RequestMapping("/notice/get")
   public Object get(int no) {
-    Notice notice = noticeDao.findByNo(no);
+    Notice notice = noticeService.get(no);
     if (notice == null) {
       return "";
     }
