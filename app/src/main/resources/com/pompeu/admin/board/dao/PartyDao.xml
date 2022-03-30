@@ -47,6 +47,25 @@
     <id column="claim_reason_no" property="claimReasonNo"/>
     <result column="type" property="type"/>
   </resultMap>  
+  
+    <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>    
+    <result column="login_date" property="loginDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="birth" property="birth"/>
+    <result column="gender" property="gender"/>
+      <collection property="memberType" resultMap="memberTypeMap"/>
+  </resultMap>
 
   <select id="countAll" resultType="int">
     select count(*) from party
@@ -101,6 +120,43 @@
     delete from party 
     where party_no=#{no}
   </delete>
+  
+  <select id="srchParty" parameterType="party" resultMap="partyMap">
+    select 
+          p.party_no                                            as party_no,  
+          p.name                                                as name,
+          mb.name                                               as member_name,
+          p.register_date                                       as register_date,
+          pc.status                                             as status
+    from 
+          party as p
+    join party_claim as pc 
+          on p.party_no = pc.party_no
+    join users as u 
+          on pc.users_no = u.users_no
+    join member as mb 
+          on u.users_no = mb.member_no 
+    where 
+      p.party_no=#{no}
+        
+    <if test="partyNo != ''">
+        and p.party_no = #{partyNo}
+    </if>
+    <if test="name != ''">
+        and p.name = #{name}
+    </if>
+    <if test="name != ''">
+        and m.name = #{name}
+    </if>
+    <if test="registerDate != ''">
+        and p.register_date = #{registerDate}
+    </if>
+    <if test="status != ''">
+        and pc.status = #{status}
+    </if> 
+       order by 
+          p.party_no asc
+  </select>
 
 </mapper>
 

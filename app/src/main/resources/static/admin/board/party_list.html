@@ -51,7 +51,7 @@
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="작성자를 입력해주세요." aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <button id="board-search"  class="btn btn-outline-success" type="submit">Search</button>
       </form>
     </div>
   </div>
@@ -61,11 +61,11 @@
     <table style="margin-left: 30px; width:90%;">
       <thead>
            <tr>
-             <th class="board-table-top">No.</th>
-             <th class="board-table-top">제목</th>
-             <th class="board-table-top">작성자</th>
-             <th class="board-table-top">날짜</th>
-             <th class="board-table-top">신고여부</th>
+             <th id="party_no" class="board-table-top">No.</th>
+             <th id="party_name" class="board-table-top">제목</th>
+             <th id="name" class="board-table-top">작성자</th>
+             <th id="register_date" class="board-table-top">등록일</th>
+             <th id="status" class="board-table-top">신고여부</th>
            </tr>
        </thead>
       <tbody id="tbody2">
@@ -76,7 +76,5 @@
 </div>
   
 </body>
-<script src="memberList.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
-<script type="text/javascript" src="/js/bootstrap.js"></script>
+<script src="party_list.js"></script>
 </html>

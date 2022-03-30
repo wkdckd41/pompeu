@@ -1,21 +1,20 @@
 
 
-  var btn = document.getElementById("srchBtn");
+  var btn = document.getElementById("board-search");
 
 btn.addEventListener('click', function() {
   
+  var no = document.querySelector("#party_no").value;
+  var partyName = document.querySelector("#party_name").value;
   var name = document.querySelector("#name").value;
-  var phone = document.querySelector("#phone").value;
-  var email = document.querySelector("#email").value;
-  var memberTypeNo = document.querySelector("#member_type_no").value;
-  var memberType = document.getElementById("member_type_no");
-  mT = memberType.options[memberType.selectedIndex].text;
+  var registerDate = document.querySelector("#register_date").value;
+  var status = document.querySelector("#status").value;
 
-  console.log("name : " + name);
-  console.log("phone : " + phone);
-  console.log("email : " + email);
-  console.log("memberTypeNo : " + memberTypeNo);
-  console.log(mT);
+  console.log("no. : " + no);
+  console.log("제목 : " + partyName);
+  console.log("작성자 : " + name);
+  console.log("등록일 : " + registerDate);
+  console.log("신고여부 : " + status);
   
   
   var tbody2 = document.querySelector("#tbody2");
@@ -25,7 +24,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
+  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
@@ -33,32 +32,19 @@ btn.addEventListener('click', function() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-      var count = 0;
       
       for (var rst of result) {
-        count = count + 1;
 
 				var mt = rst.memberType.memberType;
 				console.log(mt)
-				var url;
-				
-				switch (mt) {
-  			case "이용자":
-    		url = "member_user.html?no=";
-   			break;
-  			case "크리에이터":
-    		url = "member_creator.html?no=";
-   			break;
-  			default:
-    		url = "값이 없쪙";
-}
+			
 
         var tr = document.createElement("tr");
-        tr.innerHTML = `<td>`+count+`</td>
-        <td>${rst.memberType.memberType}</td> 
+        tr.innerHTML = `
+        <td>${rst.partyNo}</td> 
         <td><a href=${url}${rst.no}>${rst.name}</a></td>
-        <td>${rst.email}</td>
-        <td>${rst.phone}</td>`;
+        <td>${rst.register_date}</td>
+        <td>${rst.status}</td>`;
         tbody2.appendChild(tr);
         
       }
