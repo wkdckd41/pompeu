@@ -46,6 +46,7 @@ body {
 }
 
 #page-wrapper {
+  
 	top: 49px;
 	left: 225px;
 	width: 500px;
@@ -188,20 +189,15 @@ body {
 	font-size: 12px
 }
 
-div.container {
-	width: 1200px;
-	margin: 0px auto;
-	border: 1px solid gray;
-}
 
 div.container {
-float:right;
-position:fix;
-top:100px;
-	width: 975px;
-	margin: 0px auto;
-	border: 1px solid gray;
-		overflow-x: hidden;
+  width: 1200px;
+  margin: 0px auto;
+  border: 1px solid gray;
+  position:fixed;
+  top:60px;
+  left: 225px;
+	overflow-x: hidden;
   overflow-y: auto;
 	padding-bottom: 40px;
   bottom: 0;
@@ -209,9 +205,9 @@ top:100px;
 </style>
 </head>
 <body>
-<div class=div-container>
-  <div class="container">
-    <div id="throbber" style="display: none; min-height: 120px;"></div>
+
+  <div id="header">
+      <div id="throbber" style="display: none; min-height: 120px;"></div>
     <div id="noty-holder"></div>
     <div id="wrapper">
       <!-- Navigation -->
@@ -233,12 +229,6 @@ top:100px;
           <li><a href="#" class="tog">로그아웃 </a></li>
 
         </ul>
-
-
-
-
-
-
 
         <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
         <div class="collapse navbar-collapse navbar-ex1-collapse" id=ihead>
@@ -262,57 +252,21 @@ top:100px;
         <!-- /.navbar-collapse -->
       </nav>
 
-
-      <div id="page-wrapper">
-        <div class="container-fluid">
-          <!-- Page Heading -->
-          <div class="row" id="main">
-            <div class="col-sm-12 col-md-12 well" id="content">
-              <h1>관리자 컨텐츠영역입니다</h1>
-              <form>
-                이름*: <input id="x-name" type="text"><br>
-                <div id="x-tel-div-container">
-                  <div class="x-tel-div">
-                    전화*: <select>
-                      <option value="1">전화</option>
-                      <option value="2">팩스</option>
-                      <option value="3">휴대전화</option>
-                      <option value="4">직장전화</option>
-                      <option value="5">직장팩스</option>
-                    </select> <input type="text">
-                    <button type="button" onclick="deleteDiv(event)">삭제</button>
-                  </div>
-                </div>
-                <button type="button" id="x-add-tel-btn">전화번호 추가입력</button>
-                <br> 이메일*: <input id="x-email" type="text"><br> 회사: <input id="x-company" type="text"><br> 별표(*) 항목은 필수 입력입니다.<br>
-                <button id="x-update-btn" type="button">변경</button>
-                <button id="x-delete-btn" type="button">삭제</button>
-                <button id="x-cancel-btn" type="button">취소</button>
-              </form>
-
-            </div>
-          </div>
-          <!-- /.row -->
-        </div>
-        <!-- /.container-fluid -->
-      </div>
-      <!-- /#page-wrapper -->
-
-
-
     </div>
     <!-- /#wrapper -->
+  
   </div>
-  </div>
+      <!-- /#header -->
+
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.scrollUp.min.js"></script>
   <script src="js/price-range.js"></script>
   <script src="js/jquery.prettyPhoto.js"></script>
   <script src="js/main.js"></script>
-
-
-  <script>
+  <script src="admin2.js"></script>
+  
+  <!--  <script>
 			$(function() {
 				$('[data-toggle="tooltip"]').tooltip();
 				$(".side-nav .collapse")
@@ -332,6 +286,6 @@ top:100px;
 											.addClass("fa-angle-right");
 								});
 			})
-		</script>
+		</script>-->
 </body>
 </html>

@@ -3,7 +3,7 @@ package com.pompeu.admin.support.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.admin.support.service.FaqService;
+import com.pompeu.admin.support.dao.FaqDao;
 import com.pompeu.domain.Faq;
 
 @RestController 
@@ -14,22 +14,22 @@ public class FaqController {
   //   Spring Boot가 MemberController 객체를 만들 때 MemberDao 구현체를 찾아 자동으로 주입한다. 
   //
   @Autowired
-  FaqService faqService;
+  FaqDao faqDao;
 
   @RequestMapping("/faq/list")
   public Object list() {
-    return faqService.list();
+    return faqDao.findAll();
   }
 
   @RequestMapping("/faq/add")
   public Object add(Faq faq) {
-    return faqService.add(faq);
+    return faqDao.insert(faq);
   }
 
 
   @RequestMapping("/faq/get")
   public Object get(int no) {
-    Faq faq = faqService.get(no);
+    Faq faq = faqDao.findByNo(no);
     if (faq == null) {
       return "";
     }
@@ -38,12 +38,12 @@ public class FaqController {
 
   @RequestMapping("/faq/update")
   public Object update(Faq faq) {
-    return faqService.update(faq);
+    return faqDao.update(faq);
   }
 
   @RequestMapping("/faq/delete")
   public Object delete(int no) {
-    return faqService.delete(no);
+    return faqDao.delete(no);
   }
 
 }
