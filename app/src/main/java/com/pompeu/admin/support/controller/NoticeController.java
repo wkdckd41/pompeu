@@ -43,12 +43,12 @@ public class NoticeController {
 
   @RequestMapping("/notice/update")
   public Object update(Notice notice) {
-    return noticeDao.update(notice);
+    return noticeService.update(notice);
   }
 
   @RequestMapping("/notice/delete")
   public Object delete(int no) {
-    return noticeDao.delete(no);
+    return noticeService.delete(no);
   }
 
 }
