@@ -1,33 +1,31 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="kor">
+
 <head>
-    <meta charset="UTF-8">
-    <title>POMPEU!</title>
-</head>
-<link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link href="../common.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 <style>
 </style>
+
 <body>
 <div class="container">
     <h2 style="margin-left: 30px;">공지사항</h2>
     <br>
     <br>
+<ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">전체</a></li>
+  <li role="presentation"><a href="#">이용자</a></li>
+  <li role="presentation"><a href="#">크리에이터</a></li>
+</ul>
 
-    <ul class="nav nav-tabs">
-        <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">전체</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">이용자</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">크리에이터</a>
-        </li>
-    </ul>
-
-
-    <table class="table">
+    <table class="table table-hover">
         <thead>
         <tr>
             <th><input type="checkbox" name="_selected_all_"></th>
@@ -111,29 +109,44 @@
         </tbody>
 
     </table>
-    <div class="col-lg-11 col-sm-18 text-lg-end text-center">
+    <div class="text-right">
     <button type="button" class="btn btn-primary">작성하기</button>
     <button type="button" class="btn btn-primary">삭제하기</button>
     </div>
     
     <br><br>
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">4</a></li>
-            <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-        </ul>
-    </nav>
+<nav>
+<div class="text-center">
+  <ul class="pagination ">
+    <li>
+      <a href="#" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    <li><a href="#">1</a></li>
+    <li><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+    <li>
+      <a href="#" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+  </div>
+</nav>
+    
+    </div>
 
-
-</div>
 </body>
 
-<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.scrollUp.min.js"></script>
+  <script src="js/price-range.js"></script>
+  <script src="js/jquery.prettyPhoto.js"></script>
+  <script src="js/main.js"></script>
 <script>
 
     //체크박스 전체선택 및 해제 기능은
