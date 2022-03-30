@@ -20,7 +20,7 @@ public interface PartyDao {
 
   int delete(int no);
 
-
+  List<Party> srchParty(Party party);
 
 
 }

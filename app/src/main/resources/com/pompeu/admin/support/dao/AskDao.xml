@@ -12,6 +12,10 @@
     <result column="answer_content" property="answerContent"/>
     <result column="register_date" property="registerDate"/>
     <result column="answer_date" property="answerDate"/>
+    <result column="answer_check" property="answerCheck"/>
+    <result column="answer_check_name" property="answerCheckName"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
   </resultMap>
 
   <select id="countAll" resultType="int">
@@ -26,11 +30,24 @@
       a.register_date,
       m.name,
       m.member_type_no,
-      a.answer_check
-
+      <!--
+      case when m.member_type_no = 1 then '이용자'
+           when m.member_type_no = 2 then '크리에이터' 
+           else '관리자'
+       end                            as member_type,
+      -->
+      mt.member_type,
+      a.answer_check,
+      case when a.answer_check = true
+           then '답변완료'
+           else '답변대기'
+       end                            as answer_check_name
+             
     from 
       member m 
       inner join ask a on m.member_no=a.member_no
+      left join member_type mt on m.member_type_no = mt.member_type_no
+      
     order by 
       ask_no desc
   </select>
@@ -64,7 +81,7 @@
     update ask set 
       answer_content=#{answerContent},
       answer_date=#{answerDate},
-      answer_check=true
+      answer_check=#{answerCheck}
     where 
       ask_no=#{no}
   </update>
