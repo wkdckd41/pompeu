@@ -1,3 +1,5 @@
+$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
+
 document.addEventListener("DOMContentLoaded", function(){
    fetch("/member/findCount")
     .then(function(response) {

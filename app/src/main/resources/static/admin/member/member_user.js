@@ -1,4 +1,4 @@
-
+$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
 
   var memberType = document.querySelector("#member_type_nos");
   var naame = document.querySelector("#names");
