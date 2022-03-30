@@ -44,7 +44,6 @@ public class PartyController {
   @RequestMapping("/party/srchParty")
   public Object srchParty(Party party, Member member, PartyClaim partyclaim ) {
 
-
     System.out.println("srchParty : " + party.getPartyNo());
     System.out.println("srchParty : " + party.getName());
     System.out.println("srchParty : " + member.getName());
