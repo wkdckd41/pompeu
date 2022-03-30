@@ -9,23 +9,13 @@ public interface AskDao {
 
   int countAll();
 
-  List<Ask> usersFindAll();
-
-  List<Ask> creatorFindAll();
+  List<Ask> findAll();
 
   int insert(Ask ask);
 
-  Ask usersFindByNo(int no);
+  Ask findByNo(int no);
 
-  Ask creatorFindByNo(int no);
-
-  int askUpdate(Ask ask);
-
-  int answer(Ask ask);
-
-  int answerUpdate(Ask ask);
+  int update(Ask ask);
 
   int delete(int no);
 }
-
-
