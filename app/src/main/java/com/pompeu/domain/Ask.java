@@ -12,5 +12,5 @@ public class Ask {
   String answerContent;
   java.sql.Date registerDate;
   java.sql.Date answerDate;
-  int answerCheck;
+  Boolean answerCheck;
 }
