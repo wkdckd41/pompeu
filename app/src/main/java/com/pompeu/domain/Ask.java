@@ -6,16 +6,9 @@ import lombok.Data;
 public class Ask {
 
   int no;
-  int usersNo;
-  int creatorNo;
-  java.sql.Date registerDate;
+  int memberNo;
   String askContent;
-  String display;
-  String image;
-  java.sql.Date askModifyDate;
   String answerContent;
+  java.sql.Date registerDate;
   java.sql.Date answerDate;
-  java.sql.Date answerModifyDate;
-
-
 }

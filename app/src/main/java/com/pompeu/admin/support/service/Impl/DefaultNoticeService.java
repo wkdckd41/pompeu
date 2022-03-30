@@ -30,12 +30,17 @@ public class DefaultNoticeService implements NoticeService{
 
   @Override
   public int update(Notice notice) {
-    return 0;
+    return noticeDao.update(notice);
   }
 
   @Override
   public int delete(int no) {
-    return 0;
+    return noticeDao.delete(no);
+  }
+
+  @Override
+  public int increaseViewCount(int no) {
+    return noticeDao.increaseViewCount(no);
   }
 
 }
