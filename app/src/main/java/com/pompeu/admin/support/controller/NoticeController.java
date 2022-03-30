@@ -37,7 +37,7 @@ public class NoticeController {
     if (notice == null) {
       return "";
     }
-    noticeDao.increaseViewCount(no);
+    noticeService.increaseViewCount(no);
     return notice;
   }
 
