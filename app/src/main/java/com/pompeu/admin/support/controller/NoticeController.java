@@ -37,18 +37,18 @@ public class NoticeController {
     if (notice == null) {
       return "";
     }
-    noticeDao.increaseViewCount(no);
+    noticeService.increaseViewCount(no);
     return notice;
   }
 
   @RequestMapping("/notice/update")
   public Object update(Notice notice) {
-    return noticeDao.update(notice);
+    return noticeService.update(notice);
   }
 
   @RequestMapping("/notice/delete")
   public Object delete(int no) {
-    return noticeDao.delete(no);
+    return noticeService.delete(no);
   }
 
 }
