@@ -26,10 +26,7 @@ public class PartyController {
   @RequestMapping("/party/get")
   public Object get(int no) {
     Party party = partyDao.findByNo(no);
-    if (party == null) {
-      return "";
-    }
-    return party;
+    return party != null ? party : "";
   }
 
   @RequestMapping("/party/update")
