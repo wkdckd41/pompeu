@@ -38,8 +38,8 @@
   
   <!-- 1:1 문의 등록 //  -->
   <insert id="insert" parameterType="ask">
-    insert into ask(users_no,,register_date,ask_content,display,image) 
-    values(#{usersNo},#{creatorNo},#{registerDate},#{askContent},#{display},#{image})
+    insert into ask(member_no,name,register_date,ask_content,answer_check) 
+    values(#{memberNo},#{name},#{registerDate},#{askContent},#{answerCheck})
   </insert>
 
   <!--일반회원 1:1 문의상세 -->
