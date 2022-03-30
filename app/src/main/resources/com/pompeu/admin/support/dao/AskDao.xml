@@ -46,13 +46,13 @@
   <select id="findByNo" resultMap="askMap" parameterType="int"> 
     select 
       ask_no,
-      users_no,
+      member_no,
       register_date,
+      name
       ask_content,
-      display,
-      image,
       answer_content,
-      answer_date
+      answer_date,
+      answer_check
     from 
       ask
     where 
@@ -63,8 +63,8 @@
   <update id="update" parameterType="ask">
     update ask set 
       answer_content=#{answerContent},
-      display=#{display},
-      answer_date=#{answerDate}
+      answer_date=#{answerDate},
+      answer_check=true
     where 
       ask_no=#{no}
   </update>
