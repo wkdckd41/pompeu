@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 public class Party {
 
-  int no;
+  int partyNo;
   int locationNo;
   String name;
   String content;

@@ -4,7 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.admin.board.dao.PartyDao;
+import com.pompeu.domain.Member;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyClaim;
 
 @RestController 
 public class PartyController {
@@ -26,10 +28,7 @@ public class PartyController {
   @RequestMapping("/party/get")
   public Object get(int no) {
     Party party = partyDao.findByNo(no);
-    if (party == null) {
-      return "";
-    }
-    return party;
+    return party != null ? party : "";
   }
 
   @RequestMapping("/party/update")
@@ -41,5 +40,24 @@ public class PartyController {
   public Object delete(int no) {
     return partyDao.delete(no);
   }
+
+  @RequestMapping("/party/srchParty")
+  public Object srchParty(Party party, Member member, PartyClaim partyclaim ) {
+
+    System.out.println("srchParty : " + party.getPartyNo());
+    System.out.println("srchParty : " + party.getName());
+    System.out.println("srchParty : " + member.getName());
+    System.out.println("srchParty : " + party.getRegisterDate());
+    System.out.println("srchParty : " + partyclaim.getStatus());
+
+    System.out.println(partyDao.srchParty(party));
+    return partyDao.srchParty(party);
+  }
+
+  @RequestMapping("/party/partyClaim")
+  public Object partyClaim(int no) {
+    return partyDao.findPartyClaim(no);
+  }
+
 
 }
