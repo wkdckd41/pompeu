@@ -15,9 +15,7 @@
     <result column="end_date" property="endDate"/>
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
-    <result column="modify_date" property="modifyDate"/>
-    
-            
+    <result column="modify_date" property="modifyDate"/> 
   </resultMap>
 
   <resultMap type="users" id="usersMap">
@@ -56,7 +54,7 @@
     <result column="type" property="type"/>
   </resultMap>  
   
-    <resultMap type="member" id="memberMap">
+ <resultMap type="member" id="memberMap">
     <id column="member_no" property="no"/>
     <result column="member_type_no" property="memberTypeNo"/>
     <result column="sns_no" property="snsNo"/>
@@ -73,7 +71,7 @@
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
       <collection property="memberType" resultMap="memberTypeMap"/>
-  </resultMap>
+ </resultMap>
 
   <select id="countAll" resultType="int">
     select count(*) from party
@@ -97,6 +95,8 @@
           on p.party_no = pc.party_no 
    order by
       p.party_no asc
+
+
   </select>
   
   <insert id="insert" parameterType="party">
@@ -174,6 +174,30 @@
        order by 
           p.p_no asc
   </select>
+  
+  <select id="findPartyList" resultType="HashMap" parameterType="int">
+    select 
+          p.party_no                            as party_no,
+          p.name                                as name,
+          mb.name                               as member_name,
+          p.register_date                       as register_date,
+          pc.status                             as status
+    from 
+         party as p
+    join party_user as u 
+          on p.party_no = u.party_no 
+          and u.party_maker = '1'
+    join member as mb 
+          on u.users_no = mb.member_no 
+    left outer join party_claim as pc 
+          on p.party_no = pc.party_no 
+    where 
+        pc.status IS  NULL 
+   order by
+      p.party_no asc
+  </select>
+  
+  
 
 
   <select id="findPartyClaim" resultType="HashMap" parameterType="int">

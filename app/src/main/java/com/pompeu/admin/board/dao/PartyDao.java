@@ -23,7 +23,10 @@ public interface PartyDao {
 
   List<Party> srchParty(Party party);
 
+  List<Map<Object, Object>> findPartyList();
+
   List<Map<Object, Object>> findPartyClaim(int no);
+
 
 
 }

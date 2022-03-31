@@ -54,10 +54,16 @@ public class PartyController {
     return partyDao.srchParty(party);
   }
 
+  @RequestMapping("/party/partyList")
+  public Object partyList(int no) {
+    return partyDao.findPartyList();
+  }
+
   @RequestMapping("/party/partyClaim")
   public Object partyClaim(int no) {
     return partyDao.findPartyClaim(no);
   }
+
 
 
 }
