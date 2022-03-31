@@ -1,5 +1,6 @@
 
 
+
   var btn = document.getElementById("search");
 
 btn.addEventListener('click', function() {
@@ -24,7 +25,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
+  fetch(`/party/list`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
@@ -42,7 +43,6 @@ btn.addEventListener('click', function() {
         var tr = document.createElement("tr");
         tr.innerHTML = `
         <td>${rst.partyNo}</td> 
-        <td><a href=${url}${rst.no}>${rst.name}</a></td>
         <td>${rst.registerDate}</td>
         <td>${rst.status}</td>`;
         tbody2.appendChild(tr);
