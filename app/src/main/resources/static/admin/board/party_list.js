@@ -22,6 +22,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
+  
   fetch(`/party/list`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
