@@ -3,6 +3,7 @@ package com.pompeu.admin.support.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.pompeu.admin.support.dao.NoticeDao;
 import com.pompeu.admin.support.service.NoticeService;
 import com.pompeu.domain.Notice;
 
@@ -15,6 +16,9 @@ public class NoticeController {
   //
   @Autowired
   NoticeService noticeService;
+
+  @Autowired
+  NoticeDao noticeDao; // noticeDao들어간 부분에서 에러뜨길래 임시로 넣어놓음. 나중에 수정요 (효범)
 
   @RequestMapping("/notice/list")
   public Object list() {
@@ -33,17 +37,18 @@ public class NoticeController {
     if (notice == null) {
       return "";
     }
+    noticeDao.increaseViewCount(no);
     return notice;
   }
 
   @RequestMapping("/notice/update")
   public Object update(Notice notice) {
-    return noticeService.update(notice);
+    return noticeDao.update(notice);
   }
 
   @RequestMapping("/notice/delete")
   public Object delete(int no) {
-    return noticeService.delete(no);
+    return noticeDao.delete(no);
   }
 
 }
