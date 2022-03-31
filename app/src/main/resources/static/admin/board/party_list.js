@@ -1,7 +1,4 @@
-  var btn = document.getElementById("search");
 
-btn.addEventListener('click', function() {
-  
   var partyNo = document.querySelector("#party_no").value;
   var partyName = document.querySelector("#party_name").value;
   var name = document.querySelector("#name").value;
@@ -33,7 +30,6 @@ btn.addEventListener('click', function() {
       console.log(result);
       
       for (var rst of result) {
-      console.log(rst);
 
         var tr = document.createElement("tr");
         tr.innerHTML = `
@@ -46,8 +42,6 @@ btn.addEventListener('click', function() {
         
       }
     });
-    
-});
 
 
          /* rst.memberType.memberType */
