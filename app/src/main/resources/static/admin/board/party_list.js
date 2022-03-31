@@ -1,18 +1,16 @@
-
-
   var btn = document.getElementById("search");
 
 btn.addEventListener('click', function() {
   
   var partyNo = document.querySelector("#party_no").value;
   var partyName = document.querySelector("#party_name").value;
-  var name = document.querySelector("#name").value;
+  var user = document.querySelector("#user").value;
   var registerDate = document.querySelector("#register_date").value;
   var status = document.querySelector("#status").value;
 
   console.log("no. : " + partyNo);
   console.log("제목 : " + partyName);
-  console.log("작성자 : " + name);
+  console.log("작성자 : " + user);
   console.log("등록일 : " + registerDate);
   console.log("신고여부 : " + status);
   
@@ -24,7 +22,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
+  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&=${user}&register_date=${registerDate}&status=${status}`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
@@ -35,9 +33,9 @@ btn.addEventListener('click', function() {
       
       for (var rst of result) {
 
-				var mt = rst.memberType.memberType;
-				console.log(mt)
-			
+        var mt = rst.memberType.memberType;
+        console.log(mt)
+      
 
         var tr = document.createElement("tr");
         tr.innerHTML = `
