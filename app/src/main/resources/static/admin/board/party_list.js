@@ -39,9 +39,10 @@
         <td>${rst.register_date}</td>
         <td>${rst.status}</td>`;
         tbody2.appendChild(tr);
-
+        
       }
     });
+
 
 
          /* rst.memberType.memberType */
