@@ -40,13 +40,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">전체</a>
+          <a class="nav-link active" id="ttl" onclick="" aria-current="page" href="#">전체</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">소모임</a>
+          <a class="nav-link" id="party" href="javascript:void(0);" onclick="fnParty();">소모임</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">신고게시글</a>
+          <a class="nav-link" id="claim" href="#">신고게시글</a>
         </li>
       </ul>
       <form class="d-flex">
@@ -57,7 +57,7 @@
   </div>
 </nav>
 
-  <div>
+  <div class="ttl">
     <table style="margin-left: 30px; width:90%;">
       <thead>
            <tr>
@@ -72,8 +72,6 @@
       </tbody>      
     </table>
   </div>
-  
-</div>
   
 </body>
 <script src="party_list.js"></script>

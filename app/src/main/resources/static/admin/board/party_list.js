@@ -44,6 +44,7 @@
     });
 
 
+
          /* rst.memberType.memberType */
 
 function hihi() {
