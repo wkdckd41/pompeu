@@ -52,6 +52,7 @@ btn.addEventListener('click', function() {
     
 });
 
+
          /* rst.memberType.memberType */
 
 function hihi() {
