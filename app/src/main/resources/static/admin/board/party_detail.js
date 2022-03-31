@@ -1,8 +1,4 @@
 
-
-  var btn = document.getElementById("search");
-
-btn.addEventListener('click', function() {
   
   var partyNo = document.querySelector("#party_no").value;
   var partyName = document.querySelector("#party_name").value;
@@ -17,14 +13,11 @@ btn.addEventListener('click', function() {
   console.log("신고여부 : " + status);
   
   
-  var tbody2 = document.querySelector("#tbody2");
+  var claimName = document.querySelector("#claim_name");
+  var claimDate = document.querySelector("#claim_date");
 
-
-    while (tbody2.hasChildNodes()) {
-        tbody2.removeChild(tbody2.firstChild);
-    }
   
-  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
+  fetch(`/party/partyClaim?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
@@ -49,8 +42,7 @@ btn.addEventListener('click', function() {
         
       }
     });
-    
-});
+
 
          /* rst.memberType.memberType */
 

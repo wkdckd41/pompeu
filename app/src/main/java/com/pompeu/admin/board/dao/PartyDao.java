@@ -1,6 +1,7 @@
 package com.pompeu.admin.board.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Party;
 
@@ -21,6 +22,8 @@ public interface PartyDao {
   int delete(int no);
 
   List<Party> srchParty(Party party);
+
+  List<Map<Object, Object>> findPartyClaim(int no);
 
 
 }

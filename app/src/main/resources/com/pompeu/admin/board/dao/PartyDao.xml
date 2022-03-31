@@ -16,6 +16,22 @@
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
+    
+        <association property="clams" javaType="partyClaim">
+                <id column="party_no" property="partyNo"/>
+                <result column="status" property="status"/>
+       </association>
+        <association property="member" javaType="member">
+            <id column="member_no" property="no"/>
+            <result column="name" property="name"/>
+        </association>
+            
+  </resultMap>
+
+  <resultMap type="users" id="usersMap">
+    <id column="users_no" property="no"/>
+    <result column="image" property="image"/>
+    <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
   <resultMap type="partyUser" id="partyUserMap">
@@ -72,14 +88,23 @@
   </select>
   
   <select id="findAll" resultMap="partyMap">
-    select 
-      party_no,
-      name,
-      max_member
+select 
+          p.party_no                            as party_no,
+          p.name                                as name,
+          mb.name                               as member_name,
+          p.register_date                       as register_date,
+          pc.status                             as status
     from 
-      party 
-    order by 
-      party_no asc
+         party as p
+    join party_user as u 
+          on p.party_no = u.party_no 
+          and u.party_maker = '1'
+    join member as mb 
+          on u.users_no = mb.member_no 
+    left outer join party_claim as pc 
+          on p.party_no = pc.party_no 
+   order by
+      p.party_no DESC
   </select>
   
   <insert id="insert" parameterType="party">
@@ -89,7 +114,7 @@
   
   <select id="findByNo" resultMap="partyMap" parameterType="int">
     select 
-      party_no,
+      p.party_no,
       location_no,
       name,
       content,
@@ -159,8 +184,22 @@
   </select>
 
 
+  <select id="findPartyClaim" resultType="HashMap" parameterType="int">
+  
+    select  
+          pc.claim_date                                         as claimDate,
+          mb.name                                               as member_name,
+          cr.type                                               as type
+    from 
+         party_claim as pc
+    join party as p
+          on p.party_no = pc.party_no
+    join member as mb
+          on pc.users_no = mb.member_no
+    join claim_reason as cr
+          on pc.claim_reason_no = cr.claim_reason_no
+    where 
+      p.party_no=#{no}
+  </select>
 
 </mapper>
-
-
-
