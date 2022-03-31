@@ -17,7 +17,8 @@ public class Party {
   int inOutEx;
   Date modifyDate;
 
-
+  PartyClaim partyClaim;
+  Member member;
 
 
 }

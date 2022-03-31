@@ -17,7 +17,7 @@
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
     
-        <association property="clams" javaType="partyClaim">
+        <association property="partyClaim" javaType="partyClaim">
                 <id column="party_no" property="partyNo"/>
                 <result column="status" property="status"/>
        </association>
@@ -104,7 +104,7 @@ select
     left outer join party_claim as pc 
           on p.party_no = pc.party_no 
    order by
-      p.party_no DESC
+      p.party_no asc
   </select>
   
   <insert id="insert" parameterType="party">
