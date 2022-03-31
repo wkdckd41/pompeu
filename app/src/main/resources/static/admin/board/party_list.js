@@ -1,6 +1,3 @@
-
-
-
   var btn = document.getElementById("search");
 
 btn.addEventListener('click', function() {
@@ -35,15 +32,14 @@ btn.addEventListener('click', function() {
       console.log(result);
       
       for (var rst of result) {
-
-        var mt = rst.memberType.memberType;
-        console.log(mt)
-      
+      console.log(rst);
 
         var tr = document.createElement("tr");
         tr.innerHTML = `
-        <td>${rst.partyNo}</td> 
-        <td>${rst.registerDate}</td>
+        <td>${rst.party_no}</td> 
+        <td>${rst.name}</td>
+        <td>${rst.member_name}</td>
+        <td>${rst.register_date}</td>
         <td>${rst.status}</td>`;
         tbody2.appendChild(tr);
         

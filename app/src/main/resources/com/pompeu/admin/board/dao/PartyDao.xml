@@ -17,14 +17,6 @@
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
     
-        <association property="partyClaim" javaType="partyClaim">
-                <id column="party_no" property="partyNo"/>
-                <result column="status" property="status"/>
-       </association>
-        <association property="member" javaType="member">
-            <id column="member_no" property="no"/>
-            <result column="name" property="name"/>
-        </association>
             
   </resultMap>
 
@@ -87,8 +79,8 @@
     select count(*) from party
   </select>
   
-  <select id="findAll" resultMap="partyMap">
-select 
+  <select id="findAll" resultType="HashMap">
+    select 
           p.party_no                            as party_no,
           p.name                                as name,
           mb.name                               as member_name,
