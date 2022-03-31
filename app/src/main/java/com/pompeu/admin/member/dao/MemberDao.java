@@ -31,3 +31,4 @@ public interface MemberDao {
   List<Map<Object, Object>> findApplyingClass(int no);
 
 }
+
