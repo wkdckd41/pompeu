@@ -160,22 +160,22 @@
 
 
   <select id="findPartyClaim" resultType="HashMap" parameterType="int">
+  
     select  
           pc.claim_date                                         as claimDate,
           mb.name                                               as member_name,
           cr.type                                               as type
     from 
-          party_claim as pc
+         party_claim as pc
+    join party as p
+          on p.party_no = pc.party_no
     join member as mb
           on pc.users_no = mb.member_no
     join claim_reason as cr
-          on cr.claim_reason_no = cr.claim_reason_no
+          on pc.claim_reason_no = cr.claim_reason_no
     where 
-      pc.party_no=#{no}
+      p.party_no=#{no}
   </select>
-
-
-
 
 </mapper>
 
