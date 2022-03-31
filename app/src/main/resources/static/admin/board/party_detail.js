@@ -16,12 +16,8 @@
   var claimName = document.querySelector("#claim_name");
   var claimDate = document.querySelector("#claim_date");
 
-
-    while (tbody2.hasChildNodes()) {
-        tbody2.removeChild(tbody2.firstChild);
-    }
   
-  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
+  fetch(`/party/partyClaim?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
