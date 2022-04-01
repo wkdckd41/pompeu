@@ -176,22 +176,49 @@
   </select>
 
 
-  <select id="findPartyClaim" resultType="HashMap" parameterType="int">
-  
-    select  
-          pc.claim_date                                         as claimDate,
-          mb.name                                               as member_name,
-          cr.type                                               as type
-    from 
-         party_claim as pc
-    join party as p
-          on p.party_no = pc.party_no
-    join member as mb
-          on pc.users_no = mb.member_no
-    join claim_reason as cr
-          on pc.claim_reason_no = cr.claim_reason_no
-    where 
-      p.party_no=#{no}
+  <select id="findPartyClaim" resultType="HashMap">
+	select 
+	          p.party_no                            as party_no,
+	          p.name                                as name,
+	          mb.name                               as member_name,
+	          p.register_date                       as register_date,
+	          pc.status                             as status
+	    from 
+	         party as p
+	    join party_user as u 
+	          on p.party_no = u.party_no 
+	          and u.party_maker = '1'
+	    join member as mb 
+	          on u.users_no = mb.member_no 
+	    left outer join party_claim as pc 
+	          on p.party_no = pc.party_no 
+	    where 
+	        pc.status IS NOT NULL 
+	   order by
+	      p.party_no asc
   </select>
 
+
+
+  <select id="findPartyList" resultType="HashMap">
+    select 
+          p.party_no                            as party_no,
+          p.name                                as name,
+          mb.name                               as member_name,
+          p.register_date                       as register_date,
+          pc.status                             as status
+    from 
+         party as p
+    join party_user as u 
+          on p.party_no = u.party_no 
+          and u.party_maker = '1'
+    join member as mb 
+          on u.users_no = mb.member_no 
+    left outer join party_claim as pc 
+          on p.party_no = pc.party_no 
+    where 
+        pc.status IS NULL 
+    order by
+      p.party_no asc
+  </select>
 </mapper>
