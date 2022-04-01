@@ -7,6 +7,7 @@ public class Notice {
 
   int no;
   int memberTypeNo;
+  String memberType;
   int criticalCheck;
   java.sql.Date registerDate;
   int viewCount;

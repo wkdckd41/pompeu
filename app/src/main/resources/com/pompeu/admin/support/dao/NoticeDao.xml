@@ -3,11 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.pompeu.admin.support.dao.NoticeDao">
+<mapper namespace="com.pompeu.admin.support.dao.NoticeDao"> <!-- dao와 연결 -->
 
   <resultMap type="notice" id="noticeMap">
     <id column="notice_no" property="no"/>
     <result column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
     <result column="critical_check" property="criticalCheck"/>
     <result column="register_date" property="registerDate"/>
     <result column="view_count" property="viewCount"/>
@@ -20,18 +21,23 @@
     select count(*) from notice
   </select>
   
-  <select id="findAll" resultMap="noticeMap">
-    select 
-      n.notice_no,
-      t.member_type,
-      n.critical_check,
-      n.name,
-      n.view_count,
-      n.register_date
-    from 
-      member_type t left outer join notice n on t.member_type_no=n.member_type_no
-    order by 
-      notice_no desc
+  <select id="findAll" parameterType="notice" resultMap="noticeMap"> <!-- Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다   -->
+    select n.notice_no               as notice_no                     <!-- resultMap이 noticeMap인 이유는 Dao에서 리턴을 받는 타입이 list<Notice> 이기 때문이다 -->
+			  ,  n.member_type_no          as member_type_no                 
+			  ,  mt.member_type            as member_type
+			  ,  n.name                    as name
+			  ,  n.critical_check          as critical_check 
+			  ,  n.register_date           as register_date 
+			from notice n
+		  left outer join member_type mt 
+		    on n.member_type_no = mt.member_type_no  
+		 where 1=1
+			 <if test="memberTypeNo != 3">
+	        and n.member_type_no = #{memberTypeNo}
+	    </if>  
+			 order by notice_no desc
+			 LIMIT 10
+			  
       
   </select>
   
@@ -76,8 +82,14 @@
     update notice set 
       view_count=view_count + 1 
     where notice_no=#{no}
+    
   </update>
 
+  <delete id="deleteAll" parameterType="String">
+     delete 
+       from notice
+      where notice_no in (#{memberTypeNo})
+  </delete>
 </mapper>
 
 

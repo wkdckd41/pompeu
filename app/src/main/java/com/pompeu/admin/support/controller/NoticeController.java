@@ -17,8 +17,9 @@ public class NoticeController {
   NoticeService noticeService;
 
   @RequestMapping("/notice/list")
-  public Object list() {
-    return noticeService.list();
+  public Object list(Notice notice) {
+    System.out.println("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
+    return noticeService.list(notice);  
   }
 
   @RequestMapping("/notice/add")
@@ -44,6 +45,20 @@ public class NoticeController {
   @RequestMapping("/notice/delete")
   public Object delete(int no) {
     return noticeService.delete(no);
+  }
+
+  @RequestMapping("/notice/deleteAll")
+  public Object deleteAll(String memberTypeNo) {
+    System.out.println("memberTypeNo : " + memberTypeNo);
+
+    int count = noticeService.deleteAll(memberTypeNo);
+
+    if (count == 1) {
+      return new ResultMap().setStatus("success");
+    } else {
+      return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
+    }
+
   }
 
 }

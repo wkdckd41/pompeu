@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+
+</head>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/common.css">
+
+<script src="/admin/js/support/notice/notice-list.js"></script>
+
+<style>
+</style>
+<body>
+	<div class="container">
+		<h2 style="margin-left: 30px;">공지사항</h2>
+		<br> <br>
+    
+		<ul class="nav nav-tabs">
+			<li class="nav-item"><a class="nav-link active"	aria-current="page" href="#" onclick="selectMemberTypeNo(3)">전체</a></li>
+			<li class="nav-item"><a class="nav-link" href="#" onclick="selectMemberTypeNo(1)">이용자</a></li>
+			<li class="nav-item"><a class="nav-link" href="#" onclick="selectMemberTypeNo(2)">크리에이터</a></li>
+		</ul>
+  
+    
+		<table class="table">
+			<thead>
+				<tr>
+					<th><input type="checkbox" name="_selected_all_"></th>
+					<th scope="col">게시글 번호</th>
+					<th scope="col">구분</th>
+					<th scope="col">제목</th>
+					<th scope="col">작성일자</th>
+				</tr>
+			</thead>
+			<tbody id="tbody1">
+			<!-- 				
+				<tr>
+					<td><input type="checkbox" name="_selected_" value="ROW_8"></td>
+					<td scope="row">10</td>
+					<td>이용자</td>
+					<td>음란물 및 사행성 게시물 제재 안내</td>
+					<td>2021-10-10</td>
+				</tr>
+			 -->
+			</tbody>
+
+		</table>
+		
+		
+		<div class="col-lg-11 col-sm-18 text-lg-end text-right">
+			<button type="button" class="btn btn-primary">작성하기</button>
+			<button type="button" class="btn btn-primary" id="btnDelete" name="btnDelete">삭제하기</button>
+		</div>
+
+		<br>
+		<br>
+		<div class="text-center">
+			<nav aria-label="Page navigation example">
+				<ul class="pagination">
+					<li class="page-item"><a class="page-link" href="#">Previous</a></li>
+					<li class="page-item"><a class="page-link" href="#">1</a></li>
+					<li class="page-item"><a class="page-link" href="#">2</a></li>
+					<li class="page-item"><a class="page-link" href="#">3</a></li>
+					<li class="page-item"><a class="page-link" href="#">4</a></li>
+					<li class="page-item"><a class="page-link" href="#">5</a></li>
+					<li class="page-item"><a class="page-link" href="#">Next</a></li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+
+</body>
+
+
+<script>
+	//체크박스 전체선택 및 해제 기능은
+	
+$('input[name=_selected_all_]').on('change', function() {
+    $('input[name=_selected_]').prop('checked', this.checked);
+  });
+
+var arr = $('input[name=_selected_]:checked').serializeArray().map(
+    function(item) {
+      return item.value
+    });
+	//var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
+</script>
+</html>
+

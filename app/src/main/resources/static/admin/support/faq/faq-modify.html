@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+
+</head>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link
+	href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="/css/common.css">
+
+<style>
+</style>
+
+<body>
+	<div class="container">
+		<h2 style="margin-left: 30px;">FAQ 수정하기</h2>
+		<br> <br>
+
+		<!-- 나중에 파일 등록을 위해 enctype="multipart/form-data" 을 넣어둠 -->
+		<form class="form-horizontal" id="frm" name="frm" method="post"
+			enctype="multipart/form-data">
+
+			<!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
+
+			<div class="form-group row "">
+				<label class="col-sm-1 col-form-label text-center" for="title">제목</label>
+				<div class="col-md-6">
+					<input class="form-control" id="title" name="title"
+						placeholder="제목" type="text" value="[분쟁처리] 분쟁처리절차는 어떻게 되나요?" />
+				</div>
+			</div>
+
+			<div class="form-group row ">
+				<label class="col-sm-1 col-form-label text-center" for="content">내용</label>
+				<div class="col-sm-10 col-xs-12">
+					<textarea rows="20" class="form-control" id="content"
+						name="content" placeholder="내용">- '클래스' 상품의 고객문의가 접수되는 경우:
+
+  폼프가 문의내용을 확인하여 문의 해결 후 고객에게 처리결과를 안내합니다.
+
+
+
+- 통신판매중개의뢰자인 '크리에이터' 클래스의 고객문의가 접수되는 경우:
+
+  ① 개별 크리에이터가 문의를 해결하고 고객에게 처리결과를 답변함이 원칙입니다.
+
+  ② 다만, 고객과 크리에이터 간에 분쟁이 있거나 크리에이터가 고객의 문의에 대응이 없는 등의 경우 
+     
+     폼프는 통신판매중개자로서 분쟁의 원만한 해결을 위해 판매자에게 고객문의 내용을 직접 확인한 후 
+     
+     고객에게 평일(영업일) 기준 3일 이내 진행경과를 알리고, 평일(영업일) 기준 10일 이내 조사 결과 또는 
+     
+     처리방안을 안내합니다.</textarea>
+				</div>
+			</div>
+
+			<div class="form-group row ">
+				<label class="col-sm-1 col-form-label text-center" for="bfile">파일</label>
+				<div class="col-sm-10 col-xs-12">
+					<input class="form-control" id="bfile" name="bfile" type="file" />
+				</div>
+			</div>
+
+
+			<div class="form-group row">
+				<div class="col-lg-12 col-sm-10 text-lg-end text-center">
+					<div class="col-lg-11 col-sm-18 text-lg-end text-right">
+						<button type="button" class="btn btn-primary">수정</button>
+						<button type="button" class="btn btn-primary">취소</button>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+</body>
+
+
+<script>
+	
+</script>
+</html>
