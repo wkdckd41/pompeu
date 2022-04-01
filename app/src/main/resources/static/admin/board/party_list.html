@@ -6,25 +6,39 @@
 
   <link rel="stylesheet" href="/css/common.css">
   <link href="/admin/css/admin.css" rel="stylesheet">
-  <link href="/admin/css/bootstrap.min.css" rel="stylesheet">
-  <link href="/admin/css/bootstrap.css" rel="stylesheet">
-  <link href="/admin/css/font-awesome.min.css" rel="stylesheet">
-  <link href="/admin/css/prettyPhoto.css" rel="stylesheet">
-  <link href="/admin/css/price-range.css" rel="stylesheet">
-  <link href="/admin/css/animate.css" rel="stylesheet">
-  <link href="/admin/css/responsive.css" rel="stylesheet">
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   
+  <!-- navbar  -->
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+      rel="stylesheet" id="bootstrap-css">
+  <script
+      src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="/css/common.css">
+ 
+
   <style>
-  table, th, td {
-    border: 1px solid black;
-    border-collapse: collapse;
+  th,td {
+  padding:30px;
+  text-align: center;
   }
-  th, td {
-    background-color: rgb(249,252,251);
+  
+  .nav nav-tabs {
+  border-bottom : 0px solid rgb(0 0 0);
+  }
+  
+  .menu {
+  margin-left : 30px;
+  float:left;
+  }
+  
+  .search {
+  margin-top : 13px;
+  margin-right : 85px;
+  float:right;
   }
   </style>
+
   
 </head>
 
@@ -33,49 +47,50 @@
 <div class="headers" id="headers"></div> <!-- 사이드바 들어가는 부분 -->
 
 <div class="container">
-  <h2 style="margin-left: 30px; margin-top:30px; margin-bottom:30px; font-size: 27px; font-weight: bold;">소모임 관리</h2>
+  <h2 style="margin-left: 30px; margin-top:30px; margin-bottom:30px; font-size: 27px; ">소모임 관리</h2>
   
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#tab1">전체</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#tab2">소모임</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#tab3">신고게시글</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="작성자를 입력해주세요." aria-label="Search">
-        <button id="search"  class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
+  <div class="menu">
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a class="nav-link active" aria-current="page" href="#" onclick="selectBoardTypeNo(3)">전체</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo(1)">소모임</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo(2)">신고게시글</a></li>
+    </ul>
+ </div>
+  <div class="search">
+    <input id="input-box" type="search" placeholder="검색어를 입력하세요">
+    <button id="input-button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
   </div>
-</nav>
-
-  <div>
-    <table style="margin-left: 30px; width:90%;">
+  
+    <div>
+    <table class="table" style="margin-left: 30px; width:90%;">
       <thead>
            <tr>
-             <th id="party_no" class="board-table-top">No.</th>
-             <th id="party_name" class="board-table-top">제목</th>
-             <th id="name" class="board-table-top">작성자</th>
-             <th id="register_date" class="board-table-top">등록일</th>
-             <th id="status" class="board-table-top">신고여부</th>
+             <th scope="col" id="party_no" class="board-table-top" style="width:3%">No.</th>
+             <th scope="col" id="party_name" class="board-table-top" style="width:15%">제목</th>
+             <th scope="col" id="name" class="board-table-top" style="width:10%">작성자</th>
+             <th scope="col" id="register_date" class="board-table-top" style="width:10%">등록일</th>
+             <th scope="col" id="status" class="board-table-top" style="width:5%">신고여부</th>
            </tr>
        </thead>
-      <tbody id="tbody2">
+      <tbody id="tbody1">
       </tbody>      
     </table>
   </div>
 
+
+    <div class="text-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
 
 </div>
   
