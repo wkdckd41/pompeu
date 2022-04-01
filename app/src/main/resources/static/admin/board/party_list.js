@@ -1,9 +1,4 @@
 
-
-  var btn = document.getElementById("search");
-
-btn.addEventListener('click', function() {
-  
   var partyNo = document.querySelector("#party_no").value;
   var partyName = document.querySelector("#party_name").value;
   var name = document.querySelector("#name").value;
@@ -24,7 +19,8 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/party/srchParty?party_no=${partyNo}&party_name=${partyName}&name=${name}&register_date=${registerDate}&status=${status}`)
+  
+  fetch(`/party/list`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
@@ -35,22 +31,19 @@ btn.addEventListener('click', function() {
       
       for (var rst of result) {
 
-        var mt = rst.memberType.memberType;
-        console.log(mt)
-      
-
         var tr = document.createElement("tr");
         tr.innerHTML = `
-        <td>${rst.partyNo}</td> 
-        <td><a href=${url}${rst.no}>${rst.name}</a></td>
-        <td>${rst.registerDate}</td>
+        <td>${rst.party_no}</td> 
+        <td>${rst.name}</td>
+        <td>${rst.member_name}</td>
+        <td>${rst.register_date}</td>
         <td>${rst.status}</td>`;
         tbody2.appendChild(tr);
         
       }
     });
-    
-});
+
+
 
          /* rst.memberType.memberType */
 
