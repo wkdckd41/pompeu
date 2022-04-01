@@ -30,14 +30,28 @@
       console.log(result);
       
       for (var rst of result) {
-
+        
+        var st;
+             
+        switch (rst.status) {
+        case 1:
+        st = "O";
+        break;
+        case undefined:
+        st = "X";
+        break;
+        default:
+        st = "값이 없쪙";
+    }
+    
+    
         var tr = document.createElement("tr");
         tr.innerHTML = `
         <td>${rst.party_no}</td> 
         <td>${rst.name}</td>
         <td>${rst.member_name}</td>
         <td>${rst.register_date}</td>
-        <td>${rst.status}</td>`;
+        <td>${st}</td>`;
         tbody2.appendChild(tr);
         
       }

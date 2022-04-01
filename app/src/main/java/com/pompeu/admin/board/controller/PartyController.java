@@ -54,6 +54,7 @@ public class PartyController {
     return partyDao.srchParty(party);
   }
 
+
   @RequestMapping("/party/partyClaim")
   public Object partyClaim(int no) {
     return partyDao.findPartyClaim(no);
