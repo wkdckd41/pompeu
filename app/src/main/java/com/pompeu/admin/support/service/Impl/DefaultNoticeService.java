@@ -19,8 +19,8 @@ public class DefaultNoticeService implements NoticeService{
   }
 
   @Override
-  public List<Notice> list() {
-    return noticeDao.findAll();
+  public List<Notice> list(Notice notice) { //서비스에서 넘어온 객체
+    return noticeDao.findAll(notice); //noticeDao에 findAll 매서드를 호출하면서 notice 객체를 가지고간다
   }
 
   @Override
@@ -36,6 +36,20 @@ public class DefaultNoticeService implements NoticeService{
   @Override
   public int delete(int no) {
     return noticeDao.delete(no);
+  }
+
+  @Override
+  public int deleteAll(String str) {
+    String[] strArray = str.split(",");
+    int result = 0;
+    for(int i=0; i< strArray.length; i++) {      
+      result = noticeDao.delete(Integer.parseInt(strArray[i]));
+
+      if(result == 0) {
+        return 0;
+      }
+    }
+    return result;
   }
 
 }

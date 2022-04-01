@@ -3,7 +3,7 @@ package com.pompeu.admin.support.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.admin.support.dao.AskDao;
+import com.pompeu.admin.support.service.AskService;
 import com.pompeu.domain.Ask;
 
 @RestController 
@@ -14,22 +14,22 @@ public class AskController {
   //   Spring Boot가 AskController 객체를 만들 때 AskDao 구현체를 찾아 자동으로 주입한다. 
   //
   @Autowired
-  AskDao askService;
+  AskService askService;
 
   @RequestMapping("/ask/list")
   public Object list() {
-    return askService.findAll();
+    return askService.list();
   }
 
   @RequestMapping("/ask/add")
   public Object add(Ask ask) {
-    return askService.insert(ask);
+    return askService.add(ask);
   }
 
 
   @RequestMapping("/ask/get")
   public Object get(int no) {
-    Ask ask = askService.findByNo(no);
+    Ask ask = askService.get(no);
     if (ask == null) {
       return "";
     }
