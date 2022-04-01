@@ -1,0 +1,65 @@
+﻿﻿/*************************
+*******Typography******
+**************************/
+
+{
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
+@import url(http://fonts.googleapis.com/css?family=Abel);
+}
+
+.btn-group {
+  text-align:right;
+}
+
+#btn-out {
+	width: 90px;
+  height: 35px;
+  border-radius: 5px;
+  color : white;
+  background-color: #66B2FF;
+  text-align:center;
+  
+}
+
+#btn-out:active {
+  color: black;
+}
+
+#btn-in {
+	width: 90px;
+  height: 35px;
+  border-radius: 5px;
+  color : white;
+  background-color: #FF6666;
+  text-align:center;
+}
+
+#btn-in:active {
+  color: black;
+}
+
+.dropdown {
+	float:right;
+}
+
+#member-drop {
+	margin-right: 15px;
+}
+
+#regist-drop {
+	margin-right: 240px;
+}
+
+#region-summary {
+	background-color:#FFE5CC;
+}
+
+
+
+
+
+
+
+
+
