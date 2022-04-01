@@ -14,11 +14,11 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
   console.log("신고여부 : " + status);
   
   
-  var tbody2 = document.querySelector("#tbody2");
+  var tbody1 = document.querySelector("#tbody1");
 
 
-    while (tbody2.hasChildNodes()) {
-        tbody2.removeChild(tbody2.firstChild);
+    while (tbody1.hasChildNodes()) {
+        tbody1.removeChild(tbody1.firstChild);
     }
   
   
@@ -54,7 +54,7 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
         <td>${rst.member_name}</td>
         <td>${rst.register_date}</td>
         <td>${st}</td>`;
-        tbody2.appendChild(tr);
+        tbody1.appendChild(tr);
         
       }
     });
