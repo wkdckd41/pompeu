@@ -12,7 +12,6 @@ $( document ).ready(function() {    //html문서가 다 로드된후에 자바�
 });
 
 /*
-
 */
 
 function selectMemberTypeNo(t_num){ 
@@ -121,4 +120,4 @@ function init(){
 }
 
 
-    
+

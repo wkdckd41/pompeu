@@ -23,7 +23,9 @@ public interface PartyDao {
 
   List<Party> srchParty(Party party);
 
-  List<Map<Object, Object>> findPartyClaim(int no);
+  List<Map<Object, Object>> findPartyClaim();
+
+  List<Map<Object, Object>> findPartyList();
 
 
 }
