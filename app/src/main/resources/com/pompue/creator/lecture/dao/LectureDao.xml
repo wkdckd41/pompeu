@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.dao.LectureDao">
+
+  <resultMap type="lecture" id="lectureMap">
+    <id column="lecture_no" property="no"/>
+    <result column="location_no" property="locationNo"/>
+    <result column="creator_no" property="creatorNo"/>
+    <result column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
+    <result column="start_date" property="startDate"/>
+    <result column="end_date" property="endDate"/>
+    <result column="lecture_price" property="lecturePrice"/>
+    <result column="lecture_info" property="lectureInfo"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="status" property="status"/>
+    <result column="admin_message" property="adminMessage"/>
+    <result column="total_rate" property="totalRate"/>
+    <result column="in_out_ex" property="inOutEx"/>
+  </resultMap>
+
+    <insert id="insert" parameterType="lecture">
+    insert into lecture (
+    location_no,
+    creator_no,
+    ex_no,
+    name,
+    start_date,
+    end_date,
+    lecture_price,
+    lecture_info,
+    in_out_ex)
+     
+   values(#{locationNo},#{creatorNo},#{exNo},#{name},#{startDate},
+   #{endDate},#{lecturePrice},#{lectureInfo},#{inOutEx})
+   
+  </insert>
+  
+  <select id="countAll" resultType="int">
+    select count(*) from lecture
+  </select>
+  
+  <select id="findAll" resultMap="lectureMap">
+    select 
+      lecture_no,
+      creator_no,
+      name,
+      start_date,
+      end_date,
+      lecture_price,
+      register_date,
+      status
+    from 
+      lecture
+    order by 
+      lecture_no desc
+  </select>
+ 
+  <select id="findByNo" resultMap="lectureMap" parameterType="int"> 
+    select 
+      lecture_no,
+      creator_no,
+      ex_no,
+      name,
+      start_date,
+      end_date,
+      lecture_price,
+      lecture_info,
+      register_date,
+      status,
+      admin_message,
+      total_rate,
+      in_out_ex
+    from 
+      lecture
+    where 
+      lecture_no=#{no}
+  </select>
+
+  <update id="update" parameterType="lecture">
+    update lecture set 
+      admin_message=#{adminMessage}
+    where 
+      lecture_no=#{no}
+  </update>
+  
+</mapper>
+
+

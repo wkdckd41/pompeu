@@ -1,0 +1,21 @@
+package com.pompeu.creator.lecture.dao;
+
+import java.util.List;
+import org.apache.ibatis.annotations.Mapper;
+import com.pompeu.domain.Lecture;
+
+@Mapper
+public interface LectureDao {
+
+
+  int countAll();
+
+  List<Lecture> findAll();
+
+  Lecture insert(Lecture lecture);
+
+  Lecture findByNo(int no);
+
+  int update(Lecture lecture);
+
+}

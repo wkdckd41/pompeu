@@ -1,4 +1,4 @@
-package com.pompeu.admin.support.service;
+package com.pompeu.creator.lecture.Service;
 
 import java.util.List;
 import com.pompeu.domain.Lecture;
@@ -12,6 +12,9 @@ public interface LectureService {
 
   Lecture get(int no);
 
+  Lecture add(Lecture lecture);
+
   int update(Lecture lecture);
+
 
 }
