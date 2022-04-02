@@ -7,7 +7,7 @@ import lombok.Data;
 public class LectureTime {
 
   int no;
-  int classNo;
+  int lectureNo;
   Date startTime;
   Date endTime;
   int maxMember;

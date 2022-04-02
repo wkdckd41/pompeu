@@ -20,9 +20,26 @@
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
+    
+   <collection property="times" ofType="lectureTime">
+      <id column="lecture_time_no" property="no"/>
+      <result column="lecture_no" property="lectureNo"/>
+      <result column="start_time" property="startTime"/>
+      <result column="end_time" property="endTime"/>
+      <result column="max_member" property="maxMember"/>
+    </collection>
+  </resultMap>
+  
+  <resultMap type="lectureTime" id="lectureTimeMap">
+      <id column="lecture_time_no" property="no"/>
+      <result column="lecture_no" property="lectureNo"/>
+      <result column="start_time" property="startTime"/>
+      <result column="end_time" property="endTime"/>
+      <result column="max_member" property="maxMember"/>
+      <result column="no_member" property="noMember"/>
   </resultMap>
 
-    <insert id="insert" parameterType="lecture">
+    <insert id="insert" parameterType="lecture" keyProperty="no" keyColumn="lecture_no" useGeneratedKeys="true" >
     insert into lecture (
     location_no,
     creator_no,
@@ -36,8 +53,7 @@
      
    values(#{locationNo},#{creatorNo},#{exNo},#{name},#{startDate},
    #{endDate},#{lecturePrice},#{lectureInfo},#{inOutEx})
-   
-  </insert>
+    </insert>
   
   <select id="countAll" resultType="int">
     select count(*) from lecture
