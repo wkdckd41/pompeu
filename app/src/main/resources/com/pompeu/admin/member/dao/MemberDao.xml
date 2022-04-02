@@ -37,10 +37,10 @@
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
-  <resultMap type="myclassList" id="myclassListMap">
-    <id column="myclass_list_no" property="no"/>
+  <resultMap type="mylectureList" id="mylectureListMap">
+    <id column="mylecture_list_no" property="no"/>
     <result column="users_no" property="usersNo"/>
-    <result column="class_time_no" property="classTimeNo"/>
+    <result column="lecture_time_no" property="lectureTimeNo"/>
     <result column="register_member" property="registerMember"/>
     <result column="pay_status" property="payStatus"/>
     <result column="content" property="content"/>
@@ -48,25 +48,25 @@
     <result column="rate" property="rate"/>
   </resultMap>
 
-  <resultMap type="classTime" id="classTimeMap">
-    <id column="class_time_no" property="no"/>
-    <result column="class_no" property="classNo"/>
+  <resultMap type="lectureTime" id="lectureTimeMap">
+    <id column="lecture_time_no" property="no"/>
+    <result column="lecture_no" property="lectureNo"/>
     <result column="start_time" property="startTime"/>
     <result column="end_time" property="endTime"/>
     <result column="max_member" property="maxMember"/>
     <result column="no_member" property="noMember"/>
   </resultMap>
 
-  <resultMap type="class" id="classMap">
-    <id column="class_no" property="no"/>
+  <resultMap type="lecture" id="lectureMap">
+    <id column="lecture_no" property="no"/>
     <result column="location_no" property="locationNo"/>
     <result column="creator_no" property="creatorNo"/>
     <result column="ex_no" property="exNo"/>
     <result column="name" property="name"/>
     <result column="start_date" property="startDate"/>
     <result column="end_date" property="endDate"/>
-    <result column="class_price" property="classPrice"/>
-    <result column="class_info" property="classInfo"/>
+    <result column="lecture_price" property="lecturePrice"/>
+    <result column="lecture_info" property="lectureInfo"/>
     <result column="register_date" property="registerDate"/>
     <result column="status" property="status"/>
     <result column="admin_message" property="adminMessage"/>
@@ -194,12 +194,12 @@
           member as m
     join users as u 
           on m.member_no = u.users_no
-    join myclass_list as ml 
+    join mylecture_list as ml 
           on u.users_no = ml.users_no
-      join class_time as ct 
-          on ml.class_time_no = ct.class_time_no 
-      join class as c
-          on ct.class_no = c.class_no
+      join lecture_time as ct 
+          on ml.lecture_time_no = ct.lecture_time_no 
+      join lecture as c
+          on ct.lecture_no = c.lecture_no
     where 
       m.member_no=#{no}
   </select>
@@ -216,10 +216,10 @@
           member as m
     join creator as cr 
           on m.member_no = cr.creator_no
-    join class as c 
+    join lecture as c 
           on cr.creator_no = c.creator_no
-    join class_time as ct 
-          on c.class_no = ct.class_no 
+    join lecture_time as ct 
+          on c.lecture_no = ct.lecture_no 
     where 
       m.member_no=#{no}
   </select>
@@ -235,10 +235,10 @@
           member as m
     join creator as cr 
           on m.member_no = cr.creator_no
-    join class as c 
+    join lecture as c 
           on cr.creator_no = c.creator_no
-    join class_time as ct 
-          on c.class_no = ct.class_no 
+    join lecture_time as ct 
+          on c.lecture_no = ct.lecture_no 
     where 
       m.member_no=#{no} and (c.status=1 or c.status=9)
   </select>

@@ -1,10 +1,9 @@
 package com.pompeu.admin.support.dao;
 
 import java.util.List;
-import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Lecture;
 
-@Mapper
+//@Mapper
 public interface AdminLectureDao {
 
 

@@ -1,21 +1,19 @@
 package com.pompeu.admin.support.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.admin.support.service.AdminLectureService;
 import com.pompeu.domain.Lecture;
 
-@RestController
+//@RestController
 public class AdminLectureController {
 
   AdminLectureService lectureService;
 
-  @RequestMapping("/lecture/list")
+  //@RequestMapping("/lecture/list")
   public Object list() {
     return lectureService.list();
   }
 
-  @RequestMapping("/lecture/get")
+  // @RequestMapping("/lecture/get")
   public Object get(int no) {
     Lecture lecture = lectureService.get(no);
     if (lecture == null) {
@@ -24,7 +22,7 @@ public class AdminLectureController {
     return lecture;
   }
 
-  @RequestMapping("/lecture/update")
+  // @RequestMapping("/lecture/update")
   public Object update(Lecture lecture) {
     return lectureService.update(lecture);
   }

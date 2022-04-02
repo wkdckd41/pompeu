@@ -4,11 +4,11 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class myclassList {
+public class myLectureList {
 
   int no;
   int usersNo;
-  int classTimeNo;
+  int lectureTimeNo;
   int registerMember;
   int payStatus;
   String content;
