@@ -10,7 +10,6 @@
     <result column="member_type" property="memberType"/>
   </resultMap>
 
-
   <resultMap type="member" id="memberMap">
     <id column="member_no" property="no"/>
     <result column="member_type_no" property="memberTypeNo"/>
@@ -29,7 +28,6 @@
     <result column="gender" property="gender"/>
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
-
 
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
