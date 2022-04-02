@@ -1,6 +1,5 @@
 package com.pompeu.domain;
 
-import java.sql.Date;
 import lombok.Data;
 
 @Data
@@ -8,9 +7,18 @@ public class LectureTime {
 
   int no;
   int lectureNo;
-  Date startTime;
-  Date endTime;
+  String startTime;
+  String endTime;
   int maxMember;
   int noMember;
+
+  LectureTime(){};
+
+  public LectureTime(String value, String value2, int value3){
+    this.startTime = value;
+    this.endTime = value2;
+    this.maxMember=value3;
+  };
+
 
 }
