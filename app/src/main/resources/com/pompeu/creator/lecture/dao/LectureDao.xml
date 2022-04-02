@@ -100,9 +100,36 @@
 
   <update id="update" parameterType="lecture">
     update lecture set
-      admin_message=#{adminMessage}
-    where
-      lecture_no=#{no}
+     location_no=#{no},
+     ex_no=#{exNo},
+     name=#{name},
+     start_date=#{startDate},
+     end_date=#{endDate},
+     lecture_price=#{lecturePrice},
+     lecture_info=#{lectureInfo},
+     in_out_ex=#{inOutEx}
+      where
+       lecture_no=#{no};
   </update>
+
+  <update id="delete" parameterType="int">
+    delete from lecture
+    where
+     lecture_no=#{no}
+  </update>
+  
+  <insert id="insertTime" parameterType="lectureTime">
+    insert into lecture_time (
+      lecture_no,
+      start_time,
+      end_time,
+      max_member)
+      values
+      (#{lectureNo},#{startTime},#{endTime},#{maxMember})
+  </insert>
+  
+  
+  
+  
 
 </mapper>
