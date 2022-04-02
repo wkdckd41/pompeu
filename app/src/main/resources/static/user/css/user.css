@@ -234,7 +234,7 @@ border: 1px solid black;
 }
 
 .box-title2 {
-	margin-left:510px;
+	margin-left:480px;
 	margin-top:-400px;
   width:calc(100% -40px);
   border: 1px solid #CED4D4;
@@ -242,7 +242,7 @@ border: 1px solid black;
   width: 400px;
   border-radius: 20px;
   justify-content:center;
-  background-color: #FAFAFA;
+  background-color: white;
 }
 
 
@@ -277,4 +277,49 @@ border: 1px solid black;
 	line-height: 1.75;
 	text-transform: uppercase;
 }
+
+.lecture-name{
+	font-size:23px;
+	font-weight:bold;
+	margin-top:-30px;
+}
+
+.lecture-price {
+	margin-top:-30px;
+	font-size:21px;
+}
+
+#btn-zzim {
+  width: 120px;
+  height: 35px;
+  border-radius: 5px;
+  color : black;
+  background-color: #FBF8F1;
+  text-align:center;
+  margin-left:30px;
+  margin-top:10px;
+}
+
+#btn-like {
+  width: 120px;
+  height: 35px;
+  border-radius: 5px;
+  color : black;
+  background-color: #FBF8F1;
+  text-align:center;
+  margin-left:30px;
+  margin-top:10px;
+}
+
+#btn-regist {
+	width: 200px;
+  height: 40px;
+  border-radius: 5px;
+  color : white;
+  background-color: #018383;
+  text-align:center;
+  margin-left:65px;
+  margin-top:20px;
+}
+
 
