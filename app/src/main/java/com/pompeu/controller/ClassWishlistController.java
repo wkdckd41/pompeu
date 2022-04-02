@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.dao.ClassWishlistDao;
-import com.pompeu.domain.ClassWishlist;
+import com.pompeu.domain.LectureWishlist;
 
 
 @RestController 
@@ -24,14 +24,14 @@ public class ClassWishlistController {
   }
 
   @RequestMapping("/classWishlist/add")
-  public Object add(ClassWishlist classwishlist) {
+  public Object add(LectureWishlist classwishlist) {
     return classWishlistDao.insert(classwishlist);
   }
 
 
   @RequestMapping("/classWishlist/get")
-  public Object get(ClassWishlist classwishlist) {
-    List<ClassWishlist> like = classWishlistDao.findByNo(classwishlist);
+  public Object get(LectureWishlist classwishlist) {
+    List<LectureWishlist> like = classWishlistDao.findByNo(classwishlist);
     if (like == null) {
       return "";
     }
@@ -44,7 +44,7 @@ public class ClassWishlistController {
   //  }
 
   @RequestMapping("/classWishlist/delete")
-  public Object delete(ClassWishlist classwishlist) {
+  public Object delete(LectureWishlist classwishlist) {
     return classWishlistDao.delete(classwishlist);
   }
 

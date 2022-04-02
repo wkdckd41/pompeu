@@ -4,7 +4,7 @@ import java.sql.Date;
 import lombok.Data;
 
 @Data
-public class ClassTime {
+public class LectureTime {
 
   int no;
   int classNo;

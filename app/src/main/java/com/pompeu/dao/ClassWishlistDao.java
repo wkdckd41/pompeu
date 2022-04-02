@@ -2,22 +2,22 @@ package com.pompeu.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
-import com.pompeu.domain.ClassWishlist;
+import com.pompeu.domain.LectureWishlist;
 
 @Mapper
 public interface ClassWishlistDao {
 
   int countAll();
 
-  List<ClassWishlist> findAll();
+  List<LectureWishlist> findAll();
 
-  int insert(ClassWishlist classwishlist);
+  int insert(LectureWishlist classwishlist);
 
-  List<ClassWishlist> findByNo(ClassWishlist classwishlist);
+  List<LectureWishlist> findByNo(LectureWishlist classwishlist);
 
   //  int update(ChallengeLike classwishlist);
 
-  int delete(ClassWishlist classwishlist);
+  int delete(LectureWishlist classwishlist);
 
 }
 

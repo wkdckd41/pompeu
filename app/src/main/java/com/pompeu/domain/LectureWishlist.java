@@ -1,6 +1,6 @@
 package com.pompeu.domain;
 
-public class ClassWishlist {
+public class LectureWishlist {
 
   int usersNo;
   int classNo;
