@@ -1,5 +1,6 @@
 package com.pompeu.creator.lecture.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.creator.lecture.Service.LectureService;
@@ -8,6 +9,7 @@ import com.pompeu.domain.Lecture;
 @RestController
 public class LectureController {
 
+  @Autowired
   LectureService lectureService;
 
   @RequestMapping("/lecture/list")
