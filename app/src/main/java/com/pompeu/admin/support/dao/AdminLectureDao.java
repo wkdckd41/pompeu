@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Lecture;
 
 @Mapper
-public interface LectureDao {
+public interface AdminLectureDao {
 
 
   int countAll();

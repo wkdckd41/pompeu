@@ -3,7 +3,7 @@ package com.pompeu.admin.support.service;
 import java.util.List;
 import com.pompeu.domain.Lecture;
 
-public interface LectureService {
+public interface AdminLectureService {
 
 
   int countAll();

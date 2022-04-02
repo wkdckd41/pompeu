@@ -2,13 +2,13 @@ package com.pompeu.admin.support.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.admin.support.service.LectureService;
+import com.pompeu.admin.support.service.AdminLectureService;
 import com.pompeu.domain.Lecture;
 
 @RestController
-public class LectureController {
+public class AdminLectureController {
 
-  LectureService lectureService;
+  AdminLectureService lectureService;
 
   @RequestMapping("/lecture/list")
   public Object list() {
