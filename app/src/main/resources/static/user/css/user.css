@@ -7,6 +7,19 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
 }
+
+div {
+  display: block;
+}
+
+h5 {
+  display: block;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start:0px;
+  margin-inline-end:0px;
+}
+
 #party-create{
 	margin-top:10px;
 	margin-left:950px;
@@ -18,12 +31,8 @@
 	line-height:30px;
 }
 
-
-/*~~~~~~~~~~~~~~*/
-
-
 #btn-out {
-   	width: 90px;
+  width: 90px;
   height: 35px;
   border-radius: 5px;
   color : white;
@@ -37,7 +46,7 @@
 }
 
 #btn-in {
-    width: 90px;
+  width: 90px;
   height: 35px;
   border-radius: 5px;
   color : white;
@@ -102,7 +111,6 @@
     height: 90px;
 }
 
-
 #like-heart {
    margin-left:150px;
 }
@@ -140,20 +148,16 @@ border: 1px solid black;
 
 }
 
-
-
 .box-left {
 	height: 750px;
-	width: 50%;
+	width: 60%;
 	display: flex;
 	max-width:750px;
 	min-width:320px;
-	margin-top: 2rem;
-	margin-left: 40px;
+	margin-top: 1rem;
+	margin-left: 10px;
 	flex-direction:column;
-	height:10px;
 	border-radius:5px;
-	height:10px;
 	border-radius:5px;
 }
 
@@ -167,6 +171,7 @@ border: 1px solid black;
   display:flex;
   flex-direction: column;
   scroll-margin-top:70px;
+  margin-top : 3rem;
 }
 
 .box-1 {
@@ -184,10 +189,11 @@ border: 1px solid black;
 
 .box-right {
 	display: flex;
-	max-width: 400px;
-	margin-top: 2rem;
+	width: 400px;
+	margin-top: 1rem;
 	align-items: flex-start;
-	margin-left: 50px;
+	margin-left: 30px;
+	margin-right: 10px;
 	margin-bottom: 1rem;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -206,22 +212,23 @@ border: 1px solid black;
 }
 
 .box-title {
-	 width:calc(100% -40px);
+	width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
-  max-width:400px;
+  width:360px;
   border-radius: 5px;
   justify-content:center;
   background-color: #FAFAFA;
 }
 
-.party-text {
+.party-title {
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	width:100%;
-	height:300px;
+	height:30px;
 	margin-bottom:10px;
 }
+
 
 .xbtn {
 	border: 0;
@@ -246,15 +253,3 @@ border: 1px solid black;
 	text-transform: uppercase;
 }
 
-
-div {
-  display: block;
-}
-
-h5 {
-  display: block;
-  margin-block-start: 1.67em;
-  margin-block-end: 1.67em;
-  margin-inline-start:0px;
-  margin-inline-end:0px;
-}
