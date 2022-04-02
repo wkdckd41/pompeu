@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link rel="stylesheet" href="/user/css/flexslider.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: rgb(249,252,251);
+  }
+  #x-member-table {
+  text-align: center !important;
+  }
+
+  </style>
+</head>
+
+<body>
+
+<div class="headers" id="headers"></div> <!-- 사이드바 들어가는 부분 -->
+
+<div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
+
+
+
+
+
+<div style="text-align: center; font-weight: bold; margin-top:100px; margin-bottom:-170px;">
+<ul class="slides">
+            <li style="margin-left:-30px;">
+              <img src="/user/lecture/img/jpg/서울.jpg" style="max-height:30%;"/>
+              <div>서울</div>
+            </li>
+            <li style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/경기.jpg" style="max-height:30%;"/>
+              <div>경기</div>
+            </li>
+            <li style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/인천.jpg" style="max-height:30%;" />
+              <div>인천</div>
+            </li>
+            <li  style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/광주.jpg" style="max-height:30%;" />
+              <div>광주</div>
+            </li>
+            <li  style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/대전.jpg" style="max-height:30%;" />
+              <div>대전</div>
+            </li>
+            <li  style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/대구.jpg" style="max-height:30%;" />
+              <div>대구</div>
+            </li>
+            <li  style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/울산.jpg" style="max-height:30%;" />
+              <div>울산</div>
+            </li>
+            <li  style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/부산.jpg"  style="max-height:30%;"/>
+              <div>부산</div>
+            </li>
+            <li  style=" margin-left:-210px;">
+              <img src="/user/lecture/img/jpg/제주.jpg" style="max-height:30%;"/>
+              <div>제주</div>
+            </li>
+          </ul>
+</div>
+
+<div class="btn-group">
+  <button type="button" id="btn-out">실외운동</button>
+  <button type="button" id="btn-in">실내운동</button>
+</div>
+
+<div>
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="regist-dropp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    최신순
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">최신순</a></li>
+    <li><a href="#">오래된순</a></li>
+    <li><a href="#">마감임박순</a></li>
+  </ul>
+</div>
+
+<div class="dropdown">
+  <button class="btn btn-default dropdown-toggle" type="button" id="member-dropp"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    전체
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+    <li><a href="#">전체</a></li>
+    <li><a href="#">4인이하</a></li>
+    <li><a href="#">5인이상</a></li>
+  </ul>
+</div>
+<button type="button" id="party-create">새 모임 등록</button>
+</div>
+
+<hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0;" />
+
+
+
+</body>
+
+<script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
+<script src="../js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/price-range.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/jquery.prettyPhoto.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/main.js"></script> <!-- 관련 js 파일들 -->
+<script src="party_home.js"></script>
+<script src="../admin2.js"></script> <!-- 사이드바 관련 스크립트 -->
+<script defer src="/user/js/jquery.flexslider.js"></script>
+
+
+
+
+</html>

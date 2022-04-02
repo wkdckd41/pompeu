@@ -1,4 +1,4 @@
-﻿﻿/*************************
+﻿﻿﻿/*************************
 *******Typography******
 **************************/
 
@@ -8,34 +8,22 @@
 @import url(http://fonts.googleapis.com/css?family=Abel);
 }
 #party-create{
-   margin-top:10px;
-   margin-left:950px;
-   border-radius: 5px;
+	margin-top:10px;
+	margin-left:950px;
+	border-radius: 5px;
   color : black;
-   display:flex;
-   position:absolute;
-   height:33px;
-   line-height:30px;
+	display:flex;
+	position:absolute;
+	height:33px;
+	line-height:30px;
 }
 
-
-div {
-  display: block;
-}
-
-h5 {
-  display: block;
-  margin-block-start: 1.67em;
-  margin-block-end: 1.67em;
-  margin-inline-start:0px;
-  margin-inline-end:0px;
-}
 
 /*~~~~~~~~~~~~~~*/
 
 
 #btn-out {
-   width: 90px;
+   	width: 90px;
   height: 35px;
   border-radius: 5px;
   color : white;
@@ -49,7 +37,7 @@ h5 {
 }
 
 #btn-in {
-   width: 90px;
+    width: 90px;
   height: 35px;
   border-radius: 5px;
   color : white;
@@ -64,7 +52,7 @@ h5 {
 }
 
 .dropdown {
-   float:right;
+   	float:right;
 }
 
 #member-drop {
@@ -141,6 +129,9 @@ h5 {
    max-height:30%;
 }
 
+#heart {
+	color:red;
+}
 
 .class-sum-container{
 width:100px;
@@ -148,6 +139,7 @@ height:100px;
 border: 1px solid black;
 
 }
+
 
 
 .box-left {
@@ -159,6 +151,10 @@ border: 1px solid black;
 	margin-top: 2rem;
 	margin-left: 40px;
 	flex-direction:column;
+	height:10px;
+	border-radius:5px;
+	height:10px;
+	border-radius:5px;
 }
 
 .top-content {
@@ -248,4 +244,17 @@ border: 1px solid black;
 	font-weight:500;
 	line-height: 1.75;
 	text-transform: uppercase;
+}
+
+
+div {
+  display: block;
+}
+
+h5 {
+  display: block;
+  margin-block-start: 1.67em;
+  margin-block-end: 1.67em;
+  margin-inline-start:0px;
+  margin-inline-end:0px;
 }

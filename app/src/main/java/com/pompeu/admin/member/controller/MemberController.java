@@ -3,7 +3,7 @@ package com.pompeu.admin.member.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.admin.member.dao.MemberDao;
+import com.pompeu.admin.member.service.MemberService;
 import com.pompeu.domain.Member;
 
 @RestController 
@@ -14,65 +14,59 @@ public class MemberController {
   //   Spring Boot가 MemberController 객체를 만들 때 MemberDao 구현체를 찾아 자동으로 주입한다. 
   //
   @Autowired
-  MemberDao memberDao;
+  MemberService memberService;
 
   @RequestMapping("/member/list")
   public Object list() {
-    return memberDao.findAll();
+    return memberService.list();
   }
 
   @RequestMapping("/member/add")
   public Object add(Member member) {
-    return memberDao.insert(member);
+    return memberService.add(member);
   }
 
   @RequestMapping("/member/get")
   public Object get(int no) {
-    Member member = memberDao.findByNo(no);
+    Member member = memberService.get(no);
     return member != null ? member : "";
   }
 
   @RequestMapping("/member/update")
   public Object update(Member member) {
-    return memberDao.update(member);
+    return memberService.update(member);
   }
 
   @RequestMapping("/member/delete")
   public Object delete(int no) {
-    return memberDao.delete(no);
+    return memberService.delete(no);
   }
 
   @RequestMapping("/member/findCount")
   public Object memberList() {
-    return memberDao.findCount();
+    return memberService.memberList();
   }
 
   @RequestMapping("/member/srchMember")
   public Object srchMember(Member member) {
 
-    System.out.println("srchMember : " + member.getNo());
-    System.out.println("srchMember : " + member.getName());
-    System.out.println("srchMember : " + member.getPhone());
-    System.out.println("srchMember : " + member.getEmail());
-
-    System.out.println(memberDao.srchMember(member));
-    return memberDao.srchMember(member);
+    return memberService.srchMember(member);
   }
 
 
   @RequestMapping("/member/getClass")
   public Object getClass(int no) {
-    return memberDao.findUserClass(no);
+    return memberService.getClass(no);
   }
 
   @RequestMapping("/member/creatorClass")
   public Object creatorClass(int no) {
-    return memberDao.findCreatorClass(no);
+    return memberService.creatorClass(no);
   }
 
   @RequestMapping("/member/applyingClass")
   public Object applyingClass(int no) {
-    return memberDao.findApplyingClass(no);
+    return memberService.applyingClass(no);
   }
 
 }

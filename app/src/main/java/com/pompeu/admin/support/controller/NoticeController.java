@@ -18,7 +18,7 @@ public class NoticeController {
 
   @RequestMapping("/notice/list")
   public Object list(Notice notice) {
-    System.out.println("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
+    //System.out.println("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
     return noticeService.list(notice);  
   }
 
