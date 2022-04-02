@@ -124,9 +124,9 @@ h5 {
 }
 
 .slider {
-   width:40%;
-   margin-left:40px;
-  margin-top:50px;
+  width:80%;
+  margin-left:25px;
+  margin-top: 10px;
 }
 
 .slides {
@@ -152,18 +152,29 @@ border: 1px solid black;
 	height: 750px;
 	width: 60%;
 	display: flex;
-	max-width:750px;
+	max-width:650px;
 	min-width:320px;
 	margin-top: 1rem;
 	margin-left: 10px;
 	flex-direction:column;
 	border-radius:5px;
-	border-radius:5px;
+}
+
+.box-left2 {
+  height: 750px;
+  width: 55%;
+  display: flex;
+  max-width:650px;
+  min-width:320px;
+  margin-top: 1rem;
+  margin-left: 10px;
+  flex-direction:column;
+  border-radius:5px;
 }
 
 .top-content {
 	height:400px;
-  width: 100%;
+  width: 98%;
   max-width:750px;
 }
 
@@ -212,14 +223,28 @@ border: 1px solid black;
 }
 
 .box-title {
+  
 	width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
   width:360px;
-  border-radius: 5px;
+  border-radius: 20px;
   justify-content:center;
   background-color: #FAFAFA;
 }
+
+.box-title2 {
+	margin-left:510px;
+	margin-top:-400px;
+  width:calc(100% -40px);
+  border: 1px solid #CED4D4;
+  padding:19px;
+  width: 400px;
+  border-radius: 20px;
+  justify-content:center;
+  background-color: #FAFAFA;
+}
+
 
 .party-title {
 	display: flex;
