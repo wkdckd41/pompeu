@@ -9,6 +9,7 @@ import com.pompeu.domain.Lecture;
 @RestController
 public class LectureController {
 
+
   @Autowired
   LectureService lectureService;
 
