@@ -4,19 +4,19 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.dao.ClassWishlistDao;
+import com.pompeu.dao.LectureWishlistDao;
 import com.pompeu.domain.LectureWishlist;
 
 
 @RestController 
-public class ClassWishlistController {
+public class LectureWishlistController {
 
   // @Autowired
   // - 필드 선언부에 이 애노테이션을 붙여서 표시해 두면, 
   //   Spring Boot가 UsersController 객체를 만들 때 MemberDao 구현체를 찾아 자동으로 주입한다. 
   //
   @Autowired
-  ClassWishlistDao classWishlistDao;
+  LectureWishlistDao classWishlistDao;
 
   @RequestMapping("/classWishlist/list")
   public Object list() {

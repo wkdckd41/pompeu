@@ -5,7 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.LectureWishlist;
 
 @Mapper
-public interface ClassWishlistDao {
+public interface LectureWishlistDao {
 
   int countAll();
 
