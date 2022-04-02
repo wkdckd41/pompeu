@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.pompeu.crator.lecture.dao.LectureDao">
+<mapper namespace="com.pompeu.creator.lecture.dao.LectureDao">
 
 
   <resultMap type="lecture" id="lectureMap">
