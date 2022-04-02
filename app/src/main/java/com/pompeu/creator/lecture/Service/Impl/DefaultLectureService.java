@@ -8,7 +8,7 @@ import com.pompeu.creator.lecture.dao.LectureDao;
 import com.pompeu.domain.Lecture;
 
 @Service
-public class DefaultLectureService implements LectureService{
+public class DefaultLectureService implements LectureService {
 
   @Autowired
   LectureDao lectureDao;

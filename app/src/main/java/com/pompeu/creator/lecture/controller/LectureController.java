@@ -8,6 +8,7 @@ import com.pompeu.domain.Lecture;
 @RestController
 public class LectureController {
 
+
   LectureService lectureService;
 
   @RequestMapping("/lecture/list")

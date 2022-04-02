@@ -3,6 +3,7 @@ package com.pompeu.domain;
 import java.sql.Date;
 import java.util.List;
 import lombok.Data;
+
 @Data
 public class Lecture {
 
