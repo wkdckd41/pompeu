@@ -2,7 +2,8 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-  
+
+
 <mapper namespace="com.pompeu.crator.lecture.dao.LectureDao">
 
 
@@ -21,7 +22,7 @@
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
-    
+
    <collection property="times" ofType="lectureTime">
       <id column="lecture_time_no" property="no"/>
       <result column="lecture_no" property="lectureNo"/>
@@ -30,7 +31,7 @@
       <result column="max_member" property="maxMember"/>
     </collection>
   </resultMap>
-  
+
   <resultMap type="lectureTime" id="lectureTimeMap">
       <id column="lecture_time_no" property="no"/>
       <result column="lecture_no" property="lectureNo"/>
@@ -51,17 +52,17 @@
     lecture_price,
     lecture_info,
     in_out_ex)
-     
+
    values(#{locationNo},#{creatorNo},#{exNo},#{name},#{startDate},
    #{endDate},#{lecturePrice},#{lectureInfo},#{inOutEx})
     </insert>
-  
+
   <select id="countAll" resultType="int">
     select count(*) from lecture
   </select>
-  
+
   <select id="findAll" resultMap="lectureMap">
-    select 
+    select
       lecture_no,
       creator_no,
       name,
@@ -70,14 +71,14 @@
       lecture_price,
       register_date,
       status
-    from 
+    from
       lecture
-    order by 
+    order by
       lecture_no desc
   </select>
- 
-  <select id="findByNo" resultMap="lectureMap" parameterType="int"> 
-    select 
+
+  <select id="findByNo" resultMap="lectureMap" parameterType="int">
+    select
       lecture_no,
       creator_no,
       ex_no,
@@ -91,19 +92,17 @@
       admin_message,
       total_rate,
       in_out_ex
-    from 
+    from
       lecture
-    where 
+    where
       lecture_no=#{no}
   </select>
 
   <update id="update" parameterType="lecture">
-    update lecture set 
+    update lecture set
       admin_message=#{adminMessage}
-    where 
+    where
       lecture_no=#{no}
   </update>
-  
+
 </mapper>
-
-

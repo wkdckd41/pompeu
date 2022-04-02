@@ -12,7 +12,7 @@ public interface LectureDao {
 
   List<Lecture> findAll();
 
-  Lecture insert(Lecture lecture);
+  int insert(Lecture lecture);
 
   Lecture findByNo(int no);
 

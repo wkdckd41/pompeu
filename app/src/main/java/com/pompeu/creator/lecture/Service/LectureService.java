@@ -11,7 +11,7 @@ public interface LectureService {
 
   Lecture get(int no);
 
-  Lecture add(Lecture lecture);
+  int add(Lecture lecture);
 
   int update(Lecture lecture);
 

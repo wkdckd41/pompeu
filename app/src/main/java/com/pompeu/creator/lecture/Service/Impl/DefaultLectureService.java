@@ -24,7 +24,7 @@ public class DefaultLectureService implements LectureService {
   }
 
   @Override
-  public Lecture add(Lecture lecture) {
+  public int add(Lecture lecture) {
     return lectureDao.insert(lecture);
   }
 

@@ -14,8 +14,8 @@ public class Lecture {
   String name;
   Date startDate;
   Date endDate;
-  int classPrice;
-  String classInfo;
+  int lecturePrice;
+  String lectureInfo;
   Date registerDate;
   int status;
   String adminMessage;

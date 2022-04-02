@@ -20,6 +20,7 @@ public class LectureController {
 
   @RequestMapping("/lecture/add")
   public Object add(Lecture lecture) {
+    System.out.println(this.lectureService);
     return lectureService.add(lecture);
   }
 
