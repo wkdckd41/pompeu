@@ -12,6 +12,8 @@ import com.pompeu.domain.LectureTime;
 @RestController
 public class LectureController {
 
+  //add 메서드 변경필요
+  //main
 
   @Autowired
   LectureService lectureService;
