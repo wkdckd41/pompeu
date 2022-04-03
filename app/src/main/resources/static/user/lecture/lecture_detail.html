@@ -31,12 +31,11 @@
 
 
 
-<div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
- 
+<div class="container" >
+
   <div class = "box-1">
-  <hr>
-    <div class = "box-2" style="border: solid 1px black">
-      <div class="box-left2" id="box-left" style="background:Azure" >
+    <div class = "box-2">
+      <div class="box-left2" style="background:Azure" >
         <div class="top-content" style="border: solid 1px darkGreen">
             <div>
               <section class="slider">
@@ -59,37 +58,51 @@
               </section>
             </div>
             <div style="display:flex;">
-	            <div class="region-si">서울특별시</div>
-	            <div class="region-gu">강남구</div>
+              <div class="region-si">서울특별시</div>
+              <div class="region-gu">강남구</div>
             </div>
             <hr style="border: solid 1px gainsboro; width:32%; margin-right:30px; margin-top:10px"><br>
             <div class="zzim-container"><i class="fa-solid fa-heart" id="heart"></i>    554</div>
             <div class="like-container"><i class="fa-solid fa-thumbs-up" id="thumb"></i>    320</div>
-            
-            
-            
-  
-      <div class="medium-content" style="background:CadetBlue">
+      </div>
+      
+      <div class="medium-content">
         <form name="form1">
-          <div>
-            <div class= "party-cover"style="border: solid 1px darkslategray">
-              <h5>
-                소모임 소개
-              </h5>
-              <span> TEXT </span>
+          <div class= "lecture-detail">
+            <hr style="border: solid 1px gainsboro; width:90%; margin-top:15px;margin-bottom:-10px;"><br>
+            <div style="margin-left:30px; margin-top:-3px">클래스소개 강사소개 클래스장소 후기(2) 문의(3)</div>
+            <hr style="border: solid 1px gainsboro; width:90%; margin-top:5px; margin-bottom:-10px"><br>
+              <div style="margin-left:30px;">
+                <h4 style="font-weight: bold">클래스 소개</h4>
+                <span class="lecture-introduce">볼링은 넘모넘모 재밌쪄</span>
               </div>
-          </div>
-          <div>
-            <div class= "party-address"style="border: solid 1px darkslategray">
-              <h5>
-                소모임 장소
-              </h5>
-                <span> TEXT </span><br>
-                <span> 지도 </span>
-          </div>
+            <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
+              <div style="margin-left:30px;">
+                <h4 style="font-weight: bold">강사 소개</h4>
+                <span class="teacher-introduce" style="line-height: 20px;">
+                  아이러브볼링<br>
+                  볼링 수상경력 3회
+                </span>
+              </div>
+            <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
+              <div style="margin-left:30px;">
+                <h4 style="font-weight: bold">클래스 장소</h4>
+                <span class="region-introduce">서울특별시 강남구 언주로85길 13 경남아파트 지하1층 볼링시티</span>
+                <div id="map" style="width:500px;height:400px; border:1px solid black; margin-top:30px;"></div>
+              </div>
+            <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
+              <div style="margin-left:30px;">
+                <h4 style="font-weight: bold">환불 정책</h4>
+              </div>
+            <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
+              <div style="margin-left:30px;">
+                <h4 style="font-weight: bold">후기</h4>
+                <div>image</div>
+                <div>아이러브볼링</div>
+              </div>
+
           </div>
         </form>
-      </div>
       </div>
       
       <div class="box-right" style="background:Azure">
@@ -100,7 +113,7 @@
               <hr style="border: solid 1px gainsboro; width:100%; margin-top:3px"><br>
               <div class="lecture-name">너무나 재밌는 볼링</div>
               <div style="display:flex; margin-top:10px;">
-                <div>img</div>
+                <div>image</div>
                 <div>아이러브볼링</div>
                 <div style="margin-left:120px;">최대인원: 6명</div>
               </div>
@@ -119,10 +132,31 @@
      
     </div>
   </div>
+</div>
+
+</div> <!-- 모든 내용은 이 안에 때려박기 -->
+
+
+
+
+
+ 
+
   
 
-
 </body>
+
+<!-- kakao map -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc96ae2bbd913884c89a94455894e721"></script>
+<script>  
+  var container = document.getElementById('map');
+  var options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  }; 
+  var map = new kakao.maps.Map(container, options);
+</script>
+
 
 <script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
 <script src="../js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
@@ -133,6 +167,7 @@
 <script src="lecture_detail.js"></script>
 <script src="../admin2.js"></script> <!-- 사이드바 관련 스크립트 -->
 <script defer src="/user/js/jquery.flexslider.js"></script>
+
 
 
 

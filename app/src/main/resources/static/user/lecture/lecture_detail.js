@@ -14,7 +14,6 @@ $(window).load(function() {
 
 
 
-
 document.addEventListener("DOMContentLoaded", function(){
    fetch("/member/findCount")
     .then(function(response) {

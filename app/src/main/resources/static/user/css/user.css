@@ -124,7 +124,7 @@ h5 {
 }
 
 .slider {
-  width:80%;
+  width:90%;
   margin-left:25px;
   margin-top: 10px;
 }
@@ -161,7 +161,6 @@ border: 1px solid black;
 }
 
 .box-left2 {
-  height: 750px;
   width: 55%;
   display: flex;
   max-width:650px;
@@ -170,6 +169,7 @@ border: 1px solid black;
   margin-left: 10px;
   flex-direction:column;
   border-radius:5px;
+  
 }
 
 .top-content {
@@ -181,7 +181,7 @@ border: 1px solid black;
   display:flex;
   flex-direction: column;
   scroll-margin-top:70px;
-  margin-top : 3rem;
+  margin-top : 40px;
 }
 
 .box-1 {
@@ -198,13 +198,12 @@ border: 1px solid black;
 }
 
 .box-right {
-	display: flex;
+	position:relative;
 	width: 400px;
-	margin-top: 1rem;
 	align-items: flex-start;
-	margin-left: 30px;
+	margin-left: 200px;
 	margin-right: 10px;
-	margin-bottom: 1rem;
+	margin-top:-1030px;
 	flex-direction: column;
 	justify-content: flex-start;
 }
@@ -233,12 +232,12 @@ border: 1px solid black;
 }
 
 .box-title2 {
-	margin-left:480px;
-	margin-top:-400px;
+	margin-left:450px;
+	margin-top:-480px;
   width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
-  width: 400px;
+  width: 450px;
   border-radius: 20px;
   justify-content:center;
   background-color: white;
@@ -347,8 +346,15 @@ border: 1px solid black;
 }
 
 .like-container {
-	 margin-left:320px;
+	margin-left:320px;
   margin-top:-21px;
+  margin-bottom:30px;
   text-align:center;
+}
+
+.medium-content {
+	background-color:#FDFFF0;
+	border:1px solid black;
+	border-radius:10px;
 }
 
