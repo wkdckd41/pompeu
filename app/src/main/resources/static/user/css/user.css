@@ -18,9 +18,8 @@ h5 {
   margin-block-end: 1.67em;
   margin-inline-start:0px;
   margin-inline-end:0px;
-  margin-top: 10px;
-  margin-left : 8px;
-  margin-bottom : 2px;
+  margin: 10px 0px 3px 8px;
+  font-size: 15px;
 }
 
 #party-create{
@@ -203,23 +202,33 @@ border: 1px solid black;
 .tag-list {
 	margin-top: 1rem;
 	margin-bottom:1rem;
-	width: 90%;
-	margin: 10px auto;
+	width: 50%;
+	margin: 6px;
+	
 } 
 
 .tag {
-	margin-top: 1rem;
-	margin-bottom:1rem;
-	border: solid 1px CadetBlue;
-	flex: 1;
-	float: center;
-	width:120%;
-	box-sizing: border-box;
-	padding : 3px;
-	border-radius: 10px;
-	
+	 font-size: 12px;
+   background-color: #009999;
+   color:white;
+   width:45%;
+   height:18px;
+   border-radius:5px;
+   margin-left:10px;
+   margin-top: 5px;
+   margin-bottom:5px;
+   text-align:center;
 }
-	
+
+.x-img {
+	margin: 15px 15px;
+}
+
+.party-content{
+	margin: 15px 15px;
+	line-height: 25px;
+}
+
 .box-right {
 	display: flex;
 	width: 400px;
@@ -267,7 +276,6 @@ border: 1px solid black;
   background-color: white;
 }
 
-
 .party-title {
 	display: flex;
 	flex-direction: column;
@@ -275,7 +283,6 @@ border: 1px solid black;
 	height:30px;
 	margin-bottom:10px;
 }
-
 
 .xbtn {
 	border: 0;
