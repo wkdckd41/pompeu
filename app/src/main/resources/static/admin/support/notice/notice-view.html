@@ -1,33 +1,33 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
-<title>POMPEU!</title>
+    <meta charset="UTF-8">
+    <title>POMPEU!</title>
 
 </head>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link
-  href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-  rel="stylesheet" id="bootstrap-css">
+        href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+        rel="stylesheet" id="bootstrap-css">
 <script
-  src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+        src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="/css/common.css">
 
 
 <style>
 </style>
 <body>
-  <div class="container">
+<div class="container">
     <h2 style="margin-left: 30px;">공지사항</h2>
     <br> <br>
 
-<div >
-<p style="display:inline-block">이용 중 발견하신 오류 또는 기능상의 불편, 건의사항을 알려주세요.</p>
-<p style="float:right;" >2021.10.01</p>
-</div>
+    <div>
+        <p style="display:inline-block">이용 중 발견하신 오류 또는 기능상의 불편, 건의사항을 알려주세요.</p>
+        <p style="float:right;">2021.10.01</p>
+    </div>
     <hr class="my-2" style="margin-top:1px">
-    
-<div>
+
+    <div>
 <pre>
 고객님 안녕하세요
 폼프입니다.
@@ -59,42 +59,36 @@
 </pre>
 
 
-
-</div>
-
-
-
+    </div>
 
 
     <hr class="my-2" style="margin-top:5px">
-    
-          <div class="form-group row">
+
+    <div class="form-group row">
         <div class="col-lg-12 col-sm-12 text-lg-end text-center">
-          <div class="col-lg-12 col-sm-12 text-lg-end text-right">
-            <button type="button" class="btn btn-primary">수정</button>
-            <button type="button" class="btn btn-primary">취소</button>
-          </div>
+            <div class="col-lg-12 col-sm-12 text-lg-end text-right">
+                <button type="button" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-primary">취소</button>
+            </div>
         </div>
-      </div>
-    
+    </div>
 
 
-
-  </div>
+</div>
 
 </body>
 
 
 <script>
-  //체크박스 전체선택 및 해제 기능은
-  $('input[name=_selected_all_]').on('change', function() {
-    $('input[name=_selected_]').prop('checked', this.checked);
-  });
+    //체크박스 전체선택 및 해제 기능은
+    $('input[name=_selected_all_]').on('change', function () {
+        $('input[name=_selected_]').prop('checked', this.checked);
+    });
 
-  var arr = $('input[name=_selected_]:checked').serializeArray().map(
-      function(item) {
-        return item.value
-      });
-  //var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
+    var arr = $('input[name=_selected_]:checked').serializeArray().map(
+        function (item) {
+            return item.value
+        });
+    //var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
 </script>
 </html>
