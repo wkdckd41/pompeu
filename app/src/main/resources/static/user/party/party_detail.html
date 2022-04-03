@@ -5,6 +5,10 @@
 <title>POMPEU!</title>
   <link rel="stylesheet" href="/css/common.css">
   <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/user/css/font-awesome.min.css" rel="stylesheet">
+  <link href="/user/css/font/fontawesome.css" rel="stylesheet">
+  
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
   <style>
   table, th, td {
     border: 1px solid black;
@@ -30,30 +34,37 @@
             소모임 참여 인원
             </h5>
           </div>
-          <div class="medium-content" style="background:CadetBlue">
+          <div class="medium-content" style="border: solid 1px CadetBlue">
             <form name="form1">
                <div class= "party-cover"style="border: solid 1px darkslategray">
                   <h5>
                     소모임 소개
                   </h5>
-                    <div class="form-group">
-                      <input type="hidden" value="" name="tag" id="rd-tag" />
-                    <ul id="tag-list">
-                    <li>20세 이상</li>
-                    <li>50세 이상</li>
-                    <li>남녀무관</li>
-                    </ul>
+                  <div class="tag-list" style="display:flex;">
+                    <div class="tag">20세이상</div>
+                    <div class="tag">50세이하</div>
+                    <div class="tag">남녀무관</div>
+                  </div>
+                  <div class="x-img" style="display:flex; margin-top:10px;">
+                     <div class="x-img-box"><img src="img/running.jfif"></div><br>
+                  </div>
+                  <div class="party-content">
+                    <div id="x-party-content">
+                        서울에서 함께 달릴 크루원을 모집합니다. <br> 
+                        매주 토요일 오후 7시 10K 함께 달리기 <br>
+                        장소 : 서울 뚝섬 한강, 서울숲, 남산 등 <br>
+                        달리기에 관심이 있으신 분들은 함께 재미있게 달려요
                     </div>
+                  </div>
                </div>
-              <div>
-                <div class= "party-address"style="border: solid 1px darkslategray">
+                <div class= "party-address" style="border: solid 1px darkslategray">
                   <h5>
                     소모임 장소
                   </h5>
-                    <div></div>
+                    <span id="x-address"> 서울 광진구 자양동 435 뚝섬 <span>
+                    <div class= "map" ></div>
                     <div></div>
                 </div>
-              </div>
             </form>
           </div>
       </div>
