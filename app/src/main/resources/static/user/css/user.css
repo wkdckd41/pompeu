@@ -19,7 +19,7 @@ h5 {
   margin-inline-start:0px;
   margin-inline-end:0px;
   margin: 10px 0px 3px 8px;
-  font-size: 15px;
+  font-size: 18px;
 }
 
 #party-create{
@@ -151,7 +151,7 @@ border: 1px solid black;
 }
 
 .box-left {
-	height: 750px;
+	height: auto;
 	width: 60%;
 	display: flex;
 	max-width:650px;
@@ -229,6 +229,16 @@ border: 1px solid black;
 	line-height: 25px;
 }
 
+#x-address {
+	margin: 15px 15px;
+	line-height: 25px;
+}
+
+.x-map {
+	width:50px;
+	height:400px;
+}
+
 .box-right {
 	position:relative;
 	width: 400px;
@@ -242,6 +252,15 @@ border: 1px solid black;
 
 .box-3 {
 	align-items: flex-start;
+	top: 4rem;
+	width: 100%;
+	height: auto;
+	display: flex;
+
+	max-height: 750px;
+  align-items: flex-start;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
 .box-title {
