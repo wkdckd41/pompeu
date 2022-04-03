@@ -18,6 +18,9 @@ h5 {
   margin-block-end: 1.67em;
   margin-inline-start:0px;
   margin-inline-end:0px;
+  margin-top: 10px;
+  margin-left : 8px;
+  margin-bottom : 2px;
 }
 
 #party-create{
@@ -198,6 +201,26 @@ border: 1px solid black;
 	display: flex;
 }
 
+.tag-list {
+	margin-top: 1rem;
+	margin-bottom:1rem;
+	width: 90%;
+	margin: 10px auto;
+} 
+
+.tag {
+	margin-top: 1rem;
+	margin-bottom:1rem;
+	border: solid 1px CadetBlue;
+	flex: 1;
+	float: center;
+	width:120%;
+	box-sizing: border-box;
+	padding : 3px;
+	border-radius: 10px;
+	
+}
+	
 .box-right {
 	display: flex;
 	width: 400px;
