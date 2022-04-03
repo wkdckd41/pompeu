@@ -21,6 +21,11 @@ public class LectureController {
     return lectureService.list();
   }
 
+  @RequestMapping("/lecture/list")
+  public Object list() {
+    return lectureService.list();
+  }
+
   @RequestMapping("/lecture/add")
   public Object add(Lecture lecture, String[] times) {
 
