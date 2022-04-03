@@ -176,7 +176,7 @@ border: 1px solid black;
 
 .top-content {
   width: 98%;
-  max-width:750px
+  max-width:750px;
 }
 
 .medium-content {
@@ -257,9 +257,9 @@ border: 1px solid black;
    width: 100%;
    height: auto;
    display: flex;
-
+   position: sticky;
    max-height: 750px;
-  align-items: flex-start;
+   align-items: flex-start;
    flex-direction: column;
    justify-content: flex-start;
 }
