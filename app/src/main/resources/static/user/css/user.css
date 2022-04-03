@@ -232,9 +232,11 @@ border: 1px solid black;
 	line-height: 25px;
 }
 
-.x-map {
-	width:50px;
-	height:400px;
+#x-map {
+   width:430px;
+   height:400px; 
+   border: 1px solid black; 
+   margin: 30px 30px
 }
 
 .box-right {
