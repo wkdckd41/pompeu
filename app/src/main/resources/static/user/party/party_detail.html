@@ -63,9 +63,7 @@
                     소모임 장소
                   </h5>
                     <span id="x-address"> 서울 광진구 자양동 435 뚝섬 </span>
-                    <div class="x-map" id="x-map">
-                      
-                    </div>
+                    <div id="x-map"></div>
                 </div>
             </form>
           </div>
@@ -103,7 +101,19 @@
    </div>
 </div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey="5cc033f1a37edba42dbd976e9ec397b4"></script>
+</body>
+
+<!-- kakao map -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5cc033f1a37edba42dbd976e9ec397b4"></script>
+<script>
+  var container = document.getElementById('x-map');
+  var options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  };
+  var map = new kakao.maps.Map(container, options);
+</script>
+
 <script src="/party_detail.js"></script>
 
 </html>
