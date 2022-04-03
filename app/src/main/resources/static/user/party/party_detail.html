@@ -28,15 +28,15 @@
   <hr style="border: solid 1px gainsboro; width:80%;">
   
     <div class = "box-2" style="border: solid 1px black">
-      <div class="box-left" id="box-left" style="background:Azure" >
-          <div class="top-content" style="border: solid 1px darkGreen">
+      <div class="box-left" id="box-left">
+          <div class="top-content" >
             <h5> 
             소모임 참여 인원
             </h5>
           </div>
-          <div class="medium-content" style="border: solid 1px CadetBlue">
+          <div class="medium-content" >
             <form name="form1">
-               <div class= "party-cover"style="border: solid 1px darkslategray">
+               <div class= "party-cover">
                   <h5>
                     소모임 소개
                   </h5>
@@ -58,7 +58,7 @@
                   </div>
                </div>
               <hr style="border: solid 1px gainsboro; width:95%;" >
-                <div class= "party-address" style="border: solid 1px darkslategray">
+                <div class= "party-address" >
                   <h5>
                     소모임 장소
                   </h5>
@@ -70,27 +70,30 @@
       </div>
       
       
-      <div class="box-right" style="background:Azure">
+      <div class="box-right" >
           <div class="box-3">
             <div class ="box-title">
                   <div class ="party-text">
-                    <span>제목</span><br>
-                    <hr style="border: solid 1px gainsboro; width:100%;"><br>
+                    <span >제목</span><br>
+                    <hr style="border: solid 1px gainsboro; width:100%;">
+                  <div class="tag-list" style="display:flex;">
+                    <div class="tag">러닝크루</div>
+                    <div class="tag">달리기</div>
+                  </div>
                     <span>모임장 : <span>text</span></span><br><br>
                     <span>모임일시 : <span>text</span></span><br><br>
                     <span>모집 종료일 : <span>text</span></span><br><br>
-                  </div>
+                    </div>
+                  
+                    <button type="button" id="btn-claim">신고</button>
               <hr style="border: solid 1px gainsboro; width:100%;">
                   <div class="box-btn">
-                    <button class="xbtn dibs-btn" tabindex="0" type="button">
-                      <span class="bun-label">찜하기</span>
-                    </button>
-                    <button class="xbtn share-btn" tabindex="0" type="button">
-                      <span class="bun-label">공유하기</span>            
-                    </button>
-                    <button class="xbtn accept-btn" tabindex="0" type="button">
-                      <span class="bun-label">참여신청</span>
-                    </button>
+                   <div style="margin-top:-10px;">
+                     <button type="button" id="btn-zzim">찜하기 <i class="fa-solid fa-heart" id="heart"></i></button>
+                     <button type="button" id="btn-like">공유하기 <i class="fa-solid fa-thumbs-up" id="thumb" style="margin-left:5px;"></i></button>
+                   </div>
+                   <button type="button" id="btn-regist">소모임 참여</button>
+                    </div>
                   </div>
             </div>
           </div>
