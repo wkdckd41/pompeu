@@ -1,4 +1,4 @@
-﻿﻿﻿﻿/*************************
+﻿   /*************************
 *******Typography******
 **************************/
 
@@ -23,14 +23,14 @@ h5 {
 }
 
 #party-create{
-  margin-top:10px;
-  margin-left:950px;
-  border-radius: 5px;
+   margin-top:10px;
+   margin-left:950px;
+   border-radius: 5px;
   color : black;
-  display:flex;
-  position:absolute;
-  height:33px;
-  line-height:30px;
+   display:flex;
+   position:absolute;
+   height:33px;
+   line-height:30px;
 }
 
 #btn-out {
@@ -63,7 +63,7 @@ h5 {
 }
 
 .dropdown {
-    float:right;
+      float:right;
 }
 
 #member-drop {
@@ -140,7 +140,7 @@ h5 {
 }
 
 #heart {
-  color:red;
+   color:red;
 }
 
 .class-sum-container{
@@ -151,15 +151,15 @@ border: 1px solid black;
 }
 
 .box-left {
-  height: auto;
-  width: 60%;
-  display: flex;
-  max-width:650px;
-  min-width:320px;
-  margin-top: 1rem;
-  margin-left: 10px;
-  flex-direction:column;
-  border-radius:5px;
+   height: auto;
+   width: 60%;
+   display: flex;
+   max-width:650px;
+   min-width:320px;
+   margin-top: 1rem;
+   margin-left: 10px;
+   flex-direction:column;
+   border-radius:5px;
 }
 
 .box-left2 {
@@ -187,28 +187,28 @@ border: 1px solid black;
 }
 
 .box-1 {
-  margin-top:4rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
+   margin-top:4rem;
+   width: 100%;
+   display: flex;
+   flex-direction: column;
 }
 
 .box-2 {
-  margin-left:120px;
-  width: 80%;
-  display: flex;
+   margin-left:120px;
+   width: 80%;
+   display: flex;
 }
 
 .tag-list {
-  margin-top: 1rem;
-  margin-bottom:1rem;
-  width: 50%;
-  margin: 6px;
-  
+   margin-top: 1rem;
+   margin-bottom:1rem;
+   width: 50%;
+   margin: 6px;
+   
 } 
 
 .tag {
-   font-size: 12px;
+    font-size: 12px;
    background-color: #009999;
    color:white;
    width:45%;
@@ -221,51 +221,51 @@ border: 1px solid black;
 }
 
 .x-img {
-  margin: 15px 15px;
+   margin: 15px 15px;
 }
 
 .party-content{
-  margin: 15px 15px;
-  line-height: 25px;
+   margin: 15px 15px;
+   line-height: 25px;
 }
 
 #x-address {
-  margin: 15px 15px;
-  line-height: 25px;
+   margin: 15px 15px;
+   line-height: 25px;
 }
 
 .x-map {
-  width:50px;
-  height:400px;
+   width:50px;
+   height:400px;
 }
 
 .box-right {
-  display: flex;
-  width: 400px;
-  margin-top: 1rem;
-  align-items: flex-start;
-  margin-left: 30px;
-  margin-right: 10px;
-  margin-bottom: 1rem;
-  flex-direction: column;
-  justify-content: flex-start;
+   display: flex;
+   width: 400px;
+   margin-top: 1rem;
+   align-items: flex-start;
+   margin-left: 30px;
+   margin-right: 10px;
+   margin-bottom: 1rem;
+   flex-direction: column;
+   justify-content: flex-start;
 }
 
 .box-3 {
-  top: 4rem;
-  width: 100%;
-  height: auto;
-  display: flex;
-
-  max-height: 750px;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: flex-start;
+   top: 4rem;
+   width: 100%;
+   height: auto;
+   display: flex;
+   position: sticky;
+   max-height: 750px;
+   align-items: flex-start;
+   flex-direction: column;
+   justify-content: flex-start;
 }
 
 .box-title {
   
-  width:calc(100% -40px);
+   width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
   width:360px;
@@ -275,8 +275,8 @@ border: 1px solid black;
 }
 
 .box-title2 {
-  margin-left:480px;
-  margin-top:-400px;
+   margin-left:480px;
+   margin-top:-400px;
   width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
@@ -287,45 +287,45 @@ border: 1px solid black;
 }
 
 .party-title {
-  display: flex;
-  flex-direction: column;
-  width:100%;
-  height:30px;
-  margin-bottom:10px;
+   display: flex;
+   flex-direction: column;
+   width:100%;
+   height:30px;
+   margin-bottom:10px;
 }
 
 .xbtn {
-  border: 0;
-  cursor: pointer;
-  margin: 0;
-  display: inline-flex;
-  outline: 0;
-  position: relative;
-  align-items:center;
-  user-select: none;
+   border: 0;
+   cursor: pointer;
+   margin: 0;
+   display: inline-flex;
+   outline: 0;
+   position: relative;
+   align-items:center;
+   user-select: none;
 
 }
 
 .xbtn-root {
-  color: raba(0, 0, 0, 0.07);
-  padding: 6px-16px;
-  font-size:0.875rem;
-  min-width:64px;
-  box-sizing: border-box;
-  font-weight:500;
-  line-height: 1.75;
-  text-transform: uppercase;
+   color: raba(0, 0, 0, 0.07);
+   padding: 6px-16px;
+   font-size:0.875rem;
+   min-width:64px;
+   box-sizing: border-box;
+   font-weight:500;
+   line-height: 1.75;
+   text-transform: uppercase;
 }
 
 .lecture-name{
-  font-size:23px;
-  font-weight:bold;
-  margin-top:-30px;
+   font-size:23px;
+   font-weight:bold;
+   margin-top:-30px;
 }
 
 .lecture-price {
-  margin-top:-30px;
-  font-size:21px;
+   margin-top:-30px;
+   font-size:21px;
 }
 
 #btn-zzim {
@@ -351,7 +351,7 @@ border: 1px solid black;
 }
 
 #btn-regist {
-  width: 200px;
+   width: 200px;
   height: 40px;
   border-radius: 5px;
   color : white;
@@ -362,9 +362,9 @@ border: 1px solid black;
 }
 
 .region-si {
-   background-color: #009999;
-   color:white;
-   width:85px;
+    background-color: #009999;
+    color:white;
+    width:85px;
    height:20px;
    border-radius:5px;
    margin-left:300px;
@@ -372,8 +372,8 @@ border: 1px solid black;
 }
 
 .region-gu {
-   background-color: #009999;
-   color:white;
+    background-color: #009999;
+    color:white;
    width:75px;
    height:20px;
    border-radius:5px;
@@ -382,13 +382,12 @@ border: 1px solid black;
 }
 
 .zzim-container {
-  margin-left:340px;
-  margin-top:-35px;
+   margin-left:340px;
+   margin-top:-35px;
 }
 
 .like-container {
-   margin-left:320px;
+    margin-left:320px;
   margin-top:-21px;
   text-align:center;
 }
-
