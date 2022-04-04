@@ -16,8 +16,6 @@
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
-    
-            
   </resultMap>
 
   <resultMap type="users" id="usersMap">
