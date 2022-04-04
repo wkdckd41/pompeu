@@ -14,7 +14,7 @@
     <result column="view_count" property="viewCount"/>
     <result column="name" property="name"/>
     <result column="content" property="content"/>
-    <result column="modify_date" property="modifyDate"/>
+    <result column="modify_date" property="modifyDate"/ >
   </resultMap>
 
   <select id="countAll" resultType="int">
