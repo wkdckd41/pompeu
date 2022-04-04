@@ -19,65 +19,36 @@
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
-    
-            
   </resultMap>
 
-  <resultMap type="users" id="usersMap">
-    <id column="users_no" property="no"/>
-    <result column="image" property="image"/>
+  <resultMap type="location" id="locationMap">
+    <id column="location_no" property="locationNo"/>
+    <result column="doo" property="doo"/>
+    <result column="si" property="si"/>
+    <result column="gun" property="gun"/>
+    <result column="gu" property="gu"/>
+    <result column="si" property="si"/>
+    <result column="address" property="address"/>
+    <result column="post_no" property="postNo"/>
+  </resultMap>
+
+  <resultMap type="exercise" id="exerciseMap">
+    <id column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
-  <resultMap type="partyUser" id="partyUserMap">
+  <resultMap type="lectureWishlist" id="lectureWishlistMap">
     <id column="users_no" property="usersNo"/>
-    <result column="party_no" property="partyNo"/>
-    <result column="party_maker" property="partyMaker"/>
-    <result column="join_date" property="joinDate"/>
+    <result column="lecture_no" property="lectureNo"/>
   </resultMap>
-
-  <resultMap type="partyImage" id="partyImageMap">
-    <id column="party_image_no" property="partyImageNo"/>
-    <result column="party_no" property="partyNo"/>
+  
+  <resultMap type="lectureImage" id="lectureImageMap">
+    <id column="lecture_image_no" property="lectureImageNo"/>
+    <result column="lecture_no" property="lectureNo"/>
     <result column="image" property="image"/>
-  </resultMap>
-  
-  <resultMap type="partyWishlist" id="partyWishlsitMap">
-    <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="userNo"/>
   </resultMap>  
-  
-  <resultMap type="partyClaim" id="partyClaimMap">
-    <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="userNo"/>
-    <result column="status" property="status"/>
-    <result column="claim_reason_no" property="claimReasonNo"/>
-  </resultMap>  
-  
-  <resultMap type="claimReason" id="claimReasonMap">
-    <id column="claim_reason_no" property="claimReasonNo"/>
-    <result column="type" property="type"/>
-  </resultMap>  
-  
-    <resultMap type="member" id="memberMap">
-    <id column="member_no" property="no"/>
-    <result column="member_type_no" property="memberTypeNo"/>
-    <result column="sns_no" property="snsNo"/>
-    <result column="join_date" property="joinDate"/>
-    <result column="name" property="name"/>
-    <result column="email" property="email"/>
-    <result column="phone" property="phone"/>
-    <result column="nickname" property="nickName"/>
-    <result column="use_check;" property="useCheck"/>    
-    <result column="login_date" property="loginDate"/>
-    <result column="modify_date" property="modifyDate"/>
-    <result column="admin_check" property="adminCheck"/>
-    <result column="password" property="password"/>
-    <result column="birth" property="birth"/>
-    <result column="gender" property="gender"/>
-      <collection property="memberType" resultMap="memberTypeMap"/>
-  </resultMap>
-
+ 
   <select id="countAll" resultType="int">
     select count(*) from party
   </select>
