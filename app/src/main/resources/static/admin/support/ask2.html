@@ -5,6 +5,11 @@
 <title>관리자-1:1문의</title>
 </head>
 <body>
+
+<div class="container">
+<div id="admin-header"></div>
+
+<div id ="content">
 <h1>1:1문의</h1>
 <h4>전체</h4>
 <h4>이용자</h4>
@@ -22,18 +27,24 @@
 </thead>
 <tbody>
 <tr>
-<td>1</td>
-<td>준비물이필요한가요</td>
-<td>2020-03-22</td>
-<td>최리나</td>
-<td>이용자</td>
-<td>답변대기</td>
+  <td>1</td>
+  <td>준비물이필요한가요</td>
+  <td>2020-03-22</td>
+  <td>최리나</td>
+  <td>이용자</td>
+  <td>답변대기</td>
 </tr>
 </tbody>
 </table>
+</div>
 
-<script type="text/javascript">
+<div id="footer"></div>
 
+</div>
+
+<script type="node_modules/jquery/dist/jqeury.js"></script>
+<script>
+$("#header").load("header.html");
   var contacts = [
 	   "2,준비물이 필요한가요,2020-03-22,최리나,이용자,답변대기",
 	   "2,준비물이 필요한가요,2020-03-22,최리나,이용자,답변대기",
