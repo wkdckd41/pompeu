@@ -19,209 +19,39 @@
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
-    
-            
   </resultMap>
 
-  <resultMap type="users" id="usersMap">
-    <id column="users_no" property="no"/>
-    <result column="image" property="image"/>
+  <resultMap type="location" id="locationMap">
+    <id column="location_no" property="locationNo"/>
+    <result column="doo" property="doo"/>
+    <result column="si" property="si"/>
+    <result column="gun" property="gun"/>
+    <result column="gu" property="gu"/>
+    <result column="si" property="si"/>
+    <result column="address" property="address"/>
+    <result column="post_no" property="postNo"/>
+  </resultMap>
+
+  <resultMap type="exercise" id="exerciseMap">
+    <id column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
-  <resultMap type="partyUser" id="partyUserMap">
+  <resultMap type="lectureWishlist" id="lectureWishlistMap">
     <id column="users_no" property="usersNo"/>
-    <result column="party_no" property="partyNo"/>
-    <result column="party_maker" property="partyMaker"/>
-    <result column="join_date" property="joinDate"/>
+    <result column="lecture_no" property="lectureNo"/>
   </resultMap>
-
-  <resultMap type="partyImage" id="partyImageMap">
-    <id column="party_image_no" property="partyImageNo"/>
-    <result column="party_no" property="partyNo"/>
+  
+  <resultMap type="lectureImage" id="lectureImageMap">
+    <id column="lecture_image_no" property="lectureImageNo"/>
+    <result column="lecture_no" property="lectureNo"/>
     <result column="image" property="image"/>
-  </resultMap>
-  
-  <resultMap type="partyWishlist" id="partyWishlsitMap">
-    <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="userNo"/>
   </resultMap>  
-  
-  <resultMap type="partyClaim" id="partyClaimMap">
-    <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="userNo"/>
-    <result column="status" property="status"/>
-    <result column="claim_reason_no" property="claimReasonNo"/>
-  </resultMap>  
-  
-  <resultMap type="claimReason" id="claimReasonMap">
-    <id column="claim_reason_no" property="claimReasonNo"/>
-    <result column="type" property="type"/>
-  </resultMap>  
-  
-    <resultMap type="member" id="memberMap">
-    <id column="member_no" property="no"/>
-    <result column="member_type_no" property="memberTypeNo"/>
-    <result column="sns_no" property="snsNo"/>
-    <result column="join_date" property="joinDate"/>
-    <result column="name" property="name"/>
-    <result column="email" property="email"/>
-    <result column="phone" property="phone"/>
-    <result column="nickname" property="nickName"/>
-    <result column="use_check;" property="useCheck"/>    
-    <result column="login_date" property="loginDate"/>
-    <result column="modify_date" property="modifyDate"/>
-    <result column="admin_check" property="adminCheck"/>
-    <result column="password" property="password"/>
-    <result column="birth" property="birth"/>
-    <result column="gender" property="gender"/>
-      <collection property="memberType" resultMap="memberTypeMap"/>
-  </resultMap>
-
+ 
   <select id="countAll" resultType="int">
     select count(*) from party
   </select>
   
-  <select id="findAll" resultType="HashMap">
-    select 
-          p.party_no                            as party_no,
-          p.name                                as name,
-          mb.name                               as member_name,
-          p.register_date                       as register_date,
-          pc.status                             as status
-    from 
-         party as p
-    join party_user as u 
-          on p.party_no = u.party_no 
-          and u.party_maker = '1'
-    join member as mb 
-          on u.users_no = mb.member_no 
-    left outer join party_claim as pc 
-          on p.party_no = pc.party_no 
-   order by
-      p.party_no asc
-  </select>
-  
-  <insert id="insert" parameterType="party">
-    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
-    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
-  </insert>
-  
-  <select id="findByNo" resultMap="partyMap" parameterType="int">
-    select 
-      p.party_no,
-      location_no,
-      name,
-      content,
-      start_date,
-      end_date,
-      max_member,
-      in_out_ex
-    from 
-      party 
-    where 
-      party_no=#{no}
-  </select>
 
-  <update id="update" parameterType="party">
-    update party set 
-      location_no=#{locationNo},
-      name=#{name},
-      content=#{content},
-      start_date=#{startDate},
-      end_date=#{endDate},
-      max_member=#{maxMember},
-      in_out_ex=#{inOutEx}
-    where 
-      party_no=#{no}
-  </update>
-
-  <delete id="delete" parameterType="int">
-    delete from party 
-    where party_no=#{no}
-  </delete>
-  
-  <select id="srchParty" parameterType="party" resultMap="partyMap">
-    select 
-          p.party_no                                            as party_no,  
-          p.name                                                as name,
-          mb.name                                               as member_name,
-          p.register_date                                       as register_date,
-          pc.status                                             as status
-    from 
-          party as p
-    join party_claim as pc 
-          on p.party_no = pc.party_no
-    join users as u 
-          on pc.users_no = u.users_no
-    join member as mb 
-          on u.users_no = mb.member_no 
-    where 
-      1=1
-        
-    <if test="partyNo != ''">
-        and p.party_no = #{partyNo}
-    </if>
-    <if test="name != ''">
-        and p.name = #{name}
-    </if>
-    <if test="name != ''">
-        and m.name = #{name}
-    </if>
-    <if test="registerDate != ''">
-        and p.register_date = #{registerDate}
-    </if>
-    <if test="status != ''">
-        and pc.status = #{status}
-    </if> 
-       order by 
-          p.p_no asc
-  </select>
-
-
-  <select id="findPartyClaim" resultType="HashMap">
-	select 
-	          p.party_no                            as party_no,
-	          p.name                                as name,
-	          mb.name                               as member_name,
-	          p.register_date                       as register_date,
-	          pc.status                             as status
-	    from 
-	         party as p
-	    join party_user as u 
-	          on p.party_no = u.party_no 
-	          and u.party_maker = '1'
-	    join member as mb 
-	          on u.users_no = mb.member_no 
-	    left outer join party_claim as pc 
-	          on p.party_no = pc.party_no 
-	    where 
-	        pc.status IS NOT NULL 
-	   order by
-	      p.party_no asc
-  </select>
-
-
-
-  <select id="findPartyList" resultType="HashMap">
-    select 
-          p.party_no                            as party_no,
-          p.name                                as name,
-          mb.name                               as member_name,
-          p.register_date                       as register_date,
-          pc.status                             as status
-    from 
-         party as p
-    join party_user as u 
-          on p.party_no = u.party_no 
-          and u.party_maker = '1'
-    join member as mb 
-          on u.users_no = mb.member_no 
-    left outer join party_claim as pc 
-          on p.party_no = pc.party_no 
-    where 
-        pc.status IS NULL 
-    order by
-      p.party_no asc
-  </select>
 </mapper>
