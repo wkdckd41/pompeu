@@ -174,16 +174,26 @@ border: 1px solid black;
   
 }
 
+.x-top-content {
+	height:400px;
+  width: 98%;
+  max-width:750px;
+}
+
 .top-content {
   width: 98%;
   max-width:750px;
+}
+
+.party-crew{
+	height:300px
 }
 
 .medium-content {
   display:flex;
   flex-direction: column;
   scroll-margin-top:70px;
-  margin-top : 40px;
+  margin-top : 50px;
 }
 
 .box-1 {
@@ -255,7 +265,7 @@ border: 1px solid black;
 }
 
 .box-3 {
-  top: 4rem;
+   top: 4em;
    width: 100%;
    height: auto;
    display: flex;
@@ -274,6 +284,13 @@ border: 1px solid black;
   border-radius: 20px;
   justify-content:center;
   background-color: #FAFAFA;
+}
+
+.shadow {
+	box-shadow:
+	0px 3px 5px 1px rgb(0 0 0 / 20%),
+	0px 5px 8px 0px rgb(0 0 0 / 14%),
+	0px 1px 14px 0px rgb(0 0 0 / 12%);
 }
 
 .box-title2 {
@@ -327,6 +344,11 @@ border: 1px solid black;
 	font-size:21px;
 }
 
+#crew {
+	width:20px;
+	height:20px;
+}
+
 #btn-zzim {
   width: 120px;
   height: 35px;
@@ -337,6 +359,8 @@ border: 1px solid black;
   margin-left:60px;
   margin-top:10px;
 }
+
+
 
 #btn-like {
   width: 120px;
@@ -358,6 +382,17 @@ border: 1px solid black;
   text-align:center;
   margin-left:105px;
   margin-top:20px;
+}
+
+#btn-link {
+  width: 120px;
+  height: 35px;
+  border-radius: 5px;
+  color : black;
+  background-color: #FBF8F1;
+  text-align:center;
+  margin-left:30px;
+  margin-top:10px;
 }
 
 .region-si {
@@ -383,6 +418,11 @@ border: 1px solid black;
 .zzim-container {
 	margin-left:300px;
 	margin-top:-35px;
+}
+
+.x-zzim-container {
+  margin-left:440px;
+  margin-top:-25px;
 }
 
 .like-container {
