@@ -2,15 +2,10 @@
   "name": "static",
   "version": "1.0.0",
   "description": "",
-  "main": " ",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "bootstrap": "^3.4.1",
-    "jQuery": "^1.7.4",
-    "sweetalert2": "^11.4.5"
-     }
+  "license": "ISC"
 }

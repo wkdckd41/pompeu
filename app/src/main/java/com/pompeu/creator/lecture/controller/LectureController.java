@@ -12,16 +12,9 @@ import com.pompeu.domain.LectureTime;
 @RestController
 public class LectureController {
 
-  //add 메서드 변경필요
-  //main
 
   @Autowired
   LectureService lectureService;
-
-  @RequestMapping("/lecture/list")
-  public Object list() {
-    return lectureService.list();
-  }
 
   @RequestMapping("/lecture/list")
   public Object list() {
