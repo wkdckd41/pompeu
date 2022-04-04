@@ -182,63 +182,63 @@
           m.member_no asc
   </select>
 
-  <select id="findUserClass" resultType="HashMap" parameterType="int">
+  <select id="findUserLecture" resultType="HashMap" parameterType="int">
     select  
-          c.name                                                as name,
-          c.start_date                                          as startDate,
-          c.end_date                                            as endDate,
-          c.status                                              as status
+          l.name                                                as name,
+          l.start_date                                          as startDate,
+          l.end_date                                            as endDate,
+          l.status                                              as status
     from 
           member as m
     join users as u 
           on m.member_no = u.users_no
     join mylecture_list as ml 
           on u.users_no = ml.users_no
-      join lecture_time as ct 
-          on ml.lecture_time_no = ct.lecture_time_no 
-      join lecture as c
-          on ct.lecture_no = c.lecture_no
+      join lecture_time as lt 
+          on ml.lecture_time_no = lt.lecture_time_no 
+      join lecture as l
+          on lt.lecture_no = l.lecture_no
     where 
       m.member_no=#{no}
   </select>
 
-  <select id="findCreatorClass" resultType="HashMap" parameterType="int">
+  <select id="findCreatorLecture" resultType="HashMap" parameterType="int">
     select  
-          c.name                                                as name,
-          c.start_date                                          as startDate,
-          c.end_date                                            as endDate,
-          ct.no_member                                          as noMember,
-          ct.max_member                                         as maxMember,
-          c.status                                              as status
+          l.name                                                as name,
+          l.start_date                                          as startDate,
+          l.end_date                                            as endDate,
+          lt.no_member                                          as noMember,
+          lt.max_member                                         as maxMember,
+          l.status                                              as status
     from 
           member as m
     join creator as cr 
           on m.member_no = cr.creator_no
-    join lecture as c 
-          on cr.creator_no = c.creator_no
-    join lecture_time as ct 
-          on c.lecture_no = ct.lecture_no 
+    join lecture as l 
+          on cr.creator_no = l.creator_no
+    join lecture_time as lt 
+          on l.lecture_no = lt.lecture_no 
     where 
       m.member_no=#{no}
   </select>
 
-  <select id="findApplyingClass" resultType="HashMap" parameterType="int">
+  <select id="findApplyingLecture" resultType="HashMap" parameterType="int">
     select  
-          c.name                                                as name,
-          c.start_date                                          as startDate,
-          c.end_date                                            as endDate,
-          ct.max_member                                         as maxMember,
-          c.status                                              as status
+          l.name                                                as name,
+          l.start_date                                          as startDate,
+          l.end_date                                            as endDate,
+          lt.max_member                                         as maxMember,
+          l.status                                              as status
     from 
           member as m
     join creator as cr 
           on m.member_no = cr.creator_no
-    join lecture as c 
-          on cr.creator_no = c.creator_no
-    join lecture_time as ct 
-          on c.lecture_no = ct.lecture_no 
+    join lecture as l 
+          on cr.creator_no = l.creator_no
+    join lecture_time as lt 
+          on l.lecture_no = lt.lecture_no 
     where 
-      m.member_no=#{no} and (c.status=1 or c.status=9)
+      m.member_no=#{no} and (l.status=1 or l.status=9)
   </select>
 
 
