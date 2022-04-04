@@ -38,5 +38,4 @@ public class UserLectureController {
   public Object delete(int no) {
     return userLectureDao.delete(no);
   }
-
 }
