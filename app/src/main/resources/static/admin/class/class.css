@@ -10,6 +10,15 @@
     /* html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;} */
 }
 
+main-container{
+    width: 1200px;
+}
+/* body  ---- main-container --- navbar-inverse  1200px 주기*/
+.navbar-inverse{
+    width: 1200px;
+}
+
+
 @media(min-width:768px) {
     #wrapper {
         padding-left: 225px;
