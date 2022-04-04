@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.user.party.dao.UserPartyDao">
+
+  <resultMap type="party" id="partyMap">
+    <id column="party_no" property="partyNo"/>
+    <result column="location_no" property="locationNo"/>
+    <result column="name" property="name"/>
+    <result column="content" property="content"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="start_date" property="startDate"/>
+    <result column="end_date" property="endDate"/>
+    <result column="max_member" property="maxMember"/>
+    <result column="in_out_ex" property="inOutEx"/>
+    <result column="modify_date" property="modifyDate"/>
+  </resultMap>
+
+  <resultMap type="location" id="locationMap">
+    <id column="location_no" property="locationNo"/>
+    <result column="doo" property="doo"/>
+    <result column="si" property="si"/>
+    <result column="gun" property="gun"/>
+    <result column="gu" property="gu"/>
+    <result column="address" property="address"/>
+    <result column="post_no" property="postNo"/>
+  </resultMap> 
+
+  <resultMap type="partyUser" id="partyUserMap">
+    <id column="users_no" property="usersNo"/>
+    <result column="party_no" property="partyNo"/>
+    <result column="party_maker" property="partyMaker"/>
+    <result column="join_date" property="joinDate"/>
+  </resultMap>
+  
+  <resultMap type="users" id="usersMap">
+    <id column="users_no" property="no"/>
+    <result column="image" property="image"/>
+    <result column="ex_type_no" property="exTypeNo"/>
+  </resultMap>
+
+  <resultMap type="partyImage" id="partyImageMap">
+    <id column="party_image_no" property="partyImageNo"/>
+    <result column="party_no" property="partyNo"/>
+    <result column="image" property="image"/>
+  </resultMap>
+  
+  <resultMap type="tagManagement" id="tagManagementMap">
+    <id column="tag_no" property="tagNo"/>
+    <result column="party_no" property="partyNo"/>
+  </resultMap>
+  
+  <resultMap type="tagName" id="tagNameMap">
+    <id column="tag_no" property="tagNo"/>
+    <result column="tag" property="tag"/>
+  </resultMap>  
+  
+  <resultMap type="partyWishlist" id="partyWishlistMap">
+    <id column="party_no" property="partyNo"/>
+    <result column="users_no" property="usersNo"/>
+  </resultMap>
+  
+  <resultMap type="partyClaim" id="partyClaimMap">
+    <id column="party_no" property="partyNo"/>
+    <result column="users_no" property="userNo"/>
+    <result column="claim_reason_no" property="claimReasonNo"/>
+    <result column="claim_date" property="claimDate"/>
+    <result column="status" property="status"/>
+  </resultMap>  
+  
+  <resultMap type="claimReason" id="claimReasonMap">
+    <id column="claim_reason_no" property="claimReasonNo"/>
+    <result column="type" property="type"/>
+  </resultMap>  
+  
+    <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>    
+    <result column="login_date" property="loginDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="birth" property="birth"/>
+    <result column="gender" property="gender"/>
+      <collection property="memberType" resultMap="memberTypeMap"/>
+  </resultMap>
+
+  <select id="countAll" resultType="int">
+    select count(*) from party
+  </select>
+  
+  <select id="findAll" resultType="HashMap">
+    select 
+          p.party_no                            as party_no,
+          p.location_no                         as location_no,
+          p.name                                as name,
+          p.max_member                          as max_member,
+          p.in_out_ex                           as in_out_ex,
+          p.end_date                            as end_date,
+          tn.tag_name                           as tag_name
+    from 
+         party as p
+    join tag_management as tm
+         on tm.tag_no = tn.tag_name
+    join tag_name as tn
+         on p.party_no = tn.party_no
+   order by
+      p.party_no desc
+  </select>
+  
+  <insert id="insert" parameterType="party">
+    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
+    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
+  </insert>
+  
+  <select id="findByNo" resultMap="partyMap" parameterType="int">
+    select 
+      p.party_no,
+      location_no,
+      name,
+      content,
+      start_date,
+      end_date,
+      max_member,
+      in_out_ex
+    from 
+      party 
+    where 
+      party_no=#{no}
+  </select>
+
+  <update id="update" parameterType="party">
+    update party set 
+      location_no=#{locationNo},
+      name=#{name},
+      content=#{content},
+      start_date=#{startDate},
+      end_date=#{endDate},
+      max_member=#{maxMember},
+      in_out_ex=#{inOutEx}
+    where 
+      party_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from party 
+    where party_no=#{no}
+  </delete>
+  
+
+
+</mapper>

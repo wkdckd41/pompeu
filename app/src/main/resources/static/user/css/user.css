@@ -149,6 +149,25 @@ height:100px;
 border: 1px solid black;
 }
 
+.party-index {
+	min-height:750px;
+	width:80%;
+	margin-top:50px;
+	margin-left: 120px;
+}
+
+.party-box {
+	border: 1px solid silver;
+  height:200px;
+  width:300px;	
+  margin-top:10px;
+  margin-bottom:50px;
+  margin-left:90px;
+  float:left;
+  border-radius:10px;
+  padding : 20px;
+}
+
 .party-list {
 	min-height: 600px;
 }
@@ -188,7 +207,7 @@ border: 1px solid black;
 }
 
 .top-content {
-  width: 98%;
+  width: 100%;
   max-width:750px;
 }
 
