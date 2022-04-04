@@ -54,19 +54,19 @@ public class MemberController {
   }
 
 
-  @RequestMapping("/member/getClass")
-  public Object getClass(int no) {
-    return memberService.getClass(no);
+  @RequestMapping("/member/getLecture")
+  public Object getLecture(int no) {
+    return memberService.getLecture(no);
   }
 
-  @RequestMapping("/member/creatorClass")
-  public Object creatorClass(int no) {
-    return memberService.creatorClass(no);
+  @RequestMapping("/member/creatorLecture")
+  public Object creatorLecture(int no) {
+    return memberService.creatorLecture(no);
   }
 
-  @RequestMapping("/member/applyingClass")
-  public Object applyingClass(int no) {
-    return memberService.applyingClass(no);
+  @RequestMapping("/member/applyingLecture")
+  public Object applyingLecture(int no) {
+    return memberService.applyingLecture(no);
   }
 
 }

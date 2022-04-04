@@ -20,10 +20,10 @@ public interface MemberService {
 
   List<Member> srchMember(Member member);
 
-  List<Map<Object, Object>> getClass(int no);
+  List<Map<Object, Object>> getLecture(int no);
 
-  List<Map<Object, Object>> creatorClass(int no);
+  List<Map<Object, Object>> creatorLecture(int no);
 
-  List<Map<Object, Object>> applyingClass(int no);
+  List<Map<Object, Object>> applyingLecture(int no);
 
 }
