@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>POMPEU!</title>
-  <link rel="stylesheet" href="/css/common.css">
+  <link href="/user/css/common.css" rel="stylesheet" >
+  <link href="/css/user_common.css" rel="stylesheet">
   <link href="/user/css/user.css" rel="stylesheet">
-  <link rel="stylesheet" href="/user/css/flexslider.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link href="/user/css/flexslider.css" rel="stylesheet"  type="text/css" media="screen" />
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
   <style>
   table, th, td {
@@ -25,14 +26,11 @@
 
 <body>
 
-<!-- 사이드바 들어가는 부분 -->
-
 <div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
 
+<div id="header"></div> <!-- 헤더-->
 
-
-
-
+<div class = "box-1">
 <div style="text-align: center; font-weight: bold; margin-top:100px; margin-bottom:-170px;">
 <ul class="slides">
             <li style="margin-left:-30px;">
@@ -109,7 +107,25 @@
 <hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0;" />
 
 
+<div class= "party-list"> 
+  <div></div>
 </div>
+
+</div> <!-- #box-1 -->
+
+<div id="footer"></div>
+
+
+
+</div>  <!-- #container -->
+
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+$("#header").load("/user/header.html");
+$("#footer").load("/user/footer.html");
+</script>
+
 </body>
 
 <script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
