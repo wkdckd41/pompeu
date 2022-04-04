@@ -56,7 +56,7 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
         tbody1.removeChild(tbody1.firstChild);
     }
   
-  fetch(`/member/creatorClass?no=${no}`)
+  fetch(`/member/creatorLecture?no=${no}`)
     .then(function(response) {
       return response.json();
     })
@@ -112,7 +112,7 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/member/applyingClass?no=${no}`)
+  fetch(`/member/applyingLecture?no=${no}`)
     .then(function(response) {
       return response.json();
     })
