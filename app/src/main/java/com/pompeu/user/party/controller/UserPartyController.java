@@ -2,11 +2,10 @@ package com.pompeu.user.party.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Party;
 import com.pompeu.user.party.dao.UserPartyDao;
 
-@RestController 
+//@RestController 
 public class UserPartyController {
 
 
