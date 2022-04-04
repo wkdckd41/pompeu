@@ -26,17 +26,27 @@
 <div class="container">
   <div class = "box-1">
   <hr style="border: solid 1px gainsboro; width:80%;">
-  <hr>
+  
     <div class = "box-2" style="border: solid 1px black">
-      <div class="box-left" id="box-left" style="background:Azure" >
-          <div class="top-content" style="border: solid 1px darkGreen">
+      <div class="box-left" id="box-left">
+          <div class="x-top-content" >
             <h5> 
             소모임 참여 인원
             </h5>
+           <div class="crew"><i class="fa-solid fa-face-smile" id="crew"></i></div>
+           <div class="crew"><i class="fa-solid fa-face-smile" id="crew"></i></div>
+            <div class="party-crew" >
+            </div>
+              <div style="display:flex; margin-left:40px">
+              <div class="region-si">서울특별시</div>
+              <div class="region-gu">강남구</div>
+            </div>
+            <hr style="border: solid 1px gainsboro; width:32%; margin-right:10px; margin-top:10px"><br>
+            <div class="x-zzim-container"><i class="fa-solid fa-heart" id="heart"></i>   120</div>
           </div>
-          <div class="medium-content" style="border: solid 1px CadetBlue">
+          <div class="medium-content" >
             <form name="form1">
-               <div class= "party-cover"style="border: solid 1px darkslategray">
+               <div class= "party-cover">
                   <h5>
                     소모임 소개
                   </h5>
@@ -57,40 +67,44 @@
                     </div>
                   </div>
                </div>
-                <div class= "party-address" style="border: solid 1px darkslategray">
+              <hr style="border: solid 1px gainsboro; width:95%;" >
+                <div class= "party-address" >
                   <h5>
                     소모임 장소
                   </h5>
-                    <span id="x-address"> 서울 광진구 자양동 435 뚝섬 <span>
-                    <div class= "map" ></div>
-                    <div></div>
+                    <span id="x-address"> 서울 광진구 자양동 435 뚝섬 </span>
+                    <div id="x-map"></div>
                 </div>
             </form>
           </div>
       </div>
       
       
-      <div class="box-right" style="background:Azure">
+      <div class="box-right" >
           <div class="box-3">
-            <div class ="box-title">
+            <div class ="box-title shadow" style="margin-top:10px">
                   <div class ="party-text">
-                    <span>제목</span><br>
-                    <hr style="border: solid 1px gainsboro; width:100%;"><br>
+                    <span >제목</span><br>
+                    <hr style="border: solid 1px gainsboro; width:100%;">
+                  <div class="tag-list" style="display:flex;">
+                    <div class="tag">러닝크루</div>
+                    <div class="tag">달리기</div>
+                  </div>
                     <span>모임장 : <span>text</span></span><br><br>
                     <span>모임일시 : <span>text</span></span><br><br>
                     <span>모집 종료일 : <span>text</span></span><br><br>
-                  </div>
+                    </div>
+                    <div align="right">
+                    <button type="button" id="btn-claim">신고</button>
+                    </div>
               <hr style="border: solid 1px gainsboro; width:100%;">
                   <div class="box-btn">
-                    <button class="xbtn dibs-btn" tabindex="0" type="button">
-                      <span class="bun-label">찜하기</span>
-                    </button>
-                    <button class="xbtn share-btn" tabindex="0" type="button">
-                      <span class="bun-label">공유하기</span>            
-                    </button>
-                    <button class="xbtn accept-btn" tabindex="0" type="button">
-                      <span class="bun-label">참여신청</span>
-                    </button>
+                   <div style="margin-top:-10px;">
+                     <button type="button" id="btn-zzim">찜하기 <i class="fa-solid fa-heart" id="heart"></i></button>
+                     <button type="button" id="btn-link">공유하기 <i class="fa-solid fa-share-nodes"></i></button>
+                   </div>
+                   <button type="button" id="btn-regist">소모임 참여</button>
+                    </div>
                   </div>
             </div>
           </div>
@@ -101,6 +115,18 @@
    </div>
 </div>
 
+</body>
+
+<!-- kakao map -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5cc033f1a37edba42dbd976e9ec397b4"></script>
+<script>
+  var container = document.getElementById('x-map');
+  var options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  };
+  var map = new kakao.maps.Map(container, options);
+</script>
 
 <script src="/party_detail.js"></script>
 

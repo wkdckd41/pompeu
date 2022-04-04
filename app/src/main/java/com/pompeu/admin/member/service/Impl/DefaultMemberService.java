@@ -51,18 +51,18 @@ public class DefaultMemberService implements MemberService{
   }
 
   @Override
-  public List<Map<Object, Object>> getClass(int no) {
-    return memberDao.findUserClass(no);
+  public List<Map<Object, Object>> getLecture(int no) {
+    return memberDao.findUserLecture(no);
   }
 
   @Override
-  public List<Map<Object, Object>> creatorClass(int no) {
-    return memberDao.findCreatorClass(no);
+  public List<Map<Object, Object>> creatorLecture(int no) {
+    return memberDao.findCreatorLecture(no);
   }
 
   @Override
-  public List<Map<Object, Object>> applyingClass(int no) {
-    return memberDao.findApplyingClass(no);
+  public List<Map<Object, Object>> applyingLecture(int no) {
+    return memberDao.findApplyingLecture(no);
   }
 
 
