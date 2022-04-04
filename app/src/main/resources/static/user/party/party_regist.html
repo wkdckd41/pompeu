@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>POMPEU!</title>
+  <link href="/user/css/common.css" rel="stylesheet" >
+  <link href="/css/user_common.css" rel="stylesheet">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/user/css/flexslider.css" rel="stylesheet"  type="text/css" media="screen" />
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: rgb(249,252,251);
+  }
+  #x-member-table {
+  text-align: center !important;
+  }
+
+  </style>
 </head>
 <body>
 
+<div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
+
+<div id="header"></div> <!-- 헤더-->
+
+  <div class = "box-1">
+  <hr style="border: solid 1px gainsboro; width:80%;">
+
+<div class= "party-regist"> 
+  <div></div>
+</div>
+
+  </div>  <!-- #box-1 -->
+  
+<div id="footer"></div>
+
+</div>  <!-- #container -->
+
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+$("#header").load("/user/header.html");
+$("#footer").load("/user/footer.html");
+</script>
+
+</body>
 </body>
 </html>

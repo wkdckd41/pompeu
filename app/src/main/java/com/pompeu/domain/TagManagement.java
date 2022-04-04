@@ -3,8 +3,8 @@ package com.pompeu.domain;
 import lombok.Data;
 
 @Data
-public class ClaimReason {
+public class TagManagement {
 
-  int no;
-  String type;
+  int tagNo;
+  int partyNo;
 }
