@@ -52,12 +52,6 @@
     <result column="party_no" property="partyNo"/>
   </resultMap>
   
-  <resultMap type="partyImage" id="partyImageMap">
-    <id column="party_image_no" property="partyImageNo"/>
-    <result column="party_no" property="partyNo"/>
-    <result column="image" property="image"/>
-  </resultMap>    
-  
   <resultMap type="tagName" id="tagNameMap">
     <id column="tag_no" property="tagNo"/>
     <result column="tag" property="tag"/>
