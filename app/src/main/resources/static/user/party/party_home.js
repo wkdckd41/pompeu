@@ -1,5 +1,4 @@
 
-$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
 
   var partyNo = document.querySelector("#party_no").value;
   var partyName = document.querySelector("#party_name").value;
