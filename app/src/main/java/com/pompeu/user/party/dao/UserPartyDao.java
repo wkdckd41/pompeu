@@ -20,6 +20,4 @@ public interface UserPartyDao {
 
   int delete(int no);
 
-
-
 }
