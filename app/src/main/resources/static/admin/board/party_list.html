@@ -8,13 +8,14 @@
   <link href="/admin/css/admin.css" rel="stylesheet">
    
   <!-- navbar  -->
-  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   <link
       href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
       rel="stylesheet" id="bootstrap-css">
   <script
-      src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" href="/css/common.css">
+      src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+      
+<link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
  
 
   <style>
@@ -44,9 +45,11 @@
 
 <body>
 
-<div class="headers" id="headers"></div> <!-- 사이드바 들어가는 부분 -->
-
 <div class="container">
+        <div id="wrapper">
+            <div class="headers"></div>
+            <!-- 헤더 -->
+            <div class="page-wrapper">
   <h2 style="margin-left: 30px; margin-top:30px; margin-bottom:30px; font-size: 27px; ">소모임 관리</h2>
   
   <div class="menu">
@@ -93,17 +96,19 @@
     </div>
 
 </div>
-  
-</body>
+  </div>
+  </div>
 
-  <script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
-  <script src="../js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/price-range.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/jquery.prettyPhoto.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/main.js"></script> <!-- 관련 js 파일들 -->
+
+    
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리 -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 부트스트랩 -->
+    <script src="/admin/js/header.js"></script>
+    <!-- 헤더 -->
 
 <script src="party_list.js"></script>
-
 <script src="../admin2.js"></script> <!-- 사이드바 관련 스크립트 -->
+</body>
 </html>

@@ -94,68 +94,74 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
-  <select id="countAll" resultType="int">
-    select count(*) from party
-  </select>
+    <!-- 게시판 목록 총 갯수 -->
+	  <select id="countAll" resultType="int">
+	    select count(*) from party
+	  </select>
+	  
+    <!-- 게시판 목록 -->
+	  <select id="findAll" resultType="HashMap">
+	    select 
+	          p.party_no                            as party_no,
+	          p.location_no                         as location_no,
+	          p.name                                as name,
+	          p.max_member                          as max_member,
+	          p.in_out_ex                           as in_out_ex,
+	          p.end_date                            as end_date,
+	          tn.tag_name                           as tag_name
+	    from 
+	         party as p
+	    join tag_management as tm
+	         on tm.tag_no = tn.tag_name
+	    join tag_name as tn
+	         on p.party_no = tn.party_no
+	   order by
+	      p.party_no desc
+	  </select>
   
-  <select id="findAll" resultType="HashMap">
-    select 
-          p.party_no                            as party_no,
-          p.location_no                         as location_no,
-          p.name                                as name,
-          p.max_member                          as max_member,
-          p.in_out_ex                           as in_out_ex,
-          p.end_date                            as end_date,
-          tn.tag_name                           as tag_name
-    from 
-         party as p
-    join tag_management as tm
-         on tm.tag_no = tn.tag_name
-    join tag_name as tn
-         on p.party_no = tn.party_no
-   order by
-      p.party_no desc
-  </select>
+    <!-- 게시판 등록 -->
+	  <insert id="insert" parameterType="party">
+	    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
+	    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
+	  </insert>
   
-  <insert id="insert" parameterType="party">
-    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
-    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
-  </insert>
-  
-  <select id="findByNo" resultMap="partyMap" parameterType="int">
-    select 
-      p.party_no,
-      location_no,
-      name,
-      content,
-      start_date,
-      end_date,
-      max_member,
-      in_out_ex
-    from 
-      party 
-    where 
-      party_no=#{no}
-  </select>
+    <!-- 게시판 상세 -->
+	  <select id="findByNo" resultMap="partyMap" parameterType="int">
+	    select 
+	      p.party_no,
+	      location_no,
+	      name,
+	      content,
+	      start_date,
+	      end_date,
+	      max_member,
+	      in_out_ex
+	    from 
+	      party 
+	    where 
+	      party_no=#{no}
+	  </select>
 
-  <update id="update" parameterType="party">
-    update party set 
-      location_no=#{locationNo},
-      name=#{name},
-      content=#{content},
-      start_date=#{startDate},
-      end_date=#{endDate},
-      max_member=#{maxMember},
-      in_out_ex=#{inOutEx}
-    where 
-      party_no=#{no}
-  </update>
+    <!-- 게시판 수정 -->
+	  <update id="update" parameterType="party">
+	    update party set 
+	      location_no=#{locationNo},
+	      name=#{name},
+	      content=#{content},
+	      start_date=#{startDate},
+	      end_date=#{endDate},
+	      max_member=#{maxMember},
+	      in_out_ex=#{inOutEx}
+	    where 
+	      party_no=#{no}
+	  </update>
 
-  <delete id="delete" parameterType="int">
-    delete from party 
-    where party_no=#{no}
-  </delete>
-  
+    <!-- 게시판 삭제 -->
+	  <delete id="delete" parameterType="int">
+	    delete from party 
+	    where party_no=#{no}
+	  </delete>
+	  
 
 
 </mapper>

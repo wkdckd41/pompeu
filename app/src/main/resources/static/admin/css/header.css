@@ -9,7 +9,7 @@
     /* html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;} */
 }
 
-.main_container{
+.container{
     width: 1200px;
 }
 .navbar-inverse{
