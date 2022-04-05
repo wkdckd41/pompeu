@@ -14,7 +14,7 @@
 <h4>전체</h4>
 <h4>이용자</h4>
 <h4>크리에이터</h4>
-<table id="x-askBoard-table" border="1">
+<table id="x-askboard-table" border="1">
 <thead>
 <tr>
   <th>게시글 번호</th>
@@ -42,9 +42,12 @@
 
 </div>
 
-<script type="node_modules/jquery/dist/jqeury.js"></script>
+<script src="../node_modules/jquery/dist/jqeury.js">
+console.log("test111");
+</script>
 <script>
-$("#header").load("/admin/header.html");
+ console.log("test");
+ $("#admin-header").load("/admin/header.html");
   var contacts = [
 	   "2,준비물이 필요한가요,2020-03-22,최리나,이용자,답변대기",
 	   "2,준비물이 필요한가요,2020-03-22,최리나,이용자,답변대기",
