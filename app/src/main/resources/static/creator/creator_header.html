@@ -1,0 +1,257 @@
+<style>
+
+    @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css');
+    @media(min-width:768px) {
+    body {
+        width: 1200px;
+        margin-top: 50px;
+        overflow: scroll;
+    }
+    /*html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;}*/
+    }
+    
+    div.container{
+    width: 1200px;
+}
+/* body  ---- main-container --- navbar-inverse  1200px 주기*/
+    .navbar-inverse{
+    width: 1200px;
+}
+    
+    
+    #wrapper {
+    padding-left: 0;
+    }
+    
+    #page-wrapper {
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+
+    }
+    
+    @media(min-width:768px) {
+    #wrapper {
+    padding-left: 225px;
+    }
+    
+    #page-wrapper {
+    padding: 22px 10px;
+    }
+    }
+    
+    /* Top Navigation */
+    
+    .top-nav {
+    padding: 0 15px;
+    color: white;
+    }
+    
+    .top-nav>li {
+    display: inline-block;
+    float: left;
+    }
+    
+    .top-nav>li>a {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    line-height: 20px;
+    color: #fff;
+    }
+    
+    .top-nav>li>a:hover,
+    .top-nav>li>a:focus,
+    .top-nav>.open>a,
+    .top-nav>.open>a:hover,
+    .top-nav>.open>a:focus {
+    color: #fff;
+    background-color: rgba(46, 204, 113,.3);
+    }
+    
+    .top-nav>.open>.dropdown-menu {
+    float: left;
+    position: absolute;
+    margin-top: 0;
+    /*border: 1px solid rgba(0,0,0,.15);*/
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    background-color: #fff;
+    -webkit-box-shadow: 0 6px 12px rgba(46, 204, 113,.175);
+    box-shadow: 0 6px 12px rgba(46, 204, 113,.175);
+    }
+    
+    .top-nav>.open>.dropdown-menu>li>a {
+    white-space: normal;
+    }
+    
+    /* Side Navigation */
+    
+    @media(min-width:768px) {
+    .side-nav {
+    position: fixed;
+    top: 60px;
+    left: 225px;
+    width: 225px;
+    margin-left: -225px;
+    border: none;
+    border-radius: 0;
+    border-top: 1px rgba(46, 204, 113,.5) solid;
+    overflow-y: auto;
+    background-color: #7175b7; /* 사이드바 색상 */  
+    /*background-color: #5A6B7D;*/
+    bottom: 0;
+    overflow-x: hidden;
+    padding-bottom: 40px;
+    }
+    
+    .side-nav>li>a {
+    width: 225px;
+    border-bottom: 1px rgba(46, 204, 113,.3) solid;
+    font-size : 16px; /* depth 밖 폰트사이즈 */
+    }
+    
+    .side-nav li a:hover,
+    .side-nav li a:focus {
+    outline: none;
+    background-color: rgba(46, 204, 113,.3) !important;
+    }
+    }
+    
+    .side-nav>li>ul {
+    padding: 0;
+    border-bottom: 1px rgba(46, 204, 113,.3) solid;
+    }
+    
+    .side-nav>li>ul>li>a {
+    display: block;
+    padding: 10px 15px 10px 38px;
+    text-decoration: none;
+    /*color: #999;*/
+    color: #fff;
+        font-size : 12px;  /* depth 안 폰트사이즈 */
+    }
+    
+    .side-nav>li>ul>li>a:hover {
+    color: #fff;
+    }
+    
+    .navbar .nav > li > a > .label {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 14px;
+    right: 6px;
+    font-size: 10px;
+    font-weight: normal;
+    min-width: 15px;
+    min-height: 15px;
+    line-height: 1.0em;
+    text-align: center;
+    padding: 2px;
+    }
+    
+    .navbar .nav > li > a:hover > .label {
+    top: 10px;
+    }
+    
+    .navbar-brand {
+    padding: 5px 15px;
+    }
+    
+    #iu {
+    width: 50px;
+    height: 50px;
+    }
+    
+    .navbar-inverse .navbar-nav>li>a {
+    color: white;
+    }
+    
+    #ihead {
+    background-color: #465865; /* 헤더 색상 #007f66 */
+    }
+    
+    .tog {
+    font-size: 12px
+    }
+
+</style>
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header" id=ihead>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="https://bryanrojasq.wordpress.com">
+                    <img id= "iu" src="https://lh3.googleusercontent.com/4DbTyLTD4AX9EjJRWaQ2B_JroFNmro2JrCwxSm0bZ-_lTGqdg5AowkS1CLMB3L-VVUc" alt="LOGO">
+                </a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav" id="people">
+                <li >
+                    <a href="#" class="tog" >
+                      <i class="fa fa-user">
+                      </i>
+                    &nbsp; 크리에이터 1</a>
+                </li>
+                <li>
+                    <a href="#" class="tog" >로그아웃 </a>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse" id=ihead>
+      <ul class="nav navbar-nav side-nav">
+         <li>
+          <a href="investigaciones/favoritas"><i class="fa fa-delicious" aria-hidden="true"></i> &nbsp; 대시보드</a>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-1"><i class="fa fa-bars"></i> &nbsp; 클래스관리 <i
+              class="fa fa-fw fa-angle-down pull-right"></i></a>
+          <ul id="submenu-1" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 조회</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 등록</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-2"><i class="fa fa-bars"></i> &nbsp; 커뮤니티 관리 <i
+              class="fa fa-fw fa-angle-down pull-right"></i></a>
+          <ul id="submenu-2" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 클래스 문의 관리</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-3"><i class="fa fa-bars"></i> &nbsp; 고객지원 <i
+              class="fa fa-fw fa-angle-down pull-right"></i></a>
+          <ul id="submenu-3" class="collapse">
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 공지사항</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; FAQ</a></li>
+            <li><a href="#"><i class="fa fa-angle-right"></i> &nbsp; 1:1 문의</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-bars"></i> &nbsp; 크리에이터 정보</a>
+        </li>
+      </ul>
+    </div>
+    <!-- /.navbar-collapse -->
+        </nav>
+        
+            <script>
+        $(function () {
+                $('[data-toggle="tooltip"]').tooltip();
+                $(".side-nav .collapse").on("hide.bs.collapse", function () {
+                    $(this).prev().find(".fa").eq(1).removeClass("fa-angle-right").addClass("fa-angle-down");
+                });
+                $('.side-nav .collapse').on("show.bs.collapse", function () {
+                    $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
+                });
+            })    
+        
+    </script>
+        

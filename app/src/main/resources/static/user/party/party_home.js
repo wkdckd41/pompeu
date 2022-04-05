@@ -58,17 +58,3 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
         
       }
     });
-
-
-
-         /* rst.memberType.memberType */
-
-function hihi() {
-  
-  //document.querySelector("#name").value = '';
-  //document.querySelector("#phone").value = '';
-  //document.querySelector("#email").value = '';
-  //document.querySelector("#member_type_no").value = 0;
-location.reload();
-  
-}

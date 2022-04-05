@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>POMPEU!</title>
-  <link rel="stylesheet" href="/css/common.css">
+  <link href="/user/css/common.css" rel="stylesheet" >
+  <link href="/css/user_common.css" rel="stylesheet">
   <link href="/user/css/user.css" rel="stylesheet">
   <link href="/user/css/font-awesome.min.css" rel="stylesheet">
   <link href="/user/css/font/fontawesome.css" rel="stylesheet">
-  
+  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
   <style>
   table, th, td {
@@ -24,6 +25,9 @@
 <body>
 
 <div class="container">
+
+<div id="header"></div> <!-- 헤더-->
+
   <div class = "box-1">
   <hr style="border: solid 1px gainsboro; width:80%;">
   
@@ -93,7 +97,7 @@
                     <span>모임장 : <span>text</span></span><br><br>
                     <span>모임일시 : <span>text</span></span><br><br>
                     <span>모집 종료일 : <span>text</span></span><br><br>
-                    </div>
+                  </div>
                     <div align="right">
                     <button type="button" id="btn-claim">신고</button>
                     </div>
@@ -104,16 +108,24 @@
                      <button type="button" id="btn-link">공유하기 <i class="fa-solid fa-share-nodes"></i></button>
                    </div>
                    <button type="button" id="btn-regist">소모임 참여</button>
-                    </div>
-                  </div>
+                   </div>
+              </div>
             </div>
-          </div>
-      </div>
-      
-      
-      </div>
-   </div>
-</div>
+        </div>
+          
+      </div> <!-- #box-2 -->
+  </div>  <!-- #box-1 -->
+  
+<div id="footer"></div>
+
+</div>  <!-- #container -->
+
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+$("#header").load("/user/header.html");
+$("#footer").load("/user/footer.html");
+</script>
 
 </body>
 
