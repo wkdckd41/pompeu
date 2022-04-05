@@ -1,4 +1,4 @@
-$(".headers").load("/admin/admin2.html");
+$(".headers").load("/admin/header.html");
 
 var memberTypeNo = 3; // memberTypeNo가 3인 전체조회를 하기 위해서 미리 선언해줌
 
