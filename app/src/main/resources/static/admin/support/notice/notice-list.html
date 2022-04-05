@@ -5,24 +5,21 @@
     <title>POMPEU!</title>
 
 </head>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link
-        href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
-        rel="stylesheet" id="bootstrap-css">
-<script
-        src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="/css/common.css">
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+   <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 
-<script src="/admin/js/support/notice/notice-list.js"></script>
 
 <style>
 </style>
 <body>
+<div class="headers" id="headers"></div> <!-- 사이드바 들어가는 부분 -->
+
 <div class="container">
+
     <h2 style="margin-left: 30px;">공지사항</h2>
     <br> <br>
 
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" style="margin-left: 30px; width:90%;">
         <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"
                                 onclick="selectMemberTypeNo(3)">전체</a></li>
         <li class="nav-item"><a class="nav-link" href="#" onclick="selectMemberTypeNo(1)">이용자</a></li>
@@ -30,7 +27,7 @@
     </ul>
 
 
-    <table class="table">
+    <table class="table table-hover" style="margin-left: 30px; width:90%;">
         <thead>
         <tr>
             <th><input type="checkbox" name="_selected_all_"></th>
@@ -78,20 +75,15 @@
 </div>
 
 </body>
+  <script src="/admin/js/jquery.js"></script><!-- 관련 js 파일들 -->
+  <script src="/admin/js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
+  <script src="/admin/js/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
+  <script src="/admin/js/price-range.js"></script> <!-- 관련 js 파일들 -->
+  <script src="/admin/js/jquery.prettyPhoto.js"></script> <!-- 관련 js 파일들 -->
+  <script src="/admin/js/main.js"></script> <!-- 관련 js 파일들 -->
 
+<script src="/admin/js/support/notice/notice-list.js"></script>
+<script src="/admin/admin2.js"></script> <!-- 사이드바 관련 스크립트 -->
 
-<script>
-    //체크박스 전체선택 및 해제 기능은
-
-    $('input[name=_selected_all_]').on('change', function () {
-        $('input[name=_selected_]').prop('checked', this.checked);
-    });
-
-    var arr = $('input[name=_selected_]:checked').serializeArray().map(
-        function (item) {
-            return item.value
-        });
-    //var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
-</script>
 </html>
 
