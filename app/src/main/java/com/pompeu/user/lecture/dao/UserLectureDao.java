@@ -21,4 +21,5 @@ public interface UserLectureDao {
 
   Lecture findLectureLocation(int no);
 
+
 }
