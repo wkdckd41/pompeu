@@ -24,7 +24,16 @@ public class NoticeController {
 
   @RequestMapping("/notice/add")
   public Object add(Notice notice) {
-    return noticeService.add(notice);
+    System.out.println("memberTypeNo : " + notice.getMemberTypeNo() +  " name: " + notice.getName() + 
+        " criticalCheck:" +  notice.getCriticalCheck() + " content:"  + notice.getContent());
+
+
+    int count = noticeService.add(notice);
+    if (count == 1) {
+      return new ResultMap().setStatus("success");
+    } else {
+      return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
+    }
   }
 
 

@@ -8,8 +8,16 @@
     
    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     
-    <title>Document</title>
-    <link href="/css/common.css" rel="stylesheet">
+    <title>이용자 메인 화면</title>
+  <link rel="stylesheet" href="/user/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+    
+    <style>
+    
+    </style>
+    
     
 </head>
 <body>
@@ -22,7 +30,11 @@
     <!-- 헤더 & 사이드바 자리 끝 -->
     
     <!-- 내용물 자리 시작 -->
-        <div id="page-wrapper"> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <div id="page-wrapper"> <!-- 이 안에 때려박으세영!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        
+        
+        
+        
             <div class="container-fluid">
                 <!-- Page Heading -->
                 <div class="row" id="main">
@@ -33,22 +45,22 @@
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
-        </div> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        </div> <!-- 이 밑으론  HTML 만지지마!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <!-- /#page-wrapper --> 
     <!-- 내용물 자리 끝 -->
         
+    <div id="footer"></div>
     </div><!-- /#wrapper -->
     </div>
     
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
 
-    $("#header").load("/form/creator/creator-header.html");
-    
-
-    
-    </script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+		<script>
+		$("#header").load("/form/user/header.html");
+		$("#footer").load("/form/user/footer.html");
+		</script>
     
 
 </body>

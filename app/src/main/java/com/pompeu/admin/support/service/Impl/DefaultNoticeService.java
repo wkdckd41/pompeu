@@ -15,6 +15,8 @@ public class DefaultNoticeService implements NoticeService{
 
   @Override
   public int add(Notice notice) {
+    System.out.println("memberTypeNos : " + notice.getMemberTypeNo() +  " names: " + notice.getName() + 
+        " criticalChecks:" +  notice.getCriticalCheck() + " contents:"  + notice.getContent());
     return noticeDao.insert(notice);
   }
 
