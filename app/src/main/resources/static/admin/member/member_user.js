@@ -87,7 +87,7 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
     		st = "승인보류";
    			break;
   			default:
-    		st = "값이 없쪙";
+    		st = "값이 없쪙"a;
 }
 				
 				
