@@ -2,6 +2,8 @@ package com.pompeu.creator.lecture.controller;
 
 
 import java.util.ArrayList;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,17 +14,21 @@ import com.pompeu.domain.LectureTime;
 @RestController
 public class CreatorLectureController {
 
+  // log를 출력하는 도구 준비
+  private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
 
   @Autowired
   CreatorLectureService creatorlectureService;
 
   @RequestMapping("/creatorLecture/list")
   public Object list() {
+    log.info("크리에이터클래스목록 조회");
     return creatorlectureService.list();
   }
 
   @RequestMapping("/creatorLecture/add")
   public Object add(Lecture lecture, String[] time) {
+    log.debug(lecture);
     ArrayList<LectureTime> timesList = new ArrayList<>();
     for(int i= 0; i< time.length; i++) {
       String[] value = time[i].split(",");

@@ -26,7 +26,7 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   @Override
   public int add(Lecture lecture) {
     creatorlectureDao.insert(lecture);
-    creatorlectureDao.insertTels(lecture.getNo(), lecture.getTimes());
+    creatorlectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
     return 1;
   }
 

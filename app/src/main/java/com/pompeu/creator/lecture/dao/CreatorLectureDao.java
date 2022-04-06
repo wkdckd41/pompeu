@@ -15,7 +15,7 @@ public interface CreatorLectureDao {
 
   int insert(Lecture lecture);
 
-  int insertTels(@Param("lectureNo") int contactNo, @Param("times") List<LectureTime> times);
+  int insertTimes(@Param("lectureNo") int contactNo, @Param("times") List<LectureTime> times);
 
   Lecture findByNo(int no);
 

@@ -57,6 +57,15 @@
    #{endDate},#{lecturePrice},#{lectureInfo},#{inOutEx})
     </insert>
 
+  
+  <insert id="insertTimes">
+    insert into lecture_time(lecture_no, start_time, end_time, max_member, no_member)
+    values
+    <foreach collection="times" item="lectureTime" separator=",">
+      (#{lectureNo}, #{lectureTime.startTime}, #{lectureTime.endTime}, #{lectureTime.maxMember}, #{lectureTime.noMember}) 
+    </foreach>
+  </insert>
+  
   <select id="countAll" resultType="int">
     select count(*) from lecture
   </select>
