@@ -54,7 +54,11 @@
   </select>
   
    <select id="findAll" resultType="HashMap">
-       select  
+
+  </select>
+  
+   <select id="findOut" resultType="HashMap">
+    select  
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice
@@ -63,21 +67,12 @@
     join exercise as ex
           on le.ex_no = ex.ex_no
     where 
-        1=1
-    
-    <if test="inOutEx != null or inOutEx != ''">
-            <if test="inOutEx == 'out'">
-            and le.in_out_ex = '1'
-            </if>
-            <if test="inOutEx == 'in'">
-            and le.in_out_ex = '2'
-            </if>
-    </if>
-    
+          le.in_out_ex=1
     order by
       le.lecture_no asc
-    
   </select>
+  
+  
 
 
 </mapper>

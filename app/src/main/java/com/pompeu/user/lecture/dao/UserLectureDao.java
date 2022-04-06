@@ -17,7 +17,7 @@ public interface UserLectureDao {
 
   int delete(int no);
 
-  List<Lecture> findLecture(int no);
+  List<Lecture> findOut();
 
   Lecture findLectureLocation(int no);
 

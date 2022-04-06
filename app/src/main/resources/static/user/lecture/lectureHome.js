@@ -13,32 +13,20 @@ $(window).load(function() {
 });
 
 
-function selectLectureTypeNo (type) {
-    console.log(type);
-  $("#inOutEx").val(type);
+
+  var btnOut = document.getElementById("btn-out");
+
+btnOut.addEventListener('click', function() {
   
-  var params = { 
-   "inOutEx":  $("#inOutEx").val()
-}; 
-
-var paramData = Object.keys(params) 
-            .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) 
-            .join('&'); 
-
-var url = '/userLecture/list?' + paramData;
-
-  var exName = document.getElementById("exercise");
-  var name = document.getElementById("lecture-name");
-  var lecturePrice = document.getElementById("lecture-price");
-
-
-var body1 = document.querySelector("#body1");
-
-    while (body1.hasChildNodes()) {
-        body1.removeChild(body1.firstChild);
-    }
-
-   fetch(url)
+  var exName = document.querySelector("#exercise");
+  var name = document.querySelector("#lecture-name");
+  var lecturePrice = document.querySelector("#lecture-price");
+  
+  console.log("exname : " + exName);
+  console.log("name : " + name);
+  console.log("price : " + lecturePrice);
+  
+  fetch(`/userLecture/findOut`)
     .then(function(response) {
       return response.json();
     })
@@ -46,16 +34,13 @@ var body1 = document.querySelector("#body1");
       console.log("AAA");
       console.log(result);
       
-      for (var rst of result){
-          console.log(rst);
-          
-     exName= rst.exName
-     name= rst.name
-     lecturePrice= rst.lecturePrice
-     }
-     exName.innerHTML = exName
-     name.innerHTML = exName
-     lecturePrice.innerHTML = exName
-  })
-}
+      for (var rst of result) {
+      console.log(rst);
+      console.log(rst.lecturePrice)
       
+      exName.innerHTML = rst.exName;
+      name.innerHTML = rst.name;
+      lecturePrice.innerHTML = rst.lecturePrice;
+}
+})
+})
