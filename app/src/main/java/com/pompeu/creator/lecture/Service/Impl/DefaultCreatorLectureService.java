@@ -11,31 +11,33 @@ import com.pompeu.domain.Lecture;
 public class DefaultCreatorLectureService implements CreatorLectureService {
 
   @Autowired
-  CreatorLectureDao lectureDao;
+  CreatorLectureDao creatorlectureDao;
 
   @Override
   public int countAll() {
-    return lectureDao.countAll();
+    return creatorlectureDao.countAll();
   }
 
   @Override
   public List<Lecture> list() {
-    return lectureDao.findAll();
+    return creatorlectureDao.findAll();
   }
 
   @Override
   public int add(Lecture lecture) {
-    return lectureDao.insert(lecture);
+    creatorlectureDao.insert(lecture);
+    creatorlectureDao.insertTels(lecture.getNo(), lecture.getTimes());
+    return 1;
   }
 
   @Override
   public Lecture get(int no) {
-    return lectureDao.findByNo(no);
+    return creatorlectureDao.findByNo(no);
   }
 
   @Override
   public int update(Lecture lecture) {
-    return lectureDao.update(lecture);
+    return creatorlectureDao.update(lecture);
   }
 
 }

@@ -10,34 +10,31 @@ import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureTime;
 
 @RestController
-public class CreatorLectureController {
+public class LectureController {
 
 
   @Autowired
   CreatorLectureService creatorlectureService;
 
-  @RequestMapping("/creatorlecture/list")
+  @RequestMapping("/creatorLecture/list")
   public Object list() {
     return creatorlectureService.list();
   }
 
-  @RequestMapping("/creatorlecture/add")
-  public Object add(Lecture lecture, String[] times) {
-
+  @RequestMapping("/creatorLecture/add")
+  public Object add(Lecture lecture, String[] time) {
     ArrayList<LectureTime> timesList = new ArrayList<>();
-    for(int i= 0; i< times.length; i++) {
-      String[] value = times[i].split(",");
-
-      if(value[0].length() == 0) {
+    for(int i= 0; i< time.length; i++) {
+      String[] value = time[i].split(",");
+      if(value[0].length() == 0) { //시작시간
         continue;
-      }
-
-      if(value[1].length() == 0) {
+      } 
+      if(value[1].length() == 0) { //종료시간
         continue;
-      }
+      }  
 
       LectureTime lectureTime = new LectureTime
-          (value[0],value[1],Integer.parseInt(value[4]));
+          (value[0],value[1],Integer.parseInt(value[2]));
 
       timesList.add(lectureTime);
     }
@@ -45,7 +42,7 @@ public class CreatorLectureController {
     return creatorlectureService.add(lecture);
   }
 
-  @RequestMapping("/creatorlecture/get")
+  @RequestMapping("/creatorLecture/get")
   public Object get(int no) {
     Lecture lecture = creatorlectureService.get(no);
     if (lecture == null) {
@@ -54,13 +51,8 @@ public class CreatorLectureController {
     return lecture;
   }
 
-  @RequestMapping("/creatorlecture/update")
+  @RequestMapping("/creatorLecture/update")
   public Object update(Lecture lecture) {
-    return creatorlectureService.update(lecture);
-  }
-
-  @RequestMapping("/creatorlecture/delete")
-  public Object delete(Lecture lecture) {
     return creatorlectureService.update(lecture);
   }
 

@@ -13,6 +13,7 @@ public interface NoticeDao {
 
   int insert(Notice notice);
 
+
   Notice findByNo(int no);
 
   int update(Notice notice);
@@ -20,7 +21,6 @@ public interface NoticeDao {
   int delete(int no);
 
   int deleteAll(String str);
-
 
 }
 
