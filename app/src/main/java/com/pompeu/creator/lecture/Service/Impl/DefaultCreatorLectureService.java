@@ -3,15 +3,15 @@ package com.pompeu.creator.lecture.Service.Impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.pompeu.creator.lecture.Service.LectureService;
-import com.pompeu.creator.lecture.dao.LectureDao;
+import com.pompeu.creator.lecture.Service.CreatorLectureService;
+import com.pompeu.creator.lecture.dao.CreatorLectureDao;
 import com.pompeu.domain.Lecture;
 
 @Service
-public class DefaultLectureService implements LectureService {
+public class DefaultCreatorLectureService implements CreatorLectureService {
 
   @Autowired
-  LectureDao lectureDao;
+  CreatorLectureDao lectureDao;
 
   @Override
   public int countAll() {

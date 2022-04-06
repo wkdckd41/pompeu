@@ -5,52 +5,63 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.creator.lecture.Service.LectureService;
+import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureTime;
 
 @RestController
-public class LectureController {
+public class CreatorLectureController {
 
 
   @Autowired
-  LectureService lectureService;
+  CreatorLectureService creatorlectureService;
 
-  @RequestMapping("/lecture/list")
+  @RequestMapping("/creatorlecture/list")
   public Object list() {
-    return lectureService.list();
+    return creatorlectureService.list();
   }
 
-  @RequestMapping("/lecture/add")
+  @RequestMapping("/creatorlecture/add")
   public Object add(Lecture lecture, String[] times) {
 
     ArrayList<LectureTime> timesList = new ArrayList<>();
     for(int i= 0; i< times.length; i++) {
       String[] value = times[i].split(",");
+
+      if(value[0].length() == 0) {
+        continue;
+      }
+
       if(value[1].length() == 0) {
         continue;
       }
+
       LectureTime lectureTime = new LectureTime
-          (value[2],value[3],Integer.parseInt(value[4]));
+          (value[0],value[1],Integer.parseInt(value[4]));
 
       timesList.add(lectureTime);
     }
     lecture.setTimes(timesList);
-    return lectureService.add(lecture);
+    return creatorlectureService.add(lecture);
   }
 
-  @RequestMapping("/lecture/get")
+  @RequestMapping("/creatorlecture/get")
   public Object get(int no) {
-    Lecture lecture = lectureService.get(no);
+    Lecture lecture = creatorlectureService.get(no);
     if (lecture == null) {
       return "";
     }
     return lecture;
   }
 
-  @RequestMapping("/lecture/update")
+  @RequestMapping("/creatorlecture/update")
   public Object update(Lecture lecture) {
-    return lectureService.update(lecture);
+    return creatorlectureService.update(lecture);
+  }
+
+  @RequestMapping("/creatorlecture/delete")
+  public Object delete(Lecture lecture) {
+    return creatorlectureService.update(lecture);
   }
 
 

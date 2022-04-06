@@ -1,17 +1,16 @@
-package com.pompeu.creator.lecture.Service;
+package com.pompeu.admin.lecture.service;
 
 import java.util.List;
 import com.pompeu.domain.Lecture;
 
-public interface LectureService {
+public interface AdminLectureService {
+
 
   int countAll();
 
   List<Lecture> list();
 
   Lecture get(int no);
-
-  int add(Lecture lecture);
 
   int update(Lecture lecture);
 
