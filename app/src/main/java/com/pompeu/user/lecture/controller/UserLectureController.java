@@ -38,4 +38,15 @@ public class UserLectureController {
   public Object delete(int no) {
     return userLectureDao.delete(no);
   }
+
+  @RequestMapping("/userLecture/findExercise")
+  public Object findExercise(int no) {
+    return userLectureDao.findExercise(no);
+  }
+
+  @RequestMapping("/userLecture/findLectureLocation")
+  public Object findLectureLocation(int no) {
+    return userLectureDao.findLectureLocation(no);
+  }
+
 }
