@@ -1,5 +1,5 @@
 $('head').append($('<link rel="stylesheet"/>').attr('href', '/admin/css/header.css'));
-$(".headers").load("/admin/header.html");
+$(".headers").load("/form/admin/header.html");
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();
     $(".side-nav .collapse").on("hide.bs.collapse", function () {

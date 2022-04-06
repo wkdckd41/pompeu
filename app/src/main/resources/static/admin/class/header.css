@@ -9,7 +9,7 @@
     /* html, body, #wrapper, #page-wrapper {height: 100%; overflow: hidden;} */
 }
 
-.main-container{
+div.main-container{
     width: 1200px;
 }
 /* body  ---- main-container --- navbar-inverse  1200px 주기*/
@@ -148,4 +148,9 @@
 
 .navbar-brand {
     padding: 5px 15px;
+}
+
+div.container-fluid{
+    padding: 30px 70px;
+    width: 100%;
 }
