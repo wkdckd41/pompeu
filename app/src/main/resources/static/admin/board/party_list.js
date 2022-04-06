@@ -3,6 +3,8 @@ $(document).ready(function(){
   selectBoardTypeNo("");
 });
 
+
+
 function selectBoardTypeNo (type) {
     console.log(type);
   $("#searchType").val(type);

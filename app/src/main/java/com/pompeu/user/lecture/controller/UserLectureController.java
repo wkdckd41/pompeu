@@ -44,9 +44,9 @@ public class UserLectureController {
     return userLectureDao.delete(no);
   }
 
-  @RequestMapping("/userLecture/findExercise")
+  @RequestMapping("/userLecture/findLecture")
   public Object findExercise(int no) {
-    return userLectureDao.findExercise(no);
+    return userLectureDao.findLecture(no);
   }
 
   @RequestMapping("/userLecture/findLectureLocation")

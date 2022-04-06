@@ -12,37 +12,50 @@ $(window).load(function() {
   });
 });
 
-  // 1) URL에서 쿼리스트링(query string)을 추출한다.
-  var arr = location.href.split("?");
-  console.log(arr);
 
-  if (arr.length == 1) {
-    alert("요청 형식이 옳바르지 않습니다.")
-    throw "URL 형식 오류!";
-  }
-
-  var qs = arr[1];
-  console.log(qs);
-
-  // 2) 쿼리 스트링에서 email 값을 추출한다.
-  var params = new URLSearchParams(qs);
-  var no = params.get("no");
-
-  if (no == null) {
-    alert("독서록 번호가 없습니다.");
-    throw "파라미터 오류!";
-  }
-  console.log(no);
-
-
-  var exercise = document.querySelector("#exercise");
+function selectLectureTypeNo (type) {
+    console.log(type);
+  $("#inOutEx").val(type);
   
-  fetch(`/userLecture/findExercise?no=${no}`)
+  var params = { 
+   "inOutEx":  $("#inOutEx").val()
+}; 
+
+var paramData = Object.keys(params) 
+            .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) 
+            .join('&'); 
+
+var url = '/userLecture/list?' + paramData;
+
+  var exName = document.getElementById("exercise");
+  var name = document.getElementById("lecture-name");
+  var lecturePrice = document.getElementById("lecture-price");
+
+
+var body1 = document.querySelector("#body1");
+
+    while (body1.hasChildNodes()) {
+        body1.removeChild(body1.firstChild);
+    }
+
+   fetch(url)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-
-});
+      
+      for (var rst of result){
+          console.log(rst);
+          
+     exName= rst.exName
+     name= rst.name
+     lecturePrice= rst.lecturePrice
+     }
+     exName.innerHTML = exName
+     name.innerHTML = exName
+     lecturePrice.innerHTML = exName
+  })
+}
+      

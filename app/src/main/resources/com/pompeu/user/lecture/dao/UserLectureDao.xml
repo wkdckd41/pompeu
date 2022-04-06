@@ -6,7 +6,7 @@
 <mapper namespace="com.pompeu.user.lecture.dao.UserLectureDao">
 
   <resultMap type="lecture" id="lectureMap">
-    <id column="lecture_no" property="lectureNo"/>
+    <id column="lecture_no" property="no"/>
     <result column="location_no" property="locationNo"/>
     <result column="creator_no" property="creatorNo"/>
     <result column="ex_no" property="exNo"/>
@@ -34,7 +34,7 @@
 
   <resultMap type="exercise" id="exerciseMap">
     <id column="ex_no" property="exNo"/>
-    <result column="name" property="name"/>
+    <result column="name" property="exName"/>
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
@@ -53,15 +53,30 @@
     select count(*) from lecture
   </select>
   
-    <select id="findExercise" resultType="HashMap" parameterType="int">
-    select  
-          ex.name                                                as name
+   <select id="findAll" resultType="HashMap">
+       select  
+          ex.name                    as exName,
+          le.name                    as name,
+          le.lecture_price           as lecturePrice
     from 
           lecture as le
     join exercise as ex
-          on le.lecture_no = ex.ex_no
+          on le.ex_no = ex.ex_no
     where 
-      le.lecture_no=#{no}
+        1=1
+    
+    <if test="inOutEx != null or inOutEx != ''">
+            <if test="inOutEx == 'out'">
+            and le.in_out_ex = '1'
+            </if>
+            <if test="inOutEx == 'in'">
+            and le.in_out_ex = '2'
+            </if>
+    </if>
+    
+    order by
+      le.lecture_no asc
+    
   </select>
 
 
