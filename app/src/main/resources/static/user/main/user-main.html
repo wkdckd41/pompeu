@@ -8,14 +8,129 @@
     
    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     
+    
+    
     <title>이용자 메인 화면</title>
   <link rel="stylesheet" href="/user/css/common.css">
   <link href="/user/css/user.css" rel="stylesheet">
   <link href="/css/user_common.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+   
+   <!-- flexslider -->
+  <link rel="stylesheet" href="/user/main/flexslider/flexslider.css" type="text/css" media="screen" /> 
+    
+   <!-- swiper -->
+  <link rel="stylesheet" href="/user/main/swiper/swiper-bundle.min.css"/>
     
     <style>
     
+  /* flexslider start */
+  .flexslider {  
+  width: 1140px;
+  height : 570px;
+  }
+  
+    #m-slider-1 {
+  position: relative;
+  }
+
+  
+  #hihi {
+  font-size:30px;
+  font-weight:bold;
+  color :red;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 800px;
+  }
+  /* flexslider end */
+  
+  /* swiper start */
+        .swiper {
+        /*border: 1px solid black;*/
+        width: 1140px;
+        height: 380px;
+        margin: 50px 0px ;
+      }
+
+      .swiper-slide {
+        /*border: 1px solid black;*/
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      @media (max-width: 760px) {
+        .swiper-button-next {
+          right: 20px;
+          transform: rotate(90deg);
+        }
+
+        .swiper-button-prev {
+          left: 20px;
+          transform: rotate(90deg);
+        }
+      }
+  /* swiper end */
+  
+  /* lecture-box start */
+     .lec-box{
+      width : 350px;
+      height : 350px;
+    }
+  
+    .lec-box>*{
+    }
+    
+    .lec-img{
+      height : 60%;
+      border: solid 1px black;
+    }
+    
+    .lec-cat{
+      height : 8%;
+      text-align: left;
+      font-size: 18px;
+      padding-top: 5px;
+      padding-left: 5px;
+    }
+    
+    .lec-title{
+      height : 16%;
+      text-align: left;
+      font-size: 28px;
+      padding-top: 5px;
+      padding-left: 5px;
+    }
+    
+    .lec-price{
+      height : 8%;
+      text-align: left;
+      font-size: 18px;
+      padding-left: 5px;
+    }
+    
+    .lec-wish, .lec-like{
+      text-align: left;
+      font-size: 18px;
+      padding-left: 5px;
+    }
+  /* lecture-box end */
     </style>
     
     
@@ -32,19 +147,217 @@
     <!-- 내용물 자리 시작 -->
         <div id="page-wrapper"> <!-- 이 안에 때려박으세영!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         
+        <!-- flexslider -->
+        <div class="flexslider">  
+          <ul class="slides">
+            <li id="m-slider-1">
+              <img src="/user/main/flexslider/images/main1-1.jpg" />
+              <span id="hihi">히히</span>
+            </li>
+            <li>
+              <img src="/user/main/flexslider/images/main2-1.jpg" />
+            </li>
+            <li>
+              <img src="/user/main/flexslider/images/main3-1.jpg" />
+            </li>
+            <li>
+              <img src="/user/main/flexslider/images/main4-1.jpg" />
+            </li>
+          </ul>
+        </div>  
+        <!-- flexslider -->
         
+        <h2>맞춤 클래스 추천</h2>
         
+        <!-- Swiper -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
         
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <div class="row" id="main">
-                    <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>크리에이터 페이지 양식입니다</h1>
-                    </div>
-                </div>
-                <!-- /.row -->
+          <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
             </div>
-            <!-- /.container-fluid -->
+          </div> <!--lecture/box -->
+          
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+        <!-- Swiper -->
+        
+        
+        <h2>인기 클래스 추천</h2>
+        
+        <!-- Swiper -->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        
+          <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+          
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">이미지</div>
+            <div class="lec-cat">볼링</div>
+            <div class="lec-title">너무나 재밌는 볼링 오세요!</div>
+            <div class="lec-price">월 30000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i>555</div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+        <!-- Swiper -->
+
         </div> <!-- 이 밑으론  HTML 만지지마!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
         <!-- /#page-wrapper --> 
     <!-- 내용물 자리 끝 -->
@@ -57,6 +370,47 @@
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+<!-- FlexSlider -->
+  <script defer src="/user/main/flexslider/jquery.flexslider.js"></script>       
+  
+  <!-- FlexSlider -->
+  <script type="text/javascript"> 
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      animation: "slide"
+    });
+  });
+  </script>       
+  
+      <!-- Swiper -->
+    <script src="/user/main/swiper/swiper-bundle.min.js"></script>
+  
+      <!-- Swiper -->
+    <script>
+      var swiper = new Swiper('.swiper', {
+        slidesPerView: 3,
+        direction: getDirection(),
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          resize: function () {
+            swiper.changeDirection(getDirection());
+          },
+        },
+      });
+
+      function getDirection() {
+        var windowWidth = window.innerWidth;
+        var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+
+        return direction;
+      }
+    </script>
+    
+    
 		<script>
 		$("#header").load("/form/user/header.html");
 		$("#footer").load("/form/user/footer.html");
