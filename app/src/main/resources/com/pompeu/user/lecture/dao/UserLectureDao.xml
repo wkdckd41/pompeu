@@ -50,8 +50,19 @@
   </resultMap>  
  
   <select id="countAll" resultType="int">
-    select count(*) from party
+    select count(*) from lecture
   </select>
   
+    <select id="findExercise" resultType="HashMap" parameterType="int">
+    select  
+          ex.name                                                as name
+    from 
+          lecture as le
+    join exercise as ex
+          on le.lecture_no = ex.ex_no
+    where 
+      le.lecture_no=#{no}
+  </select>
+
 
 </mapper>
