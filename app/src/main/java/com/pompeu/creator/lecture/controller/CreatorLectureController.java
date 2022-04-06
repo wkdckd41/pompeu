@@ -10,7 +10,7 @@ import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureTime;
 
 @RestController
-public class LectureController {
+public class CreatorLectureController {
 
 
   @Autowired
