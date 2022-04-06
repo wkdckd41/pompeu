@@ -1,18 +1,26 @@
+$(document).ready(function(){
+  console.log("start");
+  selectBoardTypeNo("");
+});
 
-  var partyNo = document.querySelector("#party_no").value;
-  var partyName = document.querySelector("#party_name").value;
-  var name = document.querySelector("#name").value;
-  var registerDate = document.querySelector("#register_date").value;
-  var status = document.querySelector("#status").value;
+function selectBoardTypeNo (type) {
+    console.log(type);
+  $("#searchType").val(type);
+  
+  var params = { 
+   "searchType":  $("#searchType").val()
+}; 
 
-  console.log("no. : " + partyNo);
-  console.log("제목 : " + partyName);
-  console.log("작성자 : " + name);
-  console.log("등록일 : " + registerDate);
-  console.log("신고여부 : " + status);
+var paramData = Object.keys(params) 
+            .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) 
+            .join('&'); 
+
+var url = '/party/list?' + paramData;
+
   
+
   
-  var tbody1 = document.querySelector("#tbody1");
+    var tbody1 = document.querySelector("#tbody1");
 
 
     while (tbody1.hasChildNodes()) {
@@ -20,8 +28,8 @@
     }
   
   
-  fetch(`/party/list`)
-  /*fetch(`/member/srchMember`)*/
+  //fetch("/party/list")
+   fetch(url)
     .then(function(response) {
       return response.json();
     })
@@ -41,9 +49,8 @@
         st = "X";
         break;
         default:
-        st = "값이 없쪙";
+        st = "";
     }
-    
     
         var tr = document.createElement("tr");
         tr.innerHTML = `
@@ -53,20 +60,7 @@
         <td>${rst.register_date}</td>
         <td>${st}</td>`;
         tbody1.appendChild(tr);
-        
       }
     });
-
-
-
-         /* rst.memberType.memberType */
-
-function hihi() {
-  
-  //document.querySelector("#name").value = '';
-  //document.querySelector("#phone").value = '';
-  //document.querySelector("#email").value = '';
-  //document.querySelector("#member_type_no").value = 0;
-location.reload();
-  
 }
+

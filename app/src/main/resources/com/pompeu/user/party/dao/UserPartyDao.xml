@@ -101,6 +101,7 @@
 	  
     <!-- 게시판 목록 -->
 	  <select id="findAll" resultType="HashMap">
+	  /*findAll*/
 	    select 
 	          p.party_no                            as party_no,
 	          p.location_no                         as location_no,
@@ -112,7 +113,7 @@
 	    from 
 	         party as p
 	    join tag_management as tm
-	         on tm.tag_no = tn.tag_name
+	         on p.party_no = tm.party_no
 	    join tag_name as tn
 	         on p.party_no = tn.party_no
 	   order by
