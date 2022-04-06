@@ -6,7 +6,7 @@ import com.pompeu.domain.Party;
 
 public interface PartyService {
 
-  List<Party> list();
+  List<Party> list(Party party);
 
   int add(Party party);
 

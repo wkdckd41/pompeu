@@ -11,7 +11,7 @@ public interface PartyDao {
 
   int countAll();
 
-  List<Party> findAll();
+  List<Party> findAll(Party party);
 
   int insert(Party party);
 

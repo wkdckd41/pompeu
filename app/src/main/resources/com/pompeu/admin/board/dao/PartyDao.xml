@@ -16,6 +16,7 @@
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
+    <result column="searchType" property="searchType"/>
   </resultMap>
 
   <resultMap type="users" id="usersMap">
@@ -78,6 +79,7 @@
   </select>
   
   <select id="findAll" resultType="HashMap">
+      /*findAll*/
     select 
           p.party_no                            as party_no,
           p.name                                as name,
@@ -93,6 +95,36 @@
           on u.users_no = mb.member_no 
     left outer join party_claim as pc 
           on p.party_no = pc.party_no 
+     WHERE 
+	    1=1
+	   
+	    <if test="searchType != null or searchType != ''">
+		    <if test="searchType == 'so'">
+		    and pc.status = '1' 
+		    </if>
+		    <if test="searchType == 'em'">
+		    and pc.status is NULL 
+		    </if>
+		  </if>
+		  
+		  <!--
+		  <choose> 
+		      <when test="searchType != null or searchType != ''">
+		          <choose> 
+				  <when test="searchType == 'so'">
+		            and pc.status = '1' 
+		            </when>
+		            <when test="searchType == 'em'">
+		            and pc.status is NULL 
+		            </when>
+		            <otherwise>
+                    </otherwise>
+		         </choose> 
+		      </when>
+		      <otherwise>
+		      </otherwise>
+		  </choose>
+		  -->
    order by
       p.party_no asc
   </select>

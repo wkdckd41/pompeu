@@ -16,8 +16,10 @@ public class PartyController {
   PartyService partyService;
 
   @RequestMapping("/party/list")
-  public Object list() {
-    return partyService.list();
+  public Object list(Party party) {
+    System.out.println("파티");
+    System.out.println(party);
+    return partyService.list(party);
   }
 
   @RequestMapping("/party/add")
