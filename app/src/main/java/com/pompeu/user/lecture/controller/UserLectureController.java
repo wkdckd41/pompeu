@@ -1,5 +1,7 @@
 package com.pompeu.user.lecture.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,12 +11,15 @@ import com.pompeu.user.lecture.dao.UserLectureDao;
 @RestController 
 public class UserLectureController {
 
+  // log를 출력하는 도구 준비
+  private static final Logger log = LogManager.getLogger(UserLectureController.class);
 
   @Autowired
   UserLectureDao userLectureDao;
 
   @RequestMapping("/userLecture/list")
   public Object list() {
+    log.debug("게실물 목록 조회!");
     return userLectureDao.findAll();
   }
 
