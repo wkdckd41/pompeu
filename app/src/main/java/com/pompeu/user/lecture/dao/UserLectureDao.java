@@ -17,4 +17,8 @@ public interface UserLectureDao {
 
   int delete(int no);
 
+  Lecture findExercise(int no);
+
+  Lecture findLectureLocation(int no);
+
 }

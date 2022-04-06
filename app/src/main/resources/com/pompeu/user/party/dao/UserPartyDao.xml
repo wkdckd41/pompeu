@@ -96,11 +96,13 @@
 
     <!-- 게시판 목록 총 갯수 -->
 	  <select id="countAll" resultType="int">
+	  /*countAll*/
 	    select count(*) from party
 	  </select>
 	  
     <!-- 게시판 목록 -->
 	  <select id="findAll" resultType="HashMap">
+	  /*findAll*/
 	    select 
 	          p.party_no                            as party_no,
 	          p.location_no                         as location_no,
@@ -112,7 +114,7 @@
 	    from 
 	         party as p
 	    join tag_management as tm
-	         on tm.tag_no = tn.tag_name
+	         on p.party_no = tm.party_no
 	    join tag_name as tn
 	         on p.party_no = tn.party_no
 	   order by
@@ -121,12 +123,14 @@
   
     <!-- 게시판 등록 -->
 	  <insert id="insert" parameterType="party">
+	  /*insert*/
 	    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
 	    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
 	  </insert>
   
     <!-- 게시판 상세 -->
 	  <select id="findByNo" resultMap="partyMap" parameterType="int">
+	  /*findByNo*/
 	    select 
 	      p.party_no,
 	      location_no,
@@ -144,6 +148,7 @@
 
     <!-- 게시판 수정 -->
 	  <update id="update" parameterType="party">
+	  /*update*/
 	    update party set 
 	      location_no=#{locationNo},
 	      name=#{name},
@@ -158,10 +163,10 @@
 
     <!-- 게시판 삭제 -->
 	  <delete id="delete" parameterType="int">
-	    delete from party 
-	    where party_no=#{no}
+	   /*delete*/
+	   delete from party 
+	   where party_no=#{no}
 	  </delete>
-	  
-
+	
 
 </mapper>

@@ -45,6 +45,9 @@
 
 <body>
 
+<form id="partyListForm" name="partyListForm" method="get">
+<input type="hidden" id="searchType" name="searchType" />
+</form>
 <div class="container">
         <div id="wrapper">
             <div class="headers"></div>
@@ -54,9 +57,9 @@
   
   <div class="menu">
     <ul class="nav nav-tabs">
-      <li class="nav-item"><a class="nav-link active" aria-current="page" href="#" onclick="selectBoardTypeNo(3)">전체</a></li>
-      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo(1)">소모임</a></li>
-      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo(2)">신고게시글</a></li>
+      <li class="nav-item"><a class="nav-link active" aria-current="page" href="#" onclick="selectBoardTypeNo('')">전체</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo('so')">소모임</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo('em')">신고게시글</a></li>
     </ul>
  </div>
   <div class="search">

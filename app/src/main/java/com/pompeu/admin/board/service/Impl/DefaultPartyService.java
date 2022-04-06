@@ -15,8 +15,8 @@ public class DefaultPartyService implements PartyService{
   PartyDao partyDao;
 
   @Override
-  public List<Party> list() {
-    return partyDao.findAll();
+  public List<Party> list(Party party) {
+    return partyDao.findAll(party);
   }
 
   @Override

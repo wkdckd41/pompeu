@@ -19,6 +19,7 @@ public class Party {
 
   PartyClaim partyClaim;
   Member member;
+  String searchType;
 
 
 }
