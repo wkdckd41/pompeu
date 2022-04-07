@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Main 페이지</title>
+   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+
+  <style>
+
+  .page-wrapper {
+    padding-top: 40px;
+    position : relative;
+  }
+
+
+  .summary-box {
+    width : 400px;
+    height : 300px;
+    position : absolute;
+  }
+  
+  .title-box {
+    border: 1px solid black;
+    height: 30%;
+    font-size: 30px;
+    font-weight: bold;
+    padding-top: 25px;
+    padding-left: 10px;
+  }
+  
+  .content-box {
+    border: 1px solid black;
+    height: 70%;
+    padding: 10px;
+  }
+  
+  .box-table{
+      width : 100%;
+      font-size: 18px;
+      border:none;
+
+  }
+  
+  .box-table tr td {
+      padding: 5px;
+      border:none;
+      height: 36px;
+  }
+  
+  .content-value {
+    width : 40%;
+    text-align: right;
+  }
+  
+  .button-sta {
+  width: 100px;
+  height: 40px; 
+  background-color:#99CCFF;
+  color:white;
+  font-size: 18px;
+  margin : auto;
+  margin-top: 20px;
+  display:block;
+  border:none;
+  }
+  
+  #box-1 {
+    top: 50px;
+    left: 50px;
+  }
+  
+  #box-2 {
+    top: 50px;
+    left: 500px;
+  }
+  
+  #box-3 {
+    top: 400px;
+    left: 50px;
+  }
+  
+  #box-4 {
+    top: 400px;
+    left: 500px;
+  }
+  
+  #chart-box {
+    position : absolute;
+    top: 750px;
+    left: 50px;
+    
+    width: 850px;
+    height: 450px;
+ }
+  
+
+  </style>
+  
+</head>
+
+<body>
+    <div class="main-container">
+        <div id="wrapper">
+            <div class="headers"></div>
+            <!--👉 헤더 😊-->
+            <div class="page-wrapper">
+
+<div class="summary-box" id= "box-1"> <!-- summary box 시작 -->
+  <div class="title-box">회원현황</div>
+  <div class="content-box">
+    <table class="box-table" border="1">
+	<tr>
+	    <td class="content-key">총 회원수</td>
+	    <td class="content-value" id="member-total"></td>
+	</tr>
+	<tr>
+	    <td class="content-key">총 크리에이터 수</td>
+	    <td class="content-value" id="member-creator"></td>
+	</tr>
+    <tr>
+      <td class="content-key">신규 회원 수</td>
+      <td class="content-value" id="member-rookie"></td>
+  </tr>
+    </table>
+  <!--  <button class="button-sta" id="member-button">통계보기</button>-->
+  </div>
+</div> <!-- summary box 끝 -->
+
+<div class="summary-box" id= "box-2"> <!-- summary box 시작 -->
+  <div class="title-box">클래스 현황</div>
+  <div class="content-box">
+    <table class="box-table" border="1">
+  <tr>
+      <td class="content-key">개설강좌 수</td>
+      <td class="content-value" id="lecture-total"></td>
+  </tr>
+  <tr>
+      <td class="content-key">진행중 강좌</td>
+      <td class="content-value" id="lecture-ing"></td>
+  </tr>
+    <tr>
+      <td class="content-key">준비중 강좌</td>
+      <td class="content-value" id="lecture-stnby"></td>
+  </tr>
+    </table>
+    <!--<button class="button-sta" id="lecture-button">통계보기</button>-->
+  </div>
+</div> <!-- summary box 끝 -->
+
+<div class="summary-box" id= "box-3"> <!-- summary box 시작 -->
+  <div class="title-box">회계 현황</div>
+  <div class="content-box">
+    <table class="box-table" border="1">
+  <tr>
+      <td class="content-key">총 매출액</td>
+      <td class="content-value">100,000,000원</td>
+  </tr>
+  <tr>
+      <td class="content-key">정산 금액</td>
+      <td class="content-value">10,000,000원</td>
+  </tr>
+    <tr>
+      <td class="content-key"></td>
+      <td class="content-value"></td>
+  </tr>
+    </table>
+      <!--<button class="button-sta">통계보기</button>-->
+  </div>
+</div> <!-- summary box 끝 -->
+
+<div class="summary-box" id= "box-4"> <!-- summary box 시작 -->
+  <div class="title-box">미처리 현황</div>
+  <div class="content-box">
+    <table class="box-table" border="1">
+  <tr>
+      <td class="content-key">클래스 개설신청</td>
+      <td class="content-value" id="undo-apply"></td>
+  </tr>
+    <tr>
+      <td class="content-key">미처리 신고문의</td>
+      <td class="content-value" id="undo-claim"></td>
+  </tr>
+    <tr>
+      <td class="content-key"></td>
+      <td class="content-value"></td>
+  </tr>
+    </table>
+      <!--<button class="button-sta">통계보기</button>-->
+  </div>
+</div> <!-- summary box 끝 -->
+
+<!-- 차트 관련 div */ -->
+<div id="chart-box">
+ <canvas id="chart"></canvas> 
+</div>
+
+            </div>
+            <!--/page-wrapper 👉 내용  -->
+        </div>
+        <!--/wrapper  -->
+
+    </div>
+    <!-- /main-container 전체 😃🤣😄 -->
+
+    <!-- 밑에 3개적용 😊😊😊  -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리     1️⃣-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <!-- 부트스트랩   2️⃣-->
+    <script src="/admin/js/header.js"></script>
+    <!-- 😊 헤더 👈 3️⃣ -->
+
+    <script src="/admin/main/Chart.min.js"></script> <!-- 차트 관련 js코드1 */ -->
+    <script src="/admin/main/myChart.js"></script> <!-- 차트 관련 js코드2 */ -->
+    <script src="admin-main.js"></script>
+
+</body>
+
+</html>
