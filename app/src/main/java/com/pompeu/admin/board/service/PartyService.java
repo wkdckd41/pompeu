@@ -1,7 +1,6 @@
 package com.pompeu.admin.board.service;
 
 import java.util.List;
-import java.util.Map;
 import com.pompeu.domain.Party;
 
 public interface PartyService {
@@ -18,7 +17,5 @@ public interface PartyService {
 
   List<Party> srchParty(Party party);
 
-  List<Map<Object, Object>> findPartyClaim();
 
-  List<Map<Object, Object>> findPartyList();
 }

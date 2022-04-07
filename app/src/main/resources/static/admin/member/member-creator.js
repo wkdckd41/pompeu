@@ -1,8 +1,8 @@
-$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
+
+/* 회원정보 */
 
   var memberType = document.querySelector("#member_type_nos");
   var naame = document.querySelector("#names");
-  var nickname = document.querySelector("#nickNames");
   var email = document.querySelector("#emails");
   var phone = document.querySelector("#phones");
   var joinDate = document.querySelector("#join_dates");
@@ -40,7 +40,6 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
       // 4 연락처 상세 정보를 화면에 출력한다.
       memberType.innerHTML = result.memberType.memberType;
       naame.innerHTML = result.name;
-      nickname.innerHTML = result.nickName;
       email.innerHTML = result.email;
       phone.innerHTML = result.phone;
       joinDate.innerHTML = result.joinDate;
@@ -48,14 +47,15 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
     });
 
 
+/* 운영클래스 */
 
-  var tbody2 = document.querySelector("#tbody2");
+  var tbody1 = document.querySelector("#tbody1");
 
-    while (tbody2.hasChildNodes()) {
-        tbody2.removeChild(tbody2.firstChild);
+    while (tbody1.hasChildNodes()) {
+        tbody1.removeChild(tbody1.firstChild);
     }
   
-  fetch(`/member/getLecture?no=${no}`)
+  fetch(`/member/creatorLecture?no=${no}`)
     .then(function(response) {
       return response.json();
     })
@@ -95,6 +95,63 @@ $(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
         <td>${rst.name}</td> 
         <td>${rst.startDate}</td>
         <td>${rst.endDate}</td>
+        <td>${rst.noMember}/${rst.maxMember}</td>
+        <td>${st}</td>`;
+        tbody1.appendChild(tr);
+        
+      }
+    });
+
+
+/* 개설신청 */
+
+  var tbody2 = document.querySelector("#tbody2");
+
+    while (tbody2.hasChildNodes()) {
+        tbody2.removeChild(tbody2.firstChild);
+    }
+  
+  fetch(`/member/applyingLecture?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      var count = 0;
+      
+      for (var rst of result) {
+        count = count + 1;
+
+        var tr = document.createElement("tr");
+				var st
+				
+				switch (rst.status) {
+  			case 1:
+    		st = "개설신청";
+   			break;
+  			case 2:
+    		st = "수강대기";
+   			break;
+  			case 3:
+    		st = "수강중";
+   			break;
+  			case 4:
+    		st = "수강완료";
+   			break;
+  			case 9:
+    		st = "승인보류";
+   			break;
+  			default:
+    		st = "값이 없쪙";
+}
+				
+				
+        tr.innerHTML = `<td>`+count+`</td>
+        <td>${rst.name}</td> 
+        <td>${rst.startDate}</td>
+        <td>${rst.endDate}</td>
+        <td>${rst.maxMember}</td>
         <td>${st}</td>`;
         tbody2.appendChild(tr);
         

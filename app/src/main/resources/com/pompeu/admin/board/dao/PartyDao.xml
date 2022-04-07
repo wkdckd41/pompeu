@@ -74,100 +74,107 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
-  <select id="countAll" resultType="int">
-    select count(*) from party
-  </select>
+    <!-- 게시판 목록 총 갯수 -->
+	  <select id="countAll" resultType="int">
+	    select count(*) from party
+	  </select>
   
-  <select id="findAll" resultType="HashMap">
-      /*findAll*/
-    select 
-          p.party_no                            as party_no,
-          p.name                                as name,
-          mb.name                               as member_name,
-          p.register_date                       as register_date,
-          pc.status                             as status
-    from 
-         party as p
-    join party_user as u 
-          on p.party_no = u.party_no 
-          and u.party_maker = '1'
-    join member as mb 
-          on u.users_no = mb.member_no 
-    left outer join party_claim as pc 
-          on p.party_no = pc.party_no 
-     WHERE 
-	    1=1
-	   
-	    <if test="searchType != null or searchType != ''">
-		    <if test="searchType == 'so'">
-		    and pc.status = '1' 
-		    </if>
-		    <if test="searchType == 'em'">
-		    and pc.status is NULL 
-		    </if>
-		  </if>
-		  
-		  <!--
-		  <choose> 
-		      <when test="searchType != null or searchType != ''">
-		          <choose> 
-				  <when test="searchType == 'so'">
-		            and pc.status = '1' 
-		            </when>
-		            <when test="searchType == 'em'">
-		            and pc.status is NULL 
-		            </when>
-		            <otherwise>
-                    </otherwise>
-		         </choose> 
-		      </when>
-		      <otherwise>
-		      </otherwise>
-		  </choose>
-		  -->
-   order by
-      p.party_no asc
-  </select>
+    <!-- 게시판 목록 -->
+	  <select id="findAll" resultType="HashMap">
+	      /*findAll*/
+	    select 
+	          p.party_no                            as party_no,
+	          p.name                                as name,
+	          mb.name                               as member_name,
+	          p.register_date                       as register_date,
+	          pc.status                             as status
+	    from 
+	         party as p
+	    join party_user as u 
+	          on p.party_no = u.party_no 
+	          and u.party_maker = '1'
+	    join member as mb 
+	          on u.users_no = mb.member_no 
+	    left outer join party_claim as pc 
+	          on p.party_no = pc.party_no 
+	     WHERE 
+		    1=1
+		   
+		    <if test="searchType != null or searchType != ''">
+			    <if test="searchType == 'so'">
+			    and pc.status = '1' 
+			    </if>
+			    <if test="searchType == 'em'">
+			    and pc.status is NULL 
+			    </if>
+			  </if>
+			  
+			  <!--
+			  <choose> 
+			      <when test="searchType != null or searchType != ''">
+			          <choose> 
+					  <when test="searchType == 'so'">
+			            and pc.status = '1' 
+			            </when>
+			            <when test="searchType == 'em'">
+			            and pc.status is NULL 
+			            </when>
+			            <otherwise>
+	                    </otherwise>
+			         </choose> 
+			      </when>
+			      <otherwise>
+			      </otherwise>
+			  </choose>
+			  -->
+	   order by
+	      p.party_no asc
+	  </select>
   
-  <insert id="insert" parameterType="party">
-    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
-    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
-  </insert>
-  
-  <select id="findByNo" resultMap="partyMap" parameterType="int">
-    select 
-      p.party_no,
-      location_no,
-      name,
-      content,
-      start_date,
-      end_date,
-      max_member,
-      in_out_ex
-    from 
-      party 
-    where 
-      party_no=#{no}
-  </select>
+    <!-- 게시판 등록 -->
+	  <insert id="insert" parameterType="party">
+	    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
+	    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
+	  </insert>
+	  
+    <!-- 게시판 상세 -->
+	  <select id="findByNo" resultMap="partyMap" parameterType="int">
+	    select 
+	      party_no,
+	      location_no,
+	      name,
+	      content,
+	      start_date,
+	      end_date,
+	      max_member,
+	      in_out_ex
+	    from 
+	      party 
+	    where 
+	      party_no=#{no}
+	  </select>
 
-  <update id="update" parameterType="party">
-    update party set 
-      location_no=#{locationNo},
-      name=#{name},
-      content=#{content},
-      start_date=#{startDate},
-      end_date=#{endDate},
-      max_member=#{maxMember},
-      in_out_ex=#{inOutEx}
-    where 
-      party_no=#{no}
-  </update>
+    <!-- 게시판 수정 -->
+	  <update id="update" parameterType="party">
+	    update party set 
+	      location_no=#{locationNo},
+	      name=#{name},
+	      content=#{content},
+	      start_date=#{startDate},
+	      end_date=#{endDate},
+	      max_member=#{maxMember},
+	      in_out_ex=#{inOutEx}
+	    where 
+	      party_no=#{no}
+	  </update>
 
-  <delete id="delete" parameterType="int">
-    delete from party 
-    where party_no=#{no}
-  </delete>
+    <!-- 게시판 삭제 -->
+	  <delete id="delete" parameterType="int">
+	    delete from party 
+	    where party_no=#{no}
+	  </delete>
   
+    <!-- 게시판 검색 -->  
   <select id="srchParty" parameterType="party" resultMap="partyMap">
     select 
           p.party_no                                            as party_no,  
@@ -205,50 +212,4 @@
           p.p_no asc
   </select>
 
-
-  <select id="findPartyClaim" resultType="HashMap">
-	select 
-	          p.party_no                            as party_no,
-	          p.name                                as name,
-	          mb.name                               as member_name,
-	          p.register_date                       as register_date,
-	          pc.status                             as status
-	    from 
-	         party as p
-	    join party_user as u 
-	          on p.party_no = u.party_no 
-	          and u.party_maker = '1'
-	    join member as mb 
-	          on u.users_no = mb.member_no 
-	    left outer join party_claim as pc 
-	          on p.party_no = pc.party_no 
-	    where 
-	        pc.status IS NOT NULL 
-	   order by
-	      p.party_no asc
-  </select>
-
-
-
-  <select id="findPartyList" resultType="HashMap">
-    select 
-          p.party_no                            as party_no,
-          p.name                                as name,
-          mb.name                               as member_name,
-          p.register_date                       as register_date,
-          pc.status                             as status
-    from 
-         party as p
-    join party_user as u 
-          on p.party_no = u.party_no 
-          and u.party_maker = '1'
-    join member as mb 
-          on u.users_no = mb.member_no 
-    left outer join party_claim as pc 
-          on p.party_no = pc.party_no 
-    where 
-        pc.status IS NULL 
-    order by
-      p.party_no asc
-  </select>
 </mapper>

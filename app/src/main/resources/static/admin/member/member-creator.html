@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="">
+
 <head>
-<meta charset="UTF-8">
-<title>POMPEU!</title>
-  <link rel="stylesheet" href="/css/common.css">
-  <link href="/admin/css/admin.css" rel="stylesheet">
-  <style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 조회</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--부트스트랩  👈 -->
+      <link href="/admin/css/admin.css" rel="stylesheet">
+      <style>
   table, th, td {
     border: 1px solid black;
     border-collapse: collapse;
@@ -13,16 +17,23 @@
   th, td {
     background-color: rgb(249,252,251);
   }
+
+  .page-wrapper {
+    padding-top: 40px;
+  }
   </style>
-  
+    
 </head>
 
-
 <body>
+    <div class="main-container">
+        <div id="wrapper">
+        
+            <div class="headers"></div>
+            <!--👉 헤더 😊-->
 
-<div class="headers" id="headers"></div> <!-- 사이드바 들어가는 부분 -->
+            <div class="page-wrapper">
 
-<div class="container">
   <h2 style="margin-left: 30px;">회원 상세정보</h2>
   <h3 style="margin-left: 60px; margin-top: 40px;">회원 정보</h3>
   
@@ -120,20 +131,24 @@
       </tbody>      
     </table>
   </div>
-  
-  
-  
-</div>
-  
+
+            </div>
+            <!--/page-wrapper 👉 내용  -->
+        </div>
+        <!--/wrapper  -->
+
+    </div>
+    <!-- /main-container 전체 😃🤣😄 -->
+
+    <!-- 밑에 3개적용 😊😊😊  -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리     1️⃣-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <!-- 부트스트랩   2️⃣-->
+    <script src="/admin/js/header.js"></script>
+    <!-- 😊 헤더 👈 3️⃣ -->
+<script src="member-creator.js"></script>
+    
 </body>
 
-  <script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
-  <script src="../js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/price-range.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/jquery.prettyPhoto.js"></script> <!-- 관련 js 파일들 -->
-  <script src="../js/main.js"></script> <!-- 관련 js 파일들 -->
-
-<script src="member_creator.js"></script>
-<script src="../admin2.js"></script> <!-- 사이드바 관련 스크립트 -->
 </html>
