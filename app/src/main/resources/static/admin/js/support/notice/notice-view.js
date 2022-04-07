@@ -1,6 +1,42 @@
+$(document).ready(function () {
+  
+      init();
+    // 1) URL에서 쿼리스트링(query string)을 추출한다.
+  var arr = location.href.split("?"); 
+  console.log(arr);
 
+  if (arr.length == 1) {
+    alert("요청 형식이 옳바르지 않습니다.")
+    throw "URL 형식 오류!";
+  }
 
+  var qs = arr[1];
+  console.log(qs);
 
-값을 가지고 페이지를 이동하려고 하는데
+  // 2) 쿼리 스트링에서 no 값을 추출한다.
+  var params = new URLSearchParams(qs);
+  var no = params.get("no");
+  console.log("noticeNo : " + no);
+  /*
+  var arr2 = no.split("=");
+  if (arr2.length == 1) {
+    alert("요청 형식이 옳바르지 않습니다.22222")
+    throw "URL 형식 오류!222222222";
+  }
+  var noticeNo = arr2[1];
+  
+  console.log("noticeNo : " + noticeNo);
+  */
 
-이동한페이지에서 값을 어떻게 받아야할지 모르겠습니다.
+});
+
+function init() {
+    $("#btnModify").on("click", function () {
+        location.href = 'notice-modify.html'
+    })
+  
+    $("#btnCancel").on("click", function () {
+        location.href = 'notice-list.html'
+    })
+    }
+
