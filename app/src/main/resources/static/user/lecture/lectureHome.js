@@ -1,4 +1,9 @@
-$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
+  // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
+  var trTemplate = document.querySelector("#tr-template");
+  
+  //템플릿 엔진 준비
+  var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
+
 
 // Can also be used with $(document).ready()
 $(window).load(function() {
@@ -13,6 +18,47 @@ $(window).load(function() {
 });
 
 
+  var classBox2 = document.getElementById("class-box2")
+  
+  fetch(`/userLecture/findEverything`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+      $("#class-box2").html(htmlGenerator(result));
+      
+})
+  
+
+
+
+  var btnEverything = document.getElementById("btn-everything");
+
+btnEverything.addEventListener('click', function() {
+  
+  var exName = document.querySelector("#exercise");
+  var name = document.querySelector("#lecture-name");
+  var lecturePrice = document.querySelector("#lecture-price");
+  
+  console.log("exname : " + exName);
+  console.log("name : " + name);
+  console.log("price : " + lecturePrice);
+  
+  fetch(`/userLecture/findEverything`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+      $("#class-box").html(htmlGenerator(result));
+      
+})
+})
 
   var btnOut = document.getElementById("btn-out");
 
@@ -34,13 +80,33 @@ btnOut.addEventListener('click', function() {
       console.log("AAA");
       console.log(result);
       
-      for (var rst of result) {
-      console.log(rst);
-      console.log(rst.lecturePrice)
+      $("#class-box").html(htmlGenerator(result));
       
-      exName.innerHTML = rst.exName;
-      name.innerHTML = rst.name;
-      lecturePrice.innerHTML = rst.lecturePrice;
-}
+})
+})
+
+  var btnIn = document.getElementById("btn-in");
+
+btnIn.addEventListener('click', function() {
+  
+  var exName = document.querySelector("#exercise");
+  var name = document.querySelector("#lecture-name");
+  var lecturePrice = document.querySelector("#lecture-price");
+  
+  console.log("exname : " + exName);
+  console.log("name : " + name);
+  console.log("price : " + lecturePrice);
+  
+  fetch(`/userLecture/findIn`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+      $("#class-box").html(htmlGenerator(result));
+
+
 })
 })
