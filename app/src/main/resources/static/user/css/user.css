@@ -302,10 +302,9 @@ border: 1px solid black;
 }
 
 .box-title {
-	width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
-  width:360px;
+	width:400px;;
   border-radius: 20px;
   justify-content:center;
   background-color: #FAFAFA;
@@ -322,8 +321,8 @@ border: 1px solid black;
 	border: 1px solid #CED4D4;
 	padding:19px;
   width: 450px;
-   border-radius: 20px;
-     justify-content:center;
+  border-radius: 20px;
+  justify-content:center;
   background-color: white;
 }
 

@@ -1,5 +1,6 @@
 package com.pompeu.user.party.controller;
 
+import java.util.List;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +16,7 @@ public class UserPartyController {
   private static final Logger log = LoggerFactory.getLogger(UserPartyController.class);
 
   @Autowired
-  UserPartyDao UserPartyDao;
+  UserPartyDao userPartyDao;
 
   /**
    * 게시판 목록
@@ -24,7 +25,9 @@ public class UserPartyController {
   @RequestMapping("/userparty/list")
   public Object list() {
     log.info("게시글 목록조회!"); // 운영자가 확인하기를 원하는 정보
-    return UserPartyDao.findAll();
+    List<Party> list =  userPartyDao.findAll();
+    log.debug(list.toString()); // 개발자가 확인하기를 원하는 정보
+    return list;
   }
 
   /**
@@ -34,7 +37,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/add")
   public Object add(Party party) {
-    return UserPartyDao.insert(party);
+    return userPartyDao.insert(party);
   }
 
   /**
@@ -44,7 +47,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/get")
   public Object get(int no) {
-    Party party = UserPartyDao.findByNo(no);
+    Party party = userPartyDao.findByNo(no);
     return party != null ? party : "";
   }
 
@@ -55,7 +58,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/update")
   public Object update(Party party) {
-    return UserPartyDao.update(party);
+    return userPartyDao.update(party);
   }
 
   /**
@@ -65,7 +68,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/delete")
   public Object delete(int no) {
-    return UserPartyDao.delete(no);
+    return userPartyDao.delete(no);
   }
 
 

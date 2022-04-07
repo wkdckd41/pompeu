@@ -1,7 +1,6 @@
 package com.pompeu.admin.board.service.Impl;
 
 import java.util.List;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.admin.board.dao.PartyDao;
@@ -43,17 +42,6 @@ public class DefaultPartyService implements PartyService{
   public List<Party> srchParty(Party party) {
     return partyDao.srchParty(party);
   }
-
-  @Override
-  public List<Map<Object, Object>> findPartyClaim() {
-    return partyDao.findPartyClaim();
-  }
-
-  @Override
-  public List<Map<Object, Object>> findPartyList() {
-    return partyDao.findPartyList();
-  }
-
 
 
 }
