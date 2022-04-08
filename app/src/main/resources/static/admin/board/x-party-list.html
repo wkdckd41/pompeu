@@ -1,41 +1,60 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>POMPEU!</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!--부트스트랩  👈 -->
-    <link href="/admin/css/admin.css" rel="stylesheet">
-</head>
-<style>
-    .content{
-        padding: 0px 60px 0 60px;
-    }
+<meta charset="UTF-8">
+<title>POMPEU!</title>
 
-</style>
+  <link rel="stylesheet" href="/css/common.css">
+  <link href="/admin/css/admin.css" rel="stylesheet">
+   
+  <!-- navbar  -->
+  <!--<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link
+      href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css"
+      rel="stylesheet" id="bootstrap-css">
+  <script
+      src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script> -->
+      
+<link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+ 
+
+  <style>
+  th,td {
+  padding:30px;
+  text-align: center;
+  }
+  
+  .nav nav-tabs {
+  border-bottom : 0px solid rgb(0 0 0);
+  }
+  
+  .menu {
+  margin-left : 30px;
+  float:left;
+  }
+  
+  .search {
+  margin-top : 13px;
+  margin-right : 85px;
+  float:right;
+  }
+  </style>
+
+  
+</head>
 
 <body>
-    <div class="main-container">
+
+<form id="partyListForm" name="partyListForm" method="get">
+<input type="hidden" id="searchType" name="searchType" />
+</form>
+<div class="container">
         <div id="wrapper">
-
             <div class="headers"></div>
-            <!--👉 헤더 😊-->
-
+            <!-- 헤더 -->
             <div class="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row" id="main">
-                        <div class="page-header">
-                            <h3>소모임 관리</h3>
-                        </div>
-
-                        <!-- /row 타이틀 👈 -->
-                    </div>
-                </div>
-                <!-- 타이틀 박스-->
-            <div class="content">
+  <h2 style="margin-left: 30px; margin-top:30px; margin-bottom:30px; font-size: 27px; ">소모임 관리</h2>
+  
   <div class="menu">
     <ul class="nav nav-tabs">
       <li class="nav-item"><a class="nav-link active" aria-current="page" href="#" onclick="selectBoardTypeNo('')">전체</a></li>
@@ -78,22 +97,21 @@
         </ul>
       </nav>
     </div>
-    </div>
-            </div>
-            <!--/page-wrapper 👉 내용  -->
-        </div>
-        <!--/wrapper  -->
 
-    </div>
-    <!-- /main-container 전체 😃🤣😄 -->
+</div>
+  </div>
+  </div>
 
-    <!-- 밑에 3개적용 😊😊😊  -->
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- 제이쿼리     1️⃣-->
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
-    <!-- 부트스트랩   2️⃣-->
+
+    
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리 -->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- 부트스트랩 -->
     <script src="/admin/js/header.js"></script>
-    <!-- 😊 헤더 👈 3️⃣ -->
-    <script src="partyList.js"></script>
+    <!-- 헤더 -->
 
+<script src="partyList.js"></script>
+<script src="../admin2.js"></script> <!-- 사이드바 관련 스크립트 -->
 </body>
+</html>

@@ -165,13 +165,21 @@ border: 1px solid black;
 }
 
 .party-index {
-	min-height:750px;
-	width:80%;
 	margin-top:50px;
 	margin-left: 120px;
+	min-height:750px;
+	width:80%;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-content: space-around;
+	justify-content:space-around;
+	justify-content: flex-start;
+	align-items: flex-start;
 }
 
 .party-box {
+	position: relative;
 	border: 1px solid silver;
   height:200px;
   width:300px;	
@@ -269,6 +277,27 @@ border: 1px solid black;
    margin-top: 5px;
    margin-bottom:5px;
    text-align:center;
+}
+
+.x-tag {
+   font-size: 12px;
+   background-color: #009999;
+   color:white;
+   width:25%;
+   height:18px;
+   border-radius:5px;
+   margin-left:10px;
+   margin-top: 2px;
+   margin-bottom:5px;
+   text-align:center;
+}
+
+.x-date {
+  position: absolute;;
+  left : 145px;
+  top: 170px;	
+  color: gray;
+	
 }
 
 .x-img {
@@ -434,7 +463,7 @@ border: 1px solid black;
 .region-si {
 	 background-color: #009999;
 	 color:white;
-	 width:85px;
+	 width:140px;
    height:20px;
    border-radius:5px;
    margin-left:280px;
@@ -444,7 +473,7 @@ border: 1px solid black;
 .region-gu {
 	 background-color: #009999;
 	 color:white;
-   width:75px;
+   width:100px;
    height:20px;
    border-radius:5px;
    margin-left:10px;

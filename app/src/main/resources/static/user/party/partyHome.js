@@ -1,3 +1,8 @@
+$(document).ready(function(){
+  console.log("start");
+  selectBtnTypeNo("");
+});
+
 // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
 var trTemplate = document.querySelector("#tr-template");
 
@@ -19,7 +24,7 @@ var paramData = Object.keys(params)
 var url = '/userparty/list?' + paramData;
 
   
-  //fetch("/party/list")
+  //fetch("/userparty/list")
    fetch(url)
     .then(function(response) {
       return response.json();

@@ -23,9 +23,9 @@ public class UserPartyController {
    * @return
    */
   @RequestMapping("/userparty/list")
-  public Object list() {
+  public Object list(Party party) {
     log.info("게시글 목록조회!"); // 운영자가 확인하기를 원하는 정보
-    List<Party> list =  userPartyDao.findAll();
+    List<Party> list =  userPartyDao.findAll(party);
     log.debug(list.toString()); // 개발자가 확인하기를 원하는 정보
     return list;
   }
