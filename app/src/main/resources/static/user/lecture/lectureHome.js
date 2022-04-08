@@ -26,8 +26,6 @@ $(function(){
 }); 
 
 
-
-
   var btnEverything = document.getElementById("btn-everything");
 
   btnEverything.addEventListener('click', function() {
