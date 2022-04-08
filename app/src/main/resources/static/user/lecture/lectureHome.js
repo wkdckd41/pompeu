@@ -17,27 +17,18 @@ $(window).load(function() {
   });
 });
 
-
-  var classBox2 = document.getElementById("class-box2")
-  
-  fetch(`/userLecture/findEverything`)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(result) {
-      console.log("AAA");
-      console.log(result);
-      
-      $("#class-box2").html(htmlGenerator(result));
-      
-})
-  
-
+$(function(){
+  $("#seoul").onclick(function(){
+    
+   console.log(good);
+    
+  });
+}); 
 
 
   var btnEverything = document.getElementById("btn-everything");
 
-btnEverything.addEventListener('click', function() {
+  btnEverything.addEventListener('click', function() {
   
   var exName = document.querySelector("#exercise");
   var name = document.querySelector("#lecture-name");
@@ -85,6 +76,7 @@ btnOut.addEventListener('click', function() {
 })
 })
 
+
   var btnIn = document.getElementById("btn-in");
 
 btnIn.addEventListener('click', function() {
@@ -110,3 +102,6 @@ btnIn.addEventListener('click', function() {
 
 })
 })
+
+
+  $("#btn-everything").click();
