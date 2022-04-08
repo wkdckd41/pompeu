@@ -15,6 +15,10 @@ public interface UserLectureService {
 
   int delete(int no);
 
+  List<Lecture> getEverything();
+
   List<Lecture> getOut();
+
+  List<Lecture> getIn();
 
 }

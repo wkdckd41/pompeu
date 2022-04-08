@@ -78,7 +78,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
 
 function init() {
     $("#btnWrite").on("click", function () {
-        location.href = 'notice-write.html'
+        location.href = 'faq-write.html'
     })
 
     $("#btnDelete").on("click", function () {
@@ -116,7 +116,7 @@ function init() {
         })
             .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
                 if (result.status == "success") {
-                    location.href = "notice-list.html";
+                    location.href = "faq-list.html";
                 } else {
                     window.alert("게시글 변경 실패!");
                     console.log(result.data);
@@ -129,7 +129,7 @@ function init() {
 }
 
 function moveView(no) {
-  location.href = 'notice-view.html?no='+no
+  location.href = 'faq-view.html?no='+no
 }
     //체크박스 전체선택 및 해제 기능은
 

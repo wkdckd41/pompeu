@@ -40,8 +40,18 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
+  public List<Lecture> getEverything() {
+    return userLectureDao.findEverything();
+  }
+
+  @Override
   public List<Lecture> getOut() {
     return userLectureDao.findOut();
+  }
+
+  @Override
+  public List<Lecture> getIn() {
+    return userLectureDao.findIn();
   }
 
 

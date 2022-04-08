@@ -33,6 +33,20 @@ h5 {
 	line-height:30px;
 }
 
+#btn-everything {
+  width: 90px;
+  height: 35px;
+  border-radius: 5px;
+  color : white;
+  background-color: rgb(0, 128, 64);
+  text-align:center;
+  margin-left: 400px;
+}
+
+#btn-everythingactive {
+  color: black;
+}
+
 #btn-out {
   width: 90px;
   height: 35px;
@@ -40,7 +54,7 @@ h5 {
   color : white;
   background-color: #66B2FF;
   text-align:center;
-  margin-left: 430px;
+  margin-left: 30px;
 }
 
 #btn-out:active {
@@ -114,8 +128,9 @@ h5 {
 }
 
 #like-heart {
-   margin-left:150px;
-}
+  float:right;
+  position:relative;
+	}
 
 #heart {
    color:red;
@@ -302,10 +317,9 @@ border: 1px solid black;
 }
 
 .box-title {
-	width:calc(100% -40px);
   border: 1px solid #CED4D4;
   padding:19px;
-  width:360px;
+	width:400px;;
   border-radius: 20px;
   justify-content:center;
   background-color: #FAFAFA;
@@ -322,8 +336,8 @@ border: 1px solid black;
 	border: 1px solid #CED4D4;
 	padding:19px;
   width: 450px;
-   border-radius: 20px;
-     justify-content:center;
+  border-radius: 20px;
+  justify-content:center;
   background-color: white;
 }
 
@@ -380,8 +394,6 @@ border: 1px solid black;
   color : black;
   background-color: #FBF8F1;
   text-align:center;
-  margin-left:60px;
-  margin-top:10px;
 }
 
 

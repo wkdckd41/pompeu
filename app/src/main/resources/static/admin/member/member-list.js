@@ -1,4 +1,3 @@
-$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
 
 document.addEventListener("DOMContentLoaded", function(){
    fetch("/member/findCount")
@@ -63,10 +62,10 @@ btn.addEventListener('click', function() {
 				
 				switch (mt) {
   			case "이용자":
-    		url = "member_user.html?no=";
+    		url = "member-user.html?no=";
    			break;
   			case "크리에이터":
-    		url = "member_creator.html?no=";
+    		url = "member-creator.html?no=";
    			break;
   			default:
     		url = "값이 없쪙";

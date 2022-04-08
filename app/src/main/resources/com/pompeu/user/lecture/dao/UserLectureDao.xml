@@ -57,6 +57,21 @@
 
   </select>
   
+   <select id="findEverything" resultType="HashMap">
+    select  
+          ex.name                    as exName,
+          le.name                    as name,
+          le.lecture_price           as lecturePrice
+    from 
+          lecture as le
+    join exercise as ex
+          on le.ex_no = ex.ex_no
+    where 
+          1=1
+    order by
+      le.lecture_no asc
+  </select>
+  
    <select id="findOut" resultType="HashMap">
     select  
           ex.name                    as exName,
@@ -68,6 +83,21 @@
           on le.ex_no = ex.ex_no
     where 
           le.in_out_ex=1
+    order by
+      le.lecture_no asc
+  </select>
+  
+   <select id="findIn" resultType="HashMap">
+    select  
+          ex.name                    as exName,
+          le.name                    as name,
+          le.lecture_price           as lecturePrice
+    from 
+          lecture as le
+    join exercise as ex
+          on le.ex_no = ex.ex_no
+    where 
+          le.in_out_ex=2
     order by
       le.lecture_no asc
   </select>
