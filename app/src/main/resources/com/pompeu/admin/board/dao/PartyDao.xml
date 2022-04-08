@@ -99,7 +99,7 @@
 	          on p.party_no = pc.party_no 
 	     WHERE 
 		    1=1
-		   
+
 		    <if test="searchType != null or searchType != ''">
 			    <if test="searchType == 'so'">
 			    and pc.status = '1' 
@@ -107,7 +107,7 @@
 			    <if test="searchType == 'em'">
 			    and pc.status is NULL 
 			    </if>
-			  </if>
+			 </if>
 			  
 			  <!--
 			  <choose> 
