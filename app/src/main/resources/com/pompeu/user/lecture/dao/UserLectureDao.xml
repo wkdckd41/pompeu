@@ -59,10 +59,11 @@
   </select>
   
    <select id="findEverything" resultType="HashMap">
-    select  
+    select
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice
+          le.lecture_no              as no
     from 
           lecture as le
     join exercise as ex
@@ -78,6 +79,7 @@
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice
+          le.no                      as no
     from 
           lecture as le
     join exercise as ex
@@ -93,6 +95,7 @@
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice
+          le.no                      as no
     from 
           lecture as le
     join exercise as ex

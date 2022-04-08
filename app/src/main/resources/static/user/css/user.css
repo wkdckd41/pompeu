@@ -40,7 +40,7 @@ h5 {
   color : white;
   background-color: rgb(0, 128, 64);
   text-align:center;
-  margin-left: 400px;
+  margin-left: 200px;
 }
 
 #btn-everythingactive {
@@ -54,7 +54,6 @@ h5 {
   color : white;
   background-color: #66B2FF;
   text-align:center;
-  margin-left: 30px;
 }
 
 #btn-out:active {
@@ -68,8 +67,6 @@ h5 {
   color : white;
   background-color: #FF6666;
   text-align:center;
-  margin-left:30px;
-  margin-top:30px;
 }
 
 #btn-in:active {
@@ -423,6 +420,7 @@ border: 1px solid black;
   color : black;
   background-color: #FBF8F1;
   text-align:center;
+  margin-left: 67px;
 }
 
 
@@ -508,3 +506,35 @@ border: 1px solid black;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
+
+#btn-ask {
+	 width: 80px;
+  height: 30px;
+  border-radius: 5px;
+  color : white;
+  background-color: #A0A0A0;
+  text-align:center;
+}
+
+
+.test_obj input[type="radio"] {
+    display:alsolute;
+    opacity: 0;
+}
+
+.test_obj input[type="radio"] + span {
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid #dfdfdf;
+    border-radius:5px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.test_obj input[type="radio"]:checked + span {
+    background-color: #113a6b;
+    color: #ffffff;
+}
+
+
