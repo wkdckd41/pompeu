@@ -7,8 +7,7 @@ import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureTime;
 
 @Mapper
-public interface LectureDao {
-
+public interface CreatorLectureDao {
 
   int countAll();
 
@@ -16,10 +15,13 @@ public interface LectureDao {
 
   int insert(Lecture lecture);
 
-  int insertTels(@Param("lectureNo") int contactNo, @Param("times") List<LectureTime> times);
+  int insertTimes(@Param("lectureNo") int contactNo, @Param("times") List<LectureTime> times);
 
   Lecture findByNo(int no);
 
   int update(Lecture lecture);
 
 }
+
+
+

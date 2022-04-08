@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 
-<mapper namespace="com.pompeu.creator.lecture.dao.LectureDao">
+<mapper namespace="com.pompeu.creator.lecture.dao.CreatorLectureDao">
 
 
   <resultMap type="lecture" id="lectureMap">
@@ -58,7 +58,7 @@
     </insert>
 
   
-  <insert id="insertTels">
+  <insert id="insertTimes">
     insert into lecture_time(lecture_no, start_time, end_time, max_member, no_member)
     values
     <foreach collection="times" item="lectureTime" separator=",">

@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
 <title>POMPEU!</title>
   <link href="/user/css/common.css" rel="stylesheet" >
-  <link href="/css/user_common.css" rel="stylesheet">
   <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
   <link href="/user/css/font-awesome.min.css" rel="stylesheet">
   <link href="/user/css/font/fontawesome.css" rel="stylesheet">
-  <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
+
+ 
   <style>
   table, th, td {
     border: 1px solid black;
@@ -20,18 +26,19 @@
   }  
   </style>
   
+
 </head>
-
 <body>
-
 <div class="container">
+  <div id="wrapper">
 
-<div id="header"></div> <!-- 헤더-->
+  <div id="header"></div>
+  <div id="page-wrapper">
 
   <div class = "box-1">
   <hr style="border: solid 1px gainsboro; width:80%;">
   
-    <div class = "box-2" style="border: solid 1px black">
+    <div class = "box-2" >
       <div class="box-left" id="box-left">
           <div class="x-top-content" >
             <h5> 
@@ -76,7 +83,7 @@
                     소모임 장소
                   </h5>
                     <span id="x-address"> 서울 광진구 자양동 435 뚝섬 </span>
-                    <div id="x-map"></div>
+                    <div id="x-map1"></div>
                 </div>
             </form>
           </div>
@@ -115,15 +122,20 @@
       </div> <!-- #box-2 -->
   </div>  <!-- #box-1 -->
   
-<div id="footer"></div>
-
+     </div> <!-- /#page-wrapper --> <!-- 내용물 자리 끝 -->
+        
+  <div id="footer"></div>
+  </div><!-- /#wrapper -->
 </div>  <!-- #container -->
 
 
+<script src="/node_modules/jquery/dist/jquery.js"></script>-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script>
-$("#header").load("/user/header.html");
-$("#footer").load("/user/footer.html");
+$("#header").load("/form/user/header.html");
+$("#footer").load("/form/user/footer.html");
 </script>
 
 </body>
@@ -131,7 +143,7 @@ $("#footer").load("/user/footer.html");
 <!-- kakao map -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5cc033f1a37edba42dbd976e9ec397b4"></script>
 <script>
-  var container = document.getElementById('x-map');
+  var container = document.getElementById('x-map1');
   var options = {
     center: new kakao.maps.LatLng(33.450701, 126.570667),
     level: 3

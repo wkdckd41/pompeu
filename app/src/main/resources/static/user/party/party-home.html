@@ -90,7 +90,7 @@
     <li><a href="#">5인이상</a></li>
   </ul>
 </div>
-<button type="button" id="party-create">새 모임 등록</button>
+<button type="button" id="party-create" onclick="moveRegost();">새 모임 등록</button>
 </div>
 
 <hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0;" />
@@ -104,7 +104,7 @@
 
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}}
-    <div class="party-box">
+    <div class="party-box" onclick="moveView();">
       <div id="x-title" style="font-weight:bold; font-size:15px;">{{name}}</div>
       <hr  style="height:1px; border:none; color:#C0C0C0; background-color:#C0C0C0; margin-top:3px; margin-bottom:7px;" />
       <div class="x-tag" id="x-tag">{{tag}}</div>

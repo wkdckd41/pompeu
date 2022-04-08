@@ -57,7 +57,7 @@ var url = '/party/list?' + paramData;
         var tr = document.createElement("tr");
         tr.innerHTML = `
         <td>${rst.party_no}</td> 
-        <td>${rst.name}</td>
+        <td onclick="moveView(${rst.no});">${rst.name}</td>
         <td>${rst.member_name}</td>
         <td>${rst.register_date}</td>
         <td>${st}</td>`;
@@ -66,3 +66,6 @@ var url = '/party/list?' + paramData;
     });
 }
 
+function moveView(no) {
+  location.href = 'party-detail.html?no='+no
+}
