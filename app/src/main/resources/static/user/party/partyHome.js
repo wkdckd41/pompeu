@@ -37,3 +37,8 @@ var url = '/userparty/list?' + paramData;
 
     });
 }
+
+
+function moveView(no) {
+  location.href = 'party-detail.html'
+}
