@@ -1,4 +1,4 @@
-﻿﻿﻿﻿﻿/*************************
+﻿﻿﻿﻿﻿﻿/*************************
 *******Typography******
 **************************/
 
@@ -23,14 +23,14 @@ h5 {
 }
 
 #party-create{
-	margin-top:10px;
-	margin-left:950px;
-	border-radius: 5px;
+  margin-top:10px;
+  margin-left:950px;
+  border-radius: 5px;
   color : black;
-	display:flex;
-	position:absolute;
-	height:33px;
-	line-height:30px;
+  display:flex;
+  position:absolute;
+  height:33px;
+  line-height:30px;
 }
 
 #btn-everything {
@@ -74,7 +74,7 @@ h5 {
 }
 
 .dropdown {
-   	float:right;
+    float:right;
 }
 
 #member-drop {
@@ -127,7 +127,7 @@ h5 {
 #like-heart {
   float:right;
   position:relative;
-	}
+  }
 
 #heart {
    color:red;
@@ -152,7 +152,7 @@ h5 {
 }
 
 #heart {
-	color:red;
+  color:red;
 }
 
 .class-sum-container{
@@ -162,24 +162,24 @@ border: 1px solid black;
 }
 
 .party-index {
-	margin-top:50px;
-	margin-left: 120px;
-	min-height:750px;
-	width:80%;
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	align-content: space-around;
-	justify-content:space-around;
-	justify-content: flex-start;
-	align-items: flex-start;
+  margin-top:50px;
+  margin-left: 120px;
+  min-height:750px;
+  width:80%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: space-around;
+  justify-content:space-around;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .party-box {
-	position: relative;
-	border: 1px solid silver;
+  position: relative;
+  border: 1px solid silver;
   height:200px;
-  width:300px;	
+  width:300px;  
   margin-top:10px;
   margin-bottom:50px;
   margin-left:90px;
@@ -189,7 +189,7 @@ border: 1px solid black;
 }
 
 .party-list {
-	min-height: 600px;
+  min-height: 600px;
 }
 
 .party-regist {
@@ -197,15 +197,15 @@ border: 1px solid black;
 }
 
 .box-left {
-	height: auto;
-	width: 60%;
-	display: flex;
-	max-width:650px;
-	min-width:320px;
-	margin-top: 1rem;
-	margin-left: 10px;
-	flex-direction:column;
-	border-radius:5px;
+  height: auto;
+  width: 60%;
+  display: flex;
+  max-width:650px;
+  min-width:320px;
+  margin-top: 1rem;
+  margin-left: 10px;
+  flex-direction:column;
+  border-radius:5px;
 }
 
 .box-left2 {
@@ -221,7 +221,7 @@ border: 1px solid black;
 }
 
 .x-top-content {
-	height:400px;
+  height:400px;
   width: 98%;
   max-width:750px;
 }
@@ -232,7 +232,7 @@ border: 1px solid black;
 }
 
 .party-crew{
-	height:300px
+  height:300px
 }
 
 .medium-content {
@@ -243,28 +243,28 @@ border: 1px solid black;
 }
 
 .box-1 {
-	margin-top:2rem;
-	margin-bottom:5rem;
-	width: 100%;
-	display: flex;
-	flex-direction: column;
+  margin-top:2rem;
+  margin-bottom:5rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .box-2 {
-	margin-left:120px;
-	width: 80%;
-	display: flex;
+  margin-left:120px;
+  width: 80%;
+  display: flex;
 }
 
 .tag-list {
-	margin-top: 1rem;
-	margin-bottom:1rem;
-	width: 50%;
-	margin: 6px;
+  margin-top: 1rem;
+  margin-bottom:1rem;
+  width: 50%;
+  margin: 6px;
 } 
 
 .tag {
-	 font-size: 12px;
+   font-size: 12px;
    background-color: #009999;
    color:white;
    width:45%;
@@ -292,23 +292,23 @@ border: 1px solid black;
 .x-date {
   position: absolute;;
   left : 145px;
-  top: 170px;	
+  top: 170px; 
   color: gray;
-	
+  
 }
 
 .x-img {
-	margin: 15px 15px;
+  margin: 15px 15px;
 }
 
 .party-content{
-	margin: 15px 15px;
-	line-height: 25px;
+  margin: 15px 15px;
+  line-height: 25px;
 }
 
 #x-address {
-	margin: 15px 15px;
-	line-height: 25px;
+  margin: 15px 15px;
+  line-height: 25px;
 }
 
 #x-map {
@@ -351,22 +351,22 @@ border: 1px solid black;
 .box-title {
   border: 1px solid #CED4D4;
   padding:19px;
-	width:400px;;
+  width:400px;;
   border-radius: 20px;
   justify-content:center;
   background-color: #FAFAFA;
 }
 
 .shadow {
-	box-shadow:
-	0px 3px 5px 1px rgb(0 0 0 / 20%),
-	0px 5px 8px 0px rgb(0 0 0 / 14%),
-	0px 1px 14px 0px rgb(0 0 0 / 12%);
+  box-shadow:
+  0px 3px 5px 1px rgb(0 0 0 / 20%),
+  0px 5px 8px 0px rgb(0 0 0 / 14%),
+  0px 1px 14px 0px rgb(0 0 0 / 12%);
 }
 
 .box-title2 {
-	border: 1px solid #CED4D4;
-	padding:19px;
+  border: 1px solid #CED4D4;
+  padding:19px;
   width: 450px;
   border-radius: 20px;
   justify-content:center;
@@ -374,49 +374,49 @@ border: 1px solid black;
 }
 
 .party-title {
-	display: flex;
-	flex-direction: column;
-	width:100%;
-	height:30px;
-	margin-bottom:10px;
+  display: flex;
+  flex-direction: column;
+  width:100%;
+  height:30px;
+  margin-bottom:10px;
 }
 
 .xbtn {
-	border: 0;
-	cursor: pointer;
-	margin: 0;
-	display: inline-flex;
-	outline: 0;
-	position: relative;
-	align-items:center;
-	user-select: none;
+  border: 0;
+  cursor: pointer;
+  margin: 0;
+  display: inline-flex;
+  outline: 0;
+  position: relative;
+  align-items:center;
+  user-select: none;
 }
 
 .xbtn-root {
-	color: raba(0, 0, 0, 0.07);
-	padding: 6px-16px;
-	font-size:0.875rem;
-	min-width:64px;
-	box-sizing: border-box;
-	font-weight:500;
-	line-height: 1.75;
-	text-transform: uppercase;
+  color: raba(0, 0, 0, 0.07);
+  padding: 6px-16px;
+  font-size:0.875rem;
+  min-width:64px;
+  box-sizing: border-box;
+  font-weight:500;
+  line-height: 1.75;
+  text-transform: uppercase;
 }
 
 .lecture-name{
-	font-size:23px;
-	font-weight:bold;
-	margin-top:-30px;
+  font-size:23px;
+  font-weight:bold;
+  margin-top:-30px;
 }
 
 .lecture-price {
-	margin-top:-30px;
-	font-size:21px;
+  margin-top:-30px;
+  font-size:21px;
 }
 
 #crew {
-	width:20px;
-	height:20px;
+  width:20px;
+  height:20px;
 }
 
 #btn-zzim {
@@ -441,7 +441,7 @@ border: 1px solid black;
 }
 
 #btn-regist {
-	width: 200px;
+  width: 200px;
   height: 40px;
   border-radius: 5px;
   color : white;
@@ -463,9 +463,9 @@ border: 1px solid black;
 }
 
 .region-si {
-	 background-color: #009999;
-	 color:white;
-	 width:140px;
+   background-color: #009999;
+   color:white;
+   width:140px;
    height:20px;
    border-radius:5px;
    margin-left:280px;
@@ -473,8 +473,8 @@ border: 1px solid black;
 }
 
 .region-gu {
-	 background-color: #009999;
-	 color:white;
+   background-color: #009999;
+   color:white;
    width:100px;
    height:20px;
    border-radius:5px;
@@ -483,8 +483,8 @@ border: 1px solid black;
 }
 
 .zzim-container {
-	margin-left:300px;
-	margin-top:-35px;
+  margin-left:300px;
+  margin-top:-35px;
 }
 
 .x-zzim-container {
@@ -493,26 +493,26 @@ border: 1px solid black;
 }
 
 .like-container {
-	margin-left:360px;
+  margin-left:360px;
   margin-top:-30px;
   margin-bottom:30px;
   text-align:center;
 }
 
 .medium-content {
-	background-color:#FDFFF0;
-	border:1px solid black;
-	border-radius:10px;
+  background-color:#FDFFF0;
+  border:1px solid black;
+  border-radius:10px;
 }
 
 .class-box {
-	  display: flex;
+    display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 #btn-ask {
-	 width: 80px;
+   width: 80px;
   height: 30px;
   border-radius: 5px;
   color : white;
@@ -537,8 +537,6 @@ border: 1px solid black;
 }
 
 .test_obj input[type="radio"]:checked + span {
-    background-color: #113a6b;
+    background-color: #04CF5C;
     color: #ffffff;
 }
-
-
