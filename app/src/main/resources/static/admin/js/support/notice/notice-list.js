@@ -54,8 +54,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
                 document.querySelector("#tbody1").appendChild(tr);
                 count++;
             }
-
-        });
+    });
 
     /*
     fetch(`/notice/list?memberTypeNo=${memberTypeNo}`)

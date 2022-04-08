@@ -17,13 +17,6 @@ $(window).load(function() {
   });
 });
 
-$(function(){
-  $("#seoul").onclick(function(){
-    
-   console.log(good);
-    
-  });
-}); 
 
 
   var btnEverything = document.getElementById("btn-everything");
@@ -99,9 +92,16 @@ btnIn.addEventListener('click', function() {
       
       $("#class-box").html(htmlGenerator(result));
 
-
 })
 })
 
 
   $("#btn-everything").click();
+
+  function moveView(no) {
+  location.href = 'lecture-detail.html?no='+no
+}
+
+
+
+
