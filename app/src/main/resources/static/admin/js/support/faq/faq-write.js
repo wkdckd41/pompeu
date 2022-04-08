@@ -49,10 +49,10 @@ function init() {
             });
 
     });
-    $("#btnCancel").on("click", function () {
-        location.href = 'notice-list.html'
-    })
     
+        $("#btnCancel").on("click", function () {
+        location.href = 'faq-list.html'
+    })
 }
 
 
