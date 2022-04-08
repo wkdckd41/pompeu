@@ -3,23 +3,19 @@ $(document).ready(function(){
   selectBoardTypeNo("");
 });
 
-
-
 function selectBoardTypeNo (type) {
     console.log(type);
   $("#searchType").val(type);
   
-  var params = { 
+  var params = {
    "searchType":  $("#searchType").val()
-}; 
+};
 
-var paramData = Object.keys(params) 
+var paramData = Object.keys(params)
             .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) 
-            .join('&'); 
+            .join('&');
 
 var url = '/party/list?' + paramData;
-
-  
 
   
     var tbody1 = document.querySelector("#tbody1");
@@ -56,7 +52,7 @@ var url = '/party/list?' + paramData;
     
         var tr = document.createElement("tr");
         tr.innerHTML = `
-        <td>${rst.party_no}</td> 
+        <td>${rst.party_no}</td>
         <td>${rst.name}</td>
         <td>${rst.member_name}</td>
         <td>${rst.register_date}</td>
