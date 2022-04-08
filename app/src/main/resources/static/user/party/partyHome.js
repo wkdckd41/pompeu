@@ -40,9 +40,9 @@ var url = '/userparty/list?' + paramData;
 
 
 function moveView(no) {
-  location.href = 'party-detail.html'
+  location.href = 'party-detail.html?no=' + no
 }
 
-function moveRegost() {
+function moveRegist() {
   location.href = 'party-regist.html'
 }

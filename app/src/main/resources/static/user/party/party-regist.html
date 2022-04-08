@@ -1,14 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>POMPEU!</title>
-  <link href="/user/css/common.css" rel="stylesheet" >
-  <link href="/css/user_common.css" rel="stylesheet">
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/user/css/flexslider.css" rel="stylesheet"  type="text/css" media="screen" />
-  <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
-  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    <link href="/user/css/common.css" rel="stylesheet" >
+    <link href="/css/user_common.css" rel="stylesheet">
+    <link href="/user/css/user.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
+    <title>POMPEU!</title>
   <style>
   table, th, td {
     border: 1px solid black;
@@ -17,38 +22,66 @@
   th, td {
     background-color: rgb(249,252,251);
   }
-  #x-member-table {
-  text-align: center !important;
-  }
-
   </style>
+  
 </head>
 <body>
+<div class="container">
+  <div id="wrapper">
+    
+  <div id="header"></div>
+    <div id="page-wrapper">
+      <div class="container-fluid"><!-- Page Heading -->
+      <div class="row" id="main">
+      <div class = "box-1">
+        <hr style="border: solid 1px gainsboro; width:80%;">
+        <form class="form-horizontal" id="frm" name="frm" method="post" enctype="multipart/form-data">
+        
+          <div class="form-group row" id="party-title"> 
+            <div></div>
+          </div>
+          
+          <div class= "form-group row" id="party-content">
+            <label class="col-sm-1 col-form-label text-center" for="content">내용</label>
+            <div class="col-sm-10 col-xs-12">
+            <textarea rows="20" class="form-control" id="content" name="content" placeholder="내용"></textarea>
+            </div>
+          </div>
 
-<div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
-
-<div id="header"></div> <!-- 헤더-->
-
-  <div class = "box-1">
-  <hr style="border: solid 1px gainsboro; width:80%;">
-
-<div class= "party-regist"> 
-  <div></div>
-</div>
-
-  </div>  <!-- #box-1 -->
-  
-<div id="footer"></div>
-
+          <div class="form-group row" id="party-fifle">
+              <label class="col-sm-1 col-form-label text-center" for="bfile">파일</label>
+              <div class="col-sm-10 col-xs-12">
+                  <input class="form-control" id="bfile" name="bfile" type="file"/>
+              </div>
+          </div>
+          
+        <div class="form-group row">
+            <div class="col-lg-12 col-sm-10 text-lg-end text-center">
+                <div class="col-lg-11 col-sm-18 text-lg-end text-right">
+                    <button type="button" class="btn btn-primary" id="btnWrite" name="btnWrite">작성</button>
+                    <button type="button" class="btn btn-primary" id="btnCancel" name="btnCancel">취소</button>
+                </div>
+            </div>
+        </div>
+                  
+        </form>
+      </div>  <!-- #box-1 -->
+    </div>  <!-- .row -->
+    </div><!-- /.container-fluid -->
+    </div><!-- /#page-wrapper --> 
+  <div id="footer"></div>
+  </div><!-- /#wrapper -->
 </div>  <!-- #container -->
 
 
+<script src="/node_modules/jquery/dist/jquery.js"></script>-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script>
-$("#header").load("/user/header.html");
-$("#footer").load("/user/footer.html");
+$("#header").load("/form/user/header.html");
+$("#footer").load("/form/user/footer.html");
 </script>
 
-</body>
 </body>
 </html>
