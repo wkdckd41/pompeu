@@ -17,27 +17,20 @@ $(window).load(function() {
   });
 });
 
+$(function(){
+  $("#seoul").onclick(function(){
+    
+   console.log(good);
+    
+  });
+}); 
 
-  var classBox2 = document.getElementById("class-box2")
-  
-  fetch(`/userLecture/findEverything`)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(result) {
-      console.log("AAA");
-      console.log(result);
-      
-      $("#class-box2").html(htmlGenerator(result));
-      
-})
-  
 
 
 
   var btnEverything = document.getElementById("btn-everything");
 
-btnEverything.addEventListener('click', function() {
+  btnEverything.addEventListener('click', function() {
   
   var exName = document.querySelector("#exercise");
   var name = document.querySelector("#lecture-name");
@@ -110,3 +103,6 @@ btnIn.addEventListener('click', function() {
 
 })
 })
+
+
+  $("#btn-everything").click();
