@@ -14,7 +14,7 @@ public class Party {
   Date startDate;
   Date endDate;
   int maxMember;
-  int inOutEx;
+  String inOutEx;
   Date modifyDate;
 
   PartyClaim partyClaim;

@@ -108,7 +108,8 @@
               tn.tag                                as tag,
               p.max_member                          as max_member,
               p.location_no                         as location_no,
-              p.end_date                            as end_date
+              p.end_date                            as end_date,
+              p.in_out_ex                           as in_out_ex
         from 
              party as p
         join tag_management as tm
@@ -117,17 +118,16 @@
              on tm.tag_no = tn.tag_no
         WHERE
           1=1
-          
             <if test="inOutEx != null or inOutEx != ''">
                 <if test="inOutEx == 'in'">
-                and p.in_out_ex = '1' 
+                and p.in_out_ex = '1'
                 </if>
                 <if test="inOutEx == 'out'">
-                and pc.in_out_ex = '2' 
+                and p.in_out_ex = '2'
                 </if>
             </if>
        order by
-          p.register_date desc
+          p.party_no desc
            
 	  </select>
   

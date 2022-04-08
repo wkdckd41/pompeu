@@ -57,8 +57,11 @@
             </li>
           </ul>
 </div>
-
+<form id="userBbsListForm" name="userBbsListForm" method="get" >
+  <input type="hidden" id="inOutEx" name="inOutEx" />
+</form>
 <div class="btn-group">
+  <button type="button" id="btn-everything" onclick="selectBtnTypeNo('')">전체</button>
   <button type="button" id="btn-out" onclick="selectBtnTypeNo('out')">실외운동</button>
   <button type="button" id="btn-in" onclick="selectBtnTypeNo('in')">실내운동</button>
 </div>
@@ -102,11 +105,12 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}}
     <div class="party-box">
-      <div id="x-title">{{name}}</div>
-      <div id="x-tag">{{tag}}</div>
+      <div id="x-title" style="font-weight:bold; font-size:15px;">{{name}}</div>
+      <hr  style="height:1px; border:none; color:#C0C0C0; background-color:#C0C0C0; margin-top:3px; margin-bottom:7px;" />
+      <div class="x-tag" id="x-tag">{{tag}}</div>
       <div id="x-crew"></div>
-      <div id="x-location"></div>
-      <div id="x-date"></div>
+      <div id="x-location">{{location_no}}</div>
+      <div class="x-date" id="x-date"><span>모집마감 : </span>{{end_date}}</div>
     </div>
 {{/each}}
 </script>
