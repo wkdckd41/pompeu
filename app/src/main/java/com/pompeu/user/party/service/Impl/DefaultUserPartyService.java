@@ -18,8 +18,8 @@ public class DefaultUserPartyService implements UserPartyService{
    * 게시판 목록
    */
   @Override
-  public List<Party> list() {
-    return userPartyDao.findAll();
+  public List<Party> list(Party party) {
+    return userPartyDao.findAll(party);
   }
 
   /**

@@ -103,22 +103,32 @@
     <!-- 게시판 목록 -->
 	  <select id="findAll" resultType="HashMap">
 	  /*findAll*/
-	    select 
-	          p.party_no                            as party_no,
-	          p.location_no                         as location_no,
-	          p.name                                as name,
-	          p.max_member                          as max_member,
-	          p.in_out_ex                           as in_out_ex,
-	          p.end_date                            as end_date,
-	          tn.tag_name                           as tag_name
-	    from 
-	         party as p
-	    join tag_management as tm
-	         on p.party_no = tm.party_no
-	    join tag_name as tn
-	         on p.party_no = tn.party_no
-	   order by
-	      p.party_no desc
+        select 
+              p.name                                as name,
+              tn.tag                                as tag,
+              p.max_member                          as max_member,
+              p.location_no                         as location_no,
+              p.end_date                            as end_date,
+              p.in_out_ex                           as in_out_ex
+        from 
+             party as p
+        join tag_management as tm
+             on p.party_no = tm.party_no
+        join tag_name as tn
+             on tm.tag_no = tn.tag_no
+        WHERE
+          1=1
+            <if test="inOutEx != null or inOutEx != ''">
+                <if test="inOutEx == 'in'">
+                and p.in_out_ex = '1'
+                </if>
+                <if test="inOutEx == 'out'">
+                and p.in_out_ex = '2'
+                </if>
+            </if>
+       order by
+          p.party_no desc
+           
 	  </select>
   
     <!-- 게시판 등록 -->
@@ -132,7 +142,7 @@
 	  <select id="findByNo" resultMap="partyMap" parameterType="int">
 	  /*findByNo*/
 	    select 
-	      p.party_no,
+	      party_no,
 	      location_no,
 	      name,
 	      content,
@@ -141,7 +151,7 @@
 	      max_member,
 	      in_out_ex
 	    from 
-	      party 
+	      party as p
 	    where 
 	      party_no=#{no}
 	  </select>

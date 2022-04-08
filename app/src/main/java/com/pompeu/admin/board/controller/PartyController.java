@@ -60,15 +60,4 @@ public class PartyController {
     return partyService.srchParty(party);
   }
 
-
-  @RequestMapping("/party/partyClaim")
-  public Object partyClaim() {
-    return partyService.findPartyClaim();
-  }
-
-  @RequestMapping("/party/PartyList")
-  public Object PartyList() {
-    return partyService.findPartyList();
-  }
-
 }

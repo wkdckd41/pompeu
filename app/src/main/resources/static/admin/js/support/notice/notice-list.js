@@ -129,7 +129,7 @@ function init() {
 }
 
 function moveView(no) {
-  location.href = 'notice-view.html'
+  location.href = 'notice-view.html?no='+no
 }
     //체크박스 전체선택 및 해제 기능은
 
@@ -142,4 +142,6 @@ function moveView(no) {
             return item.value
         });
     //var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
+
+
 

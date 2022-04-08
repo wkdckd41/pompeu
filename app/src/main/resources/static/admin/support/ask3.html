@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POMPEU!</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--부트스트랩  👈 -->
+</head>
+<style>
+    .content{
+        padding: 0px 60px 0 60px;
+    }
+*{
+  box-sizing: border-box; 
+}
+  
+.que:first-child{
+    border-top: 1px solid black;
+  }
+  
+.que{
+  position: relative;
+  padding: 17px 0;
+  cursor: pointer;
+  font-size: 14px;
+  border-bottom: 1px solid #dddddd;
+  
+}
+  
+.que::before{
+  display: inline-block;
+  content: 'Q';
+  font-size: 14px;
+  color: #006633;
+  margin-right: 5px;
+}
+
+.que.on>span{
+  font-weight: bold;
+  color: #006633; 
+}
+  
+.anw {
+  display: none;
+    overflow: hidden;
+  font-size: 14px;
+  background-color: #f4f4f2;
+  padding: 27px 0;
+}
+  
+.anw::before {
+  display: inline-block;
+  content: 'A';
+  font-size: 14px;
+  font-weight: bold;
+  color: #666;
+  margin-right: 5px;
+}
+</style>
+
+<body>
+    <div class="main-container">
+        <div id="wrapper">
+
+            <div class="headers"></div>
+            <!--👉 헤더 😊-->
+
+            <div class="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row" id="main">
+                        <div class="page-header">
+                            <h3>1:1문의</h3>
+                        </div>
+
+                        <!-- /row 타이틀 👈 -->
+                    </div>
+                </div>
+                <!-- 타이틀 박스-->
+            <div class="content">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">전체</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">이용자</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">크리에이터</a>
+        </li>
+    </ul>
+
+<div id="Accordion_wrap">
+     <div class="que">
+      <span>This is first question.</span>
+     </div>
+     <div class="anw">
+      <span>This is first answer.</span>
+     </div>
+      <div class="que">
+      <span>This is second question.</span>
+     </div>
+     <div class="anw">
+      <span>This is second answer.</span>
+     </div>
+      <div class="que">
+      <span>This is third question.</span>
+     </div>
+     <div class="anw">
+      <span>This is third answer.</span>
+     </div>
+      <div class="que">
+      <span>This is third question.</span>
+     </div>
+     <div class="anw">
+      <span>This is third answer.</span>
+     </div>
+      <div class="que">
+      <span>This is third question.</span>
+     </div>
+     <div class="anw">
+      <span>This is third answer.</span>
+     </div>
+      <div class="que">
+      <span>This is third question.</span>
+     </div>
+     <div class="anw">
+      <span>This is third answer.</span>
+     </div>               
+</div>
+    <br><br>
+
+
+    <div class="col-lg-12 col-sm-18 text-lg-end text-right">
+    <button type="button" class="btn btn-primary">작성하기</button>
+    <button type="button" class="btn btn-primary">삭제하기</button>
+    </div>
+    
+
+                <div class="text-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item"><a class="page-link" href="#">4</a></li>
+                            <li class="page-item"><a class="page-link" href="#">5</a></li>
+                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                        </ul>
+                    </nav>
+                </div>
+</div>
+            </div>
+            <!--/page-wrapper 👉 내용  -->
+        </div>
+        <!--/wrapper  -->
+
+    </div>
+    <!-- /main-container 전체 😃🤣😄 -->
+
+    <!-- 밑에 3개적용 😊😊😊  -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리     1️⃣-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <!-- 부트스트랩   2️⃣-->
+    <script src="/admin/js/header.js"></script>
+    <!-- 😊 헤더 👈 3️⃣ -->
+    
+    <script>
+    
+$(".que").click(function() {
+   $(this).next(".anw").stop().slideToggle(300);
+  $(this).toggleClass('on').siblings().removeClass('on');
+  $(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
+});    
+</script>
+
+</body>

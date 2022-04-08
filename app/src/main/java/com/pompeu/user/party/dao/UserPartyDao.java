@@ -18,7 +18,7 @@ public interface UserPartyDao {
    * 게시판 목록
    * @return
    */
-  List<Party> findAll();
+  List<Party> findAll(Party party);
 
   /**
    * 게시판 등록

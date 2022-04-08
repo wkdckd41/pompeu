@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POMPEU!</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--부트스트랩  👈 -->
+    <link href="/admin/css/admin.css" rel="stylesheet">
+</head>
+<style>
+    .content{
+        padding: 0px 60px 0 60px;
+    }
+
+</style>
+
+<body>
+    <div class="main-container">
+        <div id="wrapper">
+
+            <div class="headers"></div>
+            <!--👉 헤더 😊-->
+
+            <div class="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row" id="main">
+                        <div class="page-header">
+                            <h3>소모임 관리</h3>
+                        </div>
+
+                        <!-- /row 타이틀 👈 -->
+                    </div>
+                </div>
+                <!-- 타이틀 박스-->
+            <div class="content">
+  <div class="menu">
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a class="nav-link active" aria-current="page" href="#" onclick="selectBoardTypeNo('')">전체</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo('so')">소모임</a></li>
+      <li class="nav-item"><a class="nav-link" href="#" onclick="selectBoardTypeNo('em')">신고게시글</a></li>
+    </ul>
+ </div>
+  <div class="search">
+    <input id="input-box" type="search" placeholder="검색어를 입력하세요">
+    <button id="input-button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+  </div>
+  
+    <div>
+    <table class="table" style="margin-left: 30px; width:90%;">
+      <thead>
+           <tr>
+             <th scope="col" id="party_no" class="board-table-top" style="width:3%">No.</th>
+             <th scope="col" id="party_name" class="board-table-top" style="width:15%">제목</th>
+             <th scope="col" id="name" class="board-table-top" style="width:10%">작성자</th>
+             <th scope="col" id="register_date" class="board-table-top" style="width:10%">등록일</th>
+             <th scope="col" id="status" class="board-table-top" style="width:5%">신고여부</th>
+           </tr>
+       </thead>
+      <tbody id="tbody1">
+      </tbody>      
+    </table>
+  </div>
+
+
+    <div class="text-center">
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item"><a class="page-link" href="#">4</a></li>
+          <li class="page-item"><a class="page-link" href="#">5</a></li>
+          <li class="page-item"><a class="page-link" href="#">Next</a></li>
+        </ul>
+      </nav>
+    </div>
+    </div>
+            </div>
+            <!--/page-wrapper 👉 내용  -->
+        </div>
+        <!--/wrapper  -->
+
+    </div>
+    <!-- /main-container 전체 😃🤣😄 -->
+
+    <!-- 밑에 3개적용 😊😊😊  -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리     1️⃣-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <!-- 부트스트랩   2️⃣-->
+    <script src="/admin/js/header.js"></script>
+    <!-- 😊 헤더 👈 3️⃣ -->
+    <script src="partyList.js"></script>
+
+</body>

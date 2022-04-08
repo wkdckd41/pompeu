@@ -1,4 +1,9 @@
-$(".headers").load("../admin2.html"); /*사이드바 관련 코드*/
+  // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
+  var trTemplate = document.querySelector("#tr-template");
+  
+  //템플릿 엔진 준비
+  var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
+
 
 // Can also be used with $(document).ready()
 $(window).load(function() {
@@ -12,37 +17,91 @@ $(window).load(function() {
   });
 });
 
-  // 1) URL에서 쿼리스트링(query string)을 추출한다.
-  var arr = location.href.split("?");
-  console.log(arr);
-
-  if (arr.length == 1) {
-    alert("요청 형식이 옳바르지 않습니다.")
-    throw "URL 형식 오류!";
-  }
-
-  var qs = arr[1];
-  console.log(qs);
-
-  // 2) 쿼리 스트링에서 email 값을 추출한다.
-  var params = new URLSearchParams(qs);
-  var no = params.get("no");
-
-  if (no == null) {
-    alert("독서록 번호가 없습니다.");
-    throw "파라미터 오류!";
-  }
-  console.log(no);
+$(function(){
+  $("#seoul").onclick(function(){
+    
+   console.log(good);
+    
+  });
+}); 
 
 
-  var exercise = document.querySelector("#exercise");
+  var btnEverything = document.getElementById("btn-everything");
+
+  btnEverything.addEventListener('click', function() {
   
-  fetch(`/userLecture/findExercise?no=${no}`)
+  var exName = document.querySelector("#exercise");
+  var name = document.querySelector("#lecture-name");
+  var lecturePrice = document.querySelector("#lecture-price");
+  
+  console.log("exname : " + exName);
+  console.log("name : " + name);
+  console.log("price : " + lecturePrice);
+  
+  fetch(`/userLecture/findEverything`)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
       console.log("AAA");
       console.log(result);
+      
+      $("#class-box").html(htmlGenerator(result));
+      
+})
+})
 
-});
+  var btnOut = document.getElementById("btn-out");
+
+btnOut.addEventListener('click', function() {
+  
+  var exName = document.querySelector("#exercise");
+  var name = document.querySelector("#lecture-name");
+  var lecturePrice = document.querySelector("#lecture-price");
+  
+  console.log("exname : " + exName);
+  console.log("name : " + name);
+  console.log("price : " + lecturePrice);
+  
+  fetch(`/userLecture/findOut`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+      $("#class-box").html(htmlGenerator(result));
+      
+})
+})
+
+
+  var btnIn = document.getElementById("btn-in");
+
+btnIn.addEventListener('click', function() {
+  
+  var exName = document.querySelector("#exercise");
+  var name = document.querySelector("#lecture-name");
+  var lecturePrice = document.querySelector("#lecture-price");
+  
+  console.log("exname : " + exName);
+  console.log("name : " + name);
+  console.log("price : " + lecturePrice);
+  
+  fetch(`/userLecture/findIn`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+      $("#class-box").html(htmlGenerator(result));
+
+
+})
+})
+
+
+  $("#btn-everything").click();

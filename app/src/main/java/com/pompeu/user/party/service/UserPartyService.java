@@ -9,7 +9,7 @@ public interface UserPartyService {
    * 게시판 목록
    * @return
    */
-  List<Party> list();
+  List<Party> list(Party party);
 
   /**
    * 게시판 등록

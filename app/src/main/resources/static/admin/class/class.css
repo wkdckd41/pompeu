@@ -208,11 +208,12 @@ input[type="checkbox"]{
     height: 20px;
 }
 
-div > span.status{
+div > span.status_check{
     display: inline-block;
+    position: relative;
+    margin-top: -15px;
     margin-right: 10px;
     margin-bottom: 10px;
-    padding-bottom: 2px;
     font-size: 1.1em;
     font-weight: bold;
 }
@@ -280,7 +281,7 @@ span[class^="list"]{
 }
 span.list_no{
     width: 80px;
-    left: 10px;
+    left: 5px;
 }
 span.list_cr_name{
     width: 100px;
@@ -294,6 +295,10 @@ span.list_schedule{
     text-align: center;
 }
 
+span.list_price {
+        margin-left: -10px;
+    width: 70px;
+}
 
 div.list_contents{
     display: flex;
@@ -314,7 +319,31 @@ span.creator{
     text-align: left;
 }
 
+span.list_creator{
+    width: 50px;
+}
 
+  a.list_class {
+      margin-left: 40px;
+      width: 230px;
+}
+
+span.schedule {
+        width: 170px;
+            margin-left: 9px;
+}
+
+span.price {
+    width: 80px;
+}
+
+span.member {
+    width: 60px;
+}
+
+span.status {
+    width: 60px;
+}
 
 /* span.status{
     width: 100px;
@@ -329,3 +358,4 @@ div.cl_pagination{
     justify-content: center;
     margin-top: -50px;
 }
+
