@@ -268,7 +268,7 @@ a#scrollUp i {
     background-image: url(../images/home/searchicon.png);
     background-repeat: no-repeat;
     background-position: 300px;
-    margin-right: -150px;
+    margin-right: -170px;
     margin-top: 5px;
 }
 
@@ -495,9 +495,17 @@ a#scrollUp i {
 *******Blog CSS******
 **************************/
 
-.subList {
+.subList1 {
   margin-left: 25px;
-  margin-top:15px;  
+  margin-top:3px;  
+  font-size: 19px;
+    font-weight: 600;
+}
+
+.subList2 {
+  margin-left: 15px;
+  margin-right: -80px;
+  margin-top:3px;  
   font-size: 19px;
     font-weight: 600;
 }

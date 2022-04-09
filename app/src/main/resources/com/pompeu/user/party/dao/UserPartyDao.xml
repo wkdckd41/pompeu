@@ -6,7 +6,7 @@
 <mapper namespace="com.pompeu.user.party.dao.UserPartyDao">
 
   <resultMap type="party" id="partyMap">
-    <id column="party_no" property="partyNo"/>
+    <id column="party_no" property="no"/>
     <result column="location_no" property="locationNo"/>
     <result column="name" property="name"/>
     <result column="content" property="content"/>
@@ -104,6 +104,7 @@
 	  <select id="findAll" resultType="HashMap">
 	  /*findAll*/
         select 
+              p.party_no                            as no,
               p.name                                as name,
               tn.tag                                as tag,
               p.max_member                          as max_member,

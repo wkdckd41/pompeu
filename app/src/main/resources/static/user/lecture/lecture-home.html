@@ -57,12 +57,27 @@
             </li>
 </ul>
 </div>
-
+<!-- 
 <div class="btn-group">
   <button type="button" id="btn-everything">전체</button>
   <button type="button" id="btn-out">실외운동</button>
   <button type="button" id="btn-in" >실내운동</button>
 </div>
+ -->
+<label class="test_obj">
+    <input type="radio" name="fruit" value="apple" id="btn-everything">
+    <span>전체</span>
+</label>
+ 
+<label class="test_obj">
+    <input type="radio" name="fruit" value="banana" id="btn-out">
+    <span>실외운동</span>
+</label>
+ 
+<label class="test_obj">
+    <input type="radio" name="fruit" value="lemon" id="btn-in">
+    <span>실내운동</span>
+</label>
 
 <div class="dropdown">
   <button class="btn btn-default dropdown-toggle" type="button" id="regist-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -97,15 +112,14 @@
 </div>
 
 
-
 <script id="tr-template" type="text/x-handlebars-template">
-{{#each this}}
-  <div class="class-card">
+{{#each this}} 
+  <div class="class-card" onclick="moveView({{no}});">
   <span id="region-summary">서울시 강남구</span>
     <div><img src="/user/lecture/img/bowling1.jpg" width="200" height="150">
       <div class="card-detail">
       <div>
-      <span id="exercise">{{exName}}</span>          
+      <span id="exercise">{{exName}}</span>
       <i class="fa fa-heart-o" id="like-heart"></i>
       </div>
       <div>
