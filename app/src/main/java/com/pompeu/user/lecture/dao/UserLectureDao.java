@@ -1,6 +1,7 @@
 package com.pompeu.user.lecture.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Lecture;
 
@@ -22,6 +23,8 @@ public interface UserLectureDao {
   List<Lecture> findOut();
 
   List<Lecture> findIn();
+
+  List<Map<Object, Object>> findLecture(int no);
 
   Lecture findLectureLocation(int no);
 
