@@ -40,7 +40,7 @@ function init() {
         })
             .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
                 if (result.status == "success") {
-                    location.href = "faq-list.html";
+                    location.href = "notice-list.html";
                 } else {
                     window.alert("게시글 등록 실패!");
                     console.log(result.data);

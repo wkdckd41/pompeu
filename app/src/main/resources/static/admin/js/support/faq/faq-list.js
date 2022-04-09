@@ -1,5 +1,3 @@
-$(".headers").load("/admin/header.html");
-
 var memberTypeNo = 3; // memberTypeNo가 3인 전체조회를 하기 위해서 미리 선언해줌
 
 $(document).ready(function () {    //html문서가 다 로드된후에 자바스크립트가 자동으로 실행되는 함수

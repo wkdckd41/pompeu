@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     init();
@@ -17,11 +18,11 @@ $(document).ready(function () {
     var params = new URLSearchParams(qs);
     var no = params.get("no");
     console.log("noticeNo : " + no);
-    onclick="moveView(no);"
-    var xNo = document.querySelector("#x-no");
-    var xName = document.querySelector("#x-name");
-    var xContent = document.querySelector("#x-content");
-    var xRegisterDate = document.querySelector("#x-register-date");
+    
+    var xNo= document.querySelector("#x-no")
+    var xName= document.querySelector("#x-name")
+    var xContent= document.querySelector("#x-content")
+    var xRegisterDate= document.querySelector("#x-register-date")
     
     fetch(`/notice/get?no=${no}`)
         .then(function (response) {
@@ -54,7 +55,8 @@ $(document).ready(function () {
 function init() {
 
     $("#btnModify").on("click", function () {
-        location.href='notice-modify.html?no='+no
+        var abcd =  document.querySelector("#x-no").innerHTML
+        location.href='notice-modify.html?no='+abcd
  
     })
 
