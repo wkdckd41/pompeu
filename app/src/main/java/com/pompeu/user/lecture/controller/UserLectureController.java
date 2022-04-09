@@ -59,6 +59,11 @@ public class UserLectureController {
     return userLectureDao.findIn();
   }
 
+  @RequestMapping("/userLecture/findLecture")
+  public Object findLecture(int no) {
+    return userLectureDao.findLecture(no);
+  }
+
   @RequestMapping("/userLecture/findLectureLocation")
   public Object findLectureLocation(int no) {
     return userLectureDao.findLectureLocation(no);

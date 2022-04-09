@@ -1,6 +1,7 @@
 package com.pompeu.user.lecture.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.domain.Lecture;
@@ -54,6 +55,8 @@ public class DefaultUserLectureService implements UserLectureService{
     return userLectureDao.findIn();
   }
 
-
-
+  @Override
+  public List<Map<Object, Object>> lecture(int no) {
+    return userLectureDao.findLecture(no);
+  }
 }
