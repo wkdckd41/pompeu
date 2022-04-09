@@ -140,8 +140,8 @@
   
   <select id="findLecture" resultType="HashMap" parameterType="int">
     select  
-          le.lecture_info                                               as lectureInfo,
-          cr.info                                               as creatorInfo,
+          le.lecture_info                                       as lectureInfo,
+          cr.info                                               as info,
           ml.content                                            as content,
           ma.ask_content                                        as askContent,
           ma.register_date                                      as registerDate
