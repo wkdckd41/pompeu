@@ -62,5 +62,10 @@ public class CreatorLectureController {
     return creatorlectureService.update(lecture);
   }
 
+  @RequestMapping("/creatorLecture/delete")
+  public Object delete(int no) {
+    return creatorlectureService.delete(no);
+  }
+
 
 }

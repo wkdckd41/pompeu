@@ -21,6 +21,8 @@ public interface CreatorLectureDao {
 
   int update(Lecture lecture);
 
+  int delete(int no);
+
 }
 
 

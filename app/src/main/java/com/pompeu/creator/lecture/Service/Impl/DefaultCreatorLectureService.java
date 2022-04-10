@@ -40,4 +40,9 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
     return creatorlectureDao.update(lecture);
   }
 
+  @Override
+  public int delete(int no) {
+    return creatorlectureDao.delete(no);
+  }
+
 }
