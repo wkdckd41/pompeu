@@ -1,70 +1,40 @@
-var month1 = "1월";
-var month2 = "2월";
-var month3 = "3월";
-var month4 = "4월";
-var month5 = "5월";
-var month6 = "6월";
-var month7 = "7월";
-var month8 = "8월";
-var month9 = "9월";
-var month10 = "10월";
-var month11 = "11월";
-var month12 = "12월";
+var total = [];
+var TT = 12;
+var creator = []; 
+var rookie = [];
+
+  fetch(`/adminMain/memberSummary`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+
+	for(i=0; i < 12; i++) {
+		if (result[i] == null) {
+			result[i] = {MonRookie: 0, MonCreator: 0, MonTotal: 0}
+		}
+		total[i] = result[i].MonTotal
+		creator[i] = result[i].MonCreator
+		rookie[i] = result[i].MonRookie
+	}
+    });
 
 var barChartData = {                
-labels: [`${month1}`, `${month2}`, `${month3}`, `${month4}`, `${month5}`, `${month6}`,
-				 `${month7}`, `${month8}`, `${month9}`, `${month10}`, `${month11}`, `${month12}`],
+	
+labels: ["1월", "2월", "3월", "4월", "5월", "6월",
+				 "7월", "8월", "9월", "10월", "11월", "12월"],
 datasets: [{
   label: '총 회원수',
   backgroundColor: "#1E90FF",
-  data: [
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20)
-    ]
+  data: total
 }, {
   label: '총 크리에이터 수',
   backgroundColor: "#F7464A",
-  data: [
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20)
-    ]
+  data: creator
 }, {
 	  label: '신규 회원 수',
 	  backgroundColor: "green",
-	  data: [
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20),
-	    Math.ceil(Math.random()*20)
-	    ]
+	  data: rookie
 	}
 ]
 };

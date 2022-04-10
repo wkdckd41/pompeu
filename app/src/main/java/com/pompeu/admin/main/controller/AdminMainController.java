@@ -1,5 +1,6 @@
 package com.pompeu.admin.main.controller;
 
+import java.util.Calendar;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,7 +56,18 @@ public class AdminMainController {
   @RequestMapping("/adminMain/undoStatus")
   public Object[] undoStatus() {
     return new Object[] {adminMainService.undoStatusApply(), adminMainService.undoStatusClaim()};
+  }
 
+  @RequestMapping("/adminMain/memberSummary")
+  public Object[] memberSummary() {
+    Calendar now = Calendar.getInstance();
+    int monthNow = now.get(Calendar.MONTH) +1;
+
+    Object[] memsum = new Object[12];
+    for (int i = 0; i < monthNow; i++) {
+      memsum[i] = adminMainService.memberSummary(i+1);
+    }
+    return memsum;
   }
 
   //  @RequestMapping("/member/findCount")
