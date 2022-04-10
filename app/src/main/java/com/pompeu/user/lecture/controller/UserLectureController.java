@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Lecture;
-import com.pompeu.user.lecture.dao.UserLectureDao;
+import com.pompeu.user.lecture.service.UserLectureService;
 
 @RestController 
 public class UserLectureController {
@@ -15,58 +15,54 @@ public class UserLectureController {
   private static final Logger log = LogManager.getLogger(UserLectureController.class);
 
   @Autowired
-  UserLectureDao userLectureDao;
+  UserLectureService userLectureService;
 
   @RequestMapping("/userLecture/list")
   public Object list() {
     log.debug("게실물 목록 조회!");
-    return userLectureDao.findAll();
+    return userLectureService.list();
   }
 
   @RequestMapping("/userLecture/add")
   public Object add(Lecture lecture) {
-    return userLectureDao.insert(lecture);
+    return userLectureService.add(lecture);
   }
 
   @RequestMapping("/userLecture/get")
   public Object get(int no) {
-    Lecture lecture = userLectureDao.findByNo(no);
+    Lecture lecture = userLectureService.get(no);
     return lecture != null ? lecture : "";
   }
 
   @RequestMapping("/userLecture/update")
   public Object update(Lecture lecture) {
-    return userLectureDao.update(lecture);
+    return userLectureService.update(lecture);
   }
 
   @RequestMapping("/userLecture/delete")
   public Object delete(int no) {
-    return userLectureDao.delete(no);
+    return userLectureService.delete(no);
   }
 
-  @RequestMapping("/userLecture/findEverything")
-  public Object findEverything() {
-    return userLectureDao.findEverything();
+  @RequestMapping("/userLecture/getEverything")
+  public Object getEverything() {
+    return userLectureService.getEverything();
   }
 
-  @RequestMapping("/userLecture/findOut")
-  public Object findOut() {
-    return userLectureDao.findOut();
+  @RequestMapping("/userLecture/getOut")
+  public Object getOut() {
+    return userLectureService.getOut();
   }
 
-  @RequestMapping("/userLecture/findIn")
-  public Object findIn() {
-    return userLectureDao.findIn();
+  @RequestMapping("/userLecture/getIn")
+  public Object getIn() {
+    return userLectureService.getIn();
   }
 
-  @RequestMapping("/userLecture/findLecture")
-  public Object findLecture(int no) {
-    return userLectureDao.findLecture(no);
+  @RequestMapping("/userLecture/lecture")
+  public Object lecture(int no) {
+    return userLectureService.lecture(no);
   }
 
-  @RequestMapping("/userLecture/findLectureLocation")
-  public Object findLectureLocation(int no) {
-    return userLectureDao.findLectureLocation(no);
-  }
 
 }

@@ -26,6 +26,5 @@ public interface UserLectureDao {
 
   List<Map<Object, Object>> findLecture(int no);
 
-  Lecture findLectureLocation(int no);
 
 }
