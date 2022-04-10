@@ -1,13 +1,20 @@
 package com.pompeu.admin.support.controller;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.admin.support.service.NoticeService;
+import com.pompeu.creator.lecture.controller.CreatorLectureController;
 import com.pompeu.domain.Notice;
 
 @RestController 
 public class NoticeController {
+
+  // log를 출력하는 도구 준비
+  private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
+
 
   // @Autowired
   // - 필드 선언부에 이 애노테이션을 붙여서 표시해 두면, 
@@ -49,7 +56,17 @@ public class NoticeController {
 
   @RequestMapping("/notice/update")
   public Object update(Notice notice) {
-    return noticeService.update(notice);
+    log.info("name :"+ notice.getName());
+    System.out.println("content :"+notice.getContent());
+    System.out.println("criticalCheck :"+notice.getCriticalCheck());
+
+    int count = noticeService.update(notice);
+
+    if (count == 1) {
+      return new ResultMap().setStatus("success");
+    } else {
+      return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
+    }
   }
 
   @RequestMapping("/notice/delete")
