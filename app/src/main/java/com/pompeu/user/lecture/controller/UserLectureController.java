@@ -64,5 +64,4 @@ public class UserLectureController {
     return userLectureService.lecture(no);
   }
 
-
 }
