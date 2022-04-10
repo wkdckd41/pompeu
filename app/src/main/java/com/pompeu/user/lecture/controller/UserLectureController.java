@@ -44,23 +44,23 @@ public class UserLectureController {
     return userLectureService.delete(no);
   }
 
-  @RequestMapping("/userLecture/getEverything")
-  public Object getEverything() {
+  @RequestMapping("/userLecture/findEverything")
+  public Object findEverything() {
     return userLectureService.getEverything();
   }
 
-  @RequestMapping("/userLecture/getOut")
-  public Object getOut() {
+  @RequestMapping("/userLecture/findOut")
+  public Object findOut() {
     return userLectureService.getOut();
   }
 
-  @RequestMapping("/userLecture/getIn")
-  public Object getIn() {
+  @RequestMapping("/userLecture/findIn")
+  public Object findIn() {
     return userLectureService.getIn();
   }
 
-  @RequestMapping("/userLecture/lecture")
-  public Object lecture(int no) {
+  @RequestMapping("/userLecture/findLecture")
+  public Object findLecture(int no) {
     return userLectureService.lecture(no);
   }
 
