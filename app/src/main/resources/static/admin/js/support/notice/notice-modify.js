@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
 
     init();
@@ -17,11 +18,11 @@ $(document).ready(function () {
     var params = new URLSearchParams(qs);
     var no = params.get("no");
     console.log("noticeNo : " + no);
-    onclick="moveView(no);"
-    var xNo = document.querySelector("#x-no");
-    var xName = document.querySelector("#x-name");
-    var xContent = document.querySelector("textarea[name=x-content]");
-    var xRegisterDate = document.querySelector("input[name=x-register-date]");
+    
+    
+    
+
+    
     
     fetch(`/notice/get?no=${no}`)
         .then(function (response) {
@@ -29,12 +30,22 @@ $(document).ready(function () {
         })
         .then(function (result) {
             console.log(result);
-            // 4 연락처 상세 정보를 화면에 출력한다.
-            xNo.innerHTML = result.no;
-            xName.innerHTML = result.name;
-            xRegisterDate.value = result.registerDate;
-            xContent.value = result.content;
 
+
+            $('#no').val(result.no);
+            $("#memberTypeNo").val(result.memberTypeNo);
+            $('#name').val(result.name);
+            $('#content').val(result.content);
+            $('#criticalCheck').prop('checked', result.criticalCheck);
+
+           
+
+            
+
+            
+        console.log(result.name);
+        console.log(result.criticalCheck);
+        console.log(result.memberTypeNo);
             
         });
     /*
@@ -53,14 +64,32 @@ $(document).ready(function () {
 
 
 function init() {
+  
+     $("#btnModify").on("click", function () {
+    //제이쿼리 컨펌창
+    var fd = new FormData(document.forms.namedItem("form1"));
+    
+    fetch("/notice/update", {
+        method: "POST",
+        body: new URLSearchParams(fd)
+      }).then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        if (result.status == "success") {
+          //완료 얼랏 창
+          location.href = "notice-list.html";
+        } else {
+          window.alert("게시글 변경 실패!");
+          console.log(result.data);
+        }
+      });
+  });
 
-    $("#btnModify").on("click", function () {
-        location.href='notice-modify.html?no='+no
- 
-    })
 
     $("#btnCancel").on("click", function () {
         location.href = 'notice-list.html'
     })
 
-}
+  };
+  
