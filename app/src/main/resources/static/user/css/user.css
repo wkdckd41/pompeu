@@ -512,12 +512,15 @@ border: 1px solid black;
 }
 
 #btn-ask {
-   width: 80px;
+  width: 80px;
   height: 30px;
   border-radius: 5px;
   color : white;
   background-color: #A0A0A0;
   text-align:center;
+  float:right;
+  margin-right:55px;
+  margin-top:-33px;
 }
 
 
@@ -539,4 +542,20 @@ border: 1px solid black;
 .test_obj input[type="radio"]:checked + span {
     background-color: #04CF5C;
     color: #ffffff;
+}
+
+.lecture-ask {
+	border: 1px solid black;
+	width:380px;
+  min-height:150px;
+  margin-bottom:20px;
+}
+
+.lecture-timeContainer {
+	font-size:50;
+	border: 1px solid black;
+  width:280px;
+  min-height:70px;
+  margin-top:10px;
+  border-radius:5px;
 }
