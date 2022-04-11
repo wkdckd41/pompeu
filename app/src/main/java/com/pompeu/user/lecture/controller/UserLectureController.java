@@ -61,7 +61,8 @@ public class UserLectureController {
 
   @RequestMapping("/userLecture/findLecture")
   public Object findLecture(int no) {
-    return userLectureService.lecture(no);
+    Object object = userLectureService.lecture(no);
+    return object;
   }
 
 }

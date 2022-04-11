@@ -145,7 +145,7 @@
       le.lecture_no asc
   </select>
   
-  <select id="findLecture" resultType="HashMap" parameterType="int">
+  <select id="findLecture" resultType="LectureIntro" parameterType="int">
     select  
           le.lecture_info                                       as lectureInfo,
           cr.info                                               as info,
