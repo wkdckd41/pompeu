@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
 
     init();
@@ -12,31 +11,31 @@ $(document).ready(function () {
     }
 
     var qs = arr[1];
-    console.log("qs : " +qs);
+    console.log("qs : " + qs);
 
     // 2) 쿼리 스트링에서 no 값을 추출한다.
     var params = new URLSearchParams(qs);
     var no = params.get("no");
     console.log("noticeNo : " + no);
-    
-    var xNo= document.querySelector("#x-no")
-    var xName= document.querySelector("#x-name")
-    var xContent= document.querySelector("#x-content")
-    var xRegisterDate= document.querySelector("#x-register-date")
-    
+
+    var xNo = document.querySelector("#x-no")
+    var xName = document.querySelector("#x-name")
+    var xContent = document.querySelector("#x-content")
+    var xRegisterDate = document.querySelector("#x-register-date")
+
     fetch(`/notice/get?no=${no}`)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (result) {
-            console.log(result);
-            // 4 연락처 상세 정보를 화면에 출력한다.
-            xNo.innerHTML = result.no;
-            xName.innerHTML = result.name;
-            xContent.innerHTML = result.content;
-            xRegisterDate.innerHTML = result.registerDate;
-            
-        });
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (result) {
+        console.log(result);
+        // 4 연락처 상세 정보를 화면에 출력한다.
+        xNo.innerHTML = result.no;
+        xName.innerHTML = result.name;
+        xContent.innerHTML = result.content;
+        xRegisterDate.innerHTML = result.registerDate;
+
+    });
     /*
     var arr2 = no.split("=");
     if (arr2.length == 1) {
@@ -47,17 +46,15 @@ $(document).ready(function () {
 
     console.log("noticeNo : " + noticeNo);
     */
-    
-  
-});
 
+});
 
 function init() {
 
     $("#btnModify").on("click", function () {
-        var no =  document.querySelector("#x-no").innerHTML
-        location.href='notice-modify.html?no='+no
- 
+        var no = document.querySelector("#x-no").innerHTML
+        location.href = 'notice-modify.html?no=' + no
+
     })
 
     $("#btnCancel").on("click", function () {
