@@ -69,9 +69,6 @@ $(window).load(function() {
       console.log("AAA");
       console.log(result);
      
-<<<<<<< HEAD
-
-=======
      exercise.innerHTML = result[0].exName;
      lectureName.innerHTML = result[0].name;
      maxMember.innerHTML = `최대인원: ${result[0].maxMember} 명`;
@@ -91,5 +88,4 @@ $(window).load(function() {
       console.log(result);
       
       $("#time-box").html(htmlGenerator(result));
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
      })
