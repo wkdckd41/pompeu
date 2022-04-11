@@ -2,6 +2,7 @@ package com.pompeu.user.party.service;
 
 import java.util.List;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyIntro;
 
 public interface UserPartyService {
 
@@ -23,7 +24,7 @@ public interface UserPartyService {
    * @param no
    * @return
    */
-  Party get(int no);
+  List<PartyIntro> get(int no);
 
   /**
    * 게시판 수정
@@ -36,4 +37,5 @@ public interface UserPartyService {
    * 게시판 삭제
    */
   int delete(int no);
+
 }

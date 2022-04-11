@@ -3,6 +3,7 @@ package com.pompeu.user.party.dao;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyIntro;
 
 
 @Mapper  
@@ -32,7 +33,7 @@ public interface UserPartyDao {
    * @param no
    * @return
    */
-  Party findByNo(int no);
+  List<PartyIntro> findByNo(int no);
 
   /**
    * 게시판 수정
