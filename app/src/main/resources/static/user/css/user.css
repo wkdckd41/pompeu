@@ -24,7 +24,7 @@ h5 {
 
 #party-create{
   margin-top:10px;
-  margin-left:950px;
+  margin-left:915px;
   border-radius: 5px;
   color : black;
   display:flex;
@@ -75,6 +75,7 @@ h5 {
 
 .dropdown {
     float:right;
+    margin-right: 120px;
 }
 
 #member-drop {
@@ -255,17 +256,19 @@ border: 1px solid black;
   width: 80%;
   display: flex;
 }
-
-.tag-list {
-  margin-top: 1rem;
-  margin-bottom:1rem;
-  width: 50%;
-  margin: 6px;
-} 
+.input-tag {
+	 font-size: 12px;
+   width:80px;
+   height:25px;
+   border-radius:5px;
+   margin-left:10px;
+   margin-top: 5px;
+   margin-bottom:5px;
+}
 
 .tag {
    font-size: 12px;
-   background-color: #009999;
+   background-color: #D3ECA7;
    color:white;
    width:45%;
    height:18px;
@@ -278,7 +281,7 @@ border: 1px solid black;
 
 .x-tag {
    font-size: 12px;
-   background-color: #009999;
+   background-color: #D3ECA7;
    color:white;
    width:25%;
    height:18px;

@@ -142,19 +142,28 @@
     <!-- 게시판 상세 -->
 	  <select id="findByNo" resultMap="partyMap" parameterType="int">
 	  /*findByNo*/
-	    select 
-	      party_no,
-	      location_no,
-	      name,
-	      content,
-	      start_date,
-	      end_date,
-	      max_member,
-	      in_out_ex
-	    from 
-	      party as p
-	    where 
-	      party_no=#{no}
+        select 
+              p.party_no,
+              p.location_no,
+              p.name,
+              p.content,
+              p.start_date,
+              p.end_date,
+              p.max_member,
+              tn.tag                  as tag,
+              m.name                  as name
+        from 
+              party as p
+        join tag_management as tm
+              on p.party_no = tm.party_no
+        join tag_name as tn
+             on tm.tag_no = tn.tag_no
+        join party_user as u
+             on p.party_no = u.party_no
+        join member as m 
+             on m.member_no  = u.users_no 
+        where 
+	         party_no=#{no}
 	  </select>
 
     <!-- 게시판 수정 -->
