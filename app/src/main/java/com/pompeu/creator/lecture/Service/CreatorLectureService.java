@@ -15,5 +15,7 @@ public interface CreatorLectureService {
 
   int update(Lecture lecture);
 
+  int delete(int no);
+
 
 }

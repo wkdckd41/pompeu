@@ -23,6 +23,13 @@
     <result column="searchType" property="searchType"/>
   </resultMap>
   
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="creatorNo"/>
+    <result column="info" property="Info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+  </resultMap>
+  
   <resultMap type="lectureTime" id="lectureTimeMap">
     <id column="lecture_time_no" property="lectureTimeNo"/>
     <result column="lecture_no" property="lectureNo"/>

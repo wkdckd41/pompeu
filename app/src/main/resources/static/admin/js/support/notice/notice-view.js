@@ -55,8 +55,8 @@ $(document).ready(function () {
 function init() {
 
     $("#btnModify").on("click", function () {
-        var abcd =  document.querySelector("#x-no").innerHTML
-        location.href='notice-modify.html?no='+abcd
+        var no =  document.querySelector("#x-no").innerHTML
+        location.href='notice-modify.html?no='+no
  
     })
 
