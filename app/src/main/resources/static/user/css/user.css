@@ -562,3 +562,12 @@ border: 1px solid black;
   margin-top:10px;
   border-radius:5px;
 }
+
+#ask-content {
+  border:2px solid black;
+	width:380px;
+	margin-top: 15spx;
+	margin-bottom: 13px;
+	padding: 10px 10px;
+	border-radius:5px;
+}

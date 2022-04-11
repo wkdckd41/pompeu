@@ -24,4 +24,5 @@ public interface UserLectureService {
 
   List<LectureIntro> lecture(int no);
 
+  List<Lecture> regist(int no);
 }

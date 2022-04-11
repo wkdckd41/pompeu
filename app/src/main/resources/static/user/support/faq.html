@@ -1,190 +1,173 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
-    <title>Document</title>
-  <link rel="stylesheet" href="/user/css/common.css">
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/css/user_common.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-    
+
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <title>POMPEU!</title>
+    <link href="/user/css/common.css" rel="stylesheet">
+    <link href="/user/css/user.css" rel="stylesheet">
+    <link href="/css/user_common.css" rel="stylesheet">
+    <link href="/user/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/user/css/font/fontawesome.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
 </head>
+
 <style>
-*{
-  box-sizing: border-box; 
-}
-  
-.que:first-child{
+  * {
+    box-sizing: border-box;
+  }
+
+  .que:first-child {
     border-top: 1px solid black;
   }
-  
-.que{
-  position: relative;
-  padding: 17px 0;
-  cursor: pointer;
-  font-size: 14px;
-  border-bottom: 1px solid #dddddd;
-  
-}
-  
-.que::before{
-  display: inline-block;
-  content: 'Q';
-  font-size: 14px;
-  color: #006633;
-  margin-right: 5px;
-}
 
-.que.on>span{
-  font-weight: bold;
-  color: #006633; 
-}
-  
-.anw {
-  display: none;
+  .que {
+    position: relative;
+    padding: 17px 0;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+
+  }
+
+  .que::before {
+    display: inline-block;
+    content: 'Q';
+    font-size: 22px;
+    font-weight: bold;
+    color: #04CF5C;
+    margin-right: 5px;
+  }
+
+  .que.on > span {
+    font-weight: bold;
+    font-weight: bold;
+    color: black;
+  }
+
+  .anw {
+    display: none;
     overflow: hidden;
-  font-size: 14px;
-  background-color: #f4f4f2;
-  padding: 27px 0;
-}
-  
-.anw::before {
-  display: inline-block;
-  content: 'A';
-  font-size: 14px;
-  font-weight: bold;
-  color: #666;
-  margin-right: 5px;
-}
-</style>
-<body>
-  <div class="container">
-  
-    <div id="wrapper">
-    
-        <!-- 헤더 & 사이드바 자리 시작 -->
-        <div id="header"></div>
-    <!-- 헤더 & 사이드바 자리 끝 -->
-    
-    <!-- 내용물 자리 시작 -->
-        <div id="page-wrapper">
-        <div id="Accordion_wrap">
-     <div class="que">
-      <span>This is first question.</span>
-     </div>
-     <div class="anw">
-      <span>This is first answer.</span>
-     </div>
-      <div class="que">
-      <span>This is second question.</span>
-     </div>
-     <div class="anw">
-      <span>This is second answer.</span>
-     </div>
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>  
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>  
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>
-      <div class="que">
-      <span>This is third question.</span>
-     </div>
-     <div class="anw">
-      <span>This is third answer.</span>
-     </div>       
-</div>
-<br>
-<br>
-        
-        
-                <div class="text-center">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item"><a class="page-link" href="#">5</a></li>
-                            <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            <div class="container-fluid">
-                <!-- Page Heading -->
-                <div class="row" id="main">
-                    </div>
-                </div>
-                <!-- /.row -->
-            </div>
-            <!-- /.container-fluid -->
-        </div> <!-- 이 밑으론  HTML 만지지마!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-        <!-- /#page-wrapper --> 
-    <!-- 내용물 자리 끝 -->
-        
-    <div id="footer"></div>
-    </div><!-- /#wrapper -->
-    </div>
-    
-    <script src="/node_modules/jquery/dist/jquery.js"></script>-->
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f4f4f2;
+    padding: 27px 0;
+  }
 
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <script>
+  .anw::before {
+    display: inline-block;
+    content: 'A';
+    font-size: 22px;
+    font-weight: bold;
+    color: #D3ECA7;
+    margin-right: 5px;
+  }
+</style>
+
+<body>
+
+<div class="container">
+    <div id="wrapper">
+        <div id="header"></div>
+        <div id="page-wrapper">
+            <div id="page-wrapper">
+
+                <h2>FAQ</h2>
+                <br>
+                <div id="Accordion_wrap">
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+                    <div class="que">
+                        <span>누구세용?</span>
+                    </div>
+                    <div class="anw">
+                        <span>여보세용?</span>
+                    </div>
+
+                </div>
+            </div>
+            <br>
+        </div> <!-- /#page-wrapper --> <!-- 내용물 자리 끝 -->
+
+        <div id="footer"></div>
+    </div><!-- /#wrapper -->
+</div>  <!-- #container -->
+
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
     $("#header").load("/form/user/header.html");
     $("#footer").load("/form/user/footer.html");
-    </script>
-        <script>
-    
-$(".que").click(function() {
-   $(this).next(".anw").stop().slideToggle(300);
-  $(this).toggleClass('on').siblings().removeClass('on');
-  $(this).next(".anw").siblings(".anw").slideUp(300); // 1개씩 펼치기
-});    
 </script>
 
 </body>
+<script src="/user/support/faq.js"></script>
+
 </html>

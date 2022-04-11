@@ -59,4 +59,9 @@ public class DefaultUserLectureService implements UserLectureService{
   public List<LectureIntro> lecture(int no) {
     return userLectureDao.findLecture(no);
   }
+
+  @Override
+  public List<Lecture> regist(int no) {
+    return userLectureDao.registLecture(no);
+  }
 }

@@ -29,13 +29,35 @@ $(window).load(function() {
   }
   console.log(no);
 
+   var lectureInfo = document.querySelector("#lecture-introduce");
+   var info = document.querySelector("#teacher-introduce");
+   var askContent = document.querySelector("#ask-content")
 
-
-  fetch(`/userLecture/findLecture?no=${no}`)
+    fetch(`/userLecture/findLecture?no=${no}`)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-})
+      
+      console.log(result[0].lectureInfo)
+      lectureInfo.innerHTML = result[0].lectureInfo;
+      info.innerHTML = result[0].info;
+      
+       if (result[0].askContent != null) {
+        askContent.innerHTML = `${result[0].askContent}`;
+        }
+     })
+     
+     fetch(`/userLecture/registLecture?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+     
+     
+     
+     })
