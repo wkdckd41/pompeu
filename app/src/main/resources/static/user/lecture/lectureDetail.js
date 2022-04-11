@@ -58,6 +58,5 @@ $(window).load(function() {
       console.log("AAA");
       console.log(result);
      
-     
-     
+
      })
