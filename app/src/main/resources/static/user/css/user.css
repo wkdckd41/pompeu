@@ -406,13 +406,13 @@ border: 1px solid black;
   text-transform: uppercase;
 }
 
-.lecture-name{
+#lecture-name {
   font-size:23px;
   font-weight:bold;
   margin-top:-30px;
 }
 
-.lecture-price {
+#lecture-price {
   margin-top:-30px;
   font-size:21px;
 }
@@ -547,6 +547,28 @@ border: 1px solid black;
     color: #ffffff;
 }
 
+--------------------------------------------------
+
+.lecture-timeContainer input[type="radio"] {
+    display:alsolute;
+    opacity: 0;
+}
+
+.lecture-timeContainer input[type="radio"] + span {
+    display: inline-block;
+    padding: 15px 10px;
+    border: 1px solid #dfdfdf;
+    border-radius:5px;
+    background-color: #ffffff;
+    text-align: center;
+    cursor: pointer;
+}
+
+.lecture-timeContainer input[type="radio"]:checked + span {
+    background-color: #04CF5C;
+    color: #ffffff;
+}
+
 .lecture-ask {
 	border: 1px solid black;
 	width:380px;
@@ -559,7 +581,7 @@ border: 1px solid black;
 	border: 1px solid black;
   width:280px;
   min-height:70px;
-  margin-top:10px;
+  margin-top:20px;
   border-radius:5px;
 }
 

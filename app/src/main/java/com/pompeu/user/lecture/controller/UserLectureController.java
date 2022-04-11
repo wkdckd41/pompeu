@@ -70,4 +70,9 @@ public class UserLectureController {
     return userLectureService.regist(no);
   }
 
+  @RequestMapping("/userLecture/registTime")
+  public Object registTime(int no) {
+    return userLectureService.time(no);
+  }
+
 }

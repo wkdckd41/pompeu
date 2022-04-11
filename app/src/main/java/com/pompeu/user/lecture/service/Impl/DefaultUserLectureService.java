@@ -64,4 +64,10 @@ public class DefaultUserLectureService implements UserLectureService{
   public List<Lecture> regist(int no) {
     return userLectureDao.registLecture(no);
   }
+
+  @Override
+  public List<Lecture> time(int no) {
+    return userLectureDao.registTime(no);
+  }
+
 }
