@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Party;
-import com.pompeu.user.party.dao.UserPartyDao;
+import com.pompeu.user.party.service.UserPartyService;
 
 @RestController 
 public class UserPartyController {
@@ -16,7 +16,7 @@ public class UserPartyController {
   private static final Logger log = LoggerFactory.getLogger(UserPartyController.class);
 
   @Autowired
-  UserPartyDao userPartyDao;
+  UserPartyService userPartyService;
 
   /**
    * 게시판 목록
@@ -25,9 +25,9 @@ public class UserPartyController {
   @RequestMapping("/userparty/list")
   public Object list(Party party) {
     log.info("게시글 목록조회!"); // 운영자가 확인하기를 원하는 정보
-    List<Party> list =  userPartyDao.findAll(party);
+    List<Party> list =  userPartyService.list(party);
     log.debug(list.toString()); // 개발자가 확인하기를 원하는 정보
-    return list;
+    return userPartyService.list(party);
   }
 
   /**
@@ -37,7 +37,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/add")
   public Object add(Party party) {
-    return userPartyDao.insert(party);
+    return userPartyService.add(party);
   }
 
   /**
@@ -45,10 +45,10 @@ public class UserPartyController {
    * @param no
    * @return
    */
-  @RequestMapping("/userparty/get")
-  public Object get(int no) {
-    Party party = userPartyDao.findByNo(no);
-    return party != null ? party : "";
+  @RequestMapping("/userparty/findByNo")
+  public Object findByNo(int no) {
+    Object object = userPartyService.get(no);
+    return object;
   }
 
   /**
@@ -58,7 +58,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/update")
   public Object update(Party party) {
-    return userPartyDao.update(party);
+    return userPartyService.update(party);
   }
 
   /**
@@ -68,7 +68,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/delete")
   public Object delete(int no) {
-    return userPartyDao.delete(no);
+    return userPartyService.delete(no);
   }
 
 

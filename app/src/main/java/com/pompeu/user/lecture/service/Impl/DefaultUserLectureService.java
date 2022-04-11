@@ -1,10 +1,10 @@
 package com.pompeu.user.lecture.service.Impl;
 
 import java.util.List;
-import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.LectureIntro;
 import com.pompeu.user.lecture.dao.UserLectureDao;
 import com.pompeu.user.lecture.service.UserLectureService;
 
@@ -56,7 +56,18 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public List<Map<Object, Object>> lecture(int no) {
+  public List<LectureIntro> lecture(int no) {
     return userLectureDao.findLecture(no);
   }
+
+  @Override
+  public List<Lecture> regist(int no) {
+    return userLectureDao.registLecture(no);
+  }
+
+  @Override
+  public List<Lecture> time(int no) {
+    return userLectureDao.registTime(no);
+  }
+
 }

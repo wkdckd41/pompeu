@@ -57,14 +57,12 @@
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:5px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">클래스 소개</h4>
-                <span class="lecture-introduce">볼링은 넘모넘모 재밌쪄</span>
+                <span id="lecture-introduce"></span>
               </div>
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">강사 소개</h4>
-                <span class="teacher-introduce" style="line-height: 20px;">
-                  아이러브볼링<br>
-                  볼링 수상경력 3회
+                <span id="teacher-introduce" style="line-height: 20px;">
                 </span>
               </div>
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
@@ -104,11 +102,12 @@
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold; position: relative;">문의</h4>
-                <button type="button" id="btn-ask" style="float:right; margin-right:30px; margin-top:-38px;">문의하기</button>
+                <button type="button" id="btn-ask">문의하기</button>
                 <div>image</div>
                 <div>아이러브볼링</div>
+                <textarea class="lecture-ask"></textarea>
+                <div id="ask-content"></div>
               </div>
-              
           </div>
         </form>
      </div>
@@ -118,17 +117,21 @@
    <div class="box-3">
      <div class ="box-title2">
        <div class ="party-text">
-         <span>볼링</span><br>
+         <span id="exercise"></span><br>
          <hr style="border: solid 1px gainsboro; width:100%; margin-top:3px"><br>
-         <div class="lecture-name">너무나 재밌는 볼링</div>
+         <div id="lecture-name"></div>
          <div style="display:flex; margin-top:10px;">
            <div>image</div>
            <div>아이러브볼링</div>
-           <div style="margin-left:120px;">최대인원: 6명</div>
+           <div id="max-member" style="margin-left:120px;"></div>
          </div>
          <hr style="border: solid 1px gainsboro; width:100%; margin-top:10px"><br>
-         <div class="lecture-price">수강료 : 20,000원</div>
-         </div>
+         <div id="lecture-price"></div>
+
+          <div class="time-box" id="time-box" ></div>
+          
+         
+       </div>
        <hr style="border: solid 1px gainsboro; width:100%;">
        <div style="margin-top:-10px;">
          <button type="button" id="btn-zzim">찜하기     <i class="fa-solid fa-heart" id="heart"></i></button>
@@ -145,6 +148,18 @@
 <div id="footer"></div>
 
 </div> <!-- 모든 내용은 이 안에 때려박기 -->
+
+<script id="tr-template" type="text/x-handlebars-template">
+{{#each this}} 
+  <input class="lecture-timeContainer" type="radio" name="fruit" value="banana">
+     <span id="lecture-date" style="margin-top:10px; margin-left:10px;">{{startDate}} ~ {{endDate}}</span><br>
+     <span id="lecture-time" style="margin-top:5px; margin-left:10px">{{startTime}} ~ {{endTime}}</span>
+  </label>
+{{/each}}
+</script>
+
+<script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
+
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script>
 $("#header").load("/form/user/header.html");

@@ -1,9 +1,9 @@
 package com.pompeu.user.lecture.dao;
 
 import java.util.List;
-import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.LectureIntro;
 
 @Mapper  
 public interface UserLectureDao {
@@ -24,7 +24,10 @@ public interface UserLectureDao {
 
   List<Lecture> findIn();
 
-  List<Map<Object, Object>> findLecture(int no);
+  List<LectureIntro> findLecture(int no);
 
+  List<Lecture> registLecture(int no);
+
+  List<Lecture> registTime(int no);
 
 }

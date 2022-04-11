@@ -20,8 +20,6 @@ function selectMemberTypeNo(t_num) {
     //alert(memberTypeNo);
 }
 
-
-
 function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이터를 가지고 조회를 하기위한 함수 선언부
     while (tbody1.hasChildNodes()) {
         tbody1.removeChild(tbody1.firstChild);
@@ -38,20 +36,22 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
     }).then(function (response) {
         return response.json();
     })
-        .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
-            console.log(result);
-            var count = 0;
-            for (var rst of result) {
-                var tr = document.createElement("tr");
-                tr.innerHTML = `<td><input type="checkbox" id = "chk_` + count + `" name="_selected_" value="ROW_` + count + `"></td>
-          <td style="display:none"><input type="text" id= "no_` + count + `" value="${rst.no}""></td>
+    .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
+        console.log(result);
+        var count = 0;
+        for (var rst of result) {
+            var tr = document.createElement("tr");
+            tr.innerHTML = `<td><input type="checkbox" id = "chk_` + count
+                + `" name="_selected_" value="ROW_` + count + `"></td>
+          <td style="display:none"><input type="text" id= "no_` + count
+                + `" value="${rst.no}""></td>
           <td>${rst.no}</td>
           <td>${rst.memberType}</td>
           <td onclick="moveView(${rst.no});">${rst.name}</td>
           <td>${rst.registerDate}</td>`;
-                document.querySelector("#tbody1").appendChild(tr);
-                count++;
-            }
+            document.querySelector("#tbody1").appendChild(tr);
+            count++;
+        }
     });
 
     /*
@@ -100,7 +100,6 @@ function init() {
             }
         }
 
-
         var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
 
         param.set('memberTypeNo', str.substr(0, str.length - 1)); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
@@ -111,34 +110,34 @@ function init() {
         }).then(function (response) {
             return response.json();
         })
-            .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
-                if (result.status == "success") {
-                    location.href = "notice-list.html";
-                } else {
-                    window.alert("게시글 변경 실패!");
-                    console.log(result.data);
-                }
+        .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
+            if (result.status == "success") {
+                location.href = "notice-list.html";
+            } else {
+                window.alert("게시글 변경 실패!");
+                console.log(result.data);
+            }
 
-            });
-
+        });
 
     });
 }
 
 function moveView(no) {
-  location.href = 'notice-view.html?no='+no
+    location.href = 'notice-view.html?no=' + no
 }
-    //체크박스 전체선택 및 해제 기능은
 
-    $('input[name=_selected_all_]').on('change', function () {
-        $('input[name=_selected_]').prop('checked', this.checked);
+//체크박스 전체선택 및 해제 기능은
+
+$('input[name=_selected_all_]').on('change', function () {
+    $('input[name=_selected_]').prop('checked', this.checked);
+});
+
+var arr = $('input[name=_selected_]:checked').serializeArray().map(
+    function (item) {
+        return item.value
     });
-
-    var arr = $('input[name=_selected_]:checked').serializeArray().map(
-        function (item) {
-            return item.value
-        });
-    //var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
+//var str = $('input[name=_selected_]:checked').serialize(); // 이건 QueryString 방식으로
 
 
 
