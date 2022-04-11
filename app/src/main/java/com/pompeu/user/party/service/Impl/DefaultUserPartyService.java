@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyIntro;
 import com.pompeu.user.party.dao.UserPartyDao;
 import com.pompeu.user.party.service.UserPartyService;
 
@@ -35,7 +36,7 @@ public class DefaultUserPartyService implements UserPartyService{
    * 게시판 상세
    */
   @Override
-  public Party get(int no) {
+  public List<PartyIntro> get(int no) {
     return userPartyDao.findByNo(no);
   }
 

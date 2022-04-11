@@ -8,7 +8,7 @@
   <resultMap type="party" id="partyMap">
     <id column="party_no" property="no"/>
     <result column="location_no" property="locationNo"/>
-    <result column="name" property="name"/>
+    <result column="name" property="title"/>
     <result column="content" property="content"/>
     <result column="register_date" property="registerDate"/>
     <result column="start_date" property="startDate"/>
@@ -140,12 +140,12 @@
 	  </insert>
   
     <!-- 게시판 상세 -->
-	  <select id="findByNo" resultMap="partyMap" parameterType="int">
+	  <select id="findByNo" resultType="PartyIntro" parameterType="int">
 	  /*findByNo*/
-        select 
+         select 
               p.party_no,
               p.location_no,
-              p.name,
+              p.name                  as title,
               p.content,
               p.start_date,
               p.end_date,
@@ -163,7 +163,7 @@
         join member as m 
              on m.member_no  = u.users_no 
         where 
-	         party_no=#{no}
+             p.party_no=#{no}
 	  </select>
 
     <!-- 게시판 수정 -->
