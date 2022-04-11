@@ -26,4 +26,6 @@ public interface UserLectureDao {
 
   List<LectureIntro> findLecture(int no);
 
+  List<Lecture> registLecture(int no);
+
 }
