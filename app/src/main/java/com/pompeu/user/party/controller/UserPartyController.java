@@ -45,7 +45,7 @@ public class UserPartyController {
    * @param no
    * @return
    */
-  @RequestMapping("/userparty/findByNo")
+  @RequestMapping("/userparty/get")
   public Object findByNo(int no) {
     Object object = userPartyService.get(no);
     return object;

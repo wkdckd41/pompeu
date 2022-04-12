@@ -464,6 +464,14 @@ border: 1px solid black;
   margin-left:30px;
   margin-top:10px;
 }
+.x-address {
+	 background-color: #009999;
+   color:white;
+   width:140px;
+   height:20px;
+   border-radius:5px;
+   text-align:center;
+}
 
 .region-si {
    background-color: #009999;
