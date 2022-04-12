@@ -329,7 +329,7 @@
         <div class="swiper-slide">
         
           <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img">
+            <div class="lec-img" id="pop-img-0">
             <img src="/user/main/image/bowling1.jpg" width="350px" height="210px" />
             </div>
             <div class="lec-cat" id="pop-ex-0"></div>
@@ -345,14 +345,14 @@
         <div class="swiper-slide">
         
                   <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img">
+            <div class="lec-img" id="pop-img-1">
             <img src="/user/main/image/bowling2.jpg" width="350px" height="210px" />
             </div>
             <div class="lec-cat" id="pop-ex-1"></div>
             <div class="lec-title" id="pop-name-1"></div>
             <div class="lec-price" id="pop-price-1"></div>
             <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
               <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i><span id="pop-likey-1"></span></div>
             </div>
           </div> <!--lecture/box -->
@@ -361,14 +361,14 @@
         <div class="swiper-slide">
         
                   <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img">
+            <div class="lec-img" id="pop-img-2">
             <img src="/user/main/image/bowling3.jpg" width="350px" height="210px" />
             </div>
             <div class="lec-cat" id="pop-ex-2"></div>
             <div class="lec-title" id="pop-name-2"></div>
             <div class="lec-price" id="pop-price-2"></div>
             <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
               <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i><span id="pop-likey-2"></span></div>
             </div>
           </div> <!--lecture/box -->
@@ -377,14 +377,14 @@
         <div class="swiper-slide">
         
                   <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img">
+            <div class="lec-img" id="pop-img-3">
             <img src="/user/main/image/bowling4.jpg" width="350px" height="210px" />
             </div>
             <div class="lec-cat" id="pop-ex-3"></div>
             <div class="lec-title" id="pop-name-3"></div>
             <div class="lec-price" id="pop-price-3"></div>
             <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
               <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i><span id="pop-likey-3"></span></div>
             </div>
           </div> <!--lecture/box -->
@@ -393,14 +393,14 @@
         <div class="swiper-slide">
         
                   <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img">
+            <div class="lec-img" id="pop-img-4">
             <img src="/user/main/image/bowling5.jpg" width="350px" height="210px" />
             </div>
             <div class="lec-cat" id="pop-ex-4"></div>
             <div class="lec-title" id="pop-name-4"></div>
             <div class="lec-price" id="pop-price-4"></div>
             <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
               <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i><span id="pop-likey-4"></span></div>
             </div>
           </div> <!--lecture/box -->
@@ -409,14 +409,14 @@
         <div class="swiper-slide">
         
                   <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img">
+            <div class="lec-img" id="pop-img-5">
             <img src="/user/main/image/bowling6.jpg" width="350px" height="210px" />
             </div>
             <div class="lec-cat" id="pop-ex-5"></div>
             <div class="lec-title" id="pop-name-5"></div>
             <div class="lec-price" id="pop-price-5"></div>
             <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i>5555</div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
               <div class="lec-like" style="float: left; width: 50%;"><i class="fa-solid fa-thumbs-up">&nbsp;</i><span id="pop-likey-5"></span></div>
             </div>
           </div> <!--lecture/box -->
@@ -487,36 +487,43 @@
 		</script>
     
     <script>
+    var popImg=[6];
     var popEx = [6];
     var popName = [6];
     var popPrice = [6];
     var popLikey = [6];
     
+    popImg[0] = document.getElementById("pop-img-0");
     popEx[0] = document.getElementById("pop-ex-0");
     popName[0] = document.getElementById("pop-name-0");
     popPrice[0] = document.getElementById("pop-price-0");
     popLikey[0] = document.getElementById("pop-likey-0");
                                                            
+    popImg[1] = document.getElementById("pop-img-1");
     popEx[1] = document.getElementById("pop-ex-1");
     popName[1] = document.getElementById("pop-name-1");
     popPrice[1] = document.getElementById("pop-price-1");
     popLikey[1] = document.getElementById("pop-likey-1");
                                                            
+    popImg[2] = document.getElementById("pop-img-2");
     popEx[2] = document.getElementById("pop-ex-2");
     popName[2] = document.getElementById("pop-name-2");
     popPrice[2] = document.getElementById("pop-price-2");
     popLikey[2] = document.getElementById("pop-likey-2");
                                                            
+    popImg[3] = document.getElementById("pop-img-3");
     popEx[3] = document.getElementById("pop-ex-3");
     popName[3] = document.getElementById("pop-name-3");
     popPrice[3] = document.getElementById("pop-price-3");
     popLikey[3] = document.getElementById("pop-likey-3");
                                                            
+    popImg[4] = document.getElementById("pop-img-4");
     popEx[4] = document.getElementById("pop-ex-4");
     popName[4] = document.getElementById("pop-name-4");
     popPrice[4] = document.getElementById("pop-price-4");
     popLikey[4] = document.getElementById("pop-likey-4");
                                                            
+    popImg[5] = document.getElementById("pop-img-5");
     popEx[5] = document.getElementById("pop-ex-5");
     popName[5] = document.getElementById("pop-name-5");
     popPrice[5] = document.getElementById("pop-price-5");
@@ -530,22 +537,17 @@
       console.log(result);
       
       for(i=0; i < 6; i++) {
+    	  
+        if (result[i].image == null) {
+        	result[i].image = "default.jpg";
+        }
+        popImg[i].innerHTML = `<img src="/userMain/image?filename=${result[i].image}" width="350px" height="210px">`; // 수정요
     	  popEx[i].innerHTML = result[i].exName;
     	  popName[i].innerHTML = result[i].lName;
     	  popPrice[i].innerHTML = result[i].price + "원";
     	  popLikey[i].innerHTML = result[i].likey;
       };
       
-      
-      /*
-      for (var rst of result) {
-        var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${rst.total}</td>
-        <td>${rst.creator}</a></td>
-        <td>${rst.user}</td>`;
-        document.querySelector("#tbody1").appendChild(tr);
-      }
-      */
     });
     </script>
     

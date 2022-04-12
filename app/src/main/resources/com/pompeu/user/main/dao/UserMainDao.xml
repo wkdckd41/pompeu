@@ -54,6 +54,12 @@
     <result column="status" property="status"/>
   </resultMap> 
 
+  <resultMap type="lectureImage" id="lectureImageMap">
+    <id column="lecture_image_no" property="lectureImageNo"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="image" property="image"/>
+  </resultMap> 
+
 <!--
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
@@ -157,19 +163,22 @@
   </delete>
 
   <select id="findTopLecture" resultType="HashMap">
-    select  
+    select 
+					l.lecture_no                                          as lNo, 
           ex.name                                               as exName,
           l.name                                                as lName,
-					l.lecture_no                                          as lNo,
           l.lecture_price                                       as price,
-          count(ll.lecture_no)                                  as likey
+          count(ll.lecture_no)                                  as likey,
+					li.image                                              as image
     from 
           lecture as l
     left outer join exercise as ex 
           on l.ex_no = ex.ex_no
     left outer join lecture_like as ll 
           on l.lecture_no = ll.lecture_no
-    where 1 group by l.lecture_no
+		left outer join lecture_image as li
+					on l.lecture_no = li.lecture_no
+    where l.status =2 and 1 group by l.lecture_no
     order by likey desc
   </select>
 
