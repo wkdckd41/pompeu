@@ -108,7 +108,6 @@
                 <textarea class="lecture-ask"></textarea>
                 <div id="ask-content"></div>
               </div>
-              
           </div>
         </form>
      </div>
@@ -118,20 +117,20 @@
    <div class="box-3">
      <div class ="box-title2">
        <div class ="party-text">
-         <span id=""></span><br>
+         <span id="exercise"></span><br>
          <hr style="border: solid 1px gainsboro; width:100%; margin-top:3px"><br>
-         <div class="lecture-name">너무나 재밌는 볼링</div>
+         <div id="lecture-name"></div>
          <div style="display:flex; margin-top:10px;">
            <div>image</div>
            <div>아이러브볼링</div>
-           <div style="margin-left:120px;">최대인원: 6명</div>
+           <div id="max-member" style="margin-left:120px;"></div>
          </div>
          <hr style="border: solid 1px gainsboro; width:100%; margin-top:10px"><br>
-         <div class="lecture-price">수강금액 : 20,000원</div>
-         <div class="lecture-timeContainer">
-          <div class="lecture-date" style="margin-top:10px; margin-left:10px;">2022-04-01 ~ 2022-04-31</div>
-          <div class="lecture-time" style="margin-top:5px; margin-left:10px">오전 09:30 - 오전 11:00</div>
-         </div>
+         <div id="lecture-price"></div>
+
+          <div class="time-box" id="time-box" ></div>
+          
+         
        </div>
        <hr style="border: solid 1px gainsboro; width:100%;">
        <div style="margin-top:-10px;">
@@ -149,6 +148,18 @@
 <div id="footer"></div>
 
 </div> <!-- 모든 내용은 이 안에 때려박기 -->
+
+<script id="tr-template" type="text/x-handlebars-template">
+{{#each this}} 
+  <input class="lecture-timeContainer" type="radio" name="fruit" value="banana">
+     <span id="lecture-date" style="margin-top:10px; margin-left:10px;">{{startDate}} ~ {{endDate}}</span><br>
+     <span id="lecture-time" style="margin-top:5px; margin-left:10px">{{startTime}} ~ {{endTime}}</span>
+  </label>
+{{/each}}
+</script>
+
+<script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
+
 <script src="/node_modules/jquery/dist/jquery.min.js"></script>
 <script>
 $("#header").load("/form/user/header.html");

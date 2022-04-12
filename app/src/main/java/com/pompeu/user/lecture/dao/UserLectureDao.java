@@ -28,4 +28,6 @@ public interface UserLectureDao {
 
   List<Lecture> registLecture(int no);
 
+  List<Lecture> registTime(int no);
+
 }

@@ -27,6 +27,8 @@ public interface AdminMainDao {
 
   Object undoStatusClaim();
 
+  Object memberSummary(int month);
+
   //  List<Integer> memberStatus();
 
   //  List<Integer> findCount();

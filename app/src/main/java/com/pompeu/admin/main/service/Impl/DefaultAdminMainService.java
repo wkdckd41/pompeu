@@ -59,6 +59,11 @@ public class DefaultAdminMainService implements AdminMainService{
     return adminMainDao.undoStatusClaim();
   }
 
+  @Override
+  public Object memberSummary(int month) {
+    return adminMainDao.memberSummary(month);
+  }
+
   //  @Override
   //  public List<Integer> memberList() {
   //    return memberDao.findCount();
