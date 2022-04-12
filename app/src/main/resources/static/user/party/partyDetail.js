@@ -18,15 +18,15 @@
     throw "파라미터 오류!";
   }
   console.log(no);
-
-  var xCrew = document.querySelector("#x-crew");
+  
   var xAddress = document.querySelector("#x-address");
-  var xPartyContent = document.querSelector("#x-party-content");
   var xTitle = document.querySelector("#x-title");
-  var xTag = document.querySelector("#x-tag");
-  var xHost = document.querySelector("#x-Host");
+  var xPartyContent = document.querySelector("#x-partyContent");
   var xStartDate = document.querySelector("#x-startDate");
   var xEndDate = document.querySelector("#x-endDate");
+  var xCrew = document.querySelector("#x-crew");
+  var xTag = document.querySelector("#x-tag");
+  var xHost = document.querySelector("#x-host");
   
 
   fetch(`/userparty/get?no=${no}`)
@@ -36,7 +36,14 @@
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-
-      }
+      
+      xAddress.innerHTML = result[0].locationNo;
+      xTitle.innerHTML = result[0].title;
+      xPartyContent.innerHTML = result[0].content;
+      xStartDate.innerHTML = result[0].startDate;
+      xEndDate.innerHTML = result[0].endDate;
+      xCrew.innerHTML = result[0].maxMember;
+      xTag.innerHTML = result[0].tag;
+      xHost.innerHTML = result[0].name;
     })
 

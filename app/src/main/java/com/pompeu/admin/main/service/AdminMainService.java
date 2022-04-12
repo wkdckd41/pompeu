@@ -23,6 +23,8 @@ public interface AdminMainService {
 
   Object undoStatusClaim();
 
+  Object memberSummary(int month);
+
   //  List<Integer> memberList();
   //
   //  List<Member> srchMember(Member member);

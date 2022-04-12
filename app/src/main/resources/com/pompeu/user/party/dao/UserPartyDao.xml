@@ -143,13 +143,12 @@
 	  <select id="findByNo" resultType="PartyIntro" parameterType="int">
 	  /*findByNo*/
          select 
-              p.party_no,
-              p.location_no,
+              p.location_no           as locationNo,
               p.name                  as title,
-              p.content,
-              p.start_date,
-              p.end_date,
-              p.max_member,
+              p.content               as content,
+              p.start_date            as startDate,
+              p.end_date              as endDate,
+              p.max_member            as maxMember,
               tn.tag                  as tag,
               m.name                  as name
         from 

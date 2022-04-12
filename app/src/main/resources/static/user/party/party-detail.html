@@ -5,17 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
 <title>POMPEU!</title>
-  <link href="/user/css/common.css" rel="stylesheet" >
   <link href="/user/css/user.css" rel="stylesheet">
   <link href="/css/user_common.css" rel="stylesheet">
   <link href="/user/css/font-awesome.min.css" rel="stylesheet">
   <link href="/user/css/font/fontawesome.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
 
-
- 
   <style>
   table, th, td {
     border: 1px solid black;
@@ -25,10 +22,11 @@
     background-color: rgb(249,252,251);
   }  
   </style>
-  
 
 </head>
+
 <body>
+
 <div class="container">
   <div id="wrapper">
 
@@ -44,9 +42,8 @@
             <div class="party-crew" id="x-crew">
             <div class="crew" ><i class="fa-solid fa-face-smile" id="crew"></i></div>
             </div>
-              <div style="display:flex; margin-left:40px">
-              <div class="region-si" id="x-address"></div>
-              <div class="region-gu">강남구</div>
+              <div style="display:flex; margin-left:300px;">
+              <div class="x-address" id="x-address"></div>
             </div>
             <hr style="border: solid 1px gainsboro; width:32%; margin-right:10px; margin-top:10px"><br>
           </div>
@@ -60,7 +57,7 @@
                      <div class="x-img-box"><img src="img/running.jfif"></div><br>
                   </div>
                   <div class="party-content">
-                    <div id="x-party-content"></div>
+                    <div id="x-partyContent"></div>
                   </div>
                </div>
               <hr style="border: solid 1px gainsboro; width:95%;" >
@@ -68,7 +65,7 @@
                   <h5>
                     소모임 장소
                   </h5>
-                    <span id="x-address"></span>
+                    <div class="x-address" id="x-address"></div>
                     <div id="x-map1"></div>
                 </div>
             </form>
@@ -123,8 +120,7 @@ $("#header").load("/form/user/header.html");
 $("#footer").load("/form/user/footer.html");
 </script>
 
-</body>
-<script src="/partyDetail.js"></script>
+<script src="partyDetail.js"></script>
 
 <!-- kakao map -->
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=5cc033f1a37edba42dbd976e9ec397b4"></script>
@@ -136,6 +132,5 @@ $("#footer").load("/form/user/footer.html");
   };
   var map = new kakao.maps.Map(container, options);
 </script>
-
 
 </html>

@@ -5,7 +5,6 @@ import lombok.Data;
 
 @Data
 public class PartyIntro {
-  private int partyNo;
   private int locationNo;
   private String title;
   private String content;

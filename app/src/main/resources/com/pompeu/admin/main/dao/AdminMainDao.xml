@@ -159,7 +159,7 @@
   <select id="memberStatus" resultType="hashmap">
     select count(*)                                                                             as ammTotal
           ,count(case when member_type_no = 2 then 1 else null end )                            as ammCreator
-          ,count(case when (join_date >= date_sub(now(), interval 1 month)) then 1 else null end ) as ammRookie
+          ,count(case when (month(now()) = month(join_date)) then 1 else null end ) as ammRookie
           from member
   </select>
 
@@ -174,10 +174,62 @@
     select count(case when status = 3 then 1 else null end )                                    as amuApply
           from lecture 
   </select>
+
   <select id="undoStatusClaim" resultType="hashmap">
     select count(case when status = 1 then 1 else null end )                                   as amuClaim
           from party_claim
   </select>
+
+  <select id="memberSummary" parameterType="int" resultType="hashmap">
+    select count(*)                                                                             as MonTotal
+          ,count(case when member_type_no = 2 then 1 else null end )                            as MonCreator
+          ,count(case when (year(now()) = year(join_date)) and (#{month} = month(join_date)) then 1 else null end ) as MonRookie
+          from member
+					where (year(now()) > year(join_date)) or (#{month} >= month(join_date))
+  </select>
+<!-- 
+  <select id="memberSummary" resultType="hashmap">
+    select count(case when (year(now()) > year(join_date)) or (2 > month(join_date)) then 1 else null end)  as janTotal
+          ,count(case when (year(now()) > year(join_date)) or (2 > month(join_date)) and member_type_no = 2 then 1 else null end ) as janCreator
+          ,count(case when (year(now()) = year(join_date)) and (1 = month(join_date)) then 1 else null end ) as janRookie
+          ,count(case when (year(now()) > year(join_date)) or (3 > month(join_date)) then 1 else null end)                            as febTotal
+          ,count(case when (year(now()) > year(join_date)) or (3 > month(join_date)) and member_type_no = 2 then 1 else null end )   as febCreator
+          ,count(case when (year(now()) = year(join_date)) and (2 = month(join_date)) then 1 else null end )                          as febRookie
+          ,count(case when (year(now()) > year(join_date)) or (4 > month(join_date)) then 1 else null end)                            as marTotal
+          ,count(case when (year(now()) > year(join_date)) or (4 > month(join_date)) and member_type_no = 2 then 1 else null end )   as marCreator
+          ,count(case when (year(now()) = year(join_date)) and (3 = month(join_date)) then 1 else null end )                          as marRookie
+          ,count(case when (year(now()) > year(join_date)) or (5 > month(join_date)) then 1 else null end)                            as aprTotal
+          ,count(case when (year(now()) > year(join_date)) or (5 > month(join_date)) and member_type_no = 2 then 1 else null end )   as aprCreator
+          ,count(case when (year(now()) = year(join_date)) and (4 = month(join_date)) then 1 else null end )                          as aprRookie
+          ,count(case when (year(now()) > year(join_date)) or (6 > month(join_date)) then 1 else null end)                            as mayTotal
+          ,count(case when (year(now()) > year(join_date)) or (6 > month(join_date)) and member_type_no = 2 then 1 else null end )   as mayCreator
+          ,count(case when (year(now()) = year(join_date)) and (5 = month(join_date)) then 1 else null end )                          as mayRookie
+          ,count(case when (year(now()) > year(join_date)) or (7 > month(join_date)) then 1 else null end)                            as junTotal
+          ,count(case when (year(now()) > year(join_date)) or (7 > month(join_date)) and member_type_no = 2 then 1 else null end )   as junCreator
+          ,count(case when (year(now()) = year(join_date)) and (6 = month(join_date)) then 1 else null end )                          as junRookie
+          ,count(case when (year(now()) > year(join_date)) or (8 > month(join_date)) then 1 else null end)                            as julTotal
+          ,count(case when (year(now()) > year(join_date)) or (8 > month(join_date)) and member_type_no = 2 then 1 else null end )   as julCreator
+          ,count(case when (year(now()) = year(join_date)) and (7 = month(join_date)) then 1 else null end )                          as julRookie
+          ,count(case when (year(now()) > year(join_date)) or (9 > month(join_date)) then 1 else null end)                            as augTotal
+          ,count(case when (year(now()) > year(join_date)) or (9 > month(join_date)) and member_type_no = 2 then 1 else null end )   as augCreator
+          ,count(case when (year(now()) = year(join_date)) and (8 = month(join_date)) then 1 else null end )                          as augRookie
+          ,count(case when (year(now()) > year(join_date)) or (10 > month(join_date)) then 1 else null end)                            as sepTotal
+          ,count(case when (year(now()) > year(join_date)) or (10 > month(join_date)) and member_type_no = 2 then 1 else null end )   as sepCreator
+          ,count(case when (year(now()) = year(join_date)) and (9 = month(join_date)) then 1 else null end )                          as sepRookie
+          ,count(case when (year(now()) > year(join_date)) or (11 > month(join_date)) then 1 else null end)                            as octTotal
+          ,count(case when (year(now()) > year(join_date)) or (11 > month(join_date)) and member_type_no = 2 then 1 else null end )   as octCreator
+          ,count(case when (year(now()) = year(join_date)) and (10 = month(join_date)) then 1 else null end )                          as octRookie
+          ,count(case when (year(now()) > year(join_date)) or (12 > month(join_date)) then 1 else null end)                            as novTotal
+          ,count(case when (year(now()) > year(join_date)) or (12 > month(join_date)) and member_type_no = 2 then 1 else null end )   as novCreator
+          ,count(case when (year(now()) = year(join_date)) and (11 = month(join_date)) then 1 else null end )                          as novRookie
+          ,count(case when (year(now()) > year(join_date)) or (13 > month(join_date)) then 1 else null end)                            as decTotal
+          ,count(case when (year(now()) > year(join_date)) or (13 > month(join_date)) and member_type_no = 2 then 1 else null end )   as decCreator
+          ,count(case when (year(now()) = year(join_date)) and (12 = month(join_date)) then 1 else null end )                          as decRookie
+          from member
+					
+  </select>
+-->
+
 <!-- 
   <select id="findCount" resultType="hashmap">
     select count(*)                                                    as total
