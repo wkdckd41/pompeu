@@ -161,7 +161,7 @@
     join mylecture_list as ml
           on ml.lecture_time_no = lt.lecture_time_no 
     join mylecture_ask as ma
-          on ma.lecture_no = le.lecture_no     
+          on ma.lecture_no = le.lecture_no
     where 
       le.lecture_no=#{no}
   </select>

@@ -74,17 +74,17 @@
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">환불 정책</h4>
-                <table style="margin-right:20px; width:94%;">
+                <table border="1" bordercolor="black" style="margin-right:20px; width:94%;">
                 <tr>
                   <th style="text-align: center; font-weight: bold; background-color: #ECEBEB">클래스 수강전</th>
                   <th style="text-align: center; font-weight: bold; background-color: #ECEBEB">클래스 수강후</th>                  
                 </tr>
                 <tr>
-                  <th>수강 7일전 수강신청 취소에 대하여 전액환불</th>
-                  <th>미이용분 환불진행<br> 미이용분 = 정상가*(미수강한 강의수/전체강의수))</th>                  
+                  <th style="padding: 10px 10px">수강 7일전 수강신청 취소에 대하여 전액환불</th>
+                  <th style="padding: 10px 10px">미이용분 환불진행<br> 미이용분 = 정상가*(미수강한 강의수/전체강의수))</th>                  
                 </tr>
                 <tr>
-                  <th>수강 3일전 수강신청 취소에 대하여 70%환불</th>
+                  <th style="padding: 10px 10px">수강 3일전 수강신청 취소에 대하여 70%환불</th>
                   <th></th>                  
                 </tr>
                 </table>
@@ -151,9 +151,9 @@
 
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}} 
-  <input class="lecture-timeContainer" type="radio" name="fruit" value="banana">
-     <span id="lecture-date" style="margin-top:10px; margin-left:10px;">{{startDate}} ~ {{endDate}}</span><br>
-     <span id="lecture-time" style="margin-top:5px; margin-left:10px">{{startTime}} ~ {{endTime}}</span>
+  <label class="lecture-timeContainer">
+    <input type="radio" name="fruit" value="apple" id="btn-everything">
+    <span>{{startDate}} ~ {{endDate}}<br>{{startTime}} ~ {{endTime}}</span>
   </label>
 {{/each}}
 </script>
