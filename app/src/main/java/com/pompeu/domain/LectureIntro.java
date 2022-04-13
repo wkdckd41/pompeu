@@ -10,4 +10,5 @@ public class LectureIntro {
   private String content;
   private String askContent;
   private Date registerDate;
+  private String image;
 }
