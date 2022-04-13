@@ -169,6 +169,7 @@
       le.lecture_no=#{no}
   </select>
   
+  
   <select id="registLecture" resultType="HashMap">
     select  
           ex.name                    as exName,
