@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.pompeu.domain.LectureLike;
 import com.pompeu.domain.Member;
 import com.pompeu.user.main.dao.UserMainDao;
 import com.pompeu.user.main.service.UserMainService;
@@ -43,6 +44,11 @@ public class DefaultUserMainService implements UserMainService{
   @Override
   public List<Map<Object, Object>> findTopLecture() {
     return userMainDao.findTopLecture();
+  }
+
+  @Override
+  public int didICount(LectureLike lectureLike) {
+    return userMainDao.didICount(lectureLike);
   }
 
   //  @Override

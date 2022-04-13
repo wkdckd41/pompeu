@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.pompeu.domain.LectureLike;
 import com.pompeu.domain.Member;
 import com.pompeu.user.main.service.UserMainService;
 
@@ -49,10 +50,22 @@ public class UserMainController {
     return userMainService.delete(no);
   }
 
+  //  @RequestMapping("/userMain/topLecture")
+  //  public Object[] findTopLecture(LectureLike lectureLike) {
+  //    return new Object[] {userMainService.findTopLecture(), userMainService.didICount(lectureLike)};
+  //  }
+
+
   @RequestMapping("/userMain/topLecture")
   public Object findTopLecture() {
     return userMainService.findTopLecture();
   }
+
+  @RequestMapping("/userMain/didICount")
+  public Object didICount(LectureLike lectureLike) {
+    return userMainService.didICount(lectureLike);
+  }
+
 
   @RequestMapping("/userMain/image")
   public ResponseEntity<Resource> image(String filename) {

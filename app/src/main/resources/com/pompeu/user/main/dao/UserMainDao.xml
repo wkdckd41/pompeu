@@ -60,6 +60,11 @@
     <result column="image" property="image"/>
   </resultMap> 
 
+  <resultMap type="lectureLike" id="lectureLikeMap">
+    <id column="users_no" property="usersNo"/>
+    <id column="lecture_no" property="lectureNo"/>
+  </resultMap> 
+
 <!--
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
@@ -182,6 +187,12 @@
     group by l.lecture_no
     order by likey desc
   </select>
+
+  <select id="didICount" parameterType="lectureLike" resultType="int">
+    select count(case when users_no = #{usersNo} and lecture_no=#{lectureNo} then 1 else null end )
+          from lecture_like
+  </select>
+
 
 <!--
   <select id="memberStatus" resultType="hashmap">
