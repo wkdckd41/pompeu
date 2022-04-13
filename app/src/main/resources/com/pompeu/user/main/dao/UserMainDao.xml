@@ -175,7 +175,7 @@
     left outer join exercise as ex 
           on l.ex_no = ex.ex_no
     join lecture_like as ll 
-          on l.lecture_no = ll.lecture_no
+          on l.lecture_no = ll.lecture_noimage
 		left outer join lecture_image as li
 					on l.lecture_no = li.lecture_no
     where l.status = 2 

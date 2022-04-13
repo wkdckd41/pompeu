@@ -87,7 +87,7 @@
     <id column="lecture_image_no" property="lectureImageNo"/>
     <result column="lecture_no" property="lectureNo"/>
     <result column="image" property="image"/>
-  </resultMap>  
+  </resultMap>
  
   <select id="countAll" resultType="int">
     select count(*) from lecture
@@ -151,7 +151,8 @@
           cr.info                                               as info,
           ml.content                                            as content,
           ma.ask_content                                        as askContent,
-          ma.register_date                                      as registerDate
+          ma.register_date                                      as registerDate,
+          li.image                                              as image
     from 
           lecture as le
     join creator as cr 
@@ -162,6 +163,8 @@
           on ml.lecture_time_no = lt.lecture_time_no 
     join mylecture_ask as ma
           on ma.lecture_no = le.lecture_no
+    join lecture_image as li
+          on li.lecture_no = le.lecture_no
     where 
       le.lecture_no=#{no}
   </select>
