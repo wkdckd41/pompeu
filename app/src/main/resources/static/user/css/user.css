@@ -465,7 +465,7 @@ border: 1px solid black;
   height: 40px;
   border-radius: 5px;
   color : white;
-  background-color: #018383;
+  background-color: #04CF5C;
   text-align:center;
   margin-left:105px;
   margin-top:20px;
@@ -544,7 +544,7 @@ border: 1px solid black;
   height: 30px;
   border-radius: 5px;
   color : white;
-  background-color: #A0A0A0;
+  background-color: #04CF5C;
   text-align:center;
   float:right;
   margin-right:55px;
@@ -583,7 +583,7 @@ border: 1px solid black;
     padding: 15px 10px;
     line-height:30px;
     font-size:17px;
-    border: 1px solid #dfdfdf;
+    border: 2px solid #202020;
     border-radius:7px;
     background-color: #ffffff;
     text-align: center;
@@ -596,7 +596,7 @@ border: 1px solid black;
     color: #ffffff;
 }
 
-.lecture-ask {
+#lecture-ask {
 	border: 1px solid black;
 	width:380px;
   min-height:150px;
@@ -616,4 +616,14 @@ border: 1px solid black;
 	margin-bottom: 13px;
 	padding: 10px 10px;
 	border-radius:5px;
+}
+
+.user-cont {
+	border:2px solid black;
+	border-radius: 5px;
+	margin:20px 5px;
+	width:370px;
+	min-height:30px;
+	padding:7px 10px;
+	line-height: 20px;
 }

@@ -5,6 +5,7 @@ import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.user.lecture.service.UserLectureService;
 
@@ -73,6 +74,11 @@ public class UserLectureController {
   @RequestMapping("/userLecture/registTime")
   public Object registTime(int no) {
     return userLectureService.time(no);
+  }
+
+  @RequestMapping("/userLecture/addAsk")
+  public Object addAsk(Ask ask) {
+    return userLectureService.addAsk(ask);
   }
 
 }
