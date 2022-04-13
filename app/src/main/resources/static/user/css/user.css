@@ -398,11 +398,28 @@ border: 1px solid black;
   font-size:23px;
   font-weight:bold;
   margin-top:-30px;
+  
+}
+#lecture-name2 {
+  font-size:17px;
+  font-weight:bold;
+  margin-top:5px;
+  margin-bottom:5px;
+}
+
+#exercise2 {
+	background-color:#04CF5C;
+	border-radius:5px;
 }
 
 #lecture-price {
   margin-top:-30px;
   font-size:21px;
+}
+
+#lecture-price2 {
+  margin-top:-30px;
+  font-size:14px;
 }
 
 #crew {
@@ -561,11 +578,14 @@ border: 1px solid black;
 .lecture-timeContainer input[type="radio"] + span {
     display: inline-block;
     padding: 15px 10px;
+    line-height:30px;
+    font-size:17px;
     border: 1px solid #dfdfdf;
-    border-radius:5px;
+    border-radius:7px;
     background-color: #ffffff;
     text-align: center;
     cursor: pointer;
+    width: 280px;
 }
 
 .lecture-timeContainer input[type="radio"]:checked + span {
@@ -582,10 +602,7 @@ border: 1px solid black;
 
 .lecture-timeContainer {
 	font-size:50;
-	border: 1px solid black;
   width:280px;
-  min-height:70px;
-  margin-top:20px;
   border-radius:5px;
 }
 
