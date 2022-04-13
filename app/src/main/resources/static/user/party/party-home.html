@@ -84,25 +84,20 @@
 </label>
 </div>
 
-
   <div class="dropdown">
-   <select class="input-tag" id="input-tag" name="crew-tag" >
-                  <option selected value="x-all" >전체</option>
-                  <option value="four" >4인이하</option>
-                  <option value="five">5인이상</option>
-  </select>
-  <select class="input-tag" id="input-tag" name="input-tag" >
-                <option selected value="recency">최신순</option>
-                <option value="old" >오래된순</option>
-                <option value="end-date" >마감임박순</option>
-  </select>
+      <select class="btn btn-default dropdown-toggle" id="input-tag" name="input-tag" style="margin:0px 130px 8px 0px;" >
+                    <option selected value="recency">최신순</option>
+                    <option value="old" >오래된순</option>
+                    <option value="end-date" >마감임박순</option>
+      </select>
   </div>
-
-<hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0; margin-bottom:1px;" />
+  
+<hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0; margin-bottom: 10px;" />
 
   <button type="button" id="party-create" onclick="moveRegist();">새 모임 등록</button>
 
   <div class="party-index" id="party-index"></div> <!--#party-index -->
+  
 <div id="footer"></div>
 
 </div>  <!-- #container -->
@@ -111,11 +106,11 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}}
     <div class="party-box" onclick="moveView({{no}});">
+      <div class="tag" id="x-tag">{{tag}}</div>
       <div id="x-title" style="font-weight:bold; font-size:15px;">{{name}}</div>
       <hr  style="height:1px; border:none; color:#C0C0C0; background-color:#C0C0C0; margin-top:3px; margin-bottom:7px;" />
-      <div class="x-tag" id="x-tag">{{tag}}</div>
       <div id="x-crew"></div>
-      <div id="x-location">{{location_no}}</div>
+      <div class="x-location" id="x-location">{{location_no}}</div>
       <div class="x-date" id="x-date"><span>모집마감 : </span>{{end_date}}</div>
     </div>
 {{/each}}
@@ -133,6 +128,5 @@ $("#footer").load("/form/user/footer.html");
 <script src="partyHome.js"></script>
 
 </body>
-
 
 </html>

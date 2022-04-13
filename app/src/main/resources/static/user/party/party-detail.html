@@ -31,7 +31,6 @@
   <div id="wrapper">
 
   <div id="header"></div>
-  <hr style="border: solid 1px gainsboro; width:80%;">
   <div id="page-wrapper">
 
   <div class = "box-1">
@@ -49,10 +48,10 @@
           </div>
           <div class="medium-content" >
             <form name="form1">
-               <div class= "party-cover">
-                  <h5>
+               <div class= "party-cover" style="margin-left:30px; margin-top:10px;">
+                  <h4 style="font-weight: bold; margin-top:20px;">
                     소모임 소개
-                  </h5>
+                  </h4>
                   <div class="x-img" style="display:flex; margin-top:10px;">
                      <div class="x-img-box"><img src="img/running.jfif"></div><br>
                   </div>
@@ -61,10 +60,10 @@
                   </div>
                </div>
               <hr style="border: solid 1px gainsboro; width:95%;" >
-                <div class= "party-address" >
-                  <h5>
+                <div class= "party-address" style="margin-left:30px">
+                  <h4 style="font-weight: bold">
                     소모임 장소
-                  </h5>
+                  </h4>
                     <div class="x-address" id="x-address"></div>
                     <div id="x-map1"></div>
                 </div>
@@ -76,12 +75,12 @@
       <div class="box-right" >
           <div class="box-3">
             <div class ="box-title shadow" style="margin-top:10px">
-                  <div class ="party-text">
-                    <span id="x-title"></span><br>
-                    <hr style="border: solid 1px gainsboro; width:100%;">
                   <div class="tag-list" style="display:flex;">
                     <div class="tag" id="x-tag"></div>
                   </div>
+                  <div class ="party-text">
+                    <span id="x-title"></span><br>
+                    <hr style="border: solid 1px gainsboro; width:100%; margin-bottom: 2px;">
                     <span>모임장 : <span id="x-host"></span></span><br><br>
                     <span>모임일시 : <span id="x-startDate"></span></span><br><br>
                     <span>모집 종료일 : <span id="x-endDate"></span></span><br><br>
@@ -91,11 +90,8 @@
                     </div>
               <hr style="border: solid 1px gainsboro; width:100%;">
                   <div class="box-btn">
-                   <div style="margin-top:-15px;">
                      <button type="button" id="btn-zzim">찜하기 <i class="fa-solid fa-heart" id="heart"></i></button>
-                     <button type="button" id="btn-link">공유하기 <i class="fa-solid fa-share-nodes"></i></button>
-                   </div>
-                   <button type="button" id="btn-regist">소모임 참여</button>
+                     <button type="button" id="btn-regist">소모임 참여</button>
                    </div>
               </div>
             </div>
