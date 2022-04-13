@@ -197,5 +197,10 @@
           le.lecture_no=#{no}
   </select>
   
+  <insert id="insertAsk" parameterType="Ask">
+    insert into mylecture_ask(lecture_no,users_no,ask_content)
+    values(#{lectureNo},#{usersNo},#{content})
+  </insert>
+  
   
 </mapper>

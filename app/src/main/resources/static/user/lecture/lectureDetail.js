@@ -1,8 +1,10 @@
   // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
   var trTemplate = document.querySelector("#tr-template");
+  var trTemplate2 = document.querySelector("#tr-template2");
   
   //템플릿 엔진 준비
   var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
+  var htmlGenerator2 = Handlebars.compile(trTemplate2.innerHTML);
 
 
 // Can also be used with $(document).ready()
@@ -34,9 +36,11 @@ $(window).load(function() {
   }
   console.log(no);
 
+
    var lectureInfo = document.querySelector("#lecture-introduce");
    var info = document.querySelector("#teacher-introduce");
    var askContent = document.querySelector("#ask-content");
+   var userContent = document.querySelector("#user-content");
 
     fetch(`/userLecture/findLecture?no=${no}`)
     .then(function(response) {
@@ -52,8 +56,10 @@ $(window).load(function() {
        if (result[0].askContent != null) {
         askContent.innerHTML = `${result[0].askContent}`;
         }
+        
+        $("#user-con").html(htmlGenerator2(result));
      })
-     
+    
      
      
     var exercise = document.querySelector("#exercise");
@@ -76,9 +82,9 @@ $(window).load(function() {
      })
      
      
-    var lectureDate = document.querySelector("#lecture-date");
-    var lectureTime = document.querySelector("#lecture-time");
-    
+     var lectureDate = document.querySelector("#lecture-date");
+     var lectureTime = document.querySelector("#lecture-time");
+     
      fetch(`/userLecture/registTime?no=${no}`)
     .then(function(response) {
       return response.json();
@@ -89,3 +95,28 @@ $(window).load(function() {
       
       $("#time-box").html(htmlGenerator(result));
      })
+     
+     
+     
+     /*
+    var lectureAsk = document.querySelector("#lecture-ask");
+    
+    document.querySelector("#btn-ask").onclick = function() {
+    if (lectureAsk.value == "") {
+      window.alert("필수 입력 항목이 비어 있습니다.");
+      return;
+    }
+        fetch("/userLecture/addAsk", {
+        method: "POST",
+        body: new URLSearchParams(fd)
+      }).then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        console.log(result);
+        */
+        
+        
+        
+        
+  

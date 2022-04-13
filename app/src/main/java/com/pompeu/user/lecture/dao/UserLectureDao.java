@@ -2,6 +2,7 @@ package com.pompeu.user.lecture.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
 
@@ -29,5 +30,7 @@ public interface UserLectureDao {
   List<Lecture> registLecture(int no);
 
   List<Lecture> registTime(int no);
+
+  int insertAsk(Ask ask);
 
 }

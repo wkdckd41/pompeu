@@ -85,7 +85,7 @@
                 </tr>
                 <tr>
                   <th style="padding: 10px 10px">수강 3일전 수강신청 취소에 대하여 70%환불</th>
-                  <th></th>                  
+                  <th></th>
                 </tr>
                 </table>
               </div>
@@ -95,8 +95,7 @@
                 <div>image</div>
                 <div>아이러브볼링</div>
                 <div style="display: flex;">
-                  <img src="/user/lecture/img/bowlingteam.jpg" style="width:120px; height: 120px" >
-                  <div style="margin:20px 15px; line-height: 25px;">볼링이 너무 재밌는데 사람들도 좋았고 다음에 또 볼링하러 클래스 참여하고 싶은 마음이 있습니다. 여러분들도 많이 이 클래스 애용해보세요.</div>
+                  <div class="user-con" id="user-con"></div>
                 </div>
               </div>
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
@@ -105,7 +104,7 @@
                 <button type="button" id="btn-ask">문의하기</button>
                 <div>image</div>
                 <div>아이러브볼링</div>
-                <textarea class="lecture-ask"></textarea>
+                <textarea id="lecture-ask"></textarea>
                 <div id="ask-content"></div>
               </div>
           </div>
@@ -141,13 +140,13 @@
      </div>
    </div>
   </div> 
-  
   </div>
  </div>
  
 <div id="footer"></div>
 
 </div> <!-- 모든 내용은 이 안에 때려박기 -->
+
 
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}} 
@@ -157,6 +156,14 @@
   </label>
 {{/each}}
 </script>
+
+<script id="tr-template2" type="text/x-handlebars-template">
+{{#each this}} 
+  <div class="user-cont">{{content}}</div>
+{{/each}}
+</script>
+
+
 
 <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
 
