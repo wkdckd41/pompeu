@@ -8,7 +8,7 @@ public class Party {
 
   int partyNo;
   int locationNo;
-  String name;
+  String title;
   String content;
   Date registerDate;
   Date startDate;
@@ -20,6 +20,6 @@ public class Party {
   PartyClaim partyClaim;
   Member member;
   String searchType;
-
+  String dateType;
 
 }

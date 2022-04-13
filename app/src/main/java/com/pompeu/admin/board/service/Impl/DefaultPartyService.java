@@ -38,10 +38,5 @@ public class DefaultPartyService implements PartyService{
     return partyDao.delete(no);
   }
 
-  @Override
-  public List<Party> srchParty(Party party) {
-    return partyDao.srchParty(party);
-  }
-
 
 }

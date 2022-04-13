@@ -41,8 +41,8 @@
             <div class="party-crew" id="x-crew">
             <div class="crew" ><i class="fa-solid fa-face-smile" id="crew"></i></div>
             </div>
-              <div style="display:flex; margin-left:300px;">
-              <div class="x-address" id="x-address"></div>
+              <div style="display:flex; margin-left:310px; width:50%; hight:20%;">
+              <div class="x-address x-location" id="x-address1" style="width:50%; hight:20%; margin-bottom:0px;"></div>
             </div>
             <hr style="border: solid 1px gainsboro; width:32%; margin-right:10px; margin-top:10px"><br>
           </div>
@@ -60,12 +60,12 @@
                   </div>
                </div>
               <hr style="border: solid 1px gainsboro; width:95%;" >
-                <div class= "party-address" style="margin-left:30px">
+                <div class= "party-address" style="margin-left:30px; margin-top:10px;">
                   <h4 style="font-weight: bold">
                     소모임 장소
                   </h4>
-                    <div class="x-address" id="x-address"></div>
-                    <div id="x-map1"></div>
+                    <div class="x-address" id="x-address2"></div>
+                    <div id="x-map1" ></div>
                 </div>
             </form>
           </div>
@@ -80,18 +80,18 @@
                   </div>
                   <div class ="party-text">
                     <span id="x-title"></span><br>
-                    <hr style="border: solid 1px gainsboro; width:100%; margin-bottom: 2px;">
+                    <hr style="border: solid 1px gainsboro; width:100%; margin-top: 10px; margin-bottom:2px;">
+                    <div align="right">
+                    <button type="button" id="btn-claim" style="margin-top: 2px;">신고</button>
+                    </div>
                     <span>모임장 : <span id="x-host"></span></span><br><br>
                     <span>모임일시 : <span id="x-startDate"></span></span><br><br>
                     <span>모집 종료일 : <span id="x-endDate"></span></span><br><br>
                   </div>
-                    <div align="right">
-                    <button type="button" id="btn-claim">신고</button>
-                    </div>
               <hr style="border: solid 1px gainsboro; width:100%;">
                   <div class="box-btn">
-                     <button type="button" id="btn-zzim">찜하기 <i class="fa-solid fa-heart" id="heart"></i></button>
-                     <button type="button" id="btn-regist">소모임 참여</button>
+                     <button type="button" id="x-btn-zzim">찜하기 <i class="fa-solid fa-heart" id="heart"></i></button>
+                     <button type="button" id="x-btn-regist">소모임 참여</button>
                    </div>
               </div>
             </div>
@@ -129,4 +129,5 @@ $("#footer").load("/form/user/footer.html");
   var map = new kakao.maps.Map(container, options);
 </script>
 
+</body>
 </html>

@@ -16,6 +16,7 @@
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
+    <result column="dateType" property="dateType"/>
   </resultMap>
 
   <resultMap type="location" id="locationMap">
@@ -94,25 +95,27 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
-    <!-- 게시판 목록 총 갯수 -->
+    <!-- 소모임 목록 총 갯수 -->
 	  <select id="countAll" resultType="int">
 	  /*countAll*/
 	    select count(*) from party
 	  </select>
 	  
-    <!-- 게시판 목록 -->
+    <!-- 소모임 목록 -->
 	  <select id="findAll" resultType="HashMap">
 	  /*findAll*/
-        select 
+       select 
               p.party_no                            as no,
-              p.name                                as name,
+              p.name                                as title,
               tn.tag                                as tag,
               p.max_member                          as max_member,
-              p.location_no                         as location_no,
+              lo.doo                                as doo,
               p.end_date                            as end_date,
               p.in_out_ex                           as in_out_ex
         from 
              party as p
+       join location as lo
+            on p.location_no = lo.location_no    
         join tag_management as tm
              on p.party_no = tm.party_no
         join tag_name as tn
@@ -128,44 +131,56 @@
                 </if>
             </if>
        order by
-          p.party_no desc
-           
+            <if test="dateType !=null or dateType !=''">
+                <if test="dateType == 'old'">
+               and  p.party_no asc
+                </if>
+                <if test="dateType == 'end'">
+                and p.end_date asc
+                </if>
+                p.party_no desc
+             </if>
 	  </select>
   
-    <!-- 게시판 등록 -->
+    <!-- 소모임 등록 -->
 	  <insert id="insert" parameterType="party">
 	  /*insert*/
-	    insert into party(location_no,name,content,start_date,end_date,max_member,in_out_ex,register_date) 
-	    values(#{locationNo},#{name},#{content},#{startDate},#{endDate},#{maxMember},#{inOutEx},#{registerDate})
+	    insert into party(name,content,start_date,end_date) 
+	    values(#{title},#{content},#{startDate},#{endDate})
 	  </insert>
   
-    <!-- 게시판 상세 -->
+      
+    <!-- 소모임 상세 -->
 	  <select id="findByNo" resultType="PartyIntro" parameterType="int">
 	  /*findByNo*/
-         select 
-              p.location_no           as locationNo,
-              p.name                  as title,
-              p.content               as content,
-              p.start_date            as startDate,
-              p.end_date              as endDate,
-              p.max_member            as maxMember,
-              tn.tag                  as tag,
-              m.name                  as name
-        from 
-              party as p
-        join tag_management as tm
-              on p.party_no = tm.party_no
-        join tag_name as tn
-             on tm.tag_no = tn.tag_no
-        join party_user as u
-             on p.party_no = u.party_no
-        join member as m 
-             on m.member_no  = u.users_no 
-        where 
-             p.party_no=#{no}
+        select 
+                  lo.doo                  as doo,
+                  p.name                  as title,
+                  p.content               as content,
+                  p.start_date            as startDate,
+                  p.end_date              as endDate,
+                  p.max_member            as maxMember,
+                  tn.tag                  as tag,
+                  m.name                  as name
+            from 
+                  party as p
+            join location as lo
+                 on p.location_no = lo.location_no 
+            join tag_management as tm
+                  on p.party_no = tm.party_no
+            join tag_name as tn
+                  on tm.tag_no = tn.tag_no
+            join party_user as u
+                  on p.party_no = u.party_no
+                 and 
+                  u.party_maker = '1'
+            join member as m 
+                 on m.member_no  = u.users_no 
+	        where 
+                p.party_no=#{no}
 	  </select>
 
-    <!-- 게시판 수정 -->
+    <!-- 소모임 수정 -->
 	  <update id="update" parameterType="party">
 	  /*update*/
 	    update party set 
@@ -180,7 +195,7 @@
 	      party_no=#{no}
 	  </update>
 
-    <!-- 게시판 삭제 -->
+    <!-- 소모임 삭제 -->
 	  <delete id="delete" parameterType="int">
 	   /*delete*/
 	   delete from party 

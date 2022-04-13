@@ -19,7 +19,8 @@
   }
   console.log(no);
   
-  var xAddress = document.querySelector("#x-address");
+  var xAddress1 = document.querySelector("#x-address1");
+  var xAddress2 = document.querySelector("#x-address2");
   var xTitle = document.querySelector("#x-title");
   var xPartyContent = document.querySelector("#x-partyContent");
   var xStartDate = document.querySelector("#x-startDate");
@@ -27,6 +28,7 @@
   var xCrew = document.querySelector("#x-crew");
   var xTag = document.querySelector("#x-tag");
   var xHost = document.querySelector("#x-host");
+  
   
 
   fetch(`/userparty/get?no=${no}`)
@@ -37,7 +39,8 @@
       console.log("AAA");
       console.log(result);
       
-      xAddress.innerHTML = result[0].locationNo;
+      xAddress1.innerHTML = result[0].doo;
+      xAddress2.innerHTML = result[0].doo;
       xTitle.innerHTML = result[0].title;
       xPartyContent.innerHTML = result[0].content;
       xStartDate.innerHTML = result[0].startDate;

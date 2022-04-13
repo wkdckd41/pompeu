@@ -8,7 +8,6 @@
     
     <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     
-    <link href="/user/css/common.css" rel="stylesheet" >
     <link href="/css/user_common.css" rel="stylesheet">
     <link href="/user/css/user.css" rel="stylesheet">
     <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
@@ -41,29 +40,52 @@
              <div class= "form-group row" id="party-title">
               <div class="col-sm-10 col-xs-12">
               <hr>
-              <input type="text" class="form-control" id="title" name="title" placeholder="제목을 입력해주세요"><br>
+              <input class="form-control" id="x-title" name="title" type="text" placeholder="제목을 입력해주세요"><br>
               <hr>
-              <select class="form-control" id="input-tag" style="width: 300px;">
-                  <option selected >운동선택</option>
+              <div id="x-ex-div-container">
+              <div class=" x-ex-div" style="width: 300px;">
+              <select class="form-control">
+                  <option selected >운동 종류</option>
+                  <option value="1" >실내운동</option>
+                  <option value="2" >실외운동</option>
               </select><br>
-              <select class="form-control" style="width: 300px;">
+              </div>
+              </div>
+              <div id="x-input-tag-container">
+              <div class=" x-input-tag" style="width: 300px;">
+              <select class="form-control">
+                  <option selected >운동 선택</option>
+              </select><br>
+              </div>
+              </div>
+              <div id="x-crew-container">
+              <div class=" x-crew" style="width: 300px;">
+               <select class="form-control">
                   <option selected >모집인원</option>
+                  <option value="1" >1</option>
+                  <option value="2" >2</option>
+                  <option value="3" >3</option>
+                  <option value="4" >4</option>
+                  <option value="5" >5</option>
+                  <option value="6" >6</option>
               </select><br>
-              모임 일시 : <input class="form-control" name="readDate" type="date" style="width: 300px;"><br>
-              모집 종료 일시 : <input class="form-control" name="readDate" type="date" style="width: 300px; "><br>
-              모집 장소 : <input class="form-control" style="width: 300px;"><br>
+              </div>
+              </div>
+              모임 일시 : <input class="form-control" id="x-start-date" name="startDate" type="date" style="width: 300px;"><br>
+              모집 종료 일시 : <input class="form-control" id="x-end-date" name="endDate" type="date" style="width: 300px; "><br>
+              모집 장소 : <input class="form-control" id="x-location" name="location" type="text" style="width: 300px;"><br>
              <hr style="border: solid 1px gainsboro; width:100%; margin-left:0px;">
                </div>
             </div>
             <div class= "form-group row" id="party-content">
               <div class="col-sm-10 col-xs-12">
-              <textarea rows="20" class="form-control" id="content" name="content" placeholder="내용을 입력해주세요"></textarea>
+              <textarea rows="20" class="form-control" id="x-content" name="content" placeholder="내용을 입력해주세요"></textarea>
               </div>
             </div>
   
             <div class="form-group row" id="party-fifle">
                 <div class="col-sm-10 col-xs-12">
-                    <input class="form-control" id="bfile" name="bfile" type="file"/>
+                    <input class="form-control" id="bfile" name="file" type="file"/>
                 </div>
             </div>
             
@@ -71,7 +93,7 @@
               <div class="col-lg-12 col-sm-10 text-lg-end text-center">
                   <div class="col-lg-11 col-sm-18 " style="margin-right:120px;">
                       <button type="button" class="btn btn-primary" id="x-add-btn" name="addBtn">등록</button>
-                      <button type="button" class="btn btn-primary" id="x-cancel-btn" name="cancelBtn">취소</button>
+                      <button type="button" class="btn btn-primary" id="x-cancel-btn" name="cancelBtn" onclick="moveList();">취소</button>
                   </div>
               </div>
           </div>
@@ -94,6 +116,8 @@
 $("#header").load("/form/user/header.html");
 $("#footer").load("/form/user/footer.html");
 </script>
+
+<script src="partyRegist.js"></script>
 
 </body>
 </html>

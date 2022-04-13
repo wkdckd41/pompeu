@@ -86,9 +86,9 @@
 
   <div class="dropdown">
       <select class="btn btn-default dropdown-toggle" id="input-tag" name="input-tag" style="margin:0px 130px 8px 0px;" >
-                    <option selected value="recency">최신순</option>
-                    <option value="old" >오래된순</option>
-                    <option value="end-date" >마감임박순</option>
+                    <option selected value="recency" onclick="selectBoxDate('')">최신순</option>
+                    <option value="old" onclick="selectBoxDate('old')">오래된순</option>
+                    <option value="end-date" onclick="selectBoxDate('end')">마감임박순</option>
       </select>
   </div>
   
@@ -110,7 +110,7 @@
       <div id="x-title" style="font-weight:bold; font-size:15px;">{{name}}</div>
       <hr  style="height:1px; border:none; color:#C0C0C0; background-color:#C0C0C0; margin-top:3px; margin-bottom:7px;" />
       <div id="x-crew"></div>
-      <div class="x-location" id="x-location">{{location_no}}</div>
+      <div class="x-location" id="x-location">{{doo}}</div>
       <div class="x-date" id="x-date"><span>모집마감 : </span>{{end_date}}</div>
     </div>
 {{/each}}
