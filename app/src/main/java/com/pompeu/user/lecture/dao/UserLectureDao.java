@@ -33,4 +33,5 @@ public interface UserLectureDao {
 
   int insertAsk(Ask ask);
 
+  List<Lecture> addImage(int no);
 }

@@ -75,4 +75,9 @@ public class DefaultUserLectureService implements UserLectureService{
   public int addAsk(Ask ask) {
     return userLectureDao.insertAsk(ask);
   }
+
+  @Override
+  public List<Lecture> img(int no) {
+    return userLectureDao.addImage(no);
+  }
 }

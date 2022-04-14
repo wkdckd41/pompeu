@@ -25,7 +25,8 @@ $(window).load(function() {
   
   var exName = document.querySelector("#exercise");
   var name = document.querySelector("#lecture-name");
-  var lecturePrice = document.querySelector("#lecture-price");
+  var lecturePrice  = document.querySelector("#lecture-price");
+  
   
   console.log("exname : " + exName);
   console.log("name : " + name);

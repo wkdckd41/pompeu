@@ -508,6 +508,7 @@ border: 1px solid black;
    border-radius:5px;
    margin-left:10px;
    text-align:center;
+   margin-right: 25px;
 }
 
 .zzim-container {
@@ -521,7 +522,7 @@ border: 1px solid black;
 }
 
 .like-container {
-  margin-left:360px;
+  margin-left:350px;
   margin-top:-30px;
   margin-bottom:30px;
   text-align:center;

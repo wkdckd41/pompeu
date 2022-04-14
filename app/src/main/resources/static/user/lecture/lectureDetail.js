@@ -42,12 +42,6 @@ $(window).load(function() {
    var askContent = document.querySelector("#ask-content");
    var userContent = document.querySelector("#user-content");
    
-   var lectureImage = [];
-    lectureImage[0] = document.querySelector("#lecture-image0");
-    lectureImage[1] = document.querySelector("#lecture-image1");
-    lectureImage[2] = document.querySelector("#lecture-image2");
-    lectureImage[3] = document.querySelector("#lecture-image3");
-
     fetch(`/userLecture/findLecture?no=${no}`)
     .then(function(response) {
       return response.json();
@@ -65,18 +59,30 @@ $(window).load(function() {
         }
         
         $("#user-con").html(htmlGenerator2(result));
-        
+     })
+     
+    var lectureImage = [];
+    lectureImage[0] = document.querySelector("#lecture-image0");
+    lectureImage[1] = document.querySelector("#lecture-image1");
+    lectureImage[2] = document.querySelector("#lecture-image2");
+    lectureImage[3] = document.querySelector("#lecture-image3");
+     
+    fetch(`/userLecture/addImage?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
       for (i=0; i<20; i++){
         if (result[i].image == null) {
           result[i].image = "default.jpg";
         }
         lectureImage[i].innerHTML = `<img src="/userLecture/image?filename=${result[i].image}" width="350px" height="210px">`; 
       }
-        
-        
-     })
-     
-     
+      
+    })
      
     var exercise = document.querySelector("#exercise");
     var lectureName = document.querySelector("#lecture-name");
@@ -112,8 +118,7 @@ $(window).load(function() {
       $("#time-box").html(htmlGenerator(result));
      })
      
-     
-     /*
+    /*
     var lectureAsk = document.querySelector("#lecture-ask");
     
     document.querySelector("#btn-ask").onclick = function() {
@@ -121,17 +126,16 @@ $(window).load(function() {
       window.alert("필수 입력 항목이 비어 있습니다.");
       return;
     }
-        fetch("/userLecture/addAsk", {
-        method: "POST",
-        body: new URLSearchParams(fd)
-      }).then(function(response) {
-        return response.json();
+        fetch(`/userLecture/addAsk?no=${no}&content=${xContent.value}`)
+      .then(function(response) {
+        return response.text();
       })
-      .then(function(result) {
-        console.log(result);
-        */
+      .then(function(text) {
+        console.log(text);
         
-        
-        
+        location.reload();
+      });
+  };
+  */
         
   

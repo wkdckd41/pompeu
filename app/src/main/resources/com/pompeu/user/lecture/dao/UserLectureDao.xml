@@ -151,8 +151,7 @@
           cr.info                                               as info,
           ml.content                                            as content,
           ma.ask_content                                        as askContent,
-          ma.register_date                                      as registerDate,
-          li.image                                              as image
+          ma.register_date                                      as registerDate
     from 
           lecture as le
     join creator as cr 
@@ -163,7 +162,16 @@
           on ml.lecture_time_no = lt.lecture_time_no 
     join mylecture_ask as ma
           on ma.lecture_no = le.lecture_no
-    left outer join lecture_image as li
+    where 
+      le.lecture_no=#{no}
+  </select>
+  
+  <select id="addImage" resultType="HashMap" parameterType="int">
+    select  
+          li.image                                              as image
+    from 
+          lecture as le
+    join lecture_image as li
           on li.lecture_no = le.lecture_no
     where 
       le.lecture_no=#{no}
