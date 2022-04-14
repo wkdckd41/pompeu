@@ -60,6 +60,11 @@
     <result column="image" property="image"/>
   </resultMap> 
 
+  <resultMap type="lectureLike" id="lectureLikeMap">
+    <id column="users_no" property="usersNo"/>
+    <id column="lecture_no" property="lectureNo"/>
+  </resultMap> 
+
 <!--
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
@@ -157,7 +162,7 @@
       member_no=#{no}
   </update>
 
-  <delete id="delete" parameterType="int">
+  <delete id="delete" parameterType="int">79
     delete from member 
     where member_no=#{no}
   </delete>
@@ -175,13 +180,19 @@
     left outer join exercise as ex 
           on l.ex_no = ex.ex_no
     join lecture_like as ll 
-          on l.lecture_no = ll.lecture_no
+          on l.lecture_no = ll.lecture_noimage
 		left outer join lecture_image as li
 					on l.lecture_no = li.lecture_no
     where l.status = 2 
     group by l.lecture_no
     order by likey desc
   </select>
+
+  <select id="didICount" parameterType="lectureLike" resultType="int">
+    select count(case when users_no = #{usersNo} and lecture_no=#{lectureNo} then 1 else null end )
+          from lecture_like
+  </select>
+
 
 <!--
   <select id="memberStatus" resultType="hashmap">

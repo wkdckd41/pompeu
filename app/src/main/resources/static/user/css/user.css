@@ -585,6 +585,7 @@ border: 1px solid black;
     background-color: #ffffff;
     text-align: center;
     cursor: pointer;
+    min-width: 78px;
 }
 
 .test_obj input[type="radio"]:checked + span {

@@ -41,6 +41,12 @@ $(window).load(function() {
    var info = document.querySelector("#teacher-introduce");
    var askContent = document.querySelector("#ask-content");
    var userContent = document.querySelector("#user-content");
+   
+   var lectureImage = [];
+    lectureImage[0] = document.querySelector("#lecture-image0");
+    lectureImage[1] = document.querySelector("#lecture-image1");
+    lectureImage[2] = document.querySelector("#lecture-image2");
+    lectureImage[3] = document.querySelector("#lecture-image3");
 
     fetch(`/userLecture/findLecture?no=${no}`)
     .then(function(response) {
@@ -53,13 +59,23 @@ $(window).load(function() {
       lectureInfo.innerHTML = result[0].lectureInfo;
       info.innerHTML = result[0].info;
       
+      
        if (result[0].askContent != null) {
         askContent.innerHTML = `${result[0].askContent}`;
         }
         
         $("#user-con").html(htmlGenerator2(result));
+        
+      for (i=0; i<20; i++){
+        if (result[i].image == null) {
+          result[i].image = "default.jpg";
+        }
+        lectureImage[i].innerHTML = `<img src="/userLecture/image?filename=${result[i].image}" width="350px" height="210px">`; 
+      }
+        
+        
      })
-    
+     
      
      
     var exercise = document.querySelector("#exercise");
@@ -95,7 +111,6 @@ $(window).load(function() {
       
       $("#time-box").html(htmlGenerator(result));
      })
-     
      
      
      /*

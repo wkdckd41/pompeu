@@ -3,6 +3,7 @@ package com.pompeu.user.main.dao;
 import java.util.List;
 import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
+import com.pompeu.domain.LectureLike;
 import com.pompeu.domain.Member;
 
 @Mapper
@@ -21,6 +22,8 @@ public interface UserMainDao {
   int delete(int no);
 
   List<Map<Object, Object>> findTopLecture();
+
+  int didICount(LectureLike lectureLike);
 
   //  Object memberStatus();
   //
