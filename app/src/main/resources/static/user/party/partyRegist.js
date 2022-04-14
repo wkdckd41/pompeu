@@ -30,6 +30,7 @@ document.querySelector("#x-add-btn").onclick = function() {
       .then(function(result) {
         console.log(result);
       });
+      location.href = 'party-home.html'
   };
   
   

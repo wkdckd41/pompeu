@@ -1,8 +1,17 @@
 @charset "UTF-8";
 
-div.container {
+body > .container {
+	position:realtive;
+  width: 1200px;
+  margin: 0px auto;
+ /* border: 1px solid gray; */
+}
+
+/*
+.container {
+	
   width: 1200px;
   margin: 0px auto;
   border: 1px solid gray;
 }
-
+*/

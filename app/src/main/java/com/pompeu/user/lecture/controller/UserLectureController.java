@@ -86,6 +86,11 @@ public class UserLectureController {
   @RequestMapping("/userLecture/addAsk")
   public Object addAsk(Ask ask) {
     return userLectureService.addAsk(ask);
+  }  
+
+  @RequestMapping("/userLecture/addImage")
+  public Object addImage(int no) {
+    return userLectureService.img(no);
   }
 
   @RequestMapping("/userLecture/image")
@@ -119,5 +124,6 @@ public class UserLectureController {
       return null;
     }
   }
+
 
 }
