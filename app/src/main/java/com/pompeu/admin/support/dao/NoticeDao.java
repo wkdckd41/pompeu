@@ -13,7 +13,6 @@ public interface NoticeDao {
 
   int insert(Notice notice);
 
-
   Notice findByNo(int no);
 
   int update(Notice notice);

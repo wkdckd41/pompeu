@@ -18,16 +18,20 @@
     select count(*) from faq
   </select>
   
-  <select id="findAll" resultMap="faqMap">
-    select 
-      faq_no,
-      ask,
-      answer,
-      register_date,
-      modify_date
-    from 
-      faq 
-    order by 
+  <select id="findAll" parameterType="notice" resultMap="faqMap">
+    select f.faq_no                 as faq_no
+      ,  f.member_type_no           as member_type_no
+      ,  mt.member_type             as member_type
+      ,  f.ask                      as ask
+      ,  f.answer                   as answer
+      ,  f.register_date            as register_date
+      ,  f.modify_date              as modify_date
+    from faq f 
+    left outer join meber_type mt
+      on f.member_type_no = mt.member_type_no
+    where 1=1
+      <if test="memberTypeNo != 3"></if>
+          and f 
       faq_no desc
   </select>
   
