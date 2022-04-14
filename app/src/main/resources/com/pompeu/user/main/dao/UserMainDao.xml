@@ -193,16 +193,17 @@
           from lecture_like
   </select>
   
-    <select id="" >
-       select           l.lecture_no                                          as lNo, 
+    <select id="findTopLecture2" parameterType="int" resultType="HashMap" >
+       select
+           l.lecture_no                                          as lNo, 
            ex.name                                               as exName,
            l.name                                                as lName,
            l.lecture_price                                       as price,
            if(count(distinct li.image) = 0, count(ll.lecture_no), count(ll.lecture_no)/count(distinct li.image)) as likey,
-     li.image                                              as image,
-      (SELECT count(*) 
-        FROM lecture_like ll 
-      WHERE ll.lecture_no=l.lecture_no AND ll.users_no = 1) AS liked
+           li.image                                              as image,
+           (SELECT count(*) 
+            FROM lecture_like as ll 
+            WHERE ll.lecture_no=lNo AND ll.users_no=#{no}) as liked
     from 
           lecture as l
      left outer join exercise as ex 

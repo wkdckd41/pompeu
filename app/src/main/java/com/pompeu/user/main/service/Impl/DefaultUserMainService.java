@@ -51,6 +51,11 @@ public class DefaultUserMainService implements UserMainService{
     return userMainDao.didICount(lectureLike);
   }
 
+  @Override
+  public List<Map<Object, Object>> findTopLecture2(int no) {
+    return userMainDao.findTopLecture2(no);
+  }
+
   //  @Override
   //  public Object memberStatus() {
   //    return adminMainDao.memberStatus();

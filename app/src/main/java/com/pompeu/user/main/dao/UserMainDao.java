@@ -25,6 +25,8 @@ public interface UserMainDao {
 
   int didICount(LectureLike lectureLike);
 
+  List<Map<Object, Object>> findTopLecture2(int no);
+
   //  Object memberStatus();
   //
   //  Object lectureStatus();

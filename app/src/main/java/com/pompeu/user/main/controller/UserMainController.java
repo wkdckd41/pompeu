@@ -61,6 +61,11 @@ public class UserMainController {
     return userMainService.findTopLecture();
   }
 
+  @RequestMapping("/userMain/topLecture2")
+  public Object findTopLecture2(int no) {
+    return userMainService.findTopLecture2(no);
+  }
+
   @RequestMapping("/userMain/didICount")
   public Object didICount(LectureLike lectureLike) {
     return userMainService.didICount(lectureLike);
