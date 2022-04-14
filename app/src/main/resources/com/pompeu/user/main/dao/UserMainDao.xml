@@ -180,7 +180,7 @@
     left outer join exercise as ex 
           on l.ex_no = ex.ex_no
     join lecture_like as ll 
-          on l.lecture_no = ll.lecture_noimage
+          on l.lecture_no = ll.lecture_no
 		left outer join lecture_image as li
 					on l.lecture_no = li.lecture_no
     where l.status = 2 
@@ -192,8 +192,32 @@
     select count(case when users_no = #{usersNo} and lecture_no=#{lectureNo} then 1 else null end )
           from lecture_like
   </select>
-
-
+ <!-- 
+    <select>
+  --     select 
+--          l.lecture_no                                          as lNo, 
+--           ex.name                                               as exName,
+--           l.name                                                as lName,
+--           l.lecture_price                                       as price,
+--           if(count(distinct li.image) = 0, count(ll.lecture_no), count(ll.lecture_no)/count(distinct li.image)) as likey,
+--      li.image                                              as image,
+--      (SELECT count(*) 
+--        FROM lecture_like ll 
+--      WHERE ll.lecture_no=l.lecture_no AND ll.users_no = 1) AS liked
+--     from 
+--           lecture as l
+--     left outer join exercise as ex 
+--           on l.ex_no = ex.ex_no
+--     join lecture_like as ll 
+--           on l.lecture_no = ll.lecture_no
+--    left outer join lecture_image as li
+--          on l.lecture_no = li.lecture_no
+--     where l.status = 2 
+--     group by l.lecture_no
+--     order by likey DESC
+--     LIMIT 6
+ </select>
+-->
 <!--
   <select id="memberStatus" resultType="hashmap">
     select count(*)                                                                             as ammTotal
