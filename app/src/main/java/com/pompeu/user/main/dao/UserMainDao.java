@@ -21,11 +21,11 @@ public interface UserMainDao {
 
   int delete(int no);
 
-  List<Map<Object, Object>> findTopLecture();
+  List<Map<Object, Object>> findTopLecture(int no);
+
+  List<Map<Object, Object>> findNewLecture(int no);
 
   int didICount(LectureLike lectureLike);
-
-  List<Map<Object, Object>> findTopLecture2(int no);
 
   //  Object memberStatus();
   //

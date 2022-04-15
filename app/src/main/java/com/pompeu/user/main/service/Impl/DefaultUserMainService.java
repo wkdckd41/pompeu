@@ -42,18 +42,18 @@ public class DefaultUserMainService implements UserMainService{
   }
 
   @Override
-  public List<Map<Object, Object>> findTopLecture() {
-    return userMainDao.findTopLecture();
+  public List<Map<Object, Object>> findTopLecture(int no) {
+    return userMainDao.findTopLecture(no);
+  }
+
+  @Override
+  public List<Map<Object, Object>> findNewLecture(int no) {
+    return userMainDao.findNewLecture(no);
   }
 
   @Override
   public int didICount(LectureLike lectureLike) {
     return userMainDao.didICount(lectureLike);
-  }
-
-  @Override
-  public List<Map<Object, Object>> findTopLecture2(int no) {
-    return userMainDao.findTopLecture2(no);
   }
 
   //  @Override

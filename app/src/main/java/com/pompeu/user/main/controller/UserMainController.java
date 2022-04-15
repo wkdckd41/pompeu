@@ -55,15 +55,14 @@ public class UserMainController {
   //    return new Object[] {userMainService.findTopLecture(), userMainService.didICount(lectureLike)};
   //  }
 
-
   @RequestMapping("/userMain/topLecture")
-  public Object findTopLecture() {
-    return userMainService.findTopLecture();
+  public Object findTopLecture(int no) {
+    return userMainService.findTopLecture(no);
   }
 
-  @RequestMapping("/userMain/topLecture2")
-  public Object findTopLecture2(int no) {
-    return userMainService.findTopLecture2(no);
+  @RequestMapping("/userMain/newLecture")
+  public Object findNewLecture(int no) {
+    return userMainService.findNewLecture(no);
   }
 
   @RequestMapping("/userMain/didICount")

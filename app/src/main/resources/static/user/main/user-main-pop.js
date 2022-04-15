@@ -7,15 +7,6 @@
     
     var userNo = 1;
     
-    var lecNo = [6];
-    
-    lecNo[0] = 0;
-    lecNo[1] = 0;
-    lecNo[2] = 0;
-    lecNo[3] = 0;
-    lecNo[4] = 0;
-    lecNo[5] = 0;
-    
     popImg[0] = document.getElementById("pop-img-0");
     popEx[0] = document.getElementById("pop-ex-0");
     popName[0] = document.getElementById("pop-name-0");
@@ -58,7 +49,7 @@
     popLikey[5] = document.getElementById("pop-likey-5");
     popThumb[5] = document.getElementById("pop-thumb-5");
 
-    fetch("/userMain/topLecture2?no=1")
+    fetch(`/userMain/topLecture?no=${userNo}`)
     .then(function(response) {
       return response.json();
     })

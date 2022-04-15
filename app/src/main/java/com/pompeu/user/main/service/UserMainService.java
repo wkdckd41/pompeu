@@ -17,11 +17,11 @@ public interface UserMainService {
 
   int delete(int no);
 
-  List<Map<Object, Object>> findTopLecture();
-
   int didICount(LectureLike lectureLike);
 
-  List<Map<Object, Object>> findTopLecture2(int no);
+  List<Map<Object, Object>> findTopLecture(int no);
+
+  List<Map<Object, Object>> findNewLecture(int no);
 
   //  Object memberStatus();
   //
