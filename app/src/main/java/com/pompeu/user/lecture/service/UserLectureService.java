@@ -19,6 +19,8 @@ public interface UserLectureService {
 
   List<Lecture> getEverything();
 
+  List<Lecture> imgEverything();
+
   List<Lecture> getOut();
 
   List<Lecture> getIn();

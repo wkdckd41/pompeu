@@ -81,7 +81,6 @@ $(window).load(function() {
         }
         lectureImage[i].innerHTML = `<img src="/userLecture/image?filename=${result[i].image}" width="350px" height="210px">`; 
       }
-      
     })
      
     var exercise = document.querySelector("#exercise");

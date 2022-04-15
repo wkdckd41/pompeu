@@ -94,8 +94,23 @@
   </select>
   
    <select id="findAll" resultType="HashMap">
-
   </select>
+  
+  
+    
+   <select id="mainImage" resultType="HashMap">
+    select
+          li.image                    as image
+    from 
+          lecture as le
+    join lecture_image as li
+          on li.lecture_no = le.lecture_no
+    where 
+          1=1
+    order by
+      le.lecture_no asc
+  </select>
+  
   
    <select id="findEverything" resultType="HashMap">
     select
@@ -107,11 +122,29 @@
           lecture as le
     join exercise as ex
           on le.ex_no = ex.ex_no
+    join lecture_image as li
+          on li.lecture_no = le.lecture_no
     where 
           1=1
     order by
       le.lecture_no asc
   </select>
+  
+   <select id="imageEverything" resultType="HashMap">
+    select
+          li.image                  as image
+    from 
+          lecture as le
+    join exercise as ex
+          on le.ex_no = ex.ex_no
+    join lecture_image as li
+          on li.lecture_no = le.lecture_no
+    where 
+          1=1
+    order by
+      le.lecture_no asc
+  </select>
+  
   
    <select id="findOut" resultType="HashMap">
     select  

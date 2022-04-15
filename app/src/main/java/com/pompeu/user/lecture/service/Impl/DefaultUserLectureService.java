@@ -47,6 +47,11 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
+  public List<Lecture> imgEverything() {
+    return userLectureDao.imageEverything();
+  }
+
+  @Override
   public List<Lecture> getOut() {
     return userLectureDao.findOut();
   }

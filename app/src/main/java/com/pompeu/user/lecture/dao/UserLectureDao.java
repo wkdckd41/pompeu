@@ -21,6 +21,8 @@ public interface UserLectureDao {
 
   List<Lecture> findEverything();
 
+  List<Lecture> imageEverything();
+
   List<Lecture> findOut();
 
   List<Lecture> findIn();

@@ -18,7 +18,6 @@ $(window).load(function() {
 });
 
 
-
   var btnEverything = document.getElementById("btn-everything");
 
   btnEverything.addEventListener('click', function() {
@@ -31,7 +30,7 @@ $(window).load(function() {
   console.log("exname : " + exName);
   console.log("name : " + name);
   console.log("price : " + lecturePrice);
-  
+    
   fetch(`/userLecture/findEverything`)
     .then(function(response) {
       return response.json();
@@ -39,11 +38,10 @@ $(window).load(function() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-      
       $("#class-box").html(htmlGenerator(result));
-      
 })
 })
+
 
   var btnOut = document.getElementById("btn-out");
 
@@ -102,6 +100,7 @@ btnIn.addEventListener('click', function() {
   function moveView(no) {
   location.href = 'lecture-detail.html?no='+no
 }
+
 
 
 
