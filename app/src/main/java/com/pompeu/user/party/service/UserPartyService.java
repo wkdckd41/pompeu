@@ -38,4 +38,10 @@ public interface UserPartyService {
    */
   int delete(int no);
 
+  /**
+   *  이미지 파일명 가져오기
+   * @param no
+   * @return
+   */
+  List<Party> img(int no);
 }

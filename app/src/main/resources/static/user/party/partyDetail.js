@@ -49,4 +49,18 @@
       xTag.innerHTML = result[0].tag;
       xHost.innerHTML = result[0].name;
     })
+    
+    
+    // 소모임 이미지 등록
+    var xImgBox = document.querySelector("#x-img-box")
 
+    fetch(`/userparty/addImage?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+      xImgBox.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="350px" height="210px">`;
+})

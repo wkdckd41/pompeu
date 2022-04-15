@@ -202,5 +202,18 @@
 	   where party_no=#{no}
 	  </delete>
 	
+    <!-- 이미지 이름 가져오기 -->
+      <select id="addImage" resultType="HashMap" parameterType="int">
+      /*findByNo*/
+        select 
+                pi.image                    as image
+            from 
+                  party as p
+            join party_image as pi
+                on pi.party_no = p.party_no
+            where 
+                p.party_no=#{no}
+      </select>
 
+    
 </mapper>
