@@ -10,89 +10,98 @@
     <!--부트스트랩  👈 -->
 </head>
 <style>
-    .content {
-        padding: 0px 60px 0 60px;
-    }
+  .content {
+    padding: 0px 60px 0 60px;
+  }
 
 </style>
 
 <body>
-    <div class="main-container">
-        <div id="wrapper">
+<div class="main-container">
+    <div id="wrapper">
 
-            <div class="headers"></div>
-            <!--👉 헤더 😊-->
+        <div class="headers"></div>
+        <!--👉 헤더 😊-->
 
-            <div class="page-wrapper">
-                <div class="container-fluid">
-                    <div class="row" id="main">
-                        <div class="page-header">
-                            <h3>FAQ 작성하기</h3>
-                        </div>
-
-                        <!-- /row 타이틀 👈 -->
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row" id="main">
+                    <div class="page-header">
+                        <h3 id="faqHead" name="faqHead">FAQ 작성하기</h3>
                     </div>
+
+                    <!-- /row 타이틀 👈 -->
                 </div>
-                <!-- 타이틀 박스-->
+            </div>
+            <!-- 타이틀 박스-->
 
             <div class="content">
-    <!-- 나중에 파일 등록을 위해 enctype="multipart/form-data" 을 넣어둠 -->
-    <form class="form-horizontal" id="frm" name="frm" method="post"
-      enctype="multipart/form-data">
+                <!-- 나중에 파일 등록을 위해 enctype="multipart/form-data" 을 넣어둠 -->
+                <form class="form-horizontal" id="frm" name="frm" method="post"
+                      enctype="multipart/form-data">
 
-      <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
+                    <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
 
-      <div class="form-group row ">
-        <label class="col-sm-1 col-form-label text-center" for="title">제목</label>
-        <div class="col-md-6">
-          <input class="form-control" id="title" name="title"
-            placeholder="제목" type="text" value="" />
-        </div>
-      </div>
+                    <div class="form-group row text-center">
+                        <label class="col-sm-1 ">게시글</label>
+                        <div class="col-md-4 ">
+                            <select class="form-control" id="member_type_no" name="member_type_no">
+                                <option selected>게시할 목록을 선택해주세요</option>
+                                <option value="3">전체</option>
+                                <option value="1">일반 회원 FAQ</option>
+                                <option value="2">크리에이터 FAQ</option>
+                            </select>
+                        </div>
+                    </div>
 
-      <div class="form-group row ">
-        <label class="col-sm-1 col-form-label text-center" for="content">내용</label>
-        <div class="col-sm-10 col-xs-12">
-          <textarea rows="20" class="form-control" id="content"
-            name="content" placeholder="내용"></textarea>
-        </div>
-      </div>
+                    <div class="form-group row ">
+                        <label class="col-sm-1 col-form-label text-center" for="content">질문</label>
+                        <div class="col-sm-10 col-xs-12">
+          <textarea rows="10" class="form-control" id="ask"
+                    name="ask" placeholder="FAQ 질문"></textarea>
+                        </div>
+                    </div>
 
-      <div class="form-group row ">
-        <label class="col-sm-1 col-form-label text-center" for="bfile">파일</label>
-        <div class="col-sm-10 col-xs-12">
-          <input class="form-control" id="bfile" name="bfile" type="file" />
-        </div>
-      </div>
+                    <div class="form-group row ">
+                        <label class="col-sm-1 col-form-label text-center" for="content">답변</label>
+                        <div class="col-sm-10 col-xs-12">
+          <textarea rows="10" class="form-control" id="answer"
+                    name="answer" placeholder="FAQ 답변"></textarea>
+                        </div>
+                    </div>
 
 
-        <div class="form-group row ">
-            <div class="col-lg-12 col-sm-10 text-lg-end text-center">
-                <div class="col-lg-11 col-sm-18 text-lg-end text-right">
-                    <button type="button" class="btn btn-primary" id="btnWrite" name="btnWrite">작성</button>
-                    <button type="button" class="btn btn-primary" id="btnCancel" name="btnCancel">취소</button>
-                </div>
+                    <div class="form-group row ">
+                        <div class="col-lg-12 col-sm-10 text-lg-end text-center">
+                            <div class="col-lg-11 col-sm-18 text-lg-end text-right">
+                                <button type="button" class="btn btn-primary" id="btnWrite"
+                                        name="btnWrite">작성
+                                </button>
+                                <button type="button" class="btn btn-primary" id="btnCancel"
+                                        name="btnCancel">취소
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         </div>
-
-    </form>
+        <!--/page-wrapper 👉 내용  -->
     </div>
-            </div>
-            <!--/page-wrapper 👉 내용  -->
-        </div>
-        <!--/wrapper  -->
+    <!--/wrapper  -->
 
-    </div>
-    <!-- /main-container 전체 😃🤣😄 -->
+</div>
+<!-- /main-container 전체 😃🤣😄 -->
 
-    <!-- 밑에 3개적용 😊😊😊  -->
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    <!-- 제이쿼리     1️⃣-->
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
-    <!-- 부트스트랩   2️⃣-->
-    <script src="/admin/js/header.js"></script>
-    <!-- 😊 헤더 👈 3️⃣ -->
-    <script src="/admin/js/support/faq/faq-write.js"></script>
-    
+<!-- 밑에 3개적용 😊😊😊  -->
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- 제이쿼리     1️⃣-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- 부트스트랩   2️⃣-->
+<script src="/admin/js/header.js"></script>
+<!-- 😊 헤더 👈 3️⃣ -->
+<script src="/admin/js/support/faq/faq-write.js"></script>
+
 
 </body>
