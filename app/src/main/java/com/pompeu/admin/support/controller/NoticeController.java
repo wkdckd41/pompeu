@@ -6,14 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.admin.support.service.NoticeService;
-import com.pompeu.creator.lecture.controller.CreatorLectureController;
 import com.pompeu.domain.Notice;
 
 @RestController 
 public class NoticeController {
 
   // log를 출력하는 도구 준비
-  private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
+  private static final Logger log = LogManager.getLogger(NoticeController.class);
 
 
   // @Autowired
@@ -25,7 +24,7 @@ public class NoticeController {
 
   @RequestMapping("/notice/list")
   public Object list(Notice notice) {
-    //System.out.println("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
+    System.out.println("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
     return noticeService.list(notice);  
   }
 
