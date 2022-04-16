@@ -27,7 +27,14 @@
                 <!-- Page Heading -->
                 <div class="row" id="main">
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        
+                        <h2 style="margin-left: 30px; margin-bottom:30px;">클래스 문의 관리</h2>
+                          <div id="lecture-dropdown">
+                           <div class="col-md-4">
+                               <select class="form-control" id="lecture-drop" name="memberTypeNo">
+                                
+                               </select>
+                           </div>
+                           </div>
                     </div>
                 </div>
                 <!-- /.row -->
@@ -37,9 +44,21 @@
         <!-- /#page-wrapper --> 
     <!-- 내용물 자리 끝 -->
         
+        
+        
+        
     </div><!-- /#wrapper -->
     </div>
     
+<script id="tr-template" type="text/x-handlebars-template">
+<option selected>강좌를 선택해주세요</option>
+{{#each this}} 
+  <option value="1">{{name}}</option>
+{{/each}}
+	</script>
+    
+    
+    <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript">
@@ -48,4 +67,7 @@
     
 
 </body>
+
+<script src="userAsk
+.js"></script>
 </html>
