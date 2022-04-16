@@ -4,7 +4,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Lecture;
 
-@Mapper  
+@Mapper
 public interface UserAskDao {
 
   List<Lecture> findAll();
@@ -13,7 +13,7 @@ public interface UserAskDao {
 
   Lecture findByNo(int no);
 
-  int update(Lecture lcture);
+  int update(Lecture lecture);
 
   int delete(int no);
 

@@ -5,18 +5,6 @@
   var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
 
 
-// Can also be used with $(document).ready()
-$(window).load(function() {
-  $('.flexslider').flexslider({
-    animation: "slide",
-    animationLoop: false,
-    itemWidth: 100,
-    itemMargin: 5,
-    minItems: 8,
-    maxItems: 8
-  });
-});
-
    var lectureDropdown = document.querySelector("#lecture-dropdown");
    
     fetch(`/userAsk/askDrop?no=${no}`)
@@ -27,3 +15,5 @@ $(window).load(function() {
       console.log("AAA");
       console.log(result);
      })
+     
+     

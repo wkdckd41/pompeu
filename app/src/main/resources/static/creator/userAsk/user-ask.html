@@ -49,15 +49,6 @@
 		                       
 		                       
 		                       
-		                       
-		                       
-		                       
-		                       
-		                       
-		                       
-		                       
-		                       
-		                       
 		                  </div>
                     </div>
                 </div>
@@ -73,17 +64,33 @@
     
     <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
     
-
-
+    <script>
     $("#header").load("/form/creator/creator-header.html");
-    
-
-    
     </script>
     
 
 </body>
+
+<!-- kakao map -->
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc96ae2bbd913884c89a94455894e721"></script>
+<script>
+  var container = document.getElementById('map');
+  var options = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3
+  };
+  var map = new kakao.maps.Map(container, options);
+</script>
+
+
+<script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
+<script src="../js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/price-range.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/jquery.prettyPhoto.js"></script> <!-- 관련 js 파일들 -->
+<script src="../js/main.js"></script> <!-- 관련 js 파일들 -->
+<script src="userAsk.js"></script>
+<script defer src="/user/js/jquery.flexslider.js"></script>
+
 </html>

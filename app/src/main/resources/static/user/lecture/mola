@@ -1,0 +1,27 @@
+  @RequestMapping("/userLecture/imageEverything")
+  public Object imageEverything() {
+    return userLectureService.imgEverything();
+  }
+
+
+--------------------------------------
+
+
+
+
+
+
+   <select id="imageEverything" resultType="HashMap">
+    select
+          li.image                  as image
+    from 
+          lecture as le
+    join exercise as ex
+          on le.ex_no = ex.ex_no
+    join lecture_image as li
+          on li.lecture_no = le.lecture_no
+    where 
+          1=1
+    order by
+      le.lecture_no asc
+  </select>

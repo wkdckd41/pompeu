@@ -33,7 +33,6 @@ public class DefaultUserAskService implements UserAskService{
     return userAskDao.update(lecture);
   }
 
-
   @Override
   public int delete(int no) {
     return userAskDao.delete(no);
