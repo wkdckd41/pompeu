@@ -66,4 +66,11 @@ public class DefaultUserPartyService implements UserPartyService{
     return userPartyDao.addImage(no);
   }
 
+  /**
+   * 게시판 목록
+   */
+  @Override
+  public List<Party> tag(Party party) {
+    return userPartyDao.findByExTag(party);
+  }
 }

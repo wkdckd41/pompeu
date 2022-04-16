@@ -52,16 +52,14 @@
               </div>
               </div>
               <div id="x-input-tag-container">
-              <div class=" x-input-tag" style="width: 300px;">
-              <select class="form-control">
-                  <option selected >운동 선택</option>
-                  <option value="1" ></option>
+              <div class=" x-ex-tag" style="width: 300px;">
+              <select class="form-control" id="x-ex-tag" name="tag">
               </select><br>
               </div>
               </div>
               <div id="x-crew-container">
               <div class=" x-crew" style="width: 300px;">
-               <select class="form-control">
+               <select class="form-control" name="crew">
                   <option selected >모집인원</option>
                   <option value="1" >1</option>
                   <option value="2" >2</option>
@@ -108,6 +106,14 @@
   </div><!-- /#wrapper -->
 </div>  <!-- #container -->
 
+<script id="tr-template" type="text/x-handlebars-template">
+<option selected >운동 선택</option>
+{{#each this}}
+    <option value="{{tagNo}}">{{tag}}</option>
+{{/each}}
+</script>
+
+<script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
 
 <script src="/node_modules/jquery/dist/jquery.js"></script>-->
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>

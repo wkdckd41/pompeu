@@ -131,15 +131,7 @@
                 </if>
             </if>
        order by
-            <if test="dateType !=null or dateType !=''">
-                <if test="dateType == 'old'">
-               and  p.party_no asc
-                </if>
-                <if test="dateType == 'end'">
-                and p.end_date asc
-                </if>
-                p.party_no desc
-             </if>
+            p.party_no desc
 	  </select>
   
     <!-- 소모임 등록 -->
@@ -183,14 +175,15 @@
     <!-- 소모임 수정 -->
 	  <update id="update" parameterType="party">
 	  /*update*/
-	    update party set 
-	      location_no=#{locationNo},
-	      name=#{name},
-	      content=#{content},
-	      start_date=#{startDate},
-	      end_date=#{endDate},
-	      max_member=#{maxMember},
-	      in_out_ex=#{inOutEx}
+	    update 
+	       party set 
+		      location_no=#{locationNo},
+		      name=#{name},
+		      content=#{content},
+		      start_date=#{startDate},
+		      end_date=#{endDate},
+		      max_member=#{maxMember},
+		      in_out_ex=#{inOutEx}
 	    where 
 	      party_no=#{no}
 	  </update>
@@ -198,13 +191,14 @@
     <!-- 소모임 삭제 -->
 	  <delete id="delete" parameterType="int">
 	   /*delete*/
-	   delete from party 
-	   where party_no=#{no}
+	   delete 
+	   from party 
+	    where party_no=#{no}
 	  </delete>
 	
     <!-- 이미지 이름 가져오기 -->
       <select id="addImage" resultType="HashMap" parameterType="int">
-      /*findByNo*/
+      /*addImage*/
         select 
                 pi.image                    as image
             from 
@@ -215,5 +209,16 @@
                 p.party_no=#{no}
       </select>
 
-    
+    <!--운동 tag 가져오기-->
+        <select id="findByExTag" resultType="HashMap" parameterType="int">
+        /*findByExTag*/
+		select  
+		    tag_no    as tagNo,
+		    tag       
+		from
+		    tag_name 
+		order by
+		     tag_no asc       
+        </select>
+          
 </mapper>

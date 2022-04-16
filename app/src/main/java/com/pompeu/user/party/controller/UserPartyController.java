@@ -125,4 +125,13 @@ public class UserPartyController {
     }
   }
 
+  /**
+   * 운동 Tag 목록
+   * @return
+   */
+  @RequestMapping("/userparty/tag")
+  public Object findByExTag(Party party) {
+    return userPartyService.tag(party);
+  }
+
 }

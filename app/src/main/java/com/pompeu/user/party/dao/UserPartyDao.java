@@ -55,4 +55,11 @@ public interface UserPartyDao {
    * @return
    */
   List<Party> addImage(int no);
+
+  /**
+   * 운동 Tag 목록
+   * @return
+   */
+  List<Party> findByExTag(Party party);
 }
+
