@@ -17,4 +17,31 @@ public class DefaultUserAskService implements UserAskService{
   public List<Lecture> list() {
     return userAskDao.findAll();
   }
+
+  @Override
+  public int add(Lecture lecture) {
+    return userAskDao.insert(lecture);
+  }
+
+  @Override
+  public Lecture get(int no) {
+    return userAskDao.findByNo(no);
+  }
+
+  @Override
+  public int update(Lecture lecture) {
+    return userAskDao.update(lecture);
+  }
+
+
+  @Override
+  public int delete(int no) {
+    return userAskDao.delete(no);
+  }
+
+  @Override
+  public List<Lecture> drop(int no) {
+    return userAskDao.askDrop(no);
+  }
+
 }

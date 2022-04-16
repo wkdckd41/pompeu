@@ -1,157 +1,89 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<title>POMPEU!</title>
-  <link rel="stylesheet" href="/user/css/common.css">
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/css/user_common.css" rel="stylesheet">
-  <link rel="stylesheet" href="/user/css/flexslider.css" type="text/css" media="screen" />
-  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <link href="/css/common.css" rel="stylesheet">
+    <link href="/creator/css/creator.css" rel="stylesheet">
+    <link rel="stylesheet" href="/user/css/flexslider.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+    
+    <title>Document</title>
+    
 </head>
-
 <body>
-
-<div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
-<div id="header"></div>
-
-<div style="text-align: center; font-weight: bold; margin-top:40px; margin-bottom:-170px;">
-<ul class="slides">
-            <li style="margin-left:-30px;">
-              <img src="/user/lecture/img/jpg/서울.jpg" style="max-height:30%; cursor: pointer;"/>
-              <div>서울</div>
-            </li>
-            <li style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/경기.jpg" style="max-height:30%;"/>
-              <div>경기</div>
-            </li>
-            <li style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/인천.jpg" style="max-height:30%;" />
-              <div>인천</div>
-            </li>
-            <li  style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/광주.jpg" style="max-height:30%;" />
-              <div>광주</div>
-            </li>
-            <li  style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/대전.jpg" style="max-height:30%;" />
-              <div>대전</div>
-            </li>
-            <li  style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/대구.jpg" style="max-height:30%;" />
-              <div>대구</div>
-            </li>
-            <li  style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/울산.jpg" style="max-height:30%;" />
-              <div>울산</div>
-            </li>
-            <li  style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/부산.jpg"  style="max-height:30%;"/>
-              <div>부산</div>
-            </li>
-            <li  style=" margin-left:-210px;">
-              <img src="/user/lecture/img/jpg/제주.jpg" style="max-height:30%;"/>
-              <div>제주</div>
-            </li>
-</ul>
-</div>
-<!-- 
-<div class="btn-group">
-  <button type="button" id="btn-everything">전체</button>
-  <button type="button" id="btn-out">실외운동</button>
-  <button type="button" id="btn-in" >실내운동</button>
-</div>
- -->
-<label class="test_obj">
-    <input type="radio" name="fruit" value="apple" id="btn-everything">
-    <span>전체</span>
-</label>
- 
-<label class="test_obj">
-    <input type="radio" name="fruit" value="banana" id="btn-out">
-    <span>실외운동</span>
-</label>
- 
-<label class="test_obj">
-    <input type="radio" name="fruit" value="lemon" id="btn-in">
-    <span>실내운동</span>
-</label>
-
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="regist-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    최신순
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">최신순</a></li>
-    <li><a href="#">오래된순</a></li>
-    <li><a href="#">마감임박순</a></li>
-  </ul>
-</div>
-
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="member-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    전체
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">전체</a></li>
-    <li><a href="#">4인이하</a></li>
-    <li><a href="#">5인이상</a></li>
-  </ul>
-</div>
-
-<hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0;" />
-
-
-<div class="class-box" id="class-box"></div>
+  <div class="container">
   
-<div id="footer"></div>
-</div>
+    <div id="wrapper">
+    
+        <!-- 헤더 & 사이드바 자리 시작 -->
+        <div id="header"></div>
+    <!-- 헤더 & 사이드바 자리 끝 -->
+    
+    <!-- 내용물 자리 시작 -->
+        <div id="page-wrapper"> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row" id="main">
+                    <div class="col-sm-12 col-md-12 well" id="content">
+                      <h2 style="margin-left: 30px; margin-bottom:30px;">클래스 문의 관리</h2>
+                          <div id="lecture-dropdown">
+  	                       <div class="col-md-4">
+		                           <select class="form-control" id="lectureDropdown" name="memberTypeNo">
+		                               <option selected>게시할 목록을 선택해주세요</option>
+		                               <option value="1">전체</option>
+		                               <option value="2">일반 회원 공지사항</option>
+		                               <option value="3">크리에이터 공지사항</option>
+		                           </select>
+		                       </div>
+		                       </div>
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                       
+		                  </div>
+                    </div>
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.container-fluid -->
+        </div> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- /#page-wrapper --> 
+    <!-- 내용물 자리 끝 -->
+        
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    
 
 
-<script id="tr-template" type="text/x-handlebars-template">
-{{#each this}} 
-  <div class="class-card" onclick="moveView({{no}});">
-  <span id="region-summary">서울시 강남구</span>
-    <div><img src="/user/lecture/img/bowling1.jpg" width="200" height="150">
-      <div class="card-detail">
-      <div>
-      <span id="exercise2">{{exName}}</span>
-      </div>
-      <div>
-      <div id="lecture-name2">{{name}}</div>
-      <span id="lecture-price2">{{lecturePrice}}원</span>
-      <div><i class="fa-solid fa-thumbs-up" id="thumb"></i><span>800</span></div>
-      </div>
-      </div>
-      </div>
-     </div>
-  </div>
-{{/each}}
-</script>
+    $("#header").load("/form/creator/creator-header.html");
+    
 
-<script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
-
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script>
-$("#header").load("/form/user/header.html");
-$("#footer").load("/form/user/footer.html");
-</script>
-
+    
+    </script>
+    
 
 </body>
-
-<script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->
-<script src="../js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
-<script src="../js/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
-<script src="../js/price-range.js"></script> <!-- 관련 js 파일들 -->
-<script src="../js/jquery.prettyPhoto.js"></script> <!-- 관련 js 파일들 -->
-<script src="../js/main.js"></script> <!-- 관련 js 파일들 -->
-<script src="userAsk.js"></script>
-<script defer src="/user/js/jquery.flexslider.js"></script>
-
-
 </html>

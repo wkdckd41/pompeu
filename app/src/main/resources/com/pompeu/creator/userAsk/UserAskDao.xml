@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.creator.userAsk.dao.UserAskDao">
+
+  <resultMap type="lecture" id="lectureMap">
+    <id column="lecture_no" property="no"/>
+    <result column="location_no" property="locationNo"/>
+    <result column="creator_no" property="creatorNo"/>
+    <result column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
+    <result column="start_date" property="startDate"/>
+    <result column="end_date" property="endDate"/>
+    <result column="lecture_price" property="lecturePrice"/>
+    <result column="lecture_info" property="lectureInfo"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="status" property="status"/>
+    <result column="admin_message" property="adminMessage"/>
+    <result column="total_rate" property="totalRate"/>
+    <result column="in_out_ex" property="inOutEx"/>
+    <result column="searchType" property="searchType"/>
+  </resultMap>
+  
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="creatorNo"/>
+    <result column="info" property="Info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+  </resultMap>
+  
+  <resultMap type="lectureTime" id="lectureTimeMap">
+    <id column="lecture_time_no" property="lectureTimeNo"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="start_time" property="startTime"/>
+    <result column="end_time" property="endTime"/>
+    <result column="max_member" property="maxMember"/>
+    <result column="no_member" property="noMember"/>
+  </resultMap>
+  
+  <resultMap type="mylectureList" id="mylectureListMap">
+    <id column="mylecture_list_no" property="mylectureListNo"/>
+    <result column="users_no" property="usersNo"/>
+    <result column="lecture_time_no" property="lectureTimeNo"/>
+    <result column="register_member" property="registerMember"/>
+    <result column="pay_status" property="payStatus"/>
+    <result column="content" property="content"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="rate" property="rate"/>
+  </resultMap>
+  
+  <resultMap type="mylectureAsk" id="mylectureAskMap">
+    <id column="mylecture_ask_no" property="mylectureAskNo"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="users_no" property="usersNo"/>
+    <result column="ask_content" property="askContent"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="answer_content" property="answerContent"/>
+    <result column="answer_register_date" property="answerRegisterDate"/>
+    <result column="display" property="display"/>
+  </resultMap>
+  
+  <resultMap type="location" id="locationMap">
+    <id column="location_no" property="locationNo"/>
+    <result column="doo" property="doo"/>
+    <result column="si" property="si"/>
+    <result column="gun" property="gun"/>
+    <result column="gu" property="gu"/>
+    <result column="si" property="si"/>
+    <result column="address" property="address"/>
+    <result column="post_no" property="postNo"/>
+  </resultMap>
+
+  <resultMap type="exercise" id="exerciseMap">
+    <id column="ex_no" property="exNo"/>
+    <result column="name" property="exName"/>
+    <result column="ex_type_no" property="exTypeNo"/>
+  </resultMap>
+
+  <resultMap type="lectureWishlist" id="lectureWishlistMap">
+    <id column="users_no" property="usersNo"/>
+    <result column="lecture_no" property="lectureNo"/>
+  </resultMap>
+  
+  <resultMap type="lectureImage" id="lectureImageMap">
+    <id column="lecture_image_no" property="lectureImageNo"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="image" property="image"/>
+  </resultMap>
+ 
+  <select id="countAll" resultType="int">
+    select count(*) from lecture
+  </select>
+  
+   <select id="findAll" resultType="HashMap">
+  </select>
+  
+  <select id="askDrop" resultType="HashMap">
+    select  
+          le.name                    as name
+    from 
+          lecture as le
+    join creator as cr
+          on cr.creator_no = le.creator_no
+    where 
+          cr.creator_no=#{no}
+  </select>
+
+  
+</mapper>

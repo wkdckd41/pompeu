@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.creator.userAsk.service.UserAskService;
+import com.pompeu.domain.Lecture;
 
 @RestController 
 public class UserAskController {
@@ -21,4 +22,31 @@ public class UserAskController {
     log.debug("게실물 목록 조회!");
     return userAskService.list();
   }
+
+  @RequestMapping("/userAsk/add")
+  public Object add(Lecture lecture) {
+    return userAskService.add(lecture);
+  }
+
+  @RequestMapping("/userAsk/get")
+  public Object get(int no) {
+    Lecture lecture = userAskService.get(no);
+    return lecture != null ? lecture : "";
+  }
+
+  @RequestMapping("/userAsk/update")
+  public Object update(Lecture lecture) {
+    return userAskService.update(lecture);
+  }
+
+  @RequestMapping("/userAsk/delete")
+  public Object delete(int no) {
+    return userAskService.delete(no);
+  }
+
+  @RequestMapping("/userAsk/askDrop")
+  public Object askDrop(int no) {
+    return userAskService.drop(no);
+  }
+
 }

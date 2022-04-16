@@ -8,4 +8,15 @@ import com.pompeu.domain.Lecture;
 public interface UserAskDao {
 
   List<Lecture> findAll();
-}
+
+  int insert(Lecture lecture);
+
+  Lecture findByNo(int no);
+
+  int update(Lecture lcture);
+
+  int delete(int no);
+
+  List<Lecture> askDrop(int no);
+
+} 
