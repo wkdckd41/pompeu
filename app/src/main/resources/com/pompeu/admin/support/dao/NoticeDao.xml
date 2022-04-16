@@ -21,8 +21,8 @@
     select count(*) from notice
   </select>
   
-  <select id="findAll" parameterType="notice" resultMap="noticeMap"> <!-- Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다   -->
-    select n.notice_no               as notice_no                     <!-- resultMap이 noticeMap인 이유는 Dao에서 리턴을 받는 타입이 list<Notice> 이기 때문이다 -->
+  <select id="findAll" parameterType="notice" resultMap="noticeMap"> <!--   Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다 --> 
+    select n.notice_no               as notice_no                    <!--  resultMap이 noticeMap인 이유는 Dao에서 리턴을 받는 타입이 list<Notice> 이기 때문이다 -->
 			  ,  n.member_type_no          as member_type_no                 
 			  ,  mt.member_type            as member_type
 			  ,  n.name                    as name
@@ -47,18 +47,16 @@
   </insert>
 
   <select id="findByNo" resultMap="noticeMap" parameterType="int">
-    select 
-      n.notice_no,
-      t.member_type_no,
-      n.critical_check,
-      n.register_date,
-      n.view_count,
-      n.name,
-      n.content,
-      n.modify_date
-      from 
-      member_type t left outer join notice n on t.member_type_no=n.member_type_no
-    where 
+    select n.notice_no
+        , n.member_type_no        as member_type_no
+        , n.critical_check        as critical_check
+        , n.register_date         as register_date
+        , n.view_count            as view_count
+        , n.name                  as name
+        , n.content               as content
+        , n.modify_date           as modify_date
+      from notice n
+     where 
       notice_no=#{no}
   </select>
 
