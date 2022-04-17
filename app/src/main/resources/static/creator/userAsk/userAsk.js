@@ -10,8 +10,6 @@
   console.log(arr);
 
   if (arr.length == 1) {
-    alert("요청 형식이 옳바르지 않습니다.")
-    throw "URL 형식 오류!";
   }
 
   var qs = arr[1];
@@ -22,7 +20,6 @@
   var no = params.get("no");
 
   if (no == null) {
-    alert("독서록 번호가 없습니다.");
     throw "파라미터 오류!";
   }
   console.log(no);
