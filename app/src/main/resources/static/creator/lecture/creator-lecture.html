@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스 등록</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" id="bootstrap-css">
+    <link rel="stylesheet" href="/creator/css/creator-lecture.css">
+
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="wrapper">
+
+            <!-- 헤더 & 사이드바 자리 시작 -->
+            <div id="header"></div>
+            <!-- 헤더 & 사이드바 자리 끝 -->
+
+            <!-- 내용물 자리 시작 -->
+            <div id="page-wrapper">
+                <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+                <div class="container-fluid">
+                    <!-- Page Heading -->
+                    <div class="row" id="main">
+                        <div class="page-header">
+                            <h3>클래스 등록</h3>
+                        </div>
+
+
+                    </div>
+                    <!-- /.row -->
+                    <form action="">
+                        <div class="form_controll">
+                            <div class="col-md-5 form_item">
+                                <label for="in_out_ex">실내외 선택</label>
+                            </div>
+                            <div class="col-md-7 form_item">
+                                <label for="name">운동 종목 선택</label>
+                            </div>
+                        </div>
+
+                        <div class="form_controll">
+                            <div class="col-md-5 form_item">
+
+                                <select name="in_out_ex" class="category">
+                                    <option value="1">실내</option>
+                                    <option value="2">실외</option>
+                                </select>
+
+                            </div>
+
+                            <div class="col-md-7 form_item">
+                                <select name="ex_no" class="category">
+                                    <option value="1">볼링</option>
+                                    <option value="2">농구</option>
+                                    <option value="3">야구</option>
+                                    <option value="4">탁구</option>
+                                    <option value="5">스킨스쿠버</option>
+                                    <option value="6">요가</option>
+                                    <option value="7">테니스</option>
+                                    <option value="8">주짓수</option>
+                                    <option value="9">복싱</option>
+                                    <option value="10">태권도</option>
+                                    <option value="11">수영</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form_controll">
+                            <div class="col-md-5 form_item">
+                                <label for="">연도</label>
+                            </div>
+                            <div class="col-md-7 form_item">
+                                <label for="">월</label>
+                            </div>
+                        </div>
+
+                        <div class="form_controll">
+                            <div class="col-md-5 form_item">
+                                <input type="date" name="start_date" class="form_date">
+                            </div>
+                            <div class="col-md-7 form_item">
+                                <input type="date" name="end_date" class="form_date">
+                            </div>
+                        </div>
+
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <label for="">시간</label>
+                                <em>※</em><span>하루 5개의 강좌까지 추가할 수 있습니다.</span>
+                            </div>
+                        </div>
+                        <div class="form_controll_time row">
+                            <div class="col-md-2">
+                                <input type="text" class="time" readonly="true" value="시작시간">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="time" name="start_time" class="time_set">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="time" readonly="true" value="종료시간">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="time" name="end_time" class="time_set">
+                            </div>
+                            <button type="button" class="btn_time">시간 추가</button>
+                        </div>
+                        <div class="form_controll_time row">
+                            <div class="col-md-2">
+                                <input type="text" class="time" readonly="true" value="시작시간">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="time" name="start_time" class="time_set">
+                            </div>
+                            <div class="col-md-2">
+                                <input type="text" class="time" readonly="true" value="종료시간">
+                            </div>
+                            <div class="col-md-3">
+                                <input type="time" name="end_time" class="time_set">
+                            </div>
+                        </div>
+                        <!-- <div class="form_controll">
+                            <div class="col-md-12">
+                                <label for="">시간</label>
+                            </div>
+                        </div>
+                        <div class="form_controll_time_set">
+                            <input type="text" class="start_time" readonly="true" value="시작시간">
+                            <input type="text" class="start_time_set" placeholder="시간을 입력해주세요.">
+                            <input type="text" class="start_time" readonly="true" value="종료시간">
+                            <input type="text" class="start_time_set" placeholder="시간을 입력해주세요.">
+                            <button type="button">시간 추가</button>
+                        </div> -->
+
+                        <div class="form_controll">
+                            <div class="col-md-5 form_item">
+                                <label for="">수강인원</label>
+                            </div>
+                            <div class="col-md-7 form_item">
+                                <label for="">금액</label>
+                            </div>
+                        </div>
+
+                        <div class="form_controll">
+                            <div class="col-md-5 form_item">
+
+                                <input type="number" name="maxMember" class="max_member" placeholder="최대 인원" min="1"
+                                    max="30">
+
+                            </div>
+
+                            <div class="col-md-7 form_item">
+                                <input type="number" name="lecturePrice" class="price" placeholder="수강료">
+                            </div>
+                        </div>
+
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <em>※</em> <span>수강인원은 클래스당 30명까지 가능합니다.</span>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <label for="">클래스 제목</label>
+
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <input type="text" name="name" class="name" placeholder="클래스의 주제를 연상시키는 제목을 작성해주세요"
+                                    required="true" maxlength="30">
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <label for="">이미지 등록</label>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <em>※</em> <span>썸네일로 쓰일 이미지 1장을 등록하세요.</span>
+                            </div>
+
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <div class="thumbnail_file">
+                                    <label for="inputImage">
+                                        <input type="file" name="filePath" class="image" id="inputImage">
+                                        <img src="/creator/image/nofile.jpg" class="dummy_image" id="previewImage">
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <em>※</em> <span>클래스 상세보기에 보여질 이미지를 최대 4개까지 등록하세요.</span>
+                            </div>
+
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <div class="list_file">
+                                    <div class="list_item">
+                                        <label for="inputImageSt">
+                                            <input type="file" name="filePathSt" class="image" id="inputImageSt">
+                                            <img src="/creator/image/nofile.jpg" class="dummy_image"
+                                                id="previewImageSt">
+                                        </label>
+                                        <label for="inputImageNd">
+                                            <input type="file" name="filePathNd" class="image" id="inputImageNd">
+                                            <img src="/creator/image/nofile.jpg" class="dummy_image"
+                                                id="previewImageNd">
+                                        </label>
+                                        <label for="inputImageRd">
+                                            <input type="file" name="filePathRd" class="image" id="inputImageRd">
+                                            <img src="/creator/image/nofile.jpg" class="dummy_image"
+                                                id="previewImageRd">
+                                        </label>
+                                        <label for="inputImageTh">
+                                            <input type="file" name="filePathTh" class="image" id="inputImageTh">
+                                            <img src="/creator/image/nofile.jpg" class="dummy_image"
+                                                id="previewImageTh">
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12 lecture_info">
+                                <label for="info">클래스 소개</label>
+                                <label for="info">(0/200)</label>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <input type="textarea" name="lectureInfo" id="info" class="info"
+                                    placeholder="클래스 상세 소개">
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12">
+                                <label for="">클래스 장소</label>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+
+                            <div class="col-md-12">
+                                <input type="text" id="sample6_postcode" placeholder="우편번호" readonly>
+                                <input type="button" id="address_btn" onclick="sample6_execDaumPostcode()"
+                                    value="우편번호 찾기"><br>
+                                <input type="text" name="address" id="sample6_address" placeholder="주소" readonly><br>
+                                <input type="text" id="sample6_detailAddress" placeholder="상세주소">
+                                <input type="text" id="sample6_extraAddress" placeholder="참고항목" readonly>
+                            </div>
+                        </div>
+                        <div class="form_controll">
+                            <div class="col-md-12 btn_group">
+                                <button type="button" class="cancel_btn">취소하기</button>
+                                <button type="button" class="regist_btn">등록하기</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- /.container-fluid -->
+                <div class="container-fluid">
+
+                </div>
+            </div> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+
+            <!-- /#page-wrapper -->
+            <!-- 내용물 자리 끝 -->
+
+        </div><!-- /#wrapper -->
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/creator/js/creator.js"></script>
+    <script src="/creator/js/creator-lecture.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+</body>
+
+</html>
