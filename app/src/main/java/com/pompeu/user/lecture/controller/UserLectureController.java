@@ -57,10 +57,7 @@ public class UserLectureController {
     return userLectureService.getEverything();
   }
 
-  @RequestMapping("/userLecture/imageEverything")
-  public Object imageEverything() {
-    return userLectureService.imgEverything();
-  }
+
 
   @RequestMapping("/userLecture/findOut")
   public Object findOut() {

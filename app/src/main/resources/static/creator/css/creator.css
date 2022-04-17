@@ -6,6 +6,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,400italic,500,700,100);
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:400,800,300,600,700);
 @import url(http://fonts.googleapis.com/css?family=Abel);
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 }
 
 div {
@@ -20,4 +21,9 @@ h5 {
   margin-inline-end:0px;
   margin: 10px 0px 3px 8px;
   font-size: 18px;
+}
+
+#lecture-dropdown {
+	display:flex;
+	margin-left :500px;
 }

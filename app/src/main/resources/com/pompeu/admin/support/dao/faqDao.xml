@@ -7,7 +7,8 @@
 
   <resultMap type="faq" id="faqMap">
     <id column="faq_no" property="no"/>
-    <result column="memeber_type_no" property="memberTypeNo"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
     <result column="ask" property="ask"/>
     <result column="answer" property="answer"/>
     <result column="register_date" property="registerDate"/>
@@ -18,7 +19,7 @@
     select count(*) from faq
   </select>
   
-  <select id="findAll" parameterType="notice" resultMap="faqMap">
+  <select id="findAll" parameterType="faq" resultMap="faqMap">
     select f.faq_no                 as faq_no
       ,  f.member_type_no           as member_type_no
       ,  mt.member_type             as member_type
@@ -27,12 +28,16 @@
       ,  f.register_date            as register_date
       ,  f.modify_date              as modify_date
     from faq f 
-    left outer join meber_type mt
+    left outer join member_type mt
       on f.member_type_no = mt.member_type_no
     where 1=1
-      <if test="memberTypeNo != 3"></if>
-          and f 
-      faq_no desc
+      <if test="memberTypeNo != 3">
+          and f.member_type_no = #{memberTypeNo} 
+      </if>
+      order by faq_no desc
+      LIMIT 10
+
+
   </select>
   
   <insert id="insert" parameterType="faq">
@@ -41,16 +46,14 @@
   </insert>
   
   <select id="findByNo" resultMap="faqMap" parameterType="int">
-   select 
-      faq_no no,
-      ask,
-      answer,
-      register_date,
-      modify_date
-    from 
-      faq 
-    where 
-      faq_no=#{no}
+   select f.faq_no
+        , f.member_type_no          as member_type_no
+        , f.ask                     as ask
+        , f.answer                  as answer
+        , f.register_date           as register_date
+        , f.modify_date             as modify_date
+     from faq f
+    where f.faq_no=#{no}
   </select>
 
   <update id="update" parameterType="faq">
@@ -65,6 +68,12 @@
   <delete id="delete" parameterType="int">
     delete from faq
     where faq_no=#{no}
+  </delete>
+  
+    <delete id="deleteAll" parameterType="String">
+     delete 
+       from faq
+      where faq_no in (#{memberTypeNo})
   </delete>
 
 </mapper>

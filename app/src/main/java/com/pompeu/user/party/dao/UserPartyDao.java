@@ -49,4 +49,17 @@ public interface UserPartyDao {
    */
   int delete(int no);
 
+  /**
+   * 이미지 파일명 가져오기
+   * @param no
+   * @return
+   */
+  List<Party> addImage(int no);
+
+  /**
+   * 운동 Tag 목록
+   * @return
+   */
+  List<Party> findByExTag(Party party);
 }
+

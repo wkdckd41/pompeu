@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.pompeu.user.lecture.dao.UserLectureDao">
+<mapper namespace="com.pompeu.creator.userAsk.dao.UserAskDao">
 
   <resultMap type="lecture" id="lectureMap">
     <id column="lecture_no" property="no"/>
@@ -96,124 +96,16 @@
    <select id="findAll" resultType="HashMap">
   </select>
   
-  
-   <select id="findEverything" resultType="HashMap">
-    select
-          ex.name                    as exName,
-          le.name                    as name,
-          le.lecture_price           as lecturePrice,
-          le.lecture_no              as no
-    from 
-          lecture as le
-    join exercise as ex
-          on le.ex_no = ex.ex_no
-    where 
-          1=1
-    order by
-      le.lecture_no asc
-  </select>
-  
-  
-   <select id="findOut" resultType="HashMap">
+  <select id="askDrop" resultType="HashMap">
     select  
-          ex.name                    as exName,
-          le.name                    as name,
-          le.lecture_price           as lecturePrice,
-          le.lecture_no              as lectureNo
+          le.name                    as name
     from 
           lecture as le
-    join exercise as ex
-          on le.ex_no = ex.ex_no
+    join creator as cr
+          on cr.creator_no = le.creator_no
     where 
-          le.in_out_ex=1
-    order by
-      le.lecture_no asc
+          cr.creator_no=#{no}
   </select>
-  
-   <select id="findIn" resultType="HashMap">
-    select  
-          ex.name                    as exName,
-          le.name                    as name,
-          le.lecture_price           as lecturePrice,
-          le.lecture_no              as lectureNo
-    from 
-          lecture as le
-    join exercise as ex
-          on le.ex_no = ex.ex_no
-    where 
-          le.in_out_ex=2
-    order by
-      le.lecture_no asc
-  </select>
-  
-  <select id="findLecture" resultType="LectureIntro" parameterType="int">
-    select  
-          le.lecture_info                                       as lectureInfo,
-          cr.info                                               as info,
-          ml.content                                            as content,
-          ma.ask_content                                        as askContent,
-          ma.register_date                                      as registerDate
-    from 
-          lecture as le
-    join creator as cr 
-          on le.creator_no = cr.creator_no
-    join lecture_time as lt
-          on lt.lecture_no = le.lecture_no
-    join mylecture_list as ml
-          on ml.lecture_time_no = lt.lecture_time_no 
-    join mylecture_ask as ma
-          on ma.lecture_no = le.lecture_no
-    where 
-      le.lecture_no=#{no}
-  </select>
-  
-  <select id="addImage" resultType="HashMap" parameterType="int">
-    select  
-          li.image                                              as image
-    from 
-          lecture as le
-    join lecture_image as li
-          on li.lecture_no = le.lecture_no
-    where 
-      le.lecture_no=#{no}
-  </select>
-  
-  
-  <select id="registLecture" resultType="HashMap">
-    select  
-          ex.name                    as exName,
-          le.name                    as name,
-          le.lecture_price           as lecturePrice,
-          le.lecture_no              as lectureNo,
-          lt.max_member              as maxMember
-    from 
-          lecture as le
-    join exercise as ex
-          on le.ex_no = ex.ex_no
-    join lecture_time as lt
-          on le.lecture_no = lt.lecture_no
-    where 
-          le.lecture_no=#{no}
-  </select>
-  
-  <select id="registTime" resultType="HashMap">
-    select  
-          le.start_date              as startDate,
-          le.end_date                as endDate,
-          lt.start_time              as startTime,
-          lt.end_time                as endTime
-    from 
-          lecture as le
-    join lecture_time as lt
-          on le.lecture_no = lt.lecture_no
-    where 
-          le.lecture_no=#{no}
-  </select>
-  
-  <insert id="insertAsk" parameterType="Ask">
-    insert into mylecture_ask(lecture_no,users_no,ask_content)
-    values(#{lectureNo},#{usersNo},#{content})
-  </insert>
-  
+
   
 </mapper>

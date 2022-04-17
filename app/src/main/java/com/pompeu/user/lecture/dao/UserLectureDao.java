@@ -15,7 +15,7 @@ public interface UserLectureDao {
 
   Lecture findByNo(int no);
 
-  int update(Lecture lcture);
+  int update(Lecture lecture);
 
   int delete(int no);
 

@@ -19,8 +19,8 @@ public class DefaultFaqService implements FaqService{
   }
 
   @Override
-  public List<Faq> list() {
-    return faqDao.findAll();
+  public List<Faq> list(Faq faq) {
+    return faqDao.findAll(faq);
   }
 
   @Override
@@ -36,6 +36,20 @@ public class DefaultFaqService implements FaqService{
   @Override
   public int delete(int no) {
     return faqDao.delete(no);
+  }
+
+  @Override
+  public int deleteAll(String str) {
+    String[] strArray = str.split(",");
+    int result = 0;
+    for(int i=0; i< strArray.length; i++) {      
+      result = faqDao.delete(Integer.parseInt(strArray[i]));
+
+      if(result == 0) {
+        return 0;
+      }
+    }
+    return result;
   }
 
 }

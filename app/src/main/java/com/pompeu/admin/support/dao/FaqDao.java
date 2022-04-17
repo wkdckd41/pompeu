@@ -9,7 +9,7 @@ public interface FaqDao {
 
   int countAll();
 
-  List<Faq> findAll();
+  List<Faq> findAll(Faq faq);
 
   int insert(Faq faq);
 
@@ -18,6 +18,8 @@ public interface FaqDao {
   int update(Faq faq);
 
   int delete(int no);
+
+  int deleteAll(String str);
 
 }
 
