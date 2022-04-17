@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    <title>마이페이지 메인 화면</title>
+  <link rel="stylesheet" href="/user/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  
+  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
+   
+   <style type="text/css">
+   
+   #change-box {
+   margin-left:30%;
+   margin-bottom:10%;
+   font-size : 30px;
+   line-height: 60px;
+   }
+   
+   input {
+   width:500px;
+   height:60px;
+}
+
+   button, #thumbnail-file-button{
+      color: white;
+      background-color: #16A085;
+      border-radius: 10px;
+   }
+   
+   #thumbnail-file-button{
+   padding: 5px;
+           margin-left:23%;
+   }
+   
+   #thumbnail {
+        border: 1px solid black;
+        width: 200px;
+        height : 200px;
+        border-radius: 70%;
+        overflow: hidden;
+        margin-left:20%;
+        margin-bottom: 10px;
+   }
+   
+   
+   
+   #nickname-box {
+     height:70px;
+   }
+   
+   #nickname-input {
+     width : 52%;
+   }
+   
+   #check-btn {
+   width : 30%;
+   }
+   
+   #birth-input {
+     margin-bottom : 10px;
+   }
+   
+   
+   
+   #update-btn, #delete-btn{
+     width : 500px;
+     margin-bottom : 10px;
+   }
+   
+   
+   </style>
+   
+   
+</head>
+<body>
+  <div class="container">
+    
+
+    
+    <div id="wrapper" >
+    
+        <!-- 헤더 자리 시작 -->
+        <div id="header"></div>
+         <!-- 헤더 자리 끝 -->
+
+        <div id="page-wrapper">
+        
+        <!-- 사이드바 자리 시작 -->
+        <div id="sidebar"></div>
+         <!-- 사이드바 자리 끝 -->
+
+   <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <div id="content">
+        
+          <form name="form1" id="change-box">
+            <img id="thumbnail" src="/form/mypage/image/bono.jpg"><br>
+            
+            <label id="thumbnail-file-button" for="thumbnail-file">사진 업로드</label><br>
+            
+            <input name="file" id="thumbnail-file" type="file" style="display:none">
+            이름<br>
+            <input name="name" type="text"><br>
+            닉네임<br>
+            <div id="nickname-box">
+            <input name="nickName" id="nickname-input" type="text">
+            <button id="check-btn" type="button">중복확인</button>
+            </div>
+            
+            이메일<br>
+            <input name="email" type="email"><br>
+            비밀번호<br>
+            <input name="password" type="text"><br>
+            비밀번호확인<br>
+            <input name="passwordCheck" type="text"><br>
+            휴대폰 번호<br>
+            <input name="phone" type="tel"><br>
+            생년월일<br>
+            <input name="birth" id="birth-input" type="date"><br>
+            <button id="update-btn" type="button">수정하기</button>
+            <br>
+            <button id="delete-btn" type="button">회원탈퇴</button>
+          </form>
+          
+        </div>
+    <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+        </div>
+        <!-- /#page-wrapper --> 
+
+        
+    <div id="footer"></div>
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+    
+		<script>
+		$("#header").load("/form/user/header.html");
+		$("#footer").load("/form/user/footer.html");
+		$("#sidebar").load("/form/mypage/sidebar.html");
+		</script>
+    
+</body>
+</html>
