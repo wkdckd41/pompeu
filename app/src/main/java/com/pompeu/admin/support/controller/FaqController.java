@@ -50,8 +50,20 @@ public class FaqController {
 
   @RequestMapping("/faq/update")
   public Object update(Faq faq) {
-    return faqService.update(faq);
+    System.out.println(faq.getNo());
+    System.out.println(faq.getMemberTypeNo());
+    System.out.println(faq.getAsk());
+    System.out.println(faq.getAnswer());
+    int count = faqService.update(faq);
+    if (count == 1) {
+      return new ResultMap().setStatus("success");
+    } else {
+      return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
+    }
   }
+
+
+
 
   @RequestMapping("/faq/delete")
   public Object delete(int no) {

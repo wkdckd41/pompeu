@@ -23,6 +23,8 @@ $(document).ready(function () {
     var xContent = document.querySelector("#x-content")
     var xRegisterDate = document.querySelector("#x-register-date")
 
+    var xFnames = document.querySelector("#fnames")
+    
     fetch(`/notice/get?no=${no}`)
     .then(function (response) {
         return response.json();
@@ -30,11 +32,22 @@ $(document).ready(function () {
     .then(function (result) {
         console.log(result);
         // 4 연락처 상세 정보를 화면에 출력한다.
+        var str = ""
+        for(var i=0; i < result.fnames.length; i++){
+          
+          //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
+          
+          str+=`<a href="/notice/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a>`
+          
+          
+          str+=`</br>`
+        }
+        xFnames.innerHTML=str;
         xNo.innerHTML = result.no;
         xName.innerHTML = result.name;
         xContent.innerHTML = result.content;
         xRegisterDate.innerHTML = result.registerDate;
-
+        
     });
     /*
     var arr2 = no.split("=");
@@ -62,3 +75,29 @@ function init() {
     })
 
 }
+/*
+function fileDownLoad(orgFile, realFile){
+    console.log("orgFile : " + orgFile);
+    console.log("realFile : " + realFile);
+    var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
+
+    param.set('orgFile', orgFile); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
+    param.set('realFile', realFile);
+   
+    
+    fetch("/notice/fileDownLoad", { // 컨트롤러고 가기위한 경로
+        method: "POST",
+        body: param         // 파라미터 객체를 세팅해준다. 커트롤러로 고고!!
+    }).then(function (response) {
+        return response.json();
+    })
+    .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
+        if (result.status == "success") {
+            alert("다운로드 되었습니다.");
+        } else {
+            console.log(result.data);
+        }
+
+    });
+}
+*/

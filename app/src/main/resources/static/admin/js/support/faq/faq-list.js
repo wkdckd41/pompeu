@@ -5,7 +5,7 @@ $(document).ready(function () {
     init();
     //alert( "ready!" );
 
-    selectNoticeList(memberTypeNo);
+    selectFaqList(memberTypeNo);
 
 });
 
@@ -15,12 +15,12 @@ $(document).ready(function () {
 function selectMemberTypeNo(t_num) {
     memberTypeNo = t_num;
 
-    selectNoticeList(memberTypeNo);
+    selectFaqList(memberTypeNo);
 
     //alert(memberTypeNo);
 }
 
-function selectNoticeList(no) {
+function selectFaqList(no) {
     while (tbody1.hasChildNodes()) {
         tbody1.removeChild(tbody1.firstChild);
     }
