@@ -1,20 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
+
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     <title>POMPEU!</title>
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/css/user_common.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-  
-  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
-   
+    <link href="/user/css/common.css" rel="stylesheet">
+    <link href="/user/css/user.css" rel="stylesheet">
+    <link href="/css/user_common.css" rel="stylesheet">
+    <link href="/user/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/user/css/font/fontawesome.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
 </head>
 
 <style>
@@ -76,30 +75,17 @@
 </style>
 
 <body>
-  <div class="container">
-    
 
-    
-    <div id="wrapper" >
-    
-        <!-- 헤더 자리 시작 -->
+<div class="container">
+    <div id="wrapper">
         <div id="header"></div>
-         <!-- 헤더 자리 끝 -->
-
         <div id="page-wrapper">
-        
-        <!-- 사이드바 자리 시작 -->
-        <div id="sidebar"></div>
-         <!-- 사이드바 자리 끝 -->
+            <div id="page-wrapper">
 
-   <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-        <div id="content">
-        
                 <h3>FAQ</h3>
                 <br>
                 <div id="Accordion_wrap">
-                    
-                <!--      <div class="que">
+                    <div class="que">
                         <span>한 강좌에 여러개의 쿠폰 사용이 가능한가요?</span>
                     </div>
                     <div class="anw">
@@ -146,39 +132,28 @@
                     </div>
                     <div class="anw">
                         <span>네 상관 없습니다.</span>
-                    </div>  -->
+                    </div>
                    </div>
             </div>
             <br>
-          
-        </div>
-    <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        </div> <!-- /#page-wrapper --> <!-- 내용물 자리 끝 -->
 
-        </div>
-        <!-- /#page-wrapper --> 
-
-        
-    <div id="footer"></div>
+        <div id="footer"></div>
     </div><!-- /#wrapper -->
-    </div>
-    
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+</div>  <!-- #container -->
 
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    
-    
-    <script>
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
     $("#header").load("/form/user/header.html");
     $("#footer").load("/form/user/footer.html");
-    $("#sidebar").load("/form/support/sidebar.html");
-    
-    
-    </script>
-
-    <script src="/user/support/faq.js"></script>
-
-    
+</script>
 
 </body>
+<script src="/user/support/faq.js"></script>
+
 </html>

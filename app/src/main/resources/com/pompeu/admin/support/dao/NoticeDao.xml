@@ -17,6 +17,13 @@
     <result column="modify_date" property="modifyDate"/>
   </resultMap>
 
+  <resultMap type="fileNames" id="fileNamesMap">
+    <id column="notice_file_no" property="no"/>
+    <result column="notice_no" property="noticeNo"/>
+    <result column="org_file" property="orgFile"/>
+    <result column="real_file" property="realFile"/>
+  </resultMap>
+  
   <select id="countAll" resultType="int">
     select count(*) from notice
   </select>
@@ -41,9 +48,17 @@
       
   </select>
   
-  <insert id="insert" parameterType="notice">
+  <insert id="insert" parameterType="notice" useGeneratedKeys="true" keyProperty="no" keyColumn="notice_no">
     insert into notice(member_type_no,critical_check,name,content,modify_date) 
     values(#{memberTypeNo},#{criticalCheck},#{name},#{content},#{modifyDate})
+  </insert>
+  
+  <insert id="insertFiles">
+    insert into notice_file(notice_no, org_file, real_file)
+    values
+    <foreach collection="fNames" item="fileNames" separator=",">
+      (#{noticeNo}, #{fileNames.orgFile}, #{fileNames.realFile}) 
+    </foreach>
   </insert>
 
   <select id="findByNo" resultMap="noticeMap" parameterType="int">
@@ -57,8 +72,17 @@
         , n.modify_date           as modify_date
       from notice n
      where 
-      notice_no=#{no}
+      n.notice_no=#{no}
   </select>
+  
+  <select id="findByFNamesNo" resultMap="fileNamesMap" parameterType="int">
+    select f.org_file
+        ,  f.real_file
+      from notice_file f
+     where 
+      f.notice_no=#{no}
+  </select>
+  
 
   <update id="update" parameterType="notice">
     update notice set 

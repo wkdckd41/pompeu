@@ -1,33 +1,48 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
     <title>POMPEU!</title>
-    <link href="/user/css/common.css" rel="stylesheet">
-    <link href="/user/css/user.css" rel="stylesheet">
-    <link href="/css/user_common.css" rel="stylesheet">
-    <link href="/user/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/user/css/font/fontawesome.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="/user/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  
+  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
+   
 </head>
 <style>
-.btnCancel {
-    background-color: #04CF5C;
+pre {
+    max-height: 500px;
+    background-color: white;
 }
-
 
 </style>
 <body>
-<div class="container">
-    <div id="wrapper">
+  <div class="container">
+    
 
+    
+    <div id="wrapper" >
+    
+        <!-- 헤더 자리 시작 -->
         <div id="header"></div>
+         <!-- 헤더 자리 끝 -->
+
         <div id="page-wrapper">
+        
+        <!-- 사이드바 자리 시작 -->
+        <div id="sidebar"></div>
+         <!-- 사이드바 자리 끝 -->
+
+   <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <div id="content">
             <h2>공지사항</h2>
             <br><br>
 
@@ -39,7 +54,7 @@
                 <hr class="my-2" style="margin-top:1px">
 
                 <div>
-<pre class=row=30 id="x-content">
+<pre class=row=30 id="x-content" name="x-content">
 
 
 </pre>
@@ -57,29 +72,32 @@
                         </div>
                         </div>
 
+        </div>
+    <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
+        </div>
+        <!-- /#page-wrapper --> 
 
-
-
-
-        </div> <!-- /#page-wrapper --> <!-- 내용물 자리 끝 -->
-
-        <div id="footer"></div>
+        
+    <div id="footer"></div>
     </div><!-- /#wrapper -->
-</div>  <!-- #container -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-
-<script src="/node_modules/jquery/dist/jquery.js"></script>
--->
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+    
+    <script>
     $("#header").load("/form/user/header.html");
     $("#footer").load("/form/user/footer.html");
-</script>
+    $("#sidebar").load("/form/support/sidebar.html");
+    </script>
+
+    <script src="/user/support/notice-view.js"></script>
+
+    
 
 </body>
-<script src="/user/support/notice-view.js"></script>
-
 </html>

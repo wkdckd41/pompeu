@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.admin.support.dao.NoticeDao;
 import com.pompeu.admin.support.service.NoticeService;
+import com.pompeu.domain.FileNames;
 import com.pompeu.domain.Notice;
 
 @Service
@@ -15,9 +16,16 @@ public class DefaultNoticeService implements NoticeService{
 
   @Override
   public int add(Notice notice) {
-    System.out.println("memberTypeNos : " + notice.getMemberTypeNo() +  " names: " + notice.getName() + 
-        " criticalChecks:" +  notice.getCriticalCheck() + " contents:"  + notice.getContent());
-    return noticeDao.insert(notice);
+    System.out.println("memberTypeNos : " + notice.getMemberTypeNo() +  " names: " + notice.getName() +  " criticalChecks:" +  notice.getCriticalCheck() + " contents:"  + notice.getContent());
+    int rs = noticeDao.insert(notice);
+
+    System.out.println("A# : " + notice.getNo());
+    System.out.println("B# : " + notice.getFNames());
+    if(notice.getFNames().size()!=0) {
+      rs = noticeDao.insertFiles(notice.getNo(), notice.getFNames());
+
+    }
+    return rs;
   }
 
   @Override
@@ -28,6 +36,11 @@ public class DefaultNoticeService implements NoticeService{
   @Override
   public Notice get(int no) {
     return noticeDao.findByNo(no);
+  }
+
+  @Override
+  public List<FileNames> getFNames(int no) {
+    return noticeDao.findByFNamesNo(no);
   }
 
   @Override

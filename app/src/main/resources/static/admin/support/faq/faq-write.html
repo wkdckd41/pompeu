@@ -37,9 +37,10 @@
 
             <div class="content">
                 <!-- 나중에 파일 등록을 위해 enctype="multipart/form-data" 을 넣어둠 -->
-                <form class="form-horizontal" id="frm" name="frm" method="post"
-                      enctype="multipart/form-data">
-
+                <form class="form-horizontal" method="post"
+                      enctype="multipart/form-data" name="form1" id="form1">
+                    <!-- <span style="display:none" name="no" id="no"></span> -->
+                    <input type=“hidden” name="no" id="no" style="display:none">
                     <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
 
                     <div class="form-group row text-center">
