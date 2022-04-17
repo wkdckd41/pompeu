@@ -22,5 +22,6 @@ public class Lecture {
   double totalRate;
   int inOutEx;
   List<LectureTime> times;
-
+  String images;
+  String filePath;
 }
