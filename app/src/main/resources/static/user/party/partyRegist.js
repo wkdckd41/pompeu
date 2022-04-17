@@ -21,23 +21,26 @@ var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
 });
 
 // 모집인원
-$("select[name=crew]").change(function() {
+$("select[name=maxMember]").change(function() {
   console.log($(this).val());  // value 값 가져오기
-  console.log($("select[name=crew] option:selected").text());  // text 값 가져오기
+  console.log($("select[name=maxMember] option:selected").text());  // text 값 가져오기
 });
-
-
 
 var xTitle = document.querySelector("input[name=title]");
 var xStartDate = document.querySelector("input[name=startDate]");
 var xEndDate = document.querySelector("input[name=endDate]");
 var xContent = document.querySelector("textarea");
+var xCrew = document.querySelector("select[name=maxMember]");
+var xExTag = document.querySelector("select[name=tag]");
 
 document.querySelector("#x-add-btn").onclick = function() {
    if(xTitle.value == "" || 
       xStartDate.value == "" || 
       xEndDate.value == "" || 
-      xContent.value == "") {
+      xExTag.value == "" ||
+      xContent.value == "" ||
+      xExTag.value == "" ||
+      xCrew.value == "") {
     window.alert("필수 입력 항목이 비어있습니다.");
     return;
   

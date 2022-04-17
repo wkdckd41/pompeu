@@ -137,10 +137,17 @@
     <!-- 소모임 등록 -->
 	  <insert id="insert" parameterType="party">
 	  /*insert*/
-	    insert into party(name,content,start_date,end_date) 
-	    values(#{title},#{content},#{startDate},#{endDate})
+	    insert into party(name,max_member,content,start_date,end_date,in_out_ex) 
+	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx})
 	  </insert>
-  
+	  
+    <!--소모임 Tag 등록-->
+    <insert id="insertTag" parameterType="tagManagement">
+      /*insertTag*/
+        insert into tagManagement(tag_no,party_no) 
+        values(#{tagNo},#{partyNo})
+      </insert>
+      
       
     <!-- 소모임 상세 -->
 	  <select id="findByNo" resultType="PartyIntro" parameterType="int">
