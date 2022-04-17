@@ -3,6 +3,7 @@ package com.pompeu.creator.lecture.controller;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
+import com.pompeu.domain.FileNames;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureTime;
 import net.coobird.thumbnailator.Thumbnails;
@@ -83,46 +85,48 @@ public class CreatorLectureController {
     Lecture lecture = new Lecture();
 
     //lecture.setFilePath(saveFile(file));
-    log.debug(saveFile(file));
+    log.debug(saveFile(file).toString());
   }
 
   // 파일 5개까지만
   // 반복문을 돌면서 꺼내고 
   private String saveFile(MultipartFile file) throws Exception {
-    log.debug(file);
+    //log.debug(file);
+    List<FileNames> list = new ArrayList<FileNames>();
+    // for(int i=0; i<files.size(); i++) {
+    for(int i=0; i < file.size(); i++  )
+      if (file != null && file.getSize() > 0) { 
+        // 파일을 저장할 때 사용할 파일명을 준비한다.
+        String filename = UUID.randomUUID().toString();
+        String originalFileName = file.getOriginalFilename();//크리에이터가 등록한 오리지널파일명  
 
-    if (file != null && file.getSize() > 0) { 
-      // 파일을 저장할 때 사용할 파일명을 준비한다.
-      String filename = UUID.randomUUID().toString();
-      String originalFileName = file.getOriginalFilename();//크리에이터가 등록한 오리지널파일명  
+        System.out.println(originalFileName);
 
-      System.out.println(originalFileName);
+        // 파일명의 확장자를 알아낸다.
+        int dotIndex = file.getOriginalFilename().lastIndexOf(".");
+        if (dotIndex != -1) {
+          filename += file.getOriginalFilename().substring(dotIndex);
+        }
 
-      // 파일명의 확장자를 알아낸다.
-      int dotIndex = file.getOriginalFilename().lastIndexOf(".");
-      if (dotIndex != -1) {
-        filename += file.getOriginalFilename().substring(dotIndex);
+
+        // 파일을 지정된 폴더에 저장한다.
+        File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
+        File filePath  = photoFile.getCanonicalFile();
+        file.transferTo(filePath); // 프로젝트 폴더의 전체 경로를 전달한다.
+
+
+        // 썸네일 이미지 파일 생성
+        Thumbnails.of(photoFile)
+        .size(50, 50)
+        .crop(Positions.CENTER)
+        .outputFormat("jpg")
+        .toFile(new File("./upload/lecture_image/thumbnails/" + "50x50_" + filename));
+
+        return originalFileName + "," + filename + "," +filePath;
+
+      } else {
+        return null;
       }
-
-
-      // 파일을 지정된 폴더에 저장한다.
-      File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
-      File filePath  = photoFile.getCanonicalFile();
-      file.transferTo(filePath); // 프로젝트 폴더의 전체 경로를 전달한다.
-
-
-      // 썸네일 이미지 파일 생성
-      Thumbnails.of(photoFile)
-      .size(50, 50)
-      .crop(Positions.CENTER)
-      .outputFormat("jpg")
-      .toFile(new File("./upload/lecture_image/thumbnails/" + "50x50_" + filename));
-
-      return originalFileName + "," + filename + "," +filePath;
-
-    } else {
-      return null;
-    }
   }
 
 }
