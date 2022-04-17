@@ -29,60 +29,24 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
-  <resultMap type="lecture" id="lectureMap">
-    <id column="lecture_no" property="no"/>
-    <result column="location_no" property="locationNo"/>
-    <result column="creator_no" property="creatorNo"/>
-    <result column="ex_no" property="exNo"/>
-    <result column="name" property="name"/>
-    <result column="start_date" property="startDate"/>
-    <result column="end_date" property="endDate"/>
-    <result column="lecture_price" property="lecturePrice"/>
-    <result column="lecture_info" property="lectureInfo"/>
-    <result column="register_date" property="registerDate"/>
-    <result column="status" property="status"/>
-    <result column="admin_message" property="adminMessage"/>
-    <result column="total_rate" property="totalRate"/>
-    <result column="in_out_ex" property="inOutEx"/>
-  </resultMap> 
-
-  <resultMap type="partyClaim" id="partyClaimMap">
-    <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="usersNo"/>
-    <result column="claim_reason_no" property="claimReasonNo"/>
-    <result column="claim_date" property="claimDate"/>
-    <result column="status" property="status"/>
-  </resultMap> 
-
-<!--
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
     <result column="image" property="image"/>
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
-  <resultMap type="mylectureList" id="mylectureListMap">
-    <id column="mylecture_list_no" property="no"/>
-    <result column="users_no" property="usersNo"/>
-    <result column="lecture_time_no" property="lectureTimeNo"/>
-    <result column="register_member" property="registerMember"/>
-    <result column="pay_status" property="payStatus"/>
-    <result column="content" property="content"/>
-    <result column="registerDate" property="registerDate"/>
-    <result column="rate" property="rate"/>
+  <resultMap type="userUpdate" id="userUpdate">
+    <id column="member_no" property="no"/>
+    <result column="name" property="name"/>
+    <result column="nickname" property="nickName"/>
+    <result column="email" property="email"/>
+    <result column="password" property="password"/>
+    <result column="phone" property="phone"/>
+    <result column="birth" property="birth"/>
+    <result column="image" property="image"/>
   </resultMap>
 
-  <resultMap type="lectureTime" id="lectureTimeMap">
-    <id column="lecture_time_no" property="no"/>
-    <result column="lecture_no" property="lectureNo"/>
-    <result column="start_time" property="startTime"/>
-    <result column="end_time" property="endTime"/>
-    <result column="max_member" property="maxMember"/>
-    <result column="no_member" property="noMember"/>
-  </resultMap>
-
-
-
+<!--
   <resultMap type="creator" id="creatorMap">
     <id column="creator_no" property="no"/>
     <result column="info" property="info"/>
@@ -155,5 +119,75 @@
     delete from member 
     where member_no=#{no}
   </delete>
+
+  <select id="getUser" resultType="HashMap" parameterType="int">
+    select  
+					m.member_no                                           as no,
+          u.image                                               as image,
+          m.name                                                as name,
+          m.nickname                                            as nickName,
+          m.email                                               as email,
+          m.phone                                               as phone,
+          m.birth                                               as birth
+    from 
+          member m
+          join users u 
+          on m.member_no = u.users_no
+    where 
+      m.member_no=#{no}
+  </select>
+
+  <update id="updateUser" parameterType="userUpdate">
+    update 
+			member as m,
+			users as u
+   <trim prefix="SET" suffixOverrides=",">
+    <if test="name != ''">
+      m.name=#{name},
+    </if>
+    <if test="nickName != ''">
+      m.nickname=#{nickName},
+    </if>
+    <if test="email != ''">
+      m.email=#{email},
+    </if>
+    <if test="password != ''">
+      m.password=#{password},
+    </if>
+    <if test="phone != ''">
+      m.phone=#{phone},
+    </if>
+    <if test="birth != ''">
+      m.birth=#{birth},
+    </if>
+    <if test="image != null">
+      u.image=#{image},
+    </if>
+   </trim>
+    where 
+      m.member_no=#{no}
+			and u.users_no=#{no}
+  </update>
+<!--
+  <update id="updateUser" parameterType="userUpdate">
+    update 
+			member as m
+			users as u
+	  set 
+      m.name=#{name}, 
+      m.nickname=#{nickName},
+      m.email=#{email},
+      m.password=#{password},
+      m.phone=#{phone},
+      m.birth=#{birth}
+    <if test="image != null">
+      ,u.image=#{image}
+    </if>
+    where 
+      m.member_no=#{no}
+			and u.users_no=#{no}
+  </update>
+-->
+
 
 </mapper>

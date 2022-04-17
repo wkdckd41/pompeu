@@ -1,9 +1,11 @@
 package com.pompeu.mypage.userChange.service.Impl;
 
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.domain.Member;
+import com.pompeu.domain.UserUpdate;
 import com.pompeu.mypage.userChange.dao.UserChangeDao;
 import com.pompeu.mypage.userChange.service.UserChangeService;
 
@@ -38,4 +40,16 @@ public class DefaultUserChangeService implements UserChangeService{
   public int delete(int no) {
     return userChangeDao.delete(no);
   }
+
+  @Override
+  public Map<Object,Object> getUser(int no) {
+    return userChangeDao.getUser(no);
+  }
+
+  @Override
+  public int updateUser(UserUpdate user) {
+    return userChangeDao.updateUser(user);
+  }
+
+
 }

@@ -1,7 +1,9 @@
 package com.pompeu.mypage.userChange.service;
 
 import java.util.List;
+import java.util.Map;
 import com.pompeu.domain.Member;
+import com.pompeu.domain.UserUpdate;
 
 public interface UserChangeService {
 
@@ -14,5 +16,9 @@ public interface UserChangeService {
   int update(Member member);
 
   int delete(int no);
+
+  Map<Object,Object> getUser(int no);
+
+  int updateUser(UserUpdate user);
 
 }
