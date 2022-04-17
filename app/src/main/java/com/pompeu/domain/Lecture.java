@@ -23,4 +23,5 @@ public class Lecture {
   int inOutEx;
   List<LectureTime> times;
   String images;
+  String filePath;
 }

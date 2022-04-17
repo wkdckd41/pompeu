@@ -35,8 +35,8 @@ public class CreatorLectureController {
   public Object add(Lecture lecture, String[] time, MultipartFile file) {
     log.debug(lecture);
 
+    //강의 시간 데이터
     try {
-      lecture.setImages(saveFile(file));
       ArrayList<LectureTime> timesList = new ArrayList<>();
       for(int i= 0; i< time.length; i++) {
         String[] value = time[i].split(",");
@@ -46,16 +46,12 @@ public class CreatorLectureController {
         if(value[1].length() == 0) { //종료시간
           continue;
         }  
-
-        LectureTime lectureTime = new LectureTime
-            (value[0],value[1],Integer.parseInt(value[2]));
-
+        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
         timesList.add(lectureTime);
       }
       lecture.setTimes(timesList);
-
-    }catch (Exception e) {
-
+    } catch (Exception e) {
+      e.printStackTrace();
     } 
 
     return creatorlectureService.add(lecture);
@@ -81,15 +77,26 @@ public class CreatorLectureController {
     return creatorlectureService.delete(no);
   }
 
+  @RequestMapping("/creatorLecture/addPhoto")
+  public void addPhoto(MultipartFile file) throws Exception {
 
+    Lecture lecture = new Lecture();
 
+    //lecture.setFilePath(saveFile(file));
+    log.debug(saveFile(file));
+  }
+
+  // 파일 5개까지만
+  // 반복문을 돌면서 꺼내고 
   private String saveFile(MultipartFile file) throws Exception {
-
-    //List<String> imageList = new ArrayList<String>();
+    log.debug(file);
 
     if (file != null && file.getSize() > 0) { 
       // 파일을 저장할 때 사용할 파일명을 준비한다.
       String filename = UUID.randomUUID().toString();
+      String originalFileName = file.getOriginalFilename();//크리에이터가 등록한 오리지널파일명  
+
+      System.out.println(originalFileName);
 
       // 파일명의 확장자를 알아낸다.
       int dotIndex = file.getOriginalFilename().lastIndexOf(".");
@@ -97,24 +104,25 @@ public class CreatorLectureController {
         filename += file.getOriginalFilename().substring(dotIndex);
       }
 
+
       // 파일을 지정된 폴더에 저장한다.
-      File photoFile = new File("/upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
-      file.transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
+      File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
+      File filePath  = photoFile.getCanonicalFile();
+      file.transferTo(filePath); // 프로젝트 폴더의 전체 경로를 전달한다.
+
 
       // 썸네일 이미지 파일 생성
       Thumbnails.of(photoFile)
       .size(50, 50)
       .crop(Positions.CENTER)
       .outputFormat("jpg")
-      .toFile(new File("./upload/book/" + "50x50_" + filename));
+      .toFile(new File("./upload/lecture_image/thumbnails/" + "50x50_" + filename));
 
-      //return imageList.add("");
-      return filename;
+      return originalFileName + "," + filename + "," +filePath;
 
     } else {
       return null;
     }
-
   }
 
 }
