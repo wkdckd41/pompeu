@@ -30,7 +30,6 @@
   var xHost = document.querySelector("#x-host");
   
   
-
   fetch(`/userparty/get?no=${no}`)
     .then(function(response) {
       return response.json();
