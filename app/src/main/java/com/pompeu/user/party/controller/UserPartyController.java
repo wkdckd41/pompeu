@@ -30,11 +30,12 @@ public class UserPartyController {
    * @return
    */
   @RequestMapping("/userparty/list")
-  public Object list(Party party) {
+  public Object list(String sort, String inOutEx) {
+    System.out.printf("list param : sort = %s, inOutEx = %s \n" , sort , inOutEx) ;
     log.info("게시글 목록조회!"); // 운영자가 확인하기를 원하는 정보
-    List<Party> list =  userPartyService.list(party);
+    List<Party> list =  userPartyService.list(sort, inOutEx);
     log.debug(list.toString()); // 개발자가 확인하기를 원하는 정보
-    return userPartyService.list(party);
+    return list;
   }
 
   /**
@@ -44,6 +45,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/add")
   public Object add(Party party) {
+    System.out.println("### : " + party.getInOutEx());
     return userPartyService.add(party);
   }
 
@@ -98,7 +100,7 @@ public class UserPartyController {
 
     try {
       // 다운로드할 파일의 입력 스트림 자원을 준비한다.
-      File downloadFile = new File("./upload/lecture_image/" + filename); // 다운로드 상대 경로 준비
+      File downloadFile = new File("./upload/party_image/" + filename); // 다운로드 상대 경로 준비
       FileInputStream fileIn = new FileInputStream(downloadFile.getCanonicalPath()); // 다운로드 파일의 실제 경로를 지정하여 입력 스트림 준비
       InputStreamResource resource = new InputStreamResource(fileIn); // 입력 스트림을 입력 자원으로 포장
 

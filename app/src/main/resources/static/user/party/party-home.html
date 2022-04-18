@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>POMPEU!</title>
   <link href="/user/css/user.css" rel="stylesheet">
   <link href="/css/user_common.css" rel="stylesheet">
@@ -69,26 +71,25 @@
 -->
 <div>
 <label class="test_obj">
-    <input type="radio" name="fruit" value="apple" id="btn-everything" onclick="selectBtnTypeNo('')">
+    <input type="radio" name="fruit" value="all" id="btn-everything" onclick="loadList()">
     <span>전체</span>
 </label>
  
 <label class="test_obj">
-    <input type="radio" name="fruit" value="banana" id="btn-out" onclick="selectBtnTypeNo('out')">
+    <input type="radio" name="fruit" value="out" id="btn-out" onclick="loadList()">
     <span>실외운동</span>
 </label>
  
 <label class="test_obj">
-    <input type="radio" name="fruit" value="lemon" id="btn-in" onclick="selectBtnTypeNo('in')">
+    <input type="radio" name="fruit" value="in" id="btn-in" onclick="loadList()">
     <span>실내운동</span>
 </label>
 </div>
-
   <div class="dropdown">
-      <select class="btn btn-default dropdown-toggle" id="input-tag" name="input-tag" style="margin:0px 130px 8px 0px;" >
-                    <option selected value="recency" onclick="selectBoxDate('')">최신순</option>
-                    <option value="old" onclick="selectBoxDate('old')">오래된순</option>
-                    <option value="end-date" onclick="selectBoxDate('end')">마감임박순</option>
+      <select onchange="loadList()"  class="btn btn-default dropdown-toggle" id="inputTag" style="margin:0px 130px 8px 0px;" >
+                    <option selected value="recency" >최신순</option>
+                    <option value="old" >오래된순</option>
+                    <option value="end" >마감임박순</option>
       </select>
   </div>
   
@@ -128,5 +129,4 @@ $("#footer").load("/form/user/footer.html");
 <script src="partyHome.js"></script>
 
 </body>
-
 </html>

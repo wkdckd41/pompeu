@@ -10,9 +10,14 @@ var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
     return response.json();
   })
   .then(function(result) {
-    console.log("tag");
     $("#x-ex-tag").html(htmlGenerator(result));
   });
+  
+  // 실내외선택
+$("select[name=inOutEx]").change(function() {
+  console.log($(this).val());  // value 값 가져오기
+  console.log($("select[name=inOutEx] option:selected").text());  // text 값 가져오기
+});
   
 // 운동 선택
   $("select[name=tag]").change(function() {
@@ -30,24 +35,25 @@ var xTitle = document.querySelector("input[name=title]");
 var xStartDate = document.querySelector("input[name=startDate]");
 var xEndDate = document.querySelector("input[name=endDate]");
 var xContent = document.querySelector("textarea");
+var xInOutEx = document.querySelector("select[name=inOutEx]");
 var xCrew = document.querySelector("select[name=maxMember]");
 var xExTag = document.querySelector("select[name=tag]");
 
 document.querySelector("#x-add-btn").onclick = function() {
+  
    if(xTitle.value == "" || 
       xStartDate.value == "" || 
       xEndDate.value == "" || 
-      xExTag.value == "" ||
       xContent.value == "" ||
+      xInOutEx.value == "" ||
       xExTag.value == "" ||
       xCrew.value == "") {
     window.alert("필수 입력 항목이 비어있습니다.");
     return;
-  
   }
   
     var fd = new FormData(document.forms.namedItem("frm"));
-    
+
     fetch("/userparty/add", { 
         method: "POST",
         body: new URLSearchParams(fd)
@@ -58,7 +64,7 @@ document.querySelector("#x-add-btn").onclick = function() {
       .then(function(result) {
         console.log(result);
       });
-      location.href = 'party-home.html'
+     // location.href = 'party-home.html'
   };
   
 

@@ -10,7 +10,7 @@ public interface UserPartyService {
    * 게시판 목록
    * @return
    */
-  List<Party> list(Party party);
+  List<Party> list(String sort, String inOutEx);
 
   /**
    * 게시판 등록
