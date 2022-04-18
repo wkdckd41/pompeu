@@ -81,16 +81,6 @@ public class UserPartyController {
   }
 
   /**
-   * 이미지 파일명 가져오기
-   * @param no
-   * @return
-   */
-  @RequestMapping("/userparty/addImage")
-  public Object addImage(int no) {
-    return userPartyService.img(no);
-  }
-
-  /**
    * 소모임 이미지 등록
    * @param filename
    * @return
@@ -126,6 +116,38 @@ public class UserPartyController {
       return null;
     }
   }
+
+  // image 파일 업로드
+  /* 
+  private String saveFile(MultipartFile file) throws Exception {
+    if (file != null && file.getSize() > 0) { 
+      // 파일을 저장할 때 사용할 파일명을 준비한다.
+      String filename = UUID.randomUUID().toString();
+
+      // 파일명의 확장자를 알아낸다.
+      int dotIndex = file.getOriginalFilename().lastIndexOf(".");
+      if (dotIndex != -1) {
+        filename += file.getOriginalFilename().substring(dotIndex);
+      }
+
+      // 파일을 지정된 폴더에 저장한다.
+      File photoFile = new File("./upload/book/" + filename); // App 클래스를 실행하는 프로젝트 폴더
+      file.transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
+
+      // 썸네일 이미지 파일 생성
+      Thumbnails.of(photoFile)
+      .size(50, 50)
+      .crop(Positions.CENTER)
+      .outputFormat("jpg")
+      .toFile(new File("./upload/book/" + "50x50_" + filename));
+
+      return filename;
+
+    } else {
+      return null;
+    }
+  }
+   */
 
   /**
    * 운동 Tag 목록

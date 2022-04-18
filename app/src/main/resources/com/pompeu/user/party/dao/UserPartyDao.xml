@@ -16,8 +16,8 @@
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
+    <result column="image" property="image"/>
     <result column="inputTag" property="inputTag"/>
-
   </resultMap>
 
   <resultMap type="location" id="locationMap">
@@ -41,17 +41,6 @@
     <id column="users_no" property="no"/>
     <result column="image" property="image"/>
     <result column="ex_type_no" property="exTypeNo"/>
-  </resultMap>
-
-  <resultMap type="partyImage" id="partyImageMap">
-    <id column="party_image_no" property="partyImageNo"/>
-    <result column="party_no" property="partyNo"/>
-    <result column="image" property="image"/>
-  </resultMap>
-  
-  <resultMap type="tagManagement" id="tagManagementMap">
-    <id column="tag_no" property="tagNo"/>
-    <result column="party_no" property="partyNo"/>
   </resultMap>
   
   <resultMap type="tagName" id="tagNameMap">
@@ -117,10 +106,8 @@
              party as p
        join location as lo
             on p.location_no = lo.location_no    
-        join tag_management as tm
-             on p.party_no = tm.party_no
         join tag_name as tn
-             on tm.tag_no = tn.tag_no
+             on p.tag_no = tn.tag_no
         WHERE
           1=1
             <if test="inOutEx != null or inOutEx != ''">
@@ -146,8 +133,8 @@
     <!-- 소모임 등록 -->
 	  <insert id="insert" parameterType="party">
 	  /*insert*/
-	    insert into party(name,max_member,content,start_date,end_date,in_out_ex) 
-	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx})
+	    insert into party(name,max_member,content,start_date,end_date,in_out_ex,image) 
+	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx},#{image})
 	  </insert>
 	  
     <!-- 소모임 상세 -->
@@ -160,16 +147,15 @@
                   p.start_date            as startDate,
                   p.end_date              as endDate,
                   p.max_member            as maxMember,
+                  p.image                 as image,
                   tn.tag                  as tag,
-                  m.name                  as name
+                  m.name                  as name,
             from 
                   party as p
             join location as lo
                  on p.location_no = lo.location_no 
-            join tag_management as tm
-                  on p.party_no = tm.party_no
             join tag_name as tn
-                  on tm.tag_no = tn.tag_no
+                  on p.tag_no = tn.tag_no
             join party_user as u
                   on p.party_no = u.party_no
                  and 
@@ -186,12 +172,15 @@
 	    update 
 	       party set 
 		      location_no=#{locationNo},
-		      name=#{name},
+		      name=#{title},
 		      content=#{content},
 		      start_date=#{startDate},
 		      end_date=#{endDate},
 		      max_member=#{maxMember},
-		      in_out_ex=#{inOutEx}
+		      in_out_ex=#{inOutEx},
+		  <if test="image != null">
+		      image=#{image}
+		  </if>
 	    where 
 	      party_no=#{no}
 	  </update>
@@ -200,23 +189,11 @@
 	  <delete id="delete" parameterType="int">
 	   /*delete*/
 	   delete 
-	   from party 
-	    where party_no=#{no}
+	       from party 
+	    where 
+	       party_no=#{no}
 	  </delete>
 	
-    <!-- 이미지 이름 가져오기 -->
-      <select id="addImage" resultType="HashMap" parameterType="int">
-      /*addImage*/
-        select 
-                pi.image                    as image
-            from 
-                  party as p
-            join party_image as pi
-                on pi.party_no = p.party_no
-            where 
-                p.party_no=#{no}
-      </select>
-
     <!--운동 tag 가져오기-->
         <select id="findByExTag" resultType="HashMap" parameterType="int">
         /*findByExTag*/

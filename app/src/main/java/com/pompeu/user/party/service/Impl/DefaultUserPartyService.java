@@ -60,15 +60,7 @@ public class DefaultUserPartyService implements UserPartyService{
   }
 
   /**
-   *  이미지 파일명 가져오기
-   */
-  @Override
-  public List<Party> img(int no) {
-    return userPartyDao.addImage(no);
-  }
-
-  /**
-   * 게시판 목록
+   * 운동 Tag 목록 가져오기
    */
   @Override
   public List<Party> tag(Party party) {

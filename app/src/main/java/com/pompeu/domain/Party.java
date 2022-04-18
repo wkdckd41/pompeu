@@ -13,15 +13,13 @@ public class Party {
   Date registerDate;
   Date startDate;
   Date endDate;
-  String inOutEx;
   int maxMember;
+  String inOutEx;
   Date modifyDate;
-
+  String image;
 
   PartyClaim partyClaim;
   Member member;
   String searchType;
-  String dateType;
   String tag;
-
 }
