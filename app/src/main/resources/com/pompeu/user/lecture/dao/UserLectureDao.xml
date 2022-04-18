@@ -102,7 +102,8 @@
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice,
-          le.lecture_no              as no
+          le.lecture_no              as no,
+          (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
     join exercise as ex
@@ -112,6 +113,8 @@
     order by
       le.lecture_no asc
   </select>
+
+  
   
   
    <select id="findOut" resultType="HashMap">
@@ -119,7 +122,8 @@
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice,
-          le.lecture_no              as lectureNo
+          le.lecture_no              as lectureNo,
+          (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
     join exercise as ex
@@ -135,7 +139,8 @@
           ex.name                    as exName,
           le.name                    as name,
           le.lecture_price           as lecturePrice,
-          le.lecture_no              as lectureNo
+          le.lecture_no              as lectureNo,
+          (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
     join exercise as ex
@@ -152,7 +157,7 @@
           cr.info                                               as info,
           ml.content                                            as content,
           ma.ask_content                                        as askContent,
-          ma.register_date                                      as registerDate
+          ma.register_date                                      as registerDate,
     from 
           lecture as le
     join creator as cr 
