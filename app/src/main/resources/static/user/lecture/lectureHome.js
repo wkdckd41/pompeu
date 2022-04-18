@@ -27,6 +27,7 @@ $(window).load(function() {
   var lecturePrice  = document.querySelector("#lecture-price");
   
   
+  
   console.log("exname : " + exName);
   console.log("name : " + name);
   console.log("price : " + lecturePrice);
@@ -38,6 +39,7 @@ $(window).load(function() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
+      
       $("#class-box").html(htmlGenerator(result));
 })
 })

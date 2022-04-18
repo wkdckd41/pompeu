@@ -16,10 +16,10 @@ public class Party {
   int maxMember;
   String inOutEx;
   Date modifyDate;
+  String image;
 
   PartyClaim partyClaim;
   Member member;
   String searchType;
-  String dateType;
-
+  String tag;
 }

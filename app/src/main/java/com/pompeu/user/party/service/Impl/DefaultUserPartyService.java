@@ -19,8 +19,8 @@ public class DefaultUserPartyService implements UserPartyService{
    * 게시판 목록
    */
   @Override
-  public List<Party> list(Party party) {
-    return userPartyDao.findAll(party);
+  public List<Party> list(String sort, String inOutEx) {
+    return userPartyDao.findAll(sort, inOutEx);
   }
 
   /**
@@ -29,6 +29,7 @@ public class DefaultUserPartyService implements UserPartyService{
   @Override
   @Transactional
   public int add(Party party) {
+    System.out.println("Service### : " + party.getInOutEx());
     return userPartyDao.insert(party);
   }
 
@@ -59,15 +60,7 @@ public class DefaultUserPartyService implements UserPartyService{
   }
 
   /**
-   *  이미지 파일명 가져오기
-   */
-  @Override
-  public List<Party> img(int no) {
-    return userPartyDao.addImage(no);
-  }
-
-  /**
-   * 게시판 목록
+   * 운동 Tag 목록 가져오기
    */
   @Override
   public List<Party> tag(Party party) {

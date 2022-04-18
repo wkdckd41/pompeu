@@ -30,11 +30,12 @@ public class UserPartyController {
    * @return
    */
   @RequestMapping("/userparty/list")
-  public Object list(Party party) {
+  public Object list(String sort, String inOutEx) {
+    System.out.printf("list param : sort = %s, inOutEx = %s \n" , sort , inOutEx) ;
     log.info("게시글 목록조회!"); // 운영자가 확인하기를 원하는 정보
-    List<Party> list =  userPartyService.list(party);
+    List<Party> list =  userPartyService.list(sort, inOutEx);
     log.debug(list.toString()); // 개발자가 확인하기를 원하는 정보
-    return userPartyService.list(party);
+    return list;
   }
 
   /**
@@ -44,6 +45,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/add")
   public Object add(Party party) {
+    System.out.println("### : " + party.getInOutEx());
     return userPartyService.add(party);
   }
 
@@ -79,16 +81,6 @@ public class UserPartyController {
   }
 
   /**
-   * 이미지 파일명 가져오기
-   * @param no
-   * @return
-   */
-  @RequestMapping("/userparty/addImage")
-  public Object addImage(int no) {
-    return userPartyService.img(no);
-  }
-
-  /**
    * 소모임 이미지 등록
    * @param filename
    * @return
@@ -98,7 +90,7 @@ public class UserPartyController {
 
     try {
       // 다운로드할 파일의 입력 스트림 자원을 준비한다.
-      File downloadFile = new File("./upload/lecture_image/" + filename); // 다운로드 상대 경로 준비
+      File downloadFile = new File("./upload/party_image/" + filename); // 다운로드 상대 경로 준비
       FileInputStream fileIn = new FileInputStream(downloadFile.getCanonicalPath()); // 다운로드 파일의 실제 경로를 지정하여 입력 스트림 준비
       InputStreamResource resource = new InputStreamResource(fileIn); // 입력 스트림을 입력 자원으로 포장
 
@@ -124,6 +116,38 @@ public class UserPartyController {
       return null;
     }
   }
+
+  // image 파일 업로드
+  /* 
+  private String saveFile(MultipartFile file) throws Exception {
+    if (file != null && file.getSize() > 0) { 
+      // 파일을 저장할 때 사용할 파일명을 준비한다.
+      String filename = UUID.randomUUID().toString();
+
+      // 파일명의 확장자를 알아낸다.
+      int dotIndex = file.getOriginalFilename().lastIndexOf(".");
+      if (dotIndex != -1) {
+        filename += file.getOriginalFilename().substring(dotIndex);
+      }
+
+      // 파일을 지정된 폴더에 저장한다.
+      File photoFile = new File("./upload/book/" + filename); // App 클래스를 실행하는 프로젝트 폴더
+      file.transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
+
+      // 썸네일 이미지 파일 생성
+      Thumbnails.of(photoFile)
+      .size(50, 50)
+      .crop(Positions.CENTER)
+      .outputFormat("jpg")
+      .toFile(new File("./upload/book/" + "50x50_" + filename));
+
+      return filename;
+
+    } else {
+      return null;
+    }
+  }
+   */
 
   /**
    * 운동 Tag 목록
