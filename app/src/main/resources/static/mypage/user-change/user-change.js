@@ -1,4 +1,6 @@
   var cThumbNail = document.querySelector("#thumbnail");
+  var cThumbNailFile = document.querySelector("#thumbnail-file");
+  var cFileName = document.querySelector("#file-name");
   var cName = document.querySelector("input[name=name]");
   var cNickName = document.querySelector("input[name=nickName]");
   var cEmail = document.querySelector("input[name=email]");
@@ -7,11 +9,14 @@
   var cPhone = document.querySelector("input[name=phone]");
   var cBirth = document.querySelector("input[name=birth]");
 
+  var TBtn = document.querySelector("#thumbnail-file-button");
   var CBtn = document.querySelector("#check-btn");
   var UBtn = document.querySelector("#update-btn");
   var DBtn = document.querySelector("#delete-btn");
 
 	userNo = 35;
+	
+	var nickCheck=false;
 	
   fetch(`/userChange/getUser?no=${userNo}`)
     .then(function(response) {
@@ -32,19 +37,46 @@
 			}
     });
 
+	cThumbNailFile.addEventListener("change", function(){
+		cFileName.innerHTML = cThumbNailFile.value.substr(12);
+	})
 	
+	CBtn.onclick = function() {  
+		fetch(`/userChange/checkNickname?nickname=${cNickName.value}`)
+		.then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+		  if (cNickName.value ==""){
+			window.alert("중복확인을 하려면 닉네임을 입력해주세요");
+      return;
+		  } else if(result == 0){
+			window.alert("사용가능한 닉네임입니다");
+			nickCheck=true;
+			cNickName.readOnly = true;
+			return;
+		  } else if (result == 1){
+			window.alert("이미 사용중인 닉네임입니다");
+			nickCheck=false;
+			return;
+		  }
+    });
+	}
 
   UBtn.onclick = function() {
 		var cBirthString = cBirth.value.toString();
 		var cBirthDigit = cBirthString.length;
 		
-	  if (cPassword.value != cPasswordCheck.value ) {
+		if (cNickName.value !="" && nickCheck==false){
+			window.alert("닉네임 중복 체크를 해주세요");
+      return;
+		} else if (cPassword.value != cPasswordCheck.value ) {
       window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
       return;
     } else if (cBirthDigit != 0 && cBirthDigit != 6 ) {
       window.alert("생년월일은 6자리로 입력해주세요");
       return;
-    }
+    };
 	  
 	  var fd = new FormData(document.forms.namedItem("form1"));
 	    

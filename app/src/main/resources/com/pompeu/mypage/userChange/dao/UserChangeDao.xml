@@ -168,26 +168,15 @@
       m.member_no=#{no}
 			and u.users_no=#{no}
   </update>
-<!--
-  <update id="updateUser" parameterType="userUpdate">
-    update 
+
+  <select id="checkNickname" parameterType="string" resultType="int">
+    select 
+			count(case when m.nickname = #{nickname} then 1 else null end)
+		from 
 			member as m
-			users as u
-	  set 
-      m.name=#{name}, 
-      m.nickname=#{nickName},
-      m.email=#{email},
-      m.password=#{password},
-      m.phone=#{phone},
-      m.birth=#{birth}
-    <if test="image != null">
-      ,u.image=#{image}
-    </if>
-    where 
-      m.member_no=#{no}
-			and u.users_no=#{no}
-  </update>
--->
+		where
+			m.member_type_no =1
+  </select>
 
 
 </mapper>

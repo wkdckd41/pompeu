@@ -640,12 +640,18 @@ border: 1px solid black;
 	border-radius:5px;
 }
 
-.user-con {
-	border:2px solid black;
+.user {
+	border:1.5px solid black;
 	border-radius: 5px;
 	margin:20px 5px;
-	width:370px;
+	width:200px;
 	min-height:30px;
 	padding:7px 10px;
 	line-height: 20px;
+}
+
+.user-image {
+	border-radius: 30%;
+	margin-top: 10px;
+	margin-bottom: -18px;
 }

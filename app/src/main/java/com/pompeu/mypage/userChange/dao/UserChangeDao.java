@@ -24,5 +24,7 @@ public interface UserChangeDao {
   Map<Object,Object> getUser(int no);
 
   int updateUser(UserUpdate user);
+
+  int checkNickname(String nickname);
 }
 

@@ -71,6 +71,11 @@ public class UserChangeController {
     }
   }
 
+  @RequestMapping("/userChange/checkNickname")
+  public Object checkNickname(String nickname) {
+    return userChangeService.checkNickname(nickname);
+  }
+
   @RequestMapping("/userChange/image")
   public ResponseEntity<Resource> image(String filename) {
 

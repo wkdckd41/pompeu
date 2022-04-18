@@ -127,7 +127,7 @@ public class UserLectureController {
     }
   }
 
-  /*
+
   @RequestMapping("/userLecture/image2")
   public ResponseEntity<Resource> image2(String filename) {
 
@@ -159,5 +159,5 @@ public class UserLectureController {
       return null;
     }
   }
-   */
+
 }
