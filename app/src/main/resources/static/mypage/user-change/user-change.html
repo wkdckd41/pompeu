@@ -103,9 +103,14 @@
             <img id="thumbnail" src="/form/mypage/image/bono.jpg"><br>
             
             <label id="thumbnail-file-button" for="thumbnail-file">사진 업로드</label><br>
-            
-            <input name="file" id="thumbnail-file" type="file">
-            <!--  <input name="file" id="thumbnail-file" type="file" style="display:none">-->
+            <table>
+              <tr>
+                <td>선택된 파일 : &nbsp;</td>
+                <td id="file-name">선택된 파일 없음</td>
+              </tr>            
+            </table>
+            <!-- <input name="file" id="thumbnail-file" type="file">-->
+             <input name="file" id="thumbnail-file" type="file" style="display:none">
             이름<br>
             <input name="name" type="text"><br>
             닉네임<br>
