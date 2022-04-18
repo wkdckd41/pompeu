@@ -88,6 +88,12 @@
     <result column="lecture_no" property="lectureNo"/>
     <result column="image" property="image"/>
   </resultMap>
+  
+  <resultMap type="users" id="usersMap">
+    <id column="users_no" property="usersNo"/>
+    <result column="image" property="image"/>
+    <result column="ex_type_no" property="exTypeNo"/>
+  </resultMap>
  
   <select id="countAll" resultType="int">
     select count(*) from lecture
@@ -158,6 +164,7 @@
           ml.content                                            as content,
           ma.ask_content                                        as askContent,
           ma.register_date                                      as registerDate,
+          (select image from users where users_no = ml.users_no order BY users_no asc LIMIT  1) as image
     from 
           lecture as le
     join creator as cr 

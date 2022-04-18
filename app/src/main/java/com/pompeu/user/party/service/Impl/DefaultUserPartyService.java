@@ -19,8 +19,8 @@ public class DefaultUserPartyService implements UserPartyService{
    * 게시판 목록
    */
   @Override
-  public List<Party> list(Party party) {
-    return userPartyDao.findAll(party);
+  public List<Party> list(String sort, String inOutEx) {
+    return userPartyDao.findAll(sort, inOutEx);
   }
 
   /**
@@ -29,6 +29,7 @@ public class DefaultUserPartyService implements UserPartyService{
   @Override
   @Transactional
   public int add(Party party) {
+    System.out.println("Service### : " + party.getInOutEx());
     return userPartyDao.insert(party);
   }
 
