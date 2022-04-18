@@ -25,6 +25,8 @@ $(window).load(function() {
   var exName = document.querySelector("#exercise");
   var name = document.querySelector("#lecture-name");
   var lecturePrice  = document.querySelector("#lecture-price");
+  var xImage  = document.querySelector("#x-image");
+  
   
   
   console.log("exname : " + exName);
@@ -38,7 +40,10 @@ $(window).load(function() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
+      
+      
       $("#class-box").html(htmlGenerator(result));
+      
 })
 })
 

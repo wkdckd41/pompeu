@@ -155,7 +155,12 @@
 
 <script id="tr-template2" type="text/x-handlebars-template">
 {{#each this}} 
-  <div class="user-cont">{{content}}</div>
+  <div>
+    <div>
+      <img src="/userLecture/image2?filename={{image}}" width="200" height="150">
+    </div>
+    <div class="user-con">{{content}}</div>
+  </div>
 {{/each}}
 </script>
 
