@@ -117,7 +117,7 @@
                 and p.in_out_ex = '2'
                 </if>
             </if>
-       <if test="sort == 'recency'">
+       <if test="sort == 'recent'">
          order by p.party_no desc
         </if>     
         <if test="sort == 'old'">

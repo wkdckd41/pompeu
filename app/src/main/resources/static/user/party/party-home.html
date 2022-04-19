@@ -62,13 +62,7 @@
 <form id="userBbsListForm" name="userBbsListForm" method="get" >
   <input type="hidden" id="inOutEx" name="inOutEx" />
 </form>
-<!--
-<div class="btn-group">
-  <button type="button" id="btn-everything" onclick="selectBtnTypeNo('')">전체</button>
-  <button type="button" id="btn-out" onclick="selectBtnTypeNo('out')">실외운동</button>
-  <button type="button" id="btn-in" onclick="selectBtnTypeNo('in')">실내운동</button>
-</div>
--->
+
 <div>
 <label class="test_obj">
     <input type="radio" name="fruit" value="all" id="btn-everything" onclick="loadList()">
@@ -88,7 +82,7 @@
 
   <div class="dropdown">
       <select onchange="loadList()"  class="btn btn-default dropdown-toggle" id="inputTag" style="margin:0px 130px 8px 0px;" >
-                    <option selected value="recency" >최신순</option>
+                    <option selected value="recent" >최신순</option>
                     <option value="old" >오래된순</option>
                     <option value="end" >마감임박순</option>
       </select>
