@@ -16,9 +16,6 @@ var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
 document.querySelector("input[name=fruit][value=all]").checked = true;
 loadList();
 
-function selectBtnTypeNo (inOutEx) {
-  
-}
 
 function loadList() {
   var sort = document.querySelector("#inputTag").value;
