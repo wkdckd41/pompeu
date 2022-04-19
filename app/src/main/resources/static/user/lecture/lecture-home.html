@@ -79,29 +79,15 @@
     <span>실내운동</span>
 </label>
 
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="regist-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    최신순
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">최신순</a></li>
-    <li><a href="#">오래된순</a></li>
-    <li><a href="#">마감임박순</a></li>
-  </ul>
-</div>
 
-<div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="member-drop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    전체
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    <li><a href="#">전체</a></li>
-    <li><a href="#">4인이하</a></li>
-    <li><a href="#">5인이상</a></li>
-  </ul>
-</div>
+  <div class="dropdown">
+      <select onchange="loadList()"  class="btn btn-default dropdown-toggle" id="inputTag" style="margin:0px 130px 8px 0px;" >
+                    <option selected value="recency" >최신순</option>
+                    <option value="old" >오래된순</option>
+                    <option value="end" >마감임박순</option>
+      </select>
+  </div>
+
 
 <hr style="width:900px;height:2px;border:none;color:#C0C0C0; background-color:#C0C0C0;" />
 

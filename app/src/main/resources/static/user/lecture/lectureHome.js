@@ -25,14 +25,14 @@ $(window).load(function() {
   var exName = document.querySelector("#exercise");
   var name = document.querySelector("#lecture-name");
   var lecturePrice  = document.querySelector("#lecture-price");
-  
+  var sort = document.querySelector("#inputTag").value; 
   
   
   console.log("exname : " + exName);
   console.log("name : " + name);
   console.log("price : " + lecturePrice);
     
-  fetch(`/userLecture/findEverything`)
+  fetch(`/userLecture/findEverything?sort=${sort}`)
     .then(function(response) {
       return response.json();
     })
@@ -98,6 +98,9 @@ btnIn.addEventListener('click', function() {
 
 
   $("#btn-everything").click();
+
+
+
 
   function moveView(no) {
   location.href = 'lecture-detail.html?no='+no
