@@ -1,10 +1,6 @@
 $(document).ready(function(){
-  
-  
   console.log("start");
-  selectBtnTypeNo("");
   
-    
 });
 
 // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
@@ -16,9 +12,6 @@ var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
 document.querySelector("input[name=fruit][value=all]").checked = true;
 loadList();
 
-function selectBtnTypeNo (inOutEx) {
-  
-}
 
 function loadList() {
   var sort = document.querySelector("#inputTag").value;

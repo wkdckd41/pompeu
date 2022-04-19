@@ -17,7 +17,6 @@
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
     <result column="image" property="image"/>
-    <result column="inputTag" property="inputTag"/>
   </resultMap>
 
   <resultMap type="location" id="locationMap">
