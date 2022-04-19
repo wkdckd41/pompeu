@@ -28,6 +28,7 @@
   var xCrew = document.querySelector("#x-crew");
   var xTag = document.querySelector("#x-tag");
   var xHost = document.querySelector("#x-host");
+  var ximage = document.querySelector("")
   
   
   fetch(`/userparty/get?no=${no}`)

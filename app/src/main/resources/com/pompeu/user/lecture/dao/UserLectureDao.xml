@@ -21,6 +21,7 @@
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="searchType" property="searchType"/>
+    <result column="inputTag" property="inputTag"/>
   </resultMap>
   
   <resultMap type="creator" id="creatorMap">
@@ -93,6 +94,25 @@
     <id column="users_no" property="usersNo"/>
     <result column="image" property="image"/>
     <result column="ex_type_no" property="exTypeNo"/>
+  </resultMap>
+  
+  <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>    
+    <result column="login_date" property="loginDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="birth" property="birth"/>
+    <result column="gender" property="gender"/>
+      <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
  
   <select id="countAll" resultType="int">
