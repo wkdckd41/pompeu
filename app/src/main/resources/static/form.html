@@ -11,6 +11,7 @@
 <h1>강의이미지등록</h1>
 
 <form name="form1" enctype="multipart/form-data">
+이름: <input name="name" ><br>
 사진: <input name="file" type="file" multiple onchange=miri(this)><br>
 <img src="" id="img">
 <button id="x-add-btn" type="button">등록</button>
@@ -24,7 +25,7 @@
     var fd = new FormData(document.forms.namedItem("form1"));
      
     
-    fetch("/creatorLecture/addPhoto", {   
+    fetch("/creatorLecture/add", {   
         method: "POST",
         body: fd
           }) 

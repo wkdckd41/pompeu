@@ -6,8 +6,7 @@
 
 <mapper namespace="com.pompeu.creator.lecture.dao.CreatorLectureDao">
 
-
-  <resultMap type="lecture" id="lectureMap">
+<resultMap type="lecture" id="lectureMap">
     <id column="lecture_no" property="no"/>
     <result column="location_no" property="locationNo"/>
     <result column="creator_no" property="creatorNo"/>
@@ -30,6 +29,15 @@
       <result column="end_time" property="endTime"/>
       <result column="max_member" property="maxMember"/>
     </collection>
+    
+    
+   <collection property="images" ofType="lectureImage">
+      <id column="lecture_image_no" property="no"/>
+      <result column="lecture_no" property="lectureNo"/>
+      <result column="image" property="image"/>
+      <result column="random_image" property="randomImage"/>
+    </collection>
+    
   </resultMap>
 
   <resultMap type="lectureTime" id="lectureTimeMap">
@@ -39,6 +47,14 @@
       <result column="end_time" property="endTime"/>
       <result column="max_member" property="maxMember"/>
       <result column="no_member" property="noMember"/>
+  </resultMap>
+  
+  
+  <resultMap type="lectureImage" id="lectureImageMap">
+      <id column="lecture_image_no" property="no"/>
+      <result column="lecture_no" property="lectureNo"/>
+      <result column="image" property="image"/>
+      <result column="random_image" property="randomImage"/>
   </resultMap>
 
     <insert id="insert" parameterType="lecture" keyProperty="no" keyColumn="lecture_no" useGeneratedKeys="true" >
@@ -57,15 +73,6 @@
    #{endDate},#{lecturePrice},#{lectureInfo},#{inOutEx})
     </insert>
 
-  
-  <insert id="insertTimes">
-    insert into lecture_time(lecture_no, start_time, end_time, max_member, no_member)
-    values
-    <foreach collection="times" item="lectureTime" separator=",">
-      (#{lectureNo}, #{lectureTime.startTime}, #{lectureTime.endTime}, #{lectureTime.maxMember}, #{lectureTime.noMember}) 
-    </foreach>
-  </insert>
-  
   <select id="countAll" resultType="int">
     select count(*) from lecture
   </select>
@@ -137,7 +144,27 @@
       (#{lectureNo},#{startTime},#{endTime},#{maxMember})
   </insert>
   
+    <insert id="insertTimes">
+    insert into lecture_time(lecture_no, start_time, end_time, max_member, no_member)
+    values
+    <foreach collection="times" item="lectureTime" separator=",">
+      (#{lectureNo}, #{lectureTime.startTime}, #{lectureTime.endTime}, #{lectureTime.maxMember}, #{lectureTime.noMember}) 
+    </foreach>
+  </insert>
+
+
+    <insert id="insertImage" parameterType="lectureImage">
+        insert into lecture_image ( lecture_no, image, random_image)
+        values (#{lectureNo},#{image},#{random_image})
+    </insert>
   
+    <insert id="insertImages">
+      insert into lecture_image ( lecture_no, image, random_image)
+        values
+    <foreach collection="images" item="lectureImage" separator=",">
+        values (#{lectureNo},#{images},#{random_image})
+    </foreach>
+  </insert>
   
   
 

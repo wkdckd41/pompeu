@@ -6,7 +6,6 @@ import lombok.Data;
 
 @Data
 public class Lecture {
-
   int no;
   int locationNo;
   int creatorNo;
@@ -22,6 +21,5 @@ public class Lecture {
   double totalRate;
   int inOutEx;
   List<LectureTime> times;
-  String images;
-  String filePath;
+  List<LectureImage> images;
 }
