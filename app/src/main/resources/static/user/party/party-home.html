@@ -10,9 +10,11 @@
   <link href="/user/css/flexslider.css" rel="stylesheet"  type="text/css" media="screen" />
   <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
+
 <div class="container"> <!-- 모든 내용은 이 안에 때려박기 -->
 
 <div id="header"></div> <!-- 헤더-->
@@ -60,25 +62,32 @@
 <form id="userBbsListForm" name="userBbsListForm" method="get" >
   <input type="hidden" id="inOutEx" name="inOutEx" />
 </form>
-  <div>
-    <label class="test_obj">
-        <input type="radio" name="fruit" value="all" id="btn-everything" onclick="loadList()">
-        <span>전체</span>
-    </label>
-     
-    <label class="test_obj">
-        <input type="radio" name="fruit" value="out" id="btn-out" onclick="loadList()">
-        <span>실외운동</span>
-    </label>
-     
-    <label class="test_obj">
-        <input type="radio" name="fruit" value="in" id="btn-in" onclick="loadList()">
-        <span>실내운동</span>
-    </label>
-  </div>
+<!--
+<div class="btn-group">
+  <button type="button" id="btn-everything" onclick="selectBtnTypeNo('')">전체</button>
+  <button type="button" id="btn-out" onclick="selectBtnTypeNo('out')">실외운동</button>
+  <button type="button" id="btn-in" onclick="selectBtnTypeNo('in')">실내운동</button>
+</div>
+-->
+<div>
+<label class="test_obj">
+    <input type="radio" name="fruit" value="all" id="btn-everything" onclick="loadList()">
+    <span>전체</span>
+</label>
+ 
+<label class="test_obj">
+    <input type="radio" name="fruit" value="out" id="btn-out" onclick="loadList()">
+    <span>실외운동</span>
+</label>
+ 
+<label class="test_obj">
+    <input type="radio" name="fruit" value="in" id="btn-in" onclick="loadList()">
+    <span>실내운동</span>
+</label>
+</div>
   <div class="dropdown">
       <select onchange="loadList()"  class="btn btn-default dropdown-toggle" id="inputTag" style="margin:0px 130px 8px 0px;" >
-                    <option selected value="recent" >최신순</option>
+                    <option selected value="recency" >최신순</option>
                     <option value="old" >오래된순</option>
                     <option value="end" >마감임박순</option>
       </select>
