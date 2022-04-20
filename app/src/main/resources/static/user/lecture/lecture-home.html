@@ -20,7 +20,7 @@
 <div style="text-align: center; font-weight: bold; margin-top:40px; margin-bottom:-170px;">
 <ul class="slides">
             <li style="margin-left:60px; width:115px;">
-              <img src="/user/lecture/img/jpg/서울.jpg" style="max-height:30%;" onclick="image()"/>
+              <img src="/user/lecture/img/jpg/서울.jpg" style="max-height:30%;"/>
               <div>서울</div>
             </li>
             <li style=" margin-left:0px; width:115px;">
@@ -79,8 +79,7 @@
     <span>실내운동</span>
 </label>
 
-
-  <div class="dropdown2">
+  <div class="dropdown" style="    float:right; margin-top:40px;">
       <select onchange="loadList()"  class="btn btn-default dropdown-toggle" id="inputTag" style="margin:0px 130px 8px 0px;" >
                     <option selected value="recency" >최신순</option>
                     <option value="old" >오래된순</option>
@@ -101,7 +100,7 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}} 
   <div class="class-card" onclick="moveView({{no}});">
-  <span id="region-summary">서울시 강남구</span>
+  <span id="region-summary">{{address}}</span>
     <div>
       <div>
       <img src="/userLecture/image?filename={{image}}" width="200" height="150">
@@ -129,7 +128,6 @@
 $("#header").load("/form/user/header.html");
 $("#footer").load("/form/user/footer.html");
 </script>
-
 
 </body>
 

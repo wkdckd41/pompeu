@@ -79,11 +79,6 @@ h5 {
     margin-top:-20px;
 }
 
-.dropdown2 {
-    float:right;
-    margin-top:40px;
-}
-
 #member-drop {
    margin-right:15px;
    margin-top:30px;
@@ -537,10 +532,10 @@ border: 1px solid black;
 .region-si {
    background-color: #009999;
    color:white;
-   width:140px;
+   min-width: 100px;
    height:20px;
    border-radius:5px;
-   margin-left:280px;
+   margin-left:330px;
    text-align:center;
 }
 

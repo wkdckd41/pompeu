@@ -118,8 +118,9 @@ $(window).load(function() {
      })
      
      
+     
+     
     var regionIntroduce = document.querySelector(".region-introduce");
-    var regionSi = document.querySelector(".region-si");
      
     fetch(`/userLecture/mapping?no=${no}`)
     .then(function(response) {
@@ -131,9 +132,7 @@ $(window).load(function() {
 
           
     add = result[0].address
-    si = result[0].si
     regionIntroduce.innerHTML = add;
-    regionSi.innerHTML = si;
         
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
         mapOption = {
@@ -168,6 +167,24 @@ $(window).load(function() {
 })
      
 
+     var regionSi = document.querySelector(".region-si");
+     
+     fetch(`/userLecture/siSep2?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+
+          
+    si = result[0].address
+    regionSi.innerHTML = si;
+     })
+     
+     
+     
+     
      
     /*
     var lectureAsk = document.querySelector("#lecture-ask");
