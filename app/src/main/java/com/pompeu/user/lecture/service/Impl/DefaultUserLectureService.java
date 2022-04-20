@@ -81,10 +81,6 @@ public class DefaultUserLectureService implements UserLectureService{
     return userLectureDao.addImage(no);
   }
 
-<<<<<<< HEAD
-
-
-=======
   @Override
   public List<Lecture> map(int no) {
     return userLectureDao.mapping(no);
@@ -94,5 +90,4 @@ public class DefaultUserLectureService implements UserLectureService{
   public List<Lecture> si(int no) {
     return userLectureDao.siSep(no);
   }
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 }

@@ -33,12 +33,8 @@ public interface UserLectureService {
 
   List<Lecture> img(int no);
 
-<<<<<<< HEAD
-
-=======
   List<Lecture> map(int no);
 
   List<Lecture> si(int no);
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 }
 
