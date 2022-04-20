@@ -7,7 +7,6 @@
 
   <resultMap type="party" id="partyMap">
     <id column="party_no" property="no"/>
-    <result column="location_no" property="locationNo"/>
     <result column="name" property="title"/>
     <result column="content" property="content"/>
     <result column="register_date" property="registerDate"/>
@@ -17,16 +16,13 @@
     <result column="in_out_ex" property="inOutEx"/>
     <result column="modify_date" property="modifyDate"/>
     <result column="image" property="image"/>
+    <result column="tag_no" property="tagNo"/>
+    <result column="address" property="address"/>
   </resultMap>
 
   <resultMap type="location" id="locationMap">
     <id column="location_no" property="locationNo"/>
-    <result column="doo" property="doo"/>
     <result column="si" property="si"/>
-    <result column="gun" property="gun"/>
-    <result column="gu" property="gu"/>
-    <result column="address" property="address"/>
-    <result column="post_no" property="postNo"/>
   </resultMap> 
 
   <resultMap type="partyUser" id="partyUserMap">
@@ -98,15 +94,12 @@
               p.name                                as title,
               tn.tag                                as tag,
               p.max_member                          as max_member,
-              lo.doo                                as doo,
               p.end_date                            as end_date,
               p.in_out_ex                           as in_out_ex
-        from 
-             party as p
-       join location as lo
-            on p.location_no = lo.location_no    
-        join tag_name as tn
-             on p.tag_no = tn.tag_no
+       from 
+	          party as p
+	        join tag_name as tn
+	             on p.tag_no = tn.tag_no
         WHERE
           1=1
             <if test="inOutEx != null or inOutEx != ''">
@@ -126,33 +119,30 @@
         <if test="sort == 'end'">
         order by p.end_date 
         </if>     
-           
 	  </select>
   
     <!-- 소모임 등록 -->
 	  <insert id="insert" parameterType="party">
 	  /*insert*/
-	    insert into party(name,max_member,content,start_date,end_date,in_out_ex,image) 
-	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx},#{image})
+	    insert into party(name,max_member,content,start_date,end_date,in_out_ex,image,tag_no,address) 
+	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx},#{image},#{tagNo},#{address})
 	  </insert>
 	  
     <!-- 소모임 상세 -->
 	  <select id="findByNo" resultType="PartyIntro" parameterType="int">
-	  /*findByNo*/
+      /*findByNo*/
         select 
-                  lo.doo                  as doo,
                   p.name                  as title,
+                  p.address               as address,
                   p.content               as content,
                   p.start_date            as startDate,
                   p.end_date              as endDate,
                   p.max_member            as maxMember,
                   p.image                 as image,
                   tn.tag                  as tag,
-                  m.name                  as name,
+                  m.name                  as name
             from 
                   party as p
-            join location as lo
-                 on p.location_no = lo.location_no 
             join tag_name as tn
                   on p.tag_no = tn.tag_no
             join party_user as u
@@ -161,25 +151,24 @@
                   u.party_maker = '1'
             join member as m 
                  on m.member_no  = u.users_no 
-	        where 
+            where 
                 p.party_no=#{no}
-	  </select>
+      </select>
 
     <!-- 소모임 수정 -->
 	  <update id="update" parameterType="party">
 	  /*update*/
 	    update 
 	       party set 
-		      location_no=#{locationNo},
 		      name=#{title},
+		      address=#{address},
+		      max_member=#{maxMember},
 		      content=#{content},
 		      start_date=#{startDate},
 		      end_date=#{endDate},
-		      max_member=#{maxMember},
 		      in_out_ex=#{inOutEx},
-		  <if test="image != null">
+		      tag_no=#{tagNo},
 		      image=#{image}
-		  </if>
 	    where 
 	      party_no=#{no}
 	  </update>

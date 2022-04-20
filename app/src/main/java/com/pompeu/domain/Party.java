@@ -7,7 +7,7 @@ import lombok.Data;
 public class Party {
 
   int partyNo;
-  int locationNo;
+  String address;
   String title;
   String content;
   Date registerDate;
@@ -17,6 +17,7 @@ public class Party {
   String inOutEx;
   Date modifyDate;
   String image;
+  int tagNo;
 
   PartyClaim partyClaim;
   Member member;
