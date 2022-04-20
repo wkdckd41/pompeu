@@ -18,7 +18,6 @@ $(window).load(function() {
 });
 
 
-<<<<<<< HEAD
   var btnEverything = document.getElementById("btn-everything");
 
   btnEverything.addEventListener('click', function() {
@@ -42,11 +41,9 @@ $(window).load(function() {
       
       $("#class-box").html(htmlGenerator(result));
 })
-=======
 var btnEverything = document.getElementById("btn-everything");
 btnEverything.addEventListener('click', function () {
   loadList();
->>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 })
 
 
