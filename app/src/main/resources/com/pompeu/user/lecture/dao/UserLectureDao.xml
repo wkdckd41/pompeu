@@ -20,6 +20,9 @@
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
+    <result column="address" property="address"/>
+    <result column="latitude" property="latitude"/>
+    <result column="longitude" property="longitude"/>
     <result column="searchType" property="searchType"/>
     <result column="inputTag" property="inputTag"/>
   </resultMap>
@@ -29,6 +32,11 @@
     <result column="info" property="Info"/>
     <result column="bank" property="bank"/>
     <result column="account" property="account"/>
+  </resultMap>
+  
+  <resultMap type="location" id="locationMap">
+    <id column="location_no" property="locationNo"/>
+    <result column="si" property="si"/>
   </resultMap>
   
   <resultMap type="lectureTime" id="lectureTimeMap">
@@ -60,17 +68,6 @@
     <result column="answer_content" property="answerContent"/>
     <result column="answer_register_date" property="answerRegisterDate"/>
     <result column="display" property="display"/>
-  </resultMap>
-  
-  <resultMap type="location" id="locationMap">
-    <id column="location_no" property="locationNo"/>
-    <result column="doo" property="doo"/>
-    <result column="si" property="si"/>
-    <result column="gun" property="gun"/>
-    <result column="gu" property="gu"/>
-    <result column="si" property="si"/>
-    <result column="address" property="address"/>
-    <result column="post_no" property="postNo"/>
   </resultMap>
 
   <resultMap type="exercise" id="exerciseMap">
@@ -129,6 +126,7 @@
           le.name                    as name,
           le.lecture_price           as lecturePrice,
           le.lecture_no              as no,
+          le.end_date                as endDate,
           (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
@@ -136,8 +134,16 @@
           on le.ex_no = ex.ex_no
     where 
           1=1
-    order by
-      le.lecture_no asc
+    <if test="sort == 'recency'">
+         order by le.lecture_no desc
+        </if>     
+        <if test="sort == 'old'">
+        order by le.lecture_no asc
+        </if>     
+        <if test="sort == 'end'">
+        order by le.end_date 
+        </if> 
+      
   </select>
 
   
@@ -149,6 +155,7 @@
           le.name                    as name,
           le.lecture_price           as lecturePrice,
           le.lecture_no              as lectureNo,
+          le.end_date                as endDate,
           (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
@@ -156,8 +163,15 @@
           on le.ex_no = ex.ex_no
     where 
           le.in_out_ex=1
-    order by
-      le.lecture_no asc
+    <if test="sort == 'recency'">
+         order by le.lecture_no desc
+        </if>     
+        <if test="sort == 'old'">
+        order by le.lecture_no asc
+        </if>     
+        <if test="sort == 'end'">
+        order by le.end_date 
+        </if> 
   </select>
   
    <select id="findIn" resultType="HashMap">
@@ -166,6 +180,7 @@
           le.name                    as name,
           le.lecture_price           as lecturePrice,
           le.lecture_no              as lectureNo,
+          le.end_date                as endDate,
           (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
@@ -173,8 +188,15 @@
           on le.ex_no = ex.ex_no
     where 
           le.in_out_ex=2
-    order by
-      le.lecture_no asc
+    <if test="sort == 'recency'">
+         order by le.lecture_no desc
+        </if>     
+        <if test="sort == 'old'">
+        order by le.lecture_no asc
+        </if>     
+        <if test="sort == 'end'">
+        order by le.end_date 
+        </if> 
   </select>
   
   <select id="findLecture" resultType="LectureIntro" parameterType="int">
@@ -247,5 +269,21 @@
     values(#{lectureNo},#{usersNo},#{content})
   </insert>
   
+  <select id="mapping" resultType="HashMap">
+    select  
+          le.address                 as address
+    from 
+          lecture as le
+    where 
+          le.lecture_no=#{no}
+  </select>
   
+  <select id="siSep" resultType="HashMap">
+    select  
+          SUBSTRING_INDEX(le.address, ' ', 1) as address  
+    from 
+          lecture as le
+    where 
+          le.lecture_no=#{no}
+  </select>
 </mapper>

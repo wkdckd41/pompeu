@@ -76,7 +76,12 @@ h5 {
 
 .dropdown {
     float:right;
-    
+    margin-top:-20px;
+}
+
+.dropdown2 {
+    float:right;
+    margin-top:40px;
 }
 
 #member-drop {
@@ -663,7 +668,7 @@ border: 1px solid black;
 	border:1.5px solid black;
 	border-radius: 5px;
 	margin:20px 5px;
-	width:200px;
+	min-width: 100%;
 	min-height:30px;
 	padding:7px 10px;
 	line-height: 20px;
@@ -673,4 +678,8 @@ border: 1px solid black;
 	border-radius: 30%;
 	margin-top: 10px;
 	margin-bottom: -18px;
+}
+
+#inputTag {
+	text-align:center;
 }

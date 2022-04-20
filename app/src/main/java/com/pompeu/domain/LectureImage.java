@@ -5,8 +5,16 @@ import lombok.Data;
 @Data
 public class LectureImage {
 
-  int lectureImageNo;
-  int lectureNo;
-  String image;
+  int lectureNo; //강의
+  int lectureImageNo;//순번
+  String image; //오리지널 이름
+  String randomImage; // 프로그램 내부에서 변경되어 저장된 파일 이름
+
+  public LectureImage(){}
+
+  public LectureImage(String image, String randomName) {
+    this.image= image;
+    this.randomImage = randomImage;
+  }
 
 }

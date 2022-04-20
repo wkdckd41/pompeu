@@ -56,4 +56,9 @@ public class DefaultUserChangeService implements UserChangeService{
     return userChangeDao.checkNickname(nickname);
   }
 
+  @Override
+  public int deleteUser(Member member) {
+    return userChangeDao.deleteUser(member);
+  }
+
 }

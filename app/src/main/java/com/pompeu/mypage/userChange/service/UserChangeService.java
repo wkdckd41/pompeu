@@ -23,4 +23,5 @@ public interface UserChangeService {
 
   int checkNickname(String nickname);
 
+  int deleteUser(Member member);
 }

@@ -21,6 +21,8 @@ public class Member {
   int gender;
   int snsNo;
   int memberTypeNo;
+  int deleteType;
+  String deleteDetail;
   MemberType memberType;
 
 

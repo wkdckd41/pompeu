@@ -99,3 +99,7 @@
 				window.location.reload();
       });
   };
+
+  DBtn.onclick = function() {
+	    window.location.href = "user-delete.html";
+}
