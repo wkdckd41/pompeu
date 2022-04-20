@@ -98,7 +98,7 @@ public class UserLectureController {
     return userLectureService.map(no);
   }  
 
-  @RequestMapping("/userLecture/siSep")
+  @RequestMapping("/userLecture/siSep2")
   public Object siSep(int no) {
     return userLectureService.si(no);
   } 

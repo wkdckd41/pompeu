@@ -88,6 +88,6 @@ public class DefaultUserLectureService implements UserLectureService{
 
   @Override
   public List<Lecture> si(int no) {
-    return userLectureDao.siSep(no);
+    return userLectureDao.siSep2(no);
   }
 }

@@ -34,11 +34,6 @@
     <result column="account" property="account"/>
   </resultMap>
   
-  <resultMap type="location" id="locationMap">
-    <id column="location_no" property="locationNo"/>
-    <result column="si" property="si"/>
-  </resultMap>
-  
   <resultMap type="lectureTime" id="lectureTimeMap">
     <id column="lecture_time_no" property="lectureTimeNo"/>
     <result column="lecture_no" property="lectureNo"/>
@@ -127,6 +122,7 @@
           le.lecture_price           as lecturePrice,
           le.lecture_no              as no,
           le.end_date                as endDate,
+          SUBSTRING_INDEX(le.address, ' ', 1)      as address,
           (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
@@ -145,8 +141,6 @@
         </if> 
       
   </select>
-
-  
   
   
    <select id="findOut" resultType="HashMap">
@@ -156,6 +150,7 @@
           le.lecture_price           as lecturePrice,
           le.lecture_no              as lectureNo,
           le.end_date                as endDate,
+          SUBSTRING_INDEX(le.address, ' ', 1)      as address,
           (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
@@ -174,6 +169,7 @@
         </if> 
   </select>
   
+  
    <select id="findIn" resultType="HashMap">
     select  
           ex.name                    as exName,
@@ -181,6 +177,7 @@
           le.lecture_price           as lecturePrice,
           le.lecture_no              as lectureNo,
           le.end_date                as endDate,
+          SUBSTRING_INDEX(le.address, ' ', 1)      as address,
           (select image from lecture_image where lecture_no = le.lecture_no  order BY lecture_image_no asc LIMIT  1) as image
     from 
           lecture as le
@@ -198,6 +195,7 @@
         order by le.end_date 
         </if> 
   </select>
+  
   
   <select id="findLecture" resultType="LectureIntro" parameterType="int">
     select  
@@ -278,7 +276,7 @@
           le.lecture_no=#{no}
   </select>
   
-  <select id="siSep" resultType="HashMap">
+  <select id="siSep2" resultType="HashMap">
     select  
           SUBSTRING_INDEX(le.address, ' ', 1) as address  
     from 
@@ -286,4 +284,7 @@
     where 
           le.lecture_no=#{no}
   </select>
+  
+  
+  
 </mapper>
