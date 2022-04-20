@@ -34,5 +34,7 @@ public interface UserLectureService {
   int addAsk(Ask ask);
 
   List<Lecture> img(int no);
+
+
 }
 

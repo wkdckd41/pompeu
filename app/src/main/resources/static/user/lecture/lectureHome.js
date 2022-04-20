@@ -38,6 +38,7 @@ $(window).load(function() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
+      
       $("#class-box").html(htmlGenerator(result));
 })
 })

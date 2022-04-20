@@ -85,4 +85,7 @@ public class DefaultUserLectureService implements UserLectureService{
   public List<Lecture> img(int no) {
     return userLectureDao.addImage(no);
   }
+
+
+
 }
