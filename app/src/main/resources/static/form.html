@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>MyList!</title>
+  <link href="/css/common.css" rel="stylesheet">
+</head>
+<body>
+
+
+<h1>강의이미지등록</h1>
+
+<form name="form1" enctype="multipart/form-data">
+이름: <input name="name" ><br>
+사진: <input name="file" type="file" multiple onchange=miri(this)><br>
+<img src="" id="img">
+<button id="x-add-btn" type="button">등록</button>
+</form>
+
+<script type="text/javascript">
+  
+  document.querySelector("#x-add-btn").onclick = function() {
+ 
+    
+    var fd = new FormData(document.forms.namedItem("form1"));
+     
+    
+    fetch("/creatorLecture/add", {   
+        method: "POST",
+        body: fd
+          }) 
+      .then(function(response) {
+      console.log("okok");
+             });
+     
+       
+  };
+  
+  
+  function miri(tag){
+      var reader = new FileReader();
+      // files메서드는 배열로 반환되기 때문에 멀티파일도 처리가능하다.
+       console.log("this");
+      console.log(tag.files[0]);
+     reader.readAsDataURL(tag.files[0]);
+      reader.onload = function() {
+          // 여기서의 this는 reader객체
+          document.getElementById("img").src = this.result;
+      } 
+  }
+
+
+
+</script>
+</body>
+</html>

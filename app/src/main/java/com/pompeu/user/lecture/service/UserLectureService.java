@@ -17,13 +17,11 @@ public interface UserLectureService {
 
   int delete(int no);
 
-  List<Lecture> getEverything();
+  List<Lecture> getEverything(String sort);
 
-  List<Lecture> imgEverything();
+  List<Lecture> getOut(String sort);
 
-  List<Lecture> getOut();
-
-  List<Lecture> getIn();
+  List<Lecture> getIn(String sort);
 
   List<LectureIntro> lecture(int no);
 
@@ -35,6 +33,12 @@ public interface UserLectureService {
 
   List<Lecture> img(int no);
 
+<<<<<<< HEAD
 
+=======
+  List<Lecture> map(int no);
+
+  List<Lecture> si(int no);
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 }
 

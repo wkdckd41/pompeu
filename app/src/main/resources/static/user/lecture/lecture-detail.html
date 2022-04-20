@@ -38,8 +38,7 @@
               </section>
             </div>
             <div style="display:flex;">
-              <div class="region-si">서울특별시</div>
-              <div class="region-gu">강남구</div>
+              <div class="region-si"></div>
             </div>
             <hr style="border: solid 1px gainsboro; width:32%; margin-right:30px; margin-top:10px"><br>
             <div class="like-container"><i class="fa-solid fa-thumbs-up" id="thumb"></i>    320</div>                                                                                                                                                                                                                                                                                                                                                                         
@@ -64,7 +63,7 @@
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">클래스 장소</h4>
-                <span class="region-introduce">서울특별시 강남구 언주로85길 13 경남아파트 지하1층 볼링시티</span>
+                <span class="region-introduce"></span>
                 <div id="map" style="width:400px;height:400px; border:1px solid black; margin-top:30px;"></div>
               </div>
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
@@ -72,8 +71,8 @@
                 <h4 style="font-weight: bold">환불 정책</h4>
                 <table border="1" bordercolor="black" style="margin-right:20px; width:94%;">
                 <tr>
-                  <th style="text-align: center; font-weight: bold; background-color: #ECEBEB">클래스 수강전</th>
-                  <th style="text-align: center; font-weight: bold; background-color: #ECEBEB">클래스 수강후</th>                  
+                  <th style="text-align: center; font-weight: bold; background-color: #ECEBEB; padding: 10px 10px">클래스 수강전</th>
+                  <th style="text-align: center; font-weight: bold; background-color: #ECEBEB; padding: 10px 10px">클래스 수강후</th>                  
                 </tr>
                 <tr>
                   <th style="padding: 10px 10px">수강 7일전 수강신청 취소에 대하여 전액환불</th>
@@ -88,8 +87,6 @@
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">후기</h4>
-                <div>image</div>
-                <div>아이러브볼링</div>
                 <div style="display: flex;">
                   <div class="user-con" id="user-con"></div>
                 </div>
@@ -155,7 +152,12 @@
 
 <script id="tr-template2" type="text/x-handlebars-template">
 {{#each this}} 
-  <div class="user-cont">{{content}}</div>
+  <div>
+    <div>
+      <img class="user-image" src="/userLecture/image2?filename={{image}}" width="60" height="40">
+    </div>
+    <div class="user" id="user-con">{{content}}</div>
+  </div>
 {{/each}}
 </script>
 
@@ -170,18 +172,10 @@ $("#footer").load("/form/user/footer.html");
 </script>
 
 
-</body>
-
 <!-- kakao map -->
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc96ae2bbd913884c89a94455894e721"></script>
-<script>
-  var container = document.getElementById('map');
-  var options = {
-    center: new kakao.maps.LatLng(33.450701, 126.570667),
-    level: 3
-  };
-  var map = new kakao.maps.Map(container, options);
-</script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=fc96ae2bbd913884c89a94455894e721&libraries=services"></script>
+
+</body>
 
 
 <script src="../js/jquery.js"></script><!-- 관련 js 파일들 -->

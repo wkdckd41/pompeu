@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    <title>POMPEU!</title>
+    <link href="/user/css/common.css" rel="stylesheet">
+    <link href="/user/css/user.css" rel="stylesheet">
+    <link href="/css/user_common.css" rel="stylesheet">
+    <link href="/user/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/user/css/font/fontawesome.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+
+.page-wrapper {
+  margin-top: -300px;
+}
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .que:first-child {
+    border-top: 1px solid black;
+  }
+
+  .que {
+    position: relative;
+    padding: 27px 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+
+  }
+
+  .que::before {
+    display: inline-block;
+    content: 'Q';
+    font-size: 18px;
+    font-weight: bold;
+    color: #04CF5C;
+    margin-right: 5px;
+  }
+
+  .que.on > span {
+    font-weight: bold;
+    font-weight: bold;
+    color: black;
+  }
+
+  .anw {
+    display: none;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #f4f4f2;
+    padding: 27px 0;
+  }
+
+  .anw::before {
+    display: inline-block;
+    content: 'A';
+    font-size: 18px;
+    font-weight: bold;
+    color: #D3ECA7;
+    margin-right: 5px;
+  }
+</style>
+
+<body>
+
+<div class="container">
+    <div id="wrapper">
+        <div id="header"></div>
+        <div id="page-wrapper">
+            <div id="page-wrapper">
+
+                <h3>FAQ</h3>
+                <br>
+                <div id="Accordion_wrap">
+                    <div class="que">
+                        <span>한 강좌에 여러개의 쿠폰 사용이 가능한가요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>한 강좌당 한개의 쿠폰만이 사용 가능합니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>찜한 클래스나 소모임은 어디서 확인 가능한가요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>마이페이지 홈에서 확인 가능합니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>한 계정으로 여러명이 한 소모임에 참여 가능하나요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>소모임 참여는 1인당 1계정이 원칙입니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>정산일은 언제인가요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>매월 10일입니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>크리에이터 정보는 어디서 수정이 가능한가요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>크리에이터 페이지 크리에이터 정보 탭에서 수정 가능합니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>비회원은 구매할수 없나요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>가입한 회원만 구매 가능합니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>카드+현금 복합결제가 가능한가요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>현금 결제,신용카드 결제 각 1가지 결제 수단으로만 결제 가능하며, 복합 결제를 지원하지 않습니다.</span>
+                    </div>
+                    <div class="que">
+                        <span>구매자와 입금자가 달라도 상관없나요?</span>
+                    </div>
+                    <div class="anw">
+                        <span>네 상관 없습니다.</span>
+                    </div>
+                   </div>
+            </div>
+            <br>
+        </div> <!-- /#page-wrapper --> <!-- 내용물 자리 끝 -->
+
+        <div id="footer"></div>
+    </div><!-- /#wrapper -->
+</div>  <!-- #container -->
+
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script>
+    $("#header").load("/form/user/header.html");
+    $("#footer").load("/form/user/footer.html");
+</script>
+
+</body>
+<script src="/user/support/faq.js"></script>
+
+</html>

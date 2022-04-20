@@ -1,7 +1,6 @@
 var gubunNo = null
 
-$(document).ready(function () {    //html문서가 다 로드된후에 자바스크립트가 자동으로 실행되는 함수
-
+$(document).ready(function () {   
     init();
 
     var arr = location.href.split("?");
@@ -52,7 +51,8 @@ function init() {
         param.set('memberTypeNo', member_type_no);
         param.set('ask', ask);
         param.set('answer', answer);
-
+        
+        
         var addr = "";
         if (gubunNo == null){
           
@@ -62,6 +62,7 @@ function init() {
           param.set('no', gubunNo);
         }
         console.log("addr =" + addr)
+        
 
         fetch(addr, {
             method: "POST",

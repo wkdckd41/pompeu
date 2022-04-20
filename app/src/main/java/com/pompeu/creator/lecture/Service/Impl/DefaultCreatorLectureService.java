@@ -27,6 +27,7 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   public int add(Lecture lecture) {
     creatorlectureDao.insert(lecture);
     creatorlectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
+    creatorlectureDao.insertImages(lecture.getNo(), lecture.getImages());
     return 1;
   }
 

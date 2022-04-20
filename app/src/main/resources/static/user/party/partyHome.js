@@ -3,6 +3,8 @@ $(document).ready(function(){
   
   console.log("start");
   selectBtnTypeNo("");
+  
+    
 });
 
 // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
@@ -11,23 +13,15 @@ var trTemplate = document.querySelector("#tr-template");
 //템플릿 엔진 준비
 var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
 
-function selectBtnTypeNo (type) {
-  console.log(type);
-  $("#inOutEx").val (type);
-  
-  var params = { 
-   "inOutEx":  $("#inOutEx").val()
-}; 
+document.querySelector("input[name=fruit][value=all]").checked = true;
+loadList();
 
-var paramData = Object.keys(params) 
-            .map(k => encodeURIComponent(k) + '=' + encodeURIComponent(params[k])) 
-            .join('&'); 
 
-var url = '/userparty/list?' + paramData;
-
-  
-  //fetch("/userparty/list")
-   fetch(url)
+function loadList() {
+  var sort = document.querySelector("#inputTag").value;
+  var inOutEx = document.querySelector("input[name=fruit]:checked").value;
+  console.log(sort,inOutEx);
+    fetch(`/userparty/list?sort=${sort}&inOutEx=${inOutEx}`)
     .then(function(response) {
       return response.json();
     })

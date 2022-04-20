@@ -10,7 +10,7 @@ public interface UserPartyService {
    * 게시판 목록
    * @return
    */
-  List<Party> list(Party party);
+  List<Party> list(String sort, String inOutEx);
 
   /**
    * 게시판 등록
@@ -37,13 +37,6 @@ public interface UserPartyService {
    * 게시판 삭제
    */
   int delete(int no);
-
-  /**
-   *  이미지 파일명 가져오기
-   * @param no
-   * @return
-   */
-  List<Party> img(int no);
 
   /**
    *  운동 Tag 목록 가져오기

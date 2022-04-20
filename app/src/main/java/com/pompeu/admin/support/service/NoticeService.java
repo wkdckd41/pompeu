@@ -1,6 +1,7 @@
 package com.pompeu.admin.support.service;
 
 import java.util.List;
+import com.pompeu.domain.FileNames;
 import com.pompeu.domain.Notice;
 
 public interface NoticeService {
@@ -10,6 +11,8 @@ public interface NoticeService {
   List<Notice> list(Notice notice); // 컨트롤러에서 넘겨받은 객체
 
   Notice get(int no);
+
+  List<FileNames> getFNames(int no);
 
   int update(Notice notice);
 

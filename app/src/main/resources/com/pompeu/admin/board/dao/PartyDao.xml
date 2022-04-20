@@ -15,6 +15,7 @@
     <result column="end_date" property="endDate"/>
     <result column="max_member" property="maxMember"/>
     <result column="in_out_ex" property="inOutEx"/>
+    <result column="image" property="image"/>
     <result column="modify_date" property="modifyDate"/>
     <result column="searchType" property="searchType"/>
   </resultMap>
@@ -30,12 +31,6 @@
     <result column="party_no" property="partyNo"/>
     <result column="party_maker" property="partyMaker"/>
     <result column="join_date" property="joinDate"/>
-  </resultMap>
-
-  <resultMap type="partyImage" id="partyImageMap">
-    <id column="party_image_no" property="partyImageNo"/>
-    <result column="party_no" property="partyNo"/>
-    <result column="image" property="image"/>
   </resultMap>
   
   <resultMap type="partyWishlist" id="partyWishlsitMap">

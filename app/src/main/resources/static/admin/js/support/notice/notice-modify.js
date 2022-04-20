@@ -35,16 +35,6 @@ $(document).ready(function () {
         console.log(result.criticalCheck);
         console.log(result.memberTypeNo);
     });
-    /*
-    var arr2 = no.split("=");
-    if (arr2.length == 1) {
-      alert("요청 형식이 옳바르지 않습니다.22222")
-      throw "URL 형식 오류!222222222";
-    }
-    var noticeNo = arr2[1];
-
-    console.log("noticeNo : " + noticeNo);
-    */
 
 });
 
