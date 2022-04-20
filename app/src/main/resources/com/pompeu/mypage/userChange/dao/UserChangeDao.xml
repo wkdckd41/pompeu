@@ -26,6 +26,8 @@
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
+    <result column="delete_type" property="deleteType"/>
+    <result column="delete_detail" property="deleteDetail"/>
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
@@ -177,6 +179,17 @@
 		where
 			m.member_type_no =1
   </select>
+
+  <update id="deleteUser" parameterType="member">
+    update 
+			member as m
+	  set
+      m.use_check=2,
+      m.delete_type=#{deleteType},
+      m.delete_detail=#{deleteDetail}
+    where 
+      m.member_no=#{no}
+  </update>
 
 
 </mapper>

@@ -76,6 +76,16 @@ public class UserChangeController {
     return userChangeService.checkNickname(nickname);
   }
 
+  @RequestMapping("/userChange/deleteUser")
+  public Object deleteUser(Member member) {
+    try {
+      return userChangeService.deleteUser(member);
+    } catch (Exception e) {
+      e.printStackTrace();
+      return "error!";
+    }
+  }
+
   @RequestMapping("/userChange/image")
   public ResponseEntity<Resource> image(String filename) {
 

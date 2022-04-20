@@ -26,5 +26,7 @@ public interface UserChangeDao {
   int updateUser(UserUpdate user);
 
   int checkNickname(String nickname);
+
+  int deleteUser(Member member);
 }
 
