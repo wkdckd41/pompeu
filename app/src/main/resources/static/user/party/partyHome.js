@@ -1,10 +1,6 @@
 $(document).ready(function(){
   
-  
   console.log("start");
-  selectBtnTypeNo("");
-  
-    
 });
 
 // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
@@ -33,7 +29,6 @@ function loadList() {
 
     });
 }
-
 
 function moveView(no) {
   location.href = 'party-detail.html?no=' + no

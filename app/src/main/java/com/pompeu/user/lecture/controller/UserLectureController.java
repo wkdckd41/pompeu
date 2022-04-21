@@ -53,20 +53,18 @@ public class UserLectureController {
   }
 
   @RequestMapping("/userLecture/findEverything")
-  public Object findEverything() {
-    return userLectureService.getEverything();
+  public Object findEverything(String sort) {
+    return userLectureService.getEverything(sort);
   }
 
-
-
   @RequestMapping("/userLecture/findOut")
-  public Object findOut() {
-    return userLectureService.getOut();
+  public Object findOut(String sort) {
+    return userLectureService.getOut(sort);
   }
 
   @RequestMapping("/userLecture/findIn")
-  public Object findIn() {
-    return userLectureService.getIn();
+  public Object findIn(String sort) {
+    return userLectureService.getIn(sort);
   }
 
   @RequestMapping("/userLecture/findLecture")
@@ -94,6 +92,16 @@ public class UserLectureController {
   public Object addImage(int no) {
     return userLectureService.img(no);
   }
+
+  @RequestMapping("/userLecture/mapping")
+  public Object mapping(int no) {
+    return userLectureService.map(no);
+  }  
+
+  @RequestMapping("/userLecture/siSep2")
+  public Object siSep(int no) {
+    return userLectureService.si(no);
+  } 
 
   @RequestMapping("/userLecture/image")
   public ResponseEntity<Resource> image(String filename) {

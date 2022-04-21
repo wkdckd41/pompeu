@@ -42,23 +42,18 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public List<Lecture> getEverything() {
-    return userLectureDao.findEverything();
+  public List<Lecture> getEverything(String sort) {
+    return userLectureDao.findEverything(sort);
   }
 
   @Override
-  public List<Lecture> imgEverything() {
-    return userLectureDao.imageEverything();
+  public List<Lecture> getOut(String sort) {
+    return userLectureDao.findOut(sort);
   }
 
   @Override
-  public List<Lecture> getOut() {
-    return userLectureDao.findOut();
-  }
-
-  @Override
-  public List<Lecture> getIn() {
-    return userLectureDao.findIn();
+  public List<Lecture> getIn(String sort) {
+    return userLectureDao.findIn(sort);
   }
 
   @Override
@@ -84,5 +79,15 @@ public class DefaultUserLectureService implements UserLectureService{
   @Override
   public List<Lecture> img(int no) {
     return userLectureDao.addImage(no);
+  }
+
+  @Override
+  public List<Lecture> map(int no) {
+    return userLectureDao.mapping(no);
+  }
+
+  @Override
+  public List<Lecture> si(int no) {
+    return userLectureDao.siSep2(no);
   }
 }

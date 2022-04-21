@@ -2,6 +2,7 @@ package com.pompeu.user.lecture.dao;
 
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
@@ -19,13 +20,11 @@ public interface UserLectureDao {
 
   int delete(int no);
 
-  List<Lecture> findEverything();
+  List<Lecture> findEverything(@Param("sort") String sort);
 
-  List<Lecture> imageEverything();
+  List<Lecture> findOut(@Param("sort") String sort);
 
-  List<Lecture> findOut();
-
-  List<Lecture> findIn();
+  List<Lecture> findIn(@Param("sort") String sort);
 
   List<LectureIntro> findLecture(int no);
 
@@ -36,4 +35,8 @@ public interface UserLectureDao {
   int insertAsk(Ask ask);
 
   List<Lecture> addImage(int no);
+
+  List<Lecture> mapping(int no);
+
+  List<Lecture> siSep2(int no);
 }
