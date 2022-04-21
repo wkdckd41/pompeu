@@ -53,18 +53,18 @@ public class UserLectureController {
   }
 
   @RequestMapping("/userLecture/findEverything")
-  public Object findEverything(String sort) {
-    return userLectureService.getEverything(sort);
+  public Object findEverything(String sort, String region) {
+    return userLectureService.getEverything(sort, region);
   }
 
   @RequestMapping("/userLecture/findOut")
-  public Object findOut(String sort) {
-    return userLectureService.getOut(sort);
+  public Object findOut(String sort, String region) {
+    return userLectureService.getOut(sort, region);
   }
 
   @RequestMapping("/userLecture/findIn")
-  public Object findIn(String sort) {
-    return userLectureService.getIn(sort);
+  public Object findIn(String sort, String region) {
+    return userLectureService.getIn(sort, region);
   }
 
   @RequestMapping("/userLecture/findLecture")

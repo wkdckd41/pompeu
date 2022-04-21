@@ -130,15 +130,18 @@
           on le.ex_no = ex.ex_no
     where 
           1=1
+    <if test="region != 'all'">
+          and SUBSTRING_INDEX(le.address, ' ', 1) like concat(#{region},'%')
+    </if>  
     <if test="sort == 'recency'">
-         order by le.lecture_no desc
-        </if>     
-        <if test="sort == 'old'">
-        order by le.lecture_no asc
-        </if>     
-        <if test="sort == 'end'">
-        order by le.end_date 
-        </if> 
+     order by le.lecture_no desc
+    </if>     
+    <if test="sort == 'old'">
+    order by le.lecture_no asc
+    </if>     
+    <if test="sort == 'end'">
+    order by le.end_date 
+    </if> 
       
   </select>
   
@@ -158,6 +161,9 @@
           on le.ex_no = ex.ex_no
     where 
           le.in_out_ex=1
+    <if test="region != 'all'">
+          and SUBSTRING_INDEX(le.address, ' ', 1) like concat(#{region},'%')
+    </if>  
     <if test="sort == 'recency'">
          order by le.lecture_no desc
         </if>     
@@ -185,6 +191,9 @@
           on le.ex_no = ex.ex_no
     where 
           le.in_out_ex=2
+    <if test="region != 'all'">
+          and SUBSTRING_INDEX(le.address, ' ', 1) like concat(#{region},'%')
+    </if>  
     <if test="sort == 'recency'">
          order by le.lecture_no desc
         </if>     
