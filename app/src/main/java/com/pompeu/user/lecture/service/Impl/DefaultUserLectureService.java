@@ -42,18 +42,18 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public List<Lecture> getEverything(String sort) {
-    return userLectureDao.findEverything(sort);
+  public List<Lecture> getEverything(String sort, String region) {
+    return userLectureDao.findEverything(sort, region);
   }
 
   @Override
-  public List<Lecture> getOut(String sort) {
-    return userLectureDao.findOut(sort);
+  public List<Lecture> getOut(String sort, String region) {
+    return userLectureDao.findOut(sort, region);
   }
 
   @Override
-  public List<Lecture> getIn(String sort) {
-    return userLectureDao.findIn(sort);
+  public List<Lecture> getIn(String sort, String region) {
+    return userLectureDao.findIn(sort, region);
   }
 
   @Override

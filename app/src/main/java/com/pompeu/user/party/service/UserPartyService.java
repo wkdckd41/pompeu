@@ -10,7 +10,7 @@ public interface UserPartyService {
    * 게시판 목록
    * @return
    */
-  List<Party> list(String sort, String inOutEx);
+  List<Party> list(String region, String sort, String inOutEx);
 
   /**
    * 게시판 등록
@@ -44,4 +44,18 @@ public interface UserPartyService {
    * @return
    */
   List<Party> tag(Party party);
+
+  /**
+   * 주소 가져오기
+   * @param no
+   * @return
+   */
+  List<Party> map(int no);
+
+  /**
+   * 주소 Tag 가져오기
+   * @param no
+   * @return
+   */
+  List<Party> si(int no);
 }

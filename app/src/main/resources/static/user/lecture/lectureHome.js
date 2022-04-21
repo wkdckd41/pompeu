@@ -35,11 +35,26 @@ btnIn.addEventListener('click', function() {
   loadList();
 })
 
+function onClickRegion(e) {
+  console.log(e.currentTarget);
+  var selectedRegion = document.querySelector(".region-selected");
+  if (selectedRegion != undefined) {
+    selectedRegion.classList.remove("region-selected");
+  }
+  e.currentTarget.classList.add("region-selected");
+  loadList();
+}
+
 function loadList() {
+  var region = "all";
+  var selectedRegion = document.querySelector(".region-selected div");
+  if (selectedRegion != undefined) {
+    region = selectedRegion.innerHTML;
+  }
   var inOut = document.querySelector("input[name=inout]:checked").value;
   var sort = document.querySelector("#inputTag").value;
  
-  console.log(inOut, sort);
+  console.log(region, inOut, sort);
  
   var url = "/userLecture/findEverything";
   if (inOut == "in") {
@@ -48,7 +63,7 @@ function loadList() {
     url = "/userLecture/findOut";
   }
  
-  fetch(`${url}?sort=${sort}`)
+  fetch(`${url}?sort=${sort}&region=${region}`)
     .then(function(response) {
       return response.json();
     })

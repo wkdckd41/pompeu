@@ -32,10 +32,10 @@ public class UserPartyController {
    * @return
    */
   @RequestMapping("/userparty/list")
-  public Object list(String sort, String inOutEx) {
-    System.out.printf("list param : sort = %s, inOutEx = %s \n" , sort , inOutEx) ;
+  public Object list(String region, String sort, String inOutEx) {
+    System.out.printf("list param : region = %s, sort = %s, inOutEx = %s \n" , region, sort , inOutEx) ;
     log.info("게시글 목록조회!"); // 운영자가 확인하기를 원하는 정보
-    List<Party> list =  userPartyService.list(sort, inOutEx);
+    List<Party> list =  userPartyService.list(region, sort, inOutEx);
     log.debug(list.toString()); // 개발자가 확인하기를 원하는 정보
     return list;
   }
@@ -164,4 +164,21 @@ public class UserPartyController {
     return userPartyService.tag(party);
   }
 
+  /**
+   * 주소 가져오기
+   * @return
+   */
+  @RequestMapping("/userparty/mapping")
+  public Object mapping(int no) {
+    return userPartyService.map(no);
+  }  
+
+  /**
+   * 주소 Tag 가져오기
+   * @return
+   */
+  @RequestMapping("/userparty/siSep")
+  public Object siSep(int no) {
+    return userPartyService.si(no);
+  } 
 }

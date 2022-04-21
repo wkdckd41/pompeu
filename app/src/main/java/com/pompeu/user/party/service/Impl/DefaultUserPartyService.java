@@ -19,8 +19,8 @@ public class DefaultUserPartyService implements UserPartyService{
    * 게시판 목록
    */
   @Override
-  public List<Party> list(String sort, String inOutEx) {
-    return userPartyDao.findAll(sort, inOutEx);
+  public List<Party> list(String region, String sort, String inOutEx) {
+    return userPartyDao.findAll(region, sort, inOutEx);
   }
 
   /**
@@ -65,5 +65,21 @@ public class DefaultUserPartyService implements UserPartyService{
   @Override
   public List<Party> tag(Party party) {
     return userPartyDao.findByExTag(party);
+  }
+
+  /**
+   * 주소 가져오기
+   */
+  @Override
+  public List<Party> map(int no) {
+    return userPartyDao.mapping(no);
+  }
+
+  /**
+   * 주소 Tag 가져오기
+   */
+  @Override
+  public List<Party> si(int no) {
+    return userPartyDao.siSep(no);
   }
 }
