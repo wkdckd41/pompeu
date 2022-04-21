@@ -20,40 +20,40 @@
 <div id="header"></div> <!-- 헤더-->
 
 <div style="text-align: center; font-weight: bold; margin-top:40px; margin-bottom:-170px;">
-<ul class="slides">
-            <li style="margin-left:60px; width:115px;">
+<ul class="slides" id="address">
+            <li style="margin-left:60px; width:115px;" onclick="onClickRegion(event)">
               <img src="/user/lecture/img/jpg/서울.jpg" style="max-height:30%;"/>
               <div>서울</div>
             </li>
-            <li style=" margin-left:0px; width:115px;">
+            <li style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
               <img src="/user/lecture/img/jpg/경기.jpg" style="max-height:30%;"/>
               <div>경기</div>
             </li>
-            <li style=" margin-left:0px; width:115px;">
-              <img src="/user/lecture/img/jpg/인천.jpg" style="max-height:30%;" />
+            <li style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
+              <img src="/user/lecture/img/jpg/인천.jpg" style="max-height:30%;"/>
               <div>인천</div>
             </li>
-            <li  style=" margin-left:0px; width:115px;">
-              <img src="/user/lecture/img/jpg/광주.jpg" style="max-height:30%;" />
+            <li  style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
+              <img src="/user/lecture/img/jpg/광주.jpg" style="max-height:30%;"/>
               <div>광주</div>
             </li>
-            <li  style=" margin-left:0px; width:115px;">
-              <img src="/user/lecture/img/jpg/대전.jpg" style="max-height:30%;" />
+            <li  style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
+              <img src="/user/lecture/img/jpg/대전.jpg" style="max-height:30%;"/>
               <div>대전</div>
             </li>
-            <li  style=" margin-left:0px; width:115px; ">
-              <img src="/user/lecture/img/jpg/대구.jpg" style="max-height:30%;" />
+            <li  style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
+              <img src="/user/lecture/img/jpg/대구.jpg" style="max-height:30%;"/>
               <div>대구</div>
             </li>
-            <li  style=" margin-left:0px; width:115px;">
-              <img src="/user/lecture/img/jpg/울산.jpg" style="max-height:30%;" />
+            <li  style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
+              <img src="/user/lecture/img/jpg/울산.jpg" style="max-height:30%;"/>
               <div>울산</div>
             </li>
-            <li  style=" margin-left:00px; width:115px;">
+            <li  style=" margin-left:00px; width:115px;" onclick="onClickRegion(event)">
               <img src="/user/lecture/img/jpg/부산.jpg"  style="max-height:30%;"/>
               <div>부산</div>
             </li>
-            <li  style=" margin-left:0px; width:115px;">
+            <li  style=" margin-left:0px; width:115px;" onclick="onClickRegion(event)">
               <img src="/user/lecture/img/jpg/제주.jpg" style="max-height:30%;"/>
               <div>제주</div>
             </li>
@@ -106,6 +106,7 @@
       <div id="x-title" style="font-weight:bold; font-size:15px;">{{title}}</div>
       <hr  style="height:1px; border:none; color:#C0C0C0; background-color:#C0C0C0; margin-top:3px; margin-bottom:7px;" />
       <div id="x-crew"></div>
+      <div class="x-address-tag" id="x-address-tag">{{address}}</div>
       <div class="x-date" id="x-date"><span>모집마감 : </span>{{end_date}}</div>
     </div>
 {{/each}}

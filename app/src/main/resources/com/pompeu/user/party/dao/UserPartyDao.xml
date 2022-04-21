@@ -18,6 +18,7 @@
     <result column="image" property="image"/>
     <result column="tag_no" property="tagNo"/>
     <result column="address" property="address"/>
+    <result column="searchType" property="searchType"/>
   </resultMap>
 
   <resultMap type="location" id="locationMap">
@@ -91,6 +92,7 @@
 	  /*findAll*/
        select 
               p.party_no                            as no,
+              SUBSTRING_INDEX(p.address, ' ', 1)    as address,
               p.name                                as title,
               tn.tag                                as tag,
               p.max_member                          as max_member,
@@ -102,16 +104,19 @@
 	             on p.tag_no = tn.tag_no
         WHERE
           1=1
-            <if test="inOutEx != null or inOutEx != ''">
-                <if test="inOutEx == 'in'">
-                and p.in_out_ex = '1'
-                </if>
-                <if test="inOutEx == 'out'">
-                and p.in_out_ex = '2'
-                </if>
-            </if>
+	            <if test="region != 'all'">
+	                and SUBSTRING_INDEX(p.address, ' ', 1) like concat(#{region}, '%')
+	            </if>
+	            <if test="inOutEx != null or inOutEx != ''">
+	                <if test="inOutEx == 'in'">
+	                and p.in_out_ex = '1'
+	                </if>
+	                <if test="inOutEx == 'out'">
+	                and p.in_out_ex ='2'
+	                </if>
+	            </if>
        <if test="sort == 'recent'">
-         order by p.party_no desc
+        order by p.party_no desc
         </if>     
         <if test="sort == 'old'">
         order by p.party_no asc
@@ -133,7 +138,6 @@
       /*findByNo*/
         select 
                   p.name                  as title,
-                  p.address               as address,
                   p.content               as content,
                   p.start_date            as startDate,
                   p.end_date              as endDate,
@@ -183,7 +187,7 @@
 	  </delete>
 	
     <!--운동 tag 가져오기-->
-        <select id="findByExTag" resultType="HashMap" parameterType="int">
+       <select id="findByExTag" resultType="HashMap" parameterType="int">
         /*findByExTag*/
 		select  
 		    tag_no    as tagNo,
@@ -193,5 +197,25 @@
 		order by
 		     tag_no asc       
         </select>
-          
+    
+    <!--주소 가져오기-->   
+       <select id="mapping" resultType="HashMap"> 
+		select  
+	          p.address         as address
+	    from 
+	          party as p
+	    where 
+	          p.party_no=#{no}
+      </select> 
+    
+    <!--주소 Tag 조회-->
+      <select id="siSep" resultType="HashMap">
+	    select  
+	          SUBSTRING_INDEX(p.address, ' ', 1) as address  
+	    from 
+	          party as p
+	    where 
+	          p.party_no=#{no}
+      </select>
+  
 </mapper>
