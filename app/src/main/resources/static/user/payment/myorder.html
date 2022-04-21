@@ -2,25 +2,69 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
-    <title>Document</title>
-  <link rel="stylesheet" href="/css/common.css">
-  <link href="/css/user_common.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
- 
- <style>
+<link rel="stylesheet" href="/css/common.css">
+<link href="/css/user_common.css" rel="stylesheet">
+<script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+<title>Document</title> 
+<style>
 
 * {
-  margin:0;
-  padding:0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
- </style> 
+h3 {
+  font-weight: bold;
+  /*text-align: center;*/
+  position: relative;
+  left:600px;
+}
+span {
+  border: 1px red solid;
+}
+
+hr {
+  background-color: #000;
+  width: 800px;
+  height: 1px;
+  border:none;
+  }
+/* content */
+
+<!-- -->
+#customer-info {
+  float: left;
+}
+
+#price {
+  width:400px;
+  height: 200px;
+  float: right;
+  background-color:RGB(250,250,250);
+  float: left;
+}
+
+#order-info {
+ clear: both;
+ width: 800px;
+}
+
+.subname {
+  display: block;
+  clear: both;
+  width: 800px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+</style> 
 </head>
 <body>
 <div class="container">
@@ -34,15 +78,18 @@
 <h3>결제하기</h3>
 </div>
 <div id=customer-info>
-<span>주문자 정보</span>
-<hr>
-<span>주문자</span><span>차승원</span>
-<span>이메일</span><span>chacha@gmail.com</span>
-<span>휴대폰번호</span><span>010-1111-1111</span>
+  <span class="subname">주문자 정보</span>
+  <hr>
+  <span>주문자</span><span>차승원</span>
+  <hr><br/>
+  <span>이메일</span><span>chacha@gmail.com</span>
+  <hr>
+  <span>휴대폰번호</span><span>010-1111-1111</span>
+  <hr>
 </div>
 <div id=price>
-  <span>최종 결제 금액</span>
-  <table>
+  <span class="subname">최종 결제 금액</span>
+  <table border="1px solid red">
     <thead>
       <tr>
         <th>총 상품금액</th>
@@ -61,7 +108,8 @@
 </div>
 
 <div id=order-info>
-  <table>
+  <span class="subname">주문정보</span>
+  <table border="1px solid red">
     <thead>
       <tr>
         <th>상품정보</th>
@@ -71,21 +119,25 @@
     </thead>
     <tbody>
       <tr>
-        <td>볼링 너무나 재밌는 볼링 오세요!!! 개강일자:2022년02월27일 13:00PM-15:00PM</td>
+        <td>볼링 너무나 재밌는 볼링 오세요!!!<br/>
+          개강일자:2022년02월27일<br/> 
+          13:00PM-15:00PM
+        </td>
         <td>1</td>
         <td>20000</td>
       </tr>
     </tbody>
-    </table>
+  </table>
 </div>
 
 <div id =order-option>
-<span>카드 결제</span>
-<span>무통장 입금</span>
-<span>카카오 페이</span>
-<span>네이버 페이</span>
-<input type="checkbox" value="(필수) 이용약관, 개인정보 수집 및 이용, 개인정보 제공 내용을 확인하였고 동의합니다.">
-<button type="button">결제하기</button>
+  <span class="subname">결제방식</span>
+  <span class="order-op">카드 결제</span>
+  <span class="order-op">무통장 입금</span>
+  <span class="order-op">카카오 페이</span>
+  <spanclass="order-op">네이버 페이</span><br/>
+  <p> <input type="checkbox" checked="unchecked">(필수) 이용약관, 개인정보 수집 및 이용, 개인정보 제공 내용을 확인하였고 동의합니다.</p>
+  <button type="button">결제하기</button>
 </div>
 </div>        
 <div id="footer"></div>

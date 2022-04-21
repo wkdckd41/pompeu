@@ -17,19 +17,17 @@ import com.pompeu.domain.LectureImage;
 import com.pompeu.domain.LectureTime;
 
 @RestController
-//@RequestMapping("/creatorLecture/")
+@RequestMapping("/creatorLecture/")
 public class CreatorLectureController {
-
   // log를 출력하는 도구 준비
   private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
-
   @Autowired
   CreatorLectureService creatorlectureService;
 
   //클래스 목록조회
   @RequestMapping("/creatorLecture/list")
   public Object list() {
-    log.debug(creatorlectureService);
+    log.debug("error");
     return creatorlectureService.list();
   }
 
