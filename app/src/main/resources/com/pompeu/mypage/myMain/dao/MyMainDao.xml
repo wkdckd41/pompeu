@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.mypage.myMain.dao.MyMainDao">
+
+  <resultMap type="memberType" id="memberTypeMap">
+    <id column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
+  </resultMap>
+
+  <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>    
+    <result column="login_date" property="loginDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="birth" property="birth"/>
+    <result column="gender" property="gender"/>
+      <collection property="memberType" resultMap="memberTypeMap"/>
+  </resultMap>
+
+  <resultMap type="lecture" id="lectureMap">
+    <id column="lecture_no" property="no"/>
+    <result column="location_no" property="locationNo"/>
+    <result column="creator_no" property="creatorNo"/>
+    <result column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
+    <result column="start_date" property="startDate"/>
+    <result column="end_date" property="endDate"/>
+    <result column="lecture_price" property="lecturePrice"/>
+    <result column="lecture_info" property="lectureInfo"/>
+    <result column="register_date" property="registerDate"/>
+    <result column="status" property="status"/>
+    <result column="admin_message" property="adminMessage"/>
+    <result column="total_rate" property="totalRate"/>
+    <result column="in_out_ex" property="inOutEx"/>
+  </resultMap> 
+
+  <resultMap type="partyClaim" id="partyClaimMap">
+    <id column="party_no" property="partyNo"/>
+    <result column="users_no" property="usersNo"/>
+    <result column="claim_reason_no" property="claimReasonNo"/>
+    <result column="claim_date" property="claimDate"/>
+    <result column="status" property="status"/>
+  </resultMap> 
+
+<!--
+  <resultMap type="users" id="usersMap">
+    <id column="users_no" property="no"/>
+    <result column="image" property="image"/>
+    <result column="ex_type_no" property="exTypeNo"/>
+  </resultMap>
+
+  <resultMap type="mylectureList" id="mylectureListMap">
+    <id column="mylecture_list_no" property="no"/>
+    <result column="users_no" property="usersNo"/>
+    <result column="lecture_time_no" property="lectureTimeNo"/>
+    <result column="register_member" property="registerMember"/>
+    <result column="pay_status" property="payStatus"/>
+    <result column="content" property="content"/>
+    <result column="registerDate" property="registerDate"/>
+    <result column="rate" property="rate"/>
+  </resultMap>
+
+  <resultMap type="lectureTime" id="lectureTimeMap">
+    <id column="lecture_time_no" property="no"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="start_time" property="startTime"/>
+    <result column="end_time" property="endTime"/>
+    <result column="max_member" property="maxMember"/>
+    <result column="no_member" property="noMember"/>
+  </resultMap>
+
+
+
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="no"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+  </resultMap>
+-->
+
+
+  <select id="countAll" resultType="int">
+    select count(*) from member
+  </select>
+  
+  <select id="findAll" resultMap="memberMap">
+    select 
+      member_no,
+      name,
+      email,
+      phone,
+      nickname,
+      login_date,
+      join_date
+    from 
+      member 
+    order by 
+      member_no asc
+  </select>
+  
+  <insert id="insert" parameterType="member">
+    insert into member(member_type_no, name,email,phone,nickname,use_check,join_date,modify_date,admin_check,password,birth,gender,sns_no) 
+    values(#{memberTypeNo},#{name},#{email},#{phone},#{nickName},#{useCheck},#{joinDate},#{modifyDate},#{adminCheck},#{password},#{birth},#{gender},#{snsNo})
+  </insert>
+  
+  <select id="findByNo" resultMap="memberMap" parameterType="int">
+    select  
+          mt.member_type                                        as member_type,
+          m.name                                                as name,
+          m.nickname                                            as nickname,
+          m.email                                               as email,
+          m.phone                                               as phone,
+               m.join_date                                           as join_date,
+               m.login_date                                          as login_date
+    from 
+          member  m
+          join member_type mt 
+                on m.member_type_no = mt.member_type_no 
+    where 
+      m.member_no=#{no}
+  </select>
+
+  <update id="update" parameterType="member">
+    update member set 
+        name=#{name},
+        email=#{email},
+        phone=#{phone},
+        nickname=#{nickName},
+        use_check=#{useCheck},
+        join_date=#{joinDate},
+        modify_date=#{modifyDate},
+        admin_check=#{adminCheck},
+        password=#{password},
+        birth=#{birth},
+        gender=#{gender},
+        sns_no=#{snsNo}
+    where 
+      member_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from member 
+    where member_no=#{no}
+  </delete>
+
+<!-- 
+  <select id="memberStatus" resultType="hashmap">
+    select count(*)                                                                             as ammTotal
+          ,count(case when member_type_no = 2 then 1 else null end )                            as ammCreator
+          ,count(case when (month(now()) = month(join_date)) then 1 else null end ) as ammRookie
+          from member
+  </select>
+
+  <select id="lectureStatus" resultType="hashmap">
+    select count(*)                                                                             as amlTotal
+          ,count(case when status = 3 then 1 else null end )                                    as amlIng
+          ,count(case when status = 2 then 1 else null end )                                    as amlStnby
+          from lecture
+  </select>
+
+  <select id="undoStatusApply" resultType="hashmap">
+    select count(case when status = 3 then 1 else null end )                                    as amuApply
+          from lecture 
+  </select>
+
+  <select id="undoStatusClaim" resultType="hashmap">
+    select count(case when status = 1 then 1 else null end )                                   as amuClaim
+          from party_claim
+  </select>
+
+  <select id="memberSummary" parameterType="int" resultType="hashmap">
+    select count(*)                                                                             as MonTotal
+          ,count(case when member_type_no = 2 then 1 else null end )                            as MonCreator
+          ,count(case when (year(now()) = year(join_date)) and (#{month} = month(join_date)) then 1 else null end ) as MonRookie
+          from member
+					where (year(now()) > year(join_date)) or (#{month} >= month(join_date))
+  </select>
+-->
+<!-- 
+  <select id="memberSummary" resultType="hashmap">
+    select count(case when (year(now()) > year(join_date)) or (2 > month(join_date)) then 1 else null end)  as janTotal
+          ,count(case when (year(now()) > year(join_date)) or (2 > month(join_date)) and member_type_no = 2 then 1 else null end ) as janCreator
+          ,count(case when (year(now()) = year(join_date)) and (1 = month(join_date)) then 1 else null end ) as janRookie
+          ,count(case when (year(now()) > year(join_date)) or (3 > month(join_date)) then 1 else null end)                            as febTotal
+          ,count(case when (year(now()) > year(join_date)) or (3 > month(join_date)) and member_type_no = 2 then 1 else null end )   as febCreator
+          ,count(case when (year(now()) = year(join_date)) and (2 = month(join_date)) then 1 else null end )                          as febRookie
+          ,count(case when (year(now()) > year(join_date)) or (4 > month(join_date)) then 1 else null end)                            as marTotal
+          ,count(case when (year(now()) > year(join_date)) or (4 > month(join_date)) and member_type_no = 2 then 1 else null end )   as marCreator
+          ,count(case when (year(now()) = year(join_date)) and (3 = month(join_date)) then 1 else null end )                          as marRookie
+          ,count(case when (year(now()) > year(join_date)) or (5 > month(join_date)) then 1 else null end)                            as aprTotal
+          ,count(case when (year(now()) > year(join_date)) or (5 > month(join_date)) and member_type_no = 2 then 1 else null end )   as aprCreator
+          ,count(case when (year(now()) = year(join_date)) and (4 = month(join_date)) then 1 else null end )                          as aprRookie
+          ,count(case when (year(now()) > year(join_date)) or (6 > month(join_date)) then 1 else null end)                            as mayTotal
+          ,count(case when (year(now()) > year(join_date)) or (6 > month(join_date)) and member_type_no = 2 then 1 else null end )   as mayCreator
+          ,count(case when (year(now()) = year(join_date)) and (5 = month(join_date)) then 1 else null end )                          as mayRookie
+          ,count(case when (year(now()) > year(join_date)) or (7 > month(join_date)) then 1 else null end)                            as junTotal
+          ,count(case when (year(now()) > year(join_date)) or (7 > month(join_date)) and member_type_no = 2 then 1 else null end )   as junCreator
+          ,count(case when (year(now()) = year(join_date)) and (6 = month(join_date)) then 1 else null end )                          as junRookie
+          ,count(case when (year(now()) > year(join_date)) or (8 > month(join_date)) then 1 else null end)                            as julTotal
+          ,count(case when (year(now()) > year(join_date)) or (8 > month(join_date)) and member_type_no = 2 then 1 else null end )   as julCreator
+          ,count(case when (year(now()) = year(join_date)) and (7 = month(join_date)) then 1 else null end )                          as julRookie
+          ,count(case when (year(now()) > year(join_date)) or (9 > month(join_date)) then 1 else null end)                            as augTotal
+          ,count(case when (year(now()) > year(join_date)) or (9 > month(join_date)) and member_type_no = 2 then 1 else null end )   as augCreator
+          ,count(case when (year(now()) = year(join_date)) and (8 = month(join_date)) then 1 else null end )                          as augRookie
+          ,count(case when (year(now()) > year(join_date)) or (10 > month(join_date)) then 1 else null end)                            as sepTotal
+          ,count(case when (year(now()) > year(join_date)) or (10 > month(join_date)) and member_type_no = 2 then 1 else null end )   as sepCreator
+          ,count(case when (year(now()) = year(join_date)) and (9 = month(join_date)) then 1 else null end )                          as sepRookie
+          ,count(case when (year(now()) > year(join_date)) or (11 > month(join_date)) then 1 else null end)                            as octTotal
+          ,count(case when (year(now()) > year(join_date)) or (11 > month(join_date)) and member_type_no = 2 then 1 else null end )   as octCreator
+          ,count(case when (year(now()) = year(join_date)) and (10 = month(join_date)) then 1 else null end )                          as octRookie
+          ,count(case when (year(now()) > year(join_date)) or (12 > month(join_date)) then 1 else null end)                            as novTotal
+          ,count(case when (year(now()) > year(join_date)) or (12 > month(join_date)) and member_type_no = 2 then 1 else null end )   as novCreator
+          ,count(case when (year(now()) = year(join_date)) and (11 = month(join_date)) then 1 else null end )                          as novRookie
+          ,count(case when (year(now()) > year(join_date)) or (13 > month(join_date)) then 1 else null end)                            as decTotal
+          ,count(case when (year(now()) > year(join_date)) or (13 > month(join_date)) and member_type_no = 2 then 1 else null end )   as decCreator
+          ,count(case when (year(now()) = year(join_date)) and (12 = month(join_date)) then 1 else null end )                          as decRookie
+          from member
+					
+  </select>
+-->
+
+<!-- 
+  <select id="findCount" resultType="hashmap">
+    select count(*)                                                    as total
+            ,  count(case when member_type_no = 1 then 1 else null end )        as user
+            ,  count(case when member_type_no = 2 then 1 else null end )        as creator
+          from member
+         where member_type_no in (1, 2)
+  </select>
+  
+<select id="srchMember" parameterType="member" resultMap="memberMap">
+    select 
+          m.member_no                                           as member_no,  
+          mt.member_type                                        as member_type,
+          m.name                                                as name,
+          m.email                                               as email,
+          m.phone                                               as phone
+    from 
+          member  m
+          join member_type mt 
+                on m.member_type_no = mt.member_type_no 
+    where 1=1
+        
+    <if test="memberTypeNo != ''">
+        and m.member_type_no = #{memberTypeNo}
+    </if>
+    <if test="name != ''">
+        and m.name = #{name}
+    </if>
+    <if test="phone != ''">
+        and m.phone = #{phone}
+    </if>
+    <if test="email != ''">
+        and m.email = #{email}
+    </if> 
+       order by 
+          m.member_no asc
+  </select>
+
+  <select id="findUserLecture" resultType="HashMap" parameterType="int">
+    select  
+          l.name                                                as name,
+          l.start_date                                          as startDate,
+          l.end_date                                            as endDate,
+          l.status                                              as status
+    from 
+          member as m
+    join users as u 
+          on m.member_no = u.users_no
+    join mylecture_list as ml 
+          on u.users_no = ml.users_no
+      join lecture_time as lt 
+          on ml.lecture_time_no = lt.lecture_time_no 
+      join lecture as l
+          on lt.lecture_no = l.lecture_no
+    where 
+      m.member_no=#{no}
+  </select>
+
+  <select id="findCreatorLecture" resultType="HashMap" parameterType="int">
+    select  
+          l.name                                                as name,
+          l.start_date                                          as startDate,
+          l.end_date                                            as endDate,
+          lt.no_member                                          as noMember,
+          lt.max_member                                         as maxMember,
+          l.status                                              as status
+    from 
+          member as m
+    join creator as cr 
+          on m.member_no = cr.creator_no
+    join lecture as l 
+          on cr.creator_no = l.creator_no
+    join lecture_time as lt 
+          on l.lecture_no = lt.lecture_no 
+    where 
+      m.member_no=#{no}
+  </select>
+
+ <select id="findApplyingLecture" resultType="HashMap" parameterType="int">
+    select  
+          l.name                                                as name,
+          l.start_date                                          as startDate,
+          l.end_date                                            as endDate,
+          lt.max_member                                         as maxMember,
+          l.status                                              as status
+    from 
+          member as m
+    join creator as cr 
+          on m.member_no = cr.creator_no
+    join lecture as l 
+          on cr.creator_no = l.creator_no
+    join lecture_time as lt 
+          on l.lecture_no = lt.lecture_no 
+    where 
+      m.member_no=#{no} and (l.status=1 or l.status=9)
+  </select>
+--> 
+
+</mapper>
