@@ -6,39 +6,17 @@
 
 <mapper namespace="com.pompeu.creator.lecture.dao.CreatorLectureDao">
 
+
 <resultMap type="lecture" id="lectureMap">
     <id column="lecture_no" property="no"/>
     <result column="location_no" property="locationNo"/>
     <result column="creator_no" property="creatorNo"/>
     <result column="ex_no" property="exNo"/>
-    <result column="name" property="name"/>
-    <result column="start_date" property="startDate"/>
-    <result column="end_date" property="endDate"/>
-    <result column="lecture_price" property="lecturePrice"/>
-    <result column="lecture_info" property="lectureInfo"/>
-    <result column="register_date" property="registerDate"/>
-    <result column="status" property="status"/>
-    <result column="admin_message" property="adminMessage"/>
-    <result column="total_rate" property="totalRate"/>
-    <result column="in_out_ex" property="inOutEx"/>
+  
 
-   <collection property="times" ofType="lectureTime">
-      <id column="lecture_time_no" property="no"/>
-      <result column="lecture_no" property="lectureNo"/>
-      <result column="start_time" property="startTime"/>
-      <result column="end_time" property="endTime"/>
-      <result column="max_member" property="maxMember"/>
-    </collection>
+
     
-    
-   <collection property="images" ofType="lectureImage">
-      <id column="lecture_image_no" property="no"/>
-      <result column="lecture_no" property="lectureNo"/>
-      <result column="image" property="image"/>
-      <result column="random_image" property="randomImage"/>
-    </collection>
-    
-  </resultMap>
+  </resultMap> 
 
   <resultMap type="lectureTime" id="lectureTimeMap">
       <id column="lecture_time_no" property="no"/>
@@ -76,6 +54,8 @@
   <select id="countAll" resultType="int">
     select count(*) from lecture
   </select>
+
+<--! 
 
   <select id="findAll" resultMap="lectureMap">
     select
