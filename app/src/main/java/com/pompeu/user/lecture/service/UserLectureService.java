@@ -17,11 +17,11 @@ public interface UserLectureService {
 
   int delete(int no);
 
-  List<Lecture> getEverything(String sort);
+  List<Lecture> getEverything(String sort, String region);
 
-  List<Lecture> getOut(String sort);
+  List<Lecture> getOut(String sort, String region);
 
-  List<Lecture> getIn(String sort);
+  List<Lecture> getIn(String sort, String region);
 
   List<LectureIntro> lecture(int no);
 

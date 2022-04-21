@@ -20,11 +20,11 @@ public interface UserLectureDao {
 
   int delete(int no);
 
-  List<Lecture> findEverything(@Param("sort") String sort);
+  List<Lecture> findEverything(@Param("sort") String sort, @Param("region") String region);
 
-  List<Lecture> findOut(@Param("sort") String sort);
+  List<Lecture> findOut(@Param("sort") String sort, @Param("region") String region);
 
-  List<Lecture> findIn(@Param("sort") String sort);
+  List<Lecture> findIn(@Param("sort") String sort, @Param("region") String region);
 
   List<LectureIntro> findLecture(int no);
 
