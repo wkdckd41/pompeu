@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.pompeu.admin.lecture.dao.AdminLectureDao">
+<mapper namespace="com.pompeu.admin.lecture.dao.LectureDao">
 
   <resultMap type="class" id="classMap">
     <id column="class_no" property="no"/>
