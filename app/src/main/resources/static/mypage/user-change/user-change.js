@@ -7,7 +7,6 @@
   var cPassword = document.querySelector("input[name=password]");
   var cPasswordCheck = document.querySelector("#passwordCheck");
   var cPhone = document.querySelector("input[name=phone]");
-  var cBirth = document.querySelector("input[name=birth]");
 
   var TBtn = document.querySelector("#thumbnail-file-button");
   var CBtn = document.querySelector("#check-btn");
@@ -28,7 +27,6 @@
       cNickName.placeholder = result.nickName;
       cEmail.placeholder = result.email;
       cPhone.placeholder = result.phone;
-      cBirth.placeholder = result.birth;
       
       if (result.image != null) {
     	  cThumbNail.src = "/userChange/image?filename=" + result.image;
@@ -64,17 +62,12 @@
 	}
 
   UBtn.onclick = function() {
-		var cBirthString = cBirth.value.toString();
-		var cBirthDigit = cBirthString.length;
 		
 		if (cNickName.value !="" && nickCheck==false){
 			window.alert("닉네임 중복 체크를 해주세요");
       return;
 		} else if (cPassword.value != cPasswordCheck.value ) {
       window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
-      return;
-    } else if (cBirthDigit != 0 && cBirthDigit != 6 ) {
-      window.alert("생년월일은 6자리로 입력해주세요");
       return;
     };
 	  

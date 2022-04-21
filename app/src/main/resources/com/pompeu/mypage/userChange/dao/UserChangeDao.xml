@@ -24,8 +24,6 @@
     <result column="modify_date" property="modifyDate"/>
     <result column="admin_check" property="adminCheck"/>
     <result column="password" property="password"/>
-    <result column="birth" property="birth"/>
-    <result column="gender" property="gender"/>
     <result column="delete_type" property="deleteType"/>
     <result column="delete_detail" property="deleteDetail"/>
       <collection property="memberType" resultMap="memberTypeMap"/>
@@ -129,8 +127,7 @@
           m.name                                                as name,
           m.nickname                                            as nickName,
           m.email                                               as email,
-          m.phone                                               as phone,
-          m.birth                                               as birth
+          m.phone                                               as phone
     from 
           member m
           join users u 
@@ -158,9 +155,6 @@
     </if>
     <if test="phone != ''">
       m.phone=#{phone},
-    </if>
-    <if test="birth != ''">
-      m.birth=#{birth},
     </if>
     <if test="image != null">
       u.image=#{image},
