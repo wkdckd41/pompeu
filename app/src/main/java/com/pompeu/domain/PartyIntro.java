@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Data
 public class PartyIntro {
-  private String doo;
+  private String address;
   private String title;
   private String content;
   private Date startDate;
@@ -13,4 +13,5 @@ public class PartyIntro {
   private int maxMember;
   private String tag;
   private String name;
+  private String image;
 }

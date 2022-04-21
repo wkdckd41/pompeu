@@ -19,8 +19,6 @@
   }
   console.log(no);
   
-  var xAddress1 = document.querySelector("#x-address1");
-  var xAddress2 = document.querySelector("#x-address2");
   var xTitle = document.querySelector("#x-title");
   var xPartyContent = document.querySelector("#x-partyContent");
   var xStartDate = document.querySelector("#x-startDate");
@@ -28,8 +26,8 @@
   var xCrew = document.querySelector("#x-crew");
   var xTag = document.querySelector("#x-tag");
   var xHost = document.querySelector("#x-host");
-  var ximage = document.querySelector("")
-  
+  var xImage = document.querySelector("#x-image");
+  var xAddress2 = document.querySelector("#x-address2");
   
   fetch(`/userparty/get?no=${no}`)
     .then(function(response) {
@@ -39,28 +37,17 @@
       console.log("AAA");
       console.log(result);
       
-      xAddress1.innerHTML = result[0].doo;
-      xAddress2.innerHTML = result[0].doo;
       xTitle.innerHTML = result[0].title;
+      xAddress2.innerHTML = result[0].address;
       xPartyContent.innerHTML = result[0].content;
       xStartDate.innerHTML = result[0].startDate;
       xEndDate.innerHTML = result[0].endDate;
       xCrew.innerHTML = result[0].maxMember;
       xTag.innerHTML = result[0].tag;
       xHost.innerHTML = result[0].name;
+      xImage.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="350px" height="210px">`;
     })
     
     
-    // 소모임 이미지 등록
-    var xImgBox = document.querySelector("#x-img-box")
-
-    fetch(`/userparty/addImage?no=${no}`)
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(result) {
-      console.log("AAA");
-      console.log(result);
-      
-      xImgBox.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="350px" height="210px">`;
-})
+    
+ 

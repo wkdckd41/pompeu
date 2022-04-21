@@ -17,23 +17,22 @@ import com.pompeu.domain.LectureImage;
 import com.pompeu.domain.LectureTime;
 
 @RestController
+@RequestMapping("/creatorLecture/")
 public class CreatorLectureController {
-
   // log를 출력하는 도구 준비
   private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
-
   @Autowired
   CreatorLectureService creatorlectureService;
 
   //클래스 목록조회
   @RequestMapping("/creatorLecture/list")
   public Object list() {
-    log.info("크리에이터클래스목록 조회");
+    log.debug("error");
     return creatorlectureService.list();
   }
 
   //클래스 등록
-  @RequestMapping("/creatorLecture/add")
+  @RequestMapping("add")
   public Object add(Lecture lecture, String[] time, List <MultipartFile> files) {
     log.debug(lecture);
 
@@ -61,7 +60,7 @@ public class CreatorLectureController {
   }
 
   //클래스 상세보기
-  @RequestMapping("/creatorLecture/get")
+  @RequestMapping("get")
   public Object get(int no) {
     Lecture lecture = creatorlectureService.get(no);
     if (lecture == null) {
@@ -71,13 +70,13 @@ public class CreatorLectureController {
   }
 
   //클래스 수정
-  @RequestMapping("/creatorLecture/update")
+  @RequestMapping("update")
   public Object update(Lecture lecture) {
     return creatorlectureService.update(lecture);
   }
 
   //클래스 삭제
-  @RequestMapping("/creatorLecture/delete")
+  @RequestMapping("delete")
   public Object delete(int no) {
     return creatorlectureService.delete(no);
   }
