@@ -17,7 +17,7 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   public int countAll() {
     return creatorlectureDao.countAll();
   }
-
+  //강좌 목록 호출 - 강좌, 강좌시간, 강좌이미지
   @Override
   public List<Lecture> list() {
     return creatorlectureDao.findAll();

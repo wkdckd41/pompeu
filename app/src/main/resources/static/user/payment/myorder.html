@@ -26,40 +26,52 @@ h3 {
   position: relative;
   left:600px;
 }
+
 span {
   border: 1px red solid;
 }
 
 hr {
   background-color: #000;
-  width: 800px;
   height: 1px;
-  border:none;
+  border:solid 1px gainsboro; 
+  width:100%; 
+  margin-right:30px; margin-top:10px;
   }
 /* content */
 
 <!-- -->
+#customer-info, #order-info, #order-option, #price {
+ /* border: 1px solid green;*/
+  width: 60%;
+  margin:3px;
+}
+
 #customer-info {
-  float: left;
+ float:left;
+ width: 60%;
+ margin:3px;
 }
 
 #price {
-  width:400px;
   height: 200px;
   float: right;
-  background-color:RGB(250,250,250);
-  float: left;
+  width: 30%;
+  background-color: RGB(250,250,250);
+ }
+
+#order-info {
+ clear: both;
 }
 
 #order-info {
  clear: both;
- width: 800px;
 }
 
 .subname {
-  display: block;
+  display:block;
   clear: both;
-  width: 800px;
+  width: 100%;
   font-size: 18px;
   font-weight: bold;
 }
@@ -72,11 +84,14 @@ hr {
 
 <div id="header"></div>
 
-<div id="page-wrapper"> 
+<div id="page-wrapper">
+ 
 <div id =content>
+
 <div id=heading>
 <h3>결제하기</h3>
 </div>
+
 <div id=customer-info>
   <span class="subname">주문자 정보</span>
   <hr>
@@ -87,9 +102,10 @@ hr {
   <span>휴대폰번호</span><span>010-1111-1111</span>
   <hr>
 </div>
+
 <div id=price>
   <span class="subname">최종 결제 금액</span>
-  <table border="1px solid red">
+    <table style="border:1px solid red;">
     <thead>
       <tr>
         <th>총 상품금액</th>
@@ -109,7 +125,8 @@ hr {
 
 <div id=order-info>
   <span class="subname">주문정보</span>
-  <table border="1px solid red">
+  <hr>
+  <table style="border:1px solid red;">
     <thead>
       <tr>
         <th>상품정보</th>
@@ -128,18 +145,23 @@ hr {
       </tr>
     </tbody>
   </table>
+  <hr>
 </div>
 
 <div id =order-option>
   <span class="subname">결제방식</span>
+  <hr>
   <span class="order-op">카드 결제</span>
   <span class="order-op">무통장 입금</span>
   <span class="order-op">카카오 페이</span>
-  <spanclass="order-op">네이버 페이</span><br/>
-  <p> <input type="checkbox" checked="unchecked">(필수) 이용약관, 개인정보 수집 및 이용, 개인정보 제공 내용을 확인하였고 동의합니다.</p>
+  <span class="order-op">네이버 페이</span><br/>
+  <p><input type="checkbox">(필수) 이용약관, 개인정보 수집 및 이용, 개인정보 제공 내용을 확인하였고 동의합니다.</p>
   <button type="button">결제하기</button>
 </div>
+
 </div>        
+</div>
+
 <div id="footer"></div>
 </div><!-- /#wrapper -->
 </div><!-- /#container -->
