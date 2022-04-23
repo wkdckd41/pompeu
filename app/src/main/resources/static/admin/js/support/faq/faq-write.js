@@ -1,6 +1,6 @@
 var gubunNo = null
 
-$(document).ready(function () {   
+$(document).ready(function () {
     init();
 
     var arr = location.href.split("?");
@@ -51,18 +51,16 @@ function init() {
         param.set('memberTypeNo', member_type_no);
         param.set('ask', ask);
         param.set('answer', answer);
-        
-        
+
         var addr = "";
-        if (gubunNo == null){
-          
-          addr = "/faq/add"
-        }else{
-          addr = "/faq/update"
-          param.set('no', gubunNo);
+        if (gubunNo == null) {
+
+            addr = "/faq/add"
+        } else {
+            addr = "/faq/update"
+            param.set('no', gubunNo);
         }
         console.log("addr =" + addr)
-        
 
         fetch(addr, {
             method: "POST",

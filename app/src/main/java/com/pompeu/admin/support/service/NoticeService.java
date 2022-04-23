@@ -20,5 +20,7 @@ public interface NoticeService {
 
   int deleteAll(String str);
 
+  int fileRemove(Notice notice);
+
 }
 
