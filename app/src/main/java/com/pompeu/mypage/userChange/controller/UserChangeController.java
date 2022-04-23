@@ -63,6 +63,7 @@ public class UserChangeController {
   public Object updateUser(UserUpdate user, MultipartFile file) {
     try {
       user.setImage(saveFile(file));
+      System.out.println(user.getImage());
       return userChangeService.updateUser(user);
 
     } catch (Exception e) {

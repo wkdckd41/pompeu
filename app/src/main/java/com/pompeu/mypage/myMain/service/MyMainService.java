@@ -1,6 +1,7 @@
 package com.pompeu.mypage.myMain.service;
 
 import java.util.List;
+import java.util.Map;
 import com.pompeu.domain.Member;
 
 public interface MyMainService {
@@ -14,6 +15,10 @@ public interface MyMainService {
   int update(Member member);
 
   int delete(int no);
+
+  List<Map<String, Object>> myGoingLecture(int no);
+
+  List<Map<String, Object>> myWishLecture(int no);
 
   //  Object memberStatus();
   //
