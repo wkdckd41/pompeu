@@ -21,7 +21,6 @@
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
-      <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
 
@@ -232,6 +231,50 @@
        join lecture_wishlist as lw
 		       on l.lecture_no = lw.lecture_no
 			 where lw.users_no=#{no}
+       order by sDate DESC
+    </select>
+
+    <select id="myGoingParty" parameterType="int" resultType="HashMap" >
+       select
+					 p.party_no                                            as pNo,
+				   t.tag                                                 as tNo,
+					 p.name                                                as pName,
+					 p.start_date                                          as sDate,
+				   p.end_date                                            as eDate,
+	         p.image                                               as image,
+           pu.users_no                                           as users,
+           (select count(*) from party_user as pu
+            where pu.party_no=pNo)                               as curMember,
+           p.max_member                                          as maxMember
+       from 
+           party as p
+       left outer join tag_name as t 
+           on p.tag_no = t.tag_no
+       join party_user as pu
+           on p.party_no = pu.party_no
+			 where pu.users_no=#{no}
+       order by sDate DESC
+    </select>
+
+    <select id="myWishParty" parameterType="int" resultType="HashMap" >
+       select
+					 p.party_no                                            as pNo,
+				   t.tag                                                 as tNo,
+					 p.name                                                as pName,
+					 p.start_date                                          as sDate,
+				   p.end_date                                            as eDate,
+	         p.image                                               as image,
+           pw.users_no                                           as users,
+           (select count(*) from party_user as pu
+            where pu.party_no=pNo)                               as curMember,
+           p.max_member                                          as maxMember
+       from 
+           party as p
+       left outer join tag_name as t 
+           on p.tag_no = t.tag_no
+       join party_wishlist as pw
+           on p.party_no = pw.party_no
+			 where pw.users_no=#{no}
        order by sDate DESC
     </select>
 

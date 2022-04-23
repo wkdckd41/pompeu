@@ -49,6 +49,16 @@ public class DefaultMyMainService implements MyMainService{
     return myMainDao.myWishLecture(no);
   }
 
+  @Override
+  public List<Map<String, Object>> myGoingParty(int no) {
+    return myMainDao.myGoingParty(no);
+  }
+
+  @Override
+  public List<Map<String, Object>> myWishParty(int no) {
+    return myMainDao.myWishParty(no);
+  }
+
   //  @Override
   //  public Object memberStatus() {
   //    return adminMainDao.memberStatus();

@@ -20,6 +20,10 @@ public interface MyMainService {
 
   List<Map<String, Object>> myWishLecture(int no);
 
+  List<Map<String, Object>> myGoingParty(int no);
+
+  List<Map<String, Object>> myWishParty(int no);
+
   //  Object memberStatus();
   //
   //  Object lectureStatus();
