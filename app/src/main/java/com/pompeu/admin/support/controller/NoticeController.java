@@ -62,6 +62,7 @@ public class NoticeController {
   }
 
 
+  @SuppressWarnings("unused")
   @RequestMapping("/notice/get")
   public Object get(int no) {
     Notice notice = noticeService.get(no);
@@ -73,20 +74,57 @@ public class NoticeController {
     return notice;
   }
 
-  @RequestMapping("/notice/update")
-  public Object update(Notice notice) {
-    log.info("name :"+ notice.getName());
-    System.out.println("content :"+notice.getContent());
-    System.out.println("criticalCheck :"+notice.getCriticalCheck());
-
-    int count = noticeService.update(notice);
-
-    if (count == 1) {
+  @RequestMapping("/notice/fileRemove")
+  public Object fileRemove(Notice notice) {
+    int count = noticeService.fileRemove(notice);
+    System.out.println("count = " + count);
+    if (count != 0) {
       return new ResultMap().setStatus("success");
     } else {
       return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
     }
   }
+
+  @SuppressWarnings("unused")
+  @RequestMapping("/notice/getfilename")
+  public Object getfilename(int no) {
+    Notice notice = new Notice();
+    notice.setFNames(noticeService.getFNames(no));
+    if (notice == null) {
+      return "";
+    }
+
+    return notice;
+  }
+
+
+
+  @RequestMapping("/notice/update")
+  public Object update(Notice notice, List<MultipartFile> addFile) {
+    log.info("MemberTypeNo :"+ notice.getMemberTypeNo());
+    log.info("name :"+ notice.getName());
+    log.info("CriticalCheck :"+ notice.getCriticalCheck());
+    log.info("content :"+ notice.getContent());
+    log.info("filename :"+ notice.getFNames());
+    try {
+
+      notice.setFNames(saveFileMulti(addFile));
+
+    }catch(Exception e){
+
+    }
+
+    int count = noticeService.update(notice);
+    System.out.println("count = " + count);
+    if (count != 0) {
+      return new ResultMap().setStatus("success");
+    } else {
+      return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
+    }
+  }
+
+
+
 
   @RequestMapping("/notice/delete")
   public Object delete(int no) {
@@ -122,7 +160,7 @@ public class NoticeController {
         }
         // 파일을 지정된 폴더에 저장한다.
 
-        File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
+        File photoFile = new File("./upload/notice-files/" + filename); // App 클래스를 실행하는 프로젝트 폴더
         System.out.println("A");
         files.get(i).transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
         System.out.println("B");
@@ -174,7 +212,7 @@ public class NoticeController {
       System.out.println("UnsupportedEncodingException");
     }
 
-    pathName = "./upload/lecture_image/" + realFilename;
+    pathName = "./upload/notice-files/" + realFilename;
     System.out.println(pathName);
     File file1 = new File(pathName);
     if (!file1.exists()) {

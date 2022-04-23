@@ -75,6 +75,11 @@
       n.notice_no=#{no}
   </select>
   
+  <delete id="fileRemove" parameterType="notice">
+    delete from notice_file
+    where notice_no=#{no} and real_file=#{realFile}
+  </delete>
+  
   <select id="findByFNamesNo" resultMap="fileNamesMap" parameterType="int">
     select f.org_file
         ,  f.real_file

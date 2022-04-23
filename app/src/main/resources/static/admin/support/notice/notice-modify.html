@@ -36,7 +36,7 @@
             <div class="content">
                 <!-- 나중에 파일 등록을 위해 enctype="multipart/form-data" 을 넣어둠 -->
                 <form class="form-horizontal" method="post"
-                      enctype="multipart/form-data" name="form1" id="form1">
+                      enctype="multipart/form-data" name="frm" id="frm">
                     <!-- <span style="display:none" name="no" id="no"></span> -->
                     <input type=“hidden” name="no" id="no" style="display:none">
                     <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
@@ -70,27 +70,28 @@
                     <div class="form-group row ">
                         <label class="col-sm-1 col-form-label text-center" for="content">내용</label>
                         <div class="col-sm-10 col-xs-12">
-          <textarea rows="20" class="form-control" id="content" name="content" placeholder="내용">
-          </textarea>
+                            <textarea rows="20" class="form-control" id="content" name="content" placeholder="내용"></textarea>
                         </div>
                     </div>
+                    
+              <div class="form-group" id="file-list">
 
-
-                    <div class="form-group row ">
-                        <label class="col-sm-1 col-form-label text-center" for="bfile">파일</label>
-                        <div class="col-sm-10 col-xs-12">
-                            <input class="form-control" id="bfile" name="bfile" type="file"/>
-                        </div>
-                    </div>
-
-
+                <div>파일추가</div>
+                 <div class="file-group">
+                    <input type="file" name="addFile" id="addFile" multiple>
+                    <br><div>첨부파일</div>
+                    <div id="fnames"></div>
+                 </div>
+             </div>
+                    
+                    
                     <div class="form-group row">
                         <div class="col-lg-12 col-sm-10 text-lg-end text-center">
                             <div class="col-lg-11 col-sm-18 text-lg-end text-right">
-                                <button type="button" class="btn btn-primary" id="btnModify"
+                                <button type="button" class="btn" id="btnModify"
                                         name="btnModify">수정
                                 </button>
-                                <button type="button" class="btn btn-primary" id="btnCancel"
+                                <button type="button" class="btn" id="btnCancel"
                                         name="btnCancel">취소
                                 </button>
                             </div>

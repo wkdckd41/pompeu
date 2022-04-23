@@ -28,6 +28,8 @@ public interface NoticeDao {
 
   int deleteAll(String str);
 
+  int fileRemove(Notice notice);
+
 }
 
 
