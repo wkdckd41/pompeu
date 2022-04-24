@@ -1,0 +1,149 @@
+div.wrapper{
+    min-height: 1200px;
+}
+
+
+div.page_wrapper{
+    max-width: 100%;
+}
+div.join_wrapper{
+    position: relative;
+    width: 600px;
+    left: 300px;
+    text-align: center;
+}
+
+span.join_title{
+    font-size: 1em;
+    text-align: center;
+    position: relative;
+}
+
+
+div.user_join{
+    border-top: 1px solid rgb(51, 51, 51);
+    color: rgb(51, 51, 51);
+    display: flex;
+    justify-content: center;
+}
+
+span.join_title{
+    font-size: 1.5em;
+    margin-top: -17px;
+    background-color: #ffffff;
+    width: 150px;
+    text-align: center;
+}
+
+div.join_name{
+    margin-top: 30px;
+}
+
+div.form_name{
+    position: relative;
+    left: 150px;
+    display: flex;
+}
+
+
+div.form_input{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+input.input_name{
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input.input_nickname{
+    width: 210px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+input.input_email{
+    width: 210px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+input.input_password{
+    width: 300px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+input.input_phone{
+    width: 210px;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+
+
+div.terms{
+    margin: 30px 0;
+    border-top: 1px solid rgb(51, 51, 51);
+    border-bottom: 1px solid rgb(51, 51, 51);
+    color: rgb(51, 51, 51);
+}
+
+
+button.btn_nickname{
+    width: 80px;
+    height: 40px;
+    border: 1px solid #04CF5C;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #04CF5C;
+    margin-left: 8px;
+}
+
+button.btn_email{
+    width: 80px;
+    height: 40px;
+    border: 1px solid #04CF5C;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #04CF5C;;
+    margin-left: 8px;
+}
+
+button.btn_phone{
+    width: 80px;
+    height: 40px;
+    border: 1px solid #04CF5C;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #ffffff;
+    background-color: #04CF5C;;
+    margin-left: 8px;
+}
+
+button.btn_submit{
+     width: 300px;
+    height: 40px;
+    border: 1px solid #04CF5C;
+     border-radius: 5px;
+    font-size: 1.4em;
+     color: #ffffff;
+    background-color: #04CF5C;;
+}

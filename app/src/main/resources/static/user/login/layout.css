@@ -1,0 +1,47 @@
+
+.main_container{
+    width: 1200px;
+    height: 1980px;
+    margin: 0 auto;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+
+.headers{
+    top: 0;
+    width: 1200px;
+}
+
+.header_top{
+        background: none repeat scroll 0 0 #F0F0E9;
+}
+
+.header-bottom {
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+
+.footers{
+    position: absolute;
+    bottom: 0;
+    width:1200px
+}
+
+#footer{
+    background: #F0F0E9;
+}
+
+.footer-top .container {
+    border-bottom: 1px solid #E0E0DA;
+    padding-bottom: 20px;
+}
+
+.footer-widget{
+    margin-bottom: 68px;
+}
+
+.footer-bottom {
+    background: #D6D6D0;
+    padding-top: 10px;
+}
