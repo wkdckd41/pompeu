@@ -1,7 +1,6 @@
 package com.pompeu.user.lecture.service;
 
 import java.util.List;
-import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
 
@@ -25,11 +24,15 @@ public interface UserLectureService {
 
   List<LectureIntro> lecture(int no);
 
+  List<Lecture> userCon(int no);
+
+  List<Lecture> creator(int no);
+
   List<Lecture> regist(int no);
 
   List<Lecture> time(int no);
 
-  int addAsk(Ask ask);
+  int addAsk(Lecture lecture);
 
   List<Lecture> img(int no);
 

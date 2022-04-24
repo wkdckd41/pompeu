@@ -12,7 +12,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.user.lecture.service.UserLectureService;
 
@@ -73,6 +72,18 @@ public class UserLectureController {
     return object;
   }
 
+  @RequestMapping("/userLecture/userContent")
+  public Object userContent(int no) {
+    Object object = userLectureService.userCon(no);
+    return object;
+  }
+
+  @RequestMapping("/userLecture/creatorPro")
+  public Object creatorPro(int no) {
+    Object object = userLectureService.creator(no);
+    return object;
+  }
+
   @RequestMapping("/userLecture/registLecture")
   public Object registLecture(int no) {
     return userLectureService.regist(no);
@@ -84,8 +95,8 @@ public class UserLectureController {
   }
 
   @RequestMapping("/userLecture/addAsk")
-  public Object addAsk(Ask ask) {
-    return userLectureService.addAsk(ask);
+  public Object addAsk(Lecture lecture) {
+    return userLectureService.addAsk(lecture);
   }  
 
   @RequestMapping("/userLecture/addImage")
@@ -142,6 +153,38 @@ public class UserLectureController {
     try {
       // 다운로드할 파일의 입력 스트림 자원을 준비한다.
       File downloadFile = new File("./upload/users/" + filename); // 다운로드 상대 경로 준비
+      FileInputStream fileIn = new FileInputStream(downloadFile.getCanonicalPath()); // 다운로드 파일의 실제 경로를 지정하여 입력 스트림 준비
+      InputStreamResource resource = new InputStreamResource(fileIn); // 입력 스트림을 입력 자원으로 포장
+
+      // HTTP 응답 헤더를 준비한다. (캐시를 막기 위한 헤더 설정)
+      HttpHeaders header = new HttpHeaders();
+      header.add("Cache-Control", "no-cache, no-store, must-revalidate");
+      header.add("Pragma", "no-cache");
+      header.add("Expires", "0");
+
+      // 다운로드 파일명을 지정하고 싶다면 다음의 응답 헤더를 추가하라!
+      // => 다운로드 파일을 지정하지 않으면 요청 URL이 파일명으로 사용된다.
+      header.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + filename);
+
+      return ResponseEntity.ok() // HTTP 응답 프로토콜에 따라 응답을 수행할 생성기를 준비한다.
+          .headers(header) // 응답 헤더를 설정한다.
+          .contentLength(downloadFile.length()) // 응답할 파일의 크기를 설정한다.
+          .contentType(MediaType.APPLICATION_OCTET_STREAM) // 응답 콘텐트의 MIME 타입을 설정한다.
+          .body(resource); // 응답 콘텐트를 생성한 후 리턴한다.
+
+    } catch (Exception e) {
+      //e.printStackTrace();
+      System.out.println("요청한 파일이 없습니다.");
+      return null;
+    }
+  }
+
+  @RequestMapping("/userLecture/image3")
+  public ResponseEntity<Resource> image3(String filename) {
+
+    try {
+      // 다운로드할 파일의 입력 스트림 자원을 준비한다.
+      File downloadFile = new File("./upload/creator/" + filename); // 다운로드 상대 경로 준비
       FileInputStream fileIn = new FileInputStream(downloadFile.getCanonicalPath()); // 다운로드 파일의 실제 경로를 지정하여 입력 스트림 준비
       InputStreamResource resource = new InputStreamResource(fileIn); // 입력 스트림을 입력 자원으로 포장
 

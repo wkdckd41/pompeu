@@ -48,8 +48,6 @@
         <form name="form1">
           <div class= "lecture-detail">
             <hr style="border: solid 1px gainsboro; width:90%; margin-top:15px;margin-bottom:-10px;"><br>
-            <div style="margin-left:30px; margin-top:-3px">클래스소개 강사소개 클래스장소 후기(2) 문의(3)</div>
-            <hr style="border: solid 1px gainsboro; width:90%; margin-top:5px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">클래스 소개</h4>
                 <span id="lecture-introduce"></span>
@@ -113,16 +111,15 @@
          <hr style="border: solid 1px gainsboro; width:100%; margin-top:3px"><br>
          <div id="lecture-name"></div>
          <div style="display:flex; margin-top:10px;">
-           <div>image</div>
-           <div>아이러브볼링</div>
-           <div id="max-member" style="margin-left:120px;"></div>
+           <div style="display: flex;">
+                <div class="creator-con" id="creator-con"></div>
+           </div>
+           <div id="max-member" style="margin-left:140px; margin-top:10px;"></div>
          </div>
          <hr style="border: solid 1px gainsboro; width:100%; margin-top:10px"><br>
          <div id="lecture-price"></div>
 
-          <div class="time-box" id="time-box" ></div>
-          
-         
+       <div class="time-box" id="time-box" ></div>
        </div>
        <hr style="border: solid 1px gainsboro; width:100%;">
        <div style="margin-top:-10px;">
@@ -155,8 +152,20 @@
   <div>
     <div>
       <img class="user-image" src="/userLecture/image2?filename={{image}}" width="60" height="40">
+      <span class="userName">{{name}}</span>
     </div>
     <div class="user" id="user-con">{{content}}</div>
+  </div>
+{{/each}}
+</script>
+
+<script id="tr-template3" type="text/x-handlebars-template">
+{{#each this}} 
+  <div>
+    <div>
+      <img class="creator-image" src="/userLecture/image3?filename={{img}}" width="60" height="40">
+      <span class="creatorName">{{name}}</span>
+    </div>
   </div>
 {{/each}}
 </script>

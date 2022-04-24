@@ -3,7 +3,6 @@ package com.pompeu.user.lecture.dao;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
 
@@ -28,11 +27,15 @@ public interface UserLectureDao {
 
   List<LectureIntro> findLecture(int no);
 
+  List<Lecture> userContent(int no);
+
+  List<Lecture> creatorPro(int no);
+
   List<Lecture> registLecture(int no);
 
   List<Lecture> registTime(int no);
 
-  int insertAsk(Ask ask);
+  int insertAsk(Lecture lecture);
 
   List<Lecture> addImage(int no);
 

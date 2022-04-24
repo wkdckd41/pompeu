@@ -1,10 +1,12 @@
   // 템플릿 엔진에서 사용할 HTML 조각을 가져오기
   var trTemplate = document.querySelector("#tr-template");
   var trTemplate2 = document.querySelector("#tr-template2");
+  var trTemplate3 = document.querySelector("#tr-template3");
   
   //템플릿 엔진 준비
   var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
   var htmlGenerator2 = Handlebars.compile(trTemplate2.innerHTML);
+  var htmlGenerator3 = Handlebars.compile(trTemplate3.innerHTML);
 
 
 // Can also be used with $(document).ready()
@@ -40,7 +42,6 @@ $(window).load(function() {
    var lectureInfo = document.querySelector("#lecture-introduce");
    var info = document.querySelector("#teacher-introduce");
    var askContent = document.querySelector("#ask-content");
-   var userContent = document.querySelector("#user-content");
    
     fetch(`/userLecture/findLecture?no=${no}`)
     .then(function(response) {
@@ -57,9 +58,39 @@ $(window).load(function() {
        if (result[0].askContent != null) {
         askContent.innerHTML = `${result[0].askContent}`;
         }
-        
+     })
+     
+
+   var userContent = document.querySelector("#user-content");
+   
+    fetch(`/userLecture/userContent?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
         $("#user-con").html(htmlGenerator2(result));
      })
+     
+     
+   var creatorContent = document.querySelector("#creator-content");
+   
+    fetch(`/userLecture/creatorPro?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("AAA");
+      console.log(result);
+      
+        $("#creator-con").html(htmlGenerator3(result));
+     })
+     
+     
+     
+     
      
     var lectureImage = [];
     lectureImage[0] = document.querySelector("#lecture-image0");
@@ -176,17 +207,12 @@ $(window).load(function() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-
-          
     si = result[0].address
     regionSi.innerHTML = si;
      })
-     
-     
-     
-     
-     
-    /*
+
+    
+    
     var lectureAsk = document.querySelector("#lecture-ask");
     
     document.querySelector("#btn-ask").onclick = function() {
@@ -194,7 +220,7 @@ $(window).load(function() {
       window.alert("필수 입력 항목이 비어 있습니다.");
       return;
     }
-        fetch(`/userLecture/addAsk?no=${no}&content=${xContent.value}`)
+        fetch(`/userLecture/addAsk?no=${no}&content=${lectureAsk.value}`)
       .then(function(response) {
         return response.text();
       })
@@ -204,6 +230,6 @@ $(window).load(function() {
         location.reload();
       });
   };
-  */
+  
         
   

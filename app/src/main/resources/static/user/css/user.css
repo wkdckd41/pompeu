@@ -591,6 +591,7 @@ border: 1px solid black;
     justify-content: flex-start;
 }
 
+
 #btn-ask {
   width: 80px;
   height: 30px;
@@ -672,19 +673,42 @@ border: 1px solid black;
 }
 
 .user {
-	border:1.5px solid black;
-	border-radius: 5px;
-	margin:20px 5px;
-	min-width: 100%;
-	min-height:30px;
-	padding:7px 10px;
-	line-height: 20px;
+border: 1.5px solid black;
+    border-radius: 5px;
+    margin: 8px 5px;
+    min-width: 100%;
+    min-height: 30px;
+    padding: 7px 10px;
+    line-height: 20px;
+}
+
+.userName {
+	  font-size: 15px;
+	  font-weight:bold;
+    display: flex;
+    align-content: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: baseline;
+    margin-top: -10px;
+    margin-left:-20px;
 }
 
 .user-image {
 	border-radius: 30%;
 	margin-top: 10px;
 	margin-bottom: -18px;
+}
+
+.creatorName {
+	font-size: 15px;
+	font-weight:bold;
+	margin-left:10px;
+}
+
+.creator-image {
+	border-radius: 30%;
 }
 
 #inputTag {
