@@ -8,7 +8,7 @@ var rookie = [];
       return response.json();
     })
     .then(function(result) {
-
+			console.log(result);
 	for(i=0; i < 12; i++) {
 		if (result[i] == null) {
 			result[i] = {MonRookie: 0, MonCreator: 0, MonTotal: 0}
@@ -17,7 +17,21 @@ var rookie = [];
 		creator[i] = result[i].MonCreator
 		rookie[i] = result[i].MonRookie
 	}
-    });
+    }).then(
+	
+	window.onload = function()
+{
+var ctx = $('#chart').get(0).getContext("2d");
+window.theChart = new Chart(ctx, {
+type: 'bar',
+data: barChartData,
+options: {
+  
+}
+});
+}
+	
+);
 
 var barChartData = {                
 	
@@ -38,14 +52,5 @@ datasets: [{
 	}
 ]
 };
-window.onload = function()
-{
-var ctx = $('#chart').get(0).getContext("2d");
-window.theChart = new Chart(ctx, {
-type: 'bar',
-data: barChartData,
-options: {
-  
-}
-});
-}
+
+

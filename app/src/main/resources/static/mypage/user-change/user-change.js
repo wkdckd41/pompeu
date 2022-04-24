@@ -51,11 +51,13 @@
 		  } else if(result == 0){
 			window.alert("사용가능한 닉네임입니다");
 			nickCheck=true;
+			cNickName.style = "background-color:white"
 			cNickName.readOnly = true;
 			return;
 		  } else if (result == 1){
 			window.alert("이미 사용중인 닉네임입니다");
 			nickCheck=false;
+			cNickName.style = "background-color:#f5a0a0";
 			return;
 		  }
     });
@@ -65,11 +67,33 @@
 		
 		if (cNickName.value !="" && nickCheck==false){
 			window.alert("닉네임 중복 체크를 해주세요");
-      return;
-		} else if (cPassword.value != cPasswordCheck.value ) {
-      window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
-      return;
-    };
+			cNickName.style = "background-color:#f5a0a0";
+			
+				  if (cPassword.value != cPasswordCheck.value ) {
+		      window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
+					cPassword.style = "background-color:#f5a0a0";
+					cPasswordCheck.style = "background-color:#f5a0a0";
+					return;
+		    } else if (cPassword.value == cPasswordCheck.value) {
+					cPassword.style = "background-color:white";
+					cPasswordCheck.style = "background-color:white";
+					return;
+		    };
+			
+		} else if (cNickName.value =="") {
+			cNickName.style = "background-color:white";
+			
+				  if (cPassword.value != cPasswordCheck.value ) {
+		      window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
+					cPassword.style = "background-color:#f5a0a0";
+					cPasswordCheck.style = "background-color:#f5a0a0";
+					return;
+		    } else if (cPassword.value == cPasswordCheck.value) {
+					cPassword.style = "background-color:white";
+					cPasswordCheck.style = "background-color:white";
+		    };
+			
+		}
 	  
 	  var fd = new FormData(document.forms.namedItem("form1"));
 	    
@@ -96,3 +120,15 @@
   DBtn.onclick = function() {
 	    window.location.href = "user-delete.html";
 }
+
+ function preView(tag){
+      var reader = new FileReader();
+      // files메서드는 배열로 반환되기 때문에 멀티파일도 처리가능하다.
+       console.log(this);
+      console.log(tag.files[0]);
+     reader.readAsDataURL(tag.files[0]);
+      reader.onload = function() {
+          // 여기서의 this는 reader객체
+          cThumbNail.src = this.result;
+      }
+} 

@@ -22,7 +22,11 @@ public interface MemberDao {
 
   List<Integer> findCount();
 
+  List<Integer> findGoodbyeCount();
+
   List<Member> srchMember(Member member);
+
+  List<Member> srchGoodbyeMember(Member member);
 
   List<Map<Object, Object>> findUserLecture(int no);
 
