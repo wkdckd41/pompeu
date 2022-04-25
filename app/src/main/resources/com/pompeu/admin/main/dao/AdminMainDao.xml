@@ -161,6 +161,7 @@
           ,count(case when member_type_no = 2 then 1 else null end )                            as ammCreator
           ,count(case when (month(now()) = month(join_date)) then 1 else null end ) as ammRookie
           from member
+    where use_check = 1
   </select>
 
   <select id="lectureStatus" resultType="hashmap">
@@ -185,7 +186,8 @@
           ,count(case when member_type_no = 2 then 1 else null end )                            as MonCreator
           ,count(case when (year(now()) = year(join_date)) and (#{month} = month(join_date)) then 1 else null end ) as MonRookie
           from member
-					where (year(now()) > year(join_date)) or (#{month} >= month(join_date))
+					where ((year(now()) > year(join_date)) or (#{month} >= month(join_date)))
+					      and use_check = 1
   </select>
 <!-- 
   <select id="memberSummary" resultType="hashmap">

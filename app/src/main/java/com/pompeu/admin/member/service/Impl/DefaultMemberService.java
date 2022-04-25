@@ -41,13 +41,23 @@ public class DefaultMemberService implements MemberService{
   }
 
   @Override
-  public List<Integer> memberList() {
+  public List<Integer> findCount() {
     return memberDao.findCount();
+  }
+
+  @Override
+  public List<Integer> findGoodbyeCount() {
+    return memberDao.findGoodbyeCount();
   }
 
   @Override
   public List<Member> srchMember(Member member) {
     return memberDao.srchMember(member);
+  }
+
+  @Override
+  public List<Member> srchGoodbyeMember(Member member) {
+    return memberDao.srchGoodbyeMember(member);
   }
 
   @Override

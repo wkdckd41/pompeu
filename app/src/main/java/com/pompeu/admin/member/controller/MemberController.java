@@ -43,14 +43,23 @@ public class MemberController {
   }
 
   @RequestMapping("/member/findCount")
-  public Object memberList() {
-    return memberService.memberList();
+  public Object findCount() {
+    return memberService.findCount();
+  }
+
+  @RequestMapping("/member/findGoodbyeCount")
+  public Object findGoodbyeCount() {
+    return memberService.findGoodbyeCount();
   }
 
   @RequestMapping("/member/srchMember")
   public Object srchMember(Member member) {
-
     return memberService.srchMember(member);
+  }
+
+  @RequestMapping("/member/srchGoodbyeMember")
+  public Object srchGoodbyeMember(Member member) {
+    return memberService.srchGoodbyeMember(member);
   }
 
 

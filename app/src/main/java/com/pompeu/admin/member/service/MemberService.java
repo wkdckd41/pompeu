@@ -16,9 +16,13 @@ public interface MemberService {
 
   int delete(int no);
 
-  List<Integer> memberList();
+  List<Integer> findCount();
+
+  List<Integer> findGoodbyeCount();
 
   List<Member> srchMember(Member member);
+
+  List<Member> srchGoodbyeMember(Member member);
 
   List<Map<Object, Object>> getLecture(int no);
 
