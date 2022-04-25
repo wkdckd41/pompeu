@@ -7,6 +7,8 @@
   var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
   var htmlGenerator2 = Handlebars.compile(trTemplate2.innerHTML);
   var htmlGenerator3 = Handlebars.compile(trTemplate3.innerHTML);
+  
+  userNo = 35;
 
 
 // Can also be used with $(document).ready()
@@ -89,9 +91,6 @@ $(window).load(function() {
      })
      
      
-     
-     
-     
     var lectureImage = [];
     lectureImage[0] = document.querySelector("#lecture-image0");
     lectureImage[1] = document.querySelector("#lecture-image1");
@@ -147,9 +146,7 @@ $(window).load(function() {
       
       $("#time-box").html(htmlGenerator(result));
      })
-     
-     
-     
+
      
     var regionIntroduce = document.querySelector(".region-introduce");
      
@@ -231,5 +228,6 @@ $(window).load(function() {
       });
   };
   
-        
+    
+    
   
