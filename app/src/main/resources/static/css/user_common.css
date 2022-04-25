@@ -265,9 +265,6 @@ a#scrollUp i {
     outline: medium none;
     padding-left: 10px;
     width: 330px;
-    background-image: url(../images/home/searchicon.png);
-    background-repeat: no-repeat;
-    background-position: 300px;
     margin-right: -170px;
     margin-top: 5px;
 }

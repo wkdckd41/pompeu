@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.login.dao.UserDao">
+
+  <resultMap type="memberType" id="memberTypeMap">
+    <id column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
+  </resultMap>
+
+  <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>    
+    <result column="login_date" property="loginDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="birth" property="birth"/>
+    <result column="gender" property="gender"/>
+    <result column="role" property="role"/>
+      <collection property="memberType" resultMap="memberTypeMap"/>
+  </resultMap>
+
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="no"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+  </resultMap>
+
+
+  
+  <!--<insert id="insertUser" parameterType="member" useGeneratedKeys="true" keyColumn="member_no" keyProperty="no">
+   INSERT INTO member(
+    member_type_no,
+    name,
+    nickname,
+    email,
+    password,
+    phone,
+    role)
+   values
+   (
+   1,
+   #{name},
+   #{nickName},
+   #{email},
+   #{password},
+   #{phone},
+   'USER')
+  </insert>
+  <insert id=""></insert>-->
+  
+<!--<select id="findByEmail" resultType="memberMap">
+  SELECT 
+    *
+  FROM
+    member
+  WHERE
+    email = #{email}
+</select>-->
+  
+  
+  <!--OAuth2유저<insert id="insertOAuth2User" parameterType="member" useGeneratedKeys="true" keyProperty="no">
+   INSERT INTO member(
+    member_type_no,
+    name,
+    nickname,
+    email,
+    password,
+    phone)
+   values
+   (
+   1,
+   #{name},
+   #{nickName},
+   #{email},
+   #{password},
+   #{phone})
+  </insert>-->
+  
+ <!-- <insert id="insert" parameterType="member" useGeneratedKeys="true" keyProperty="no">
+   INSERT INTO member(
+    member_type_no,
+    name,
+    nickname,
+    email,
+    password,
+    phone)
+   values
+   (
+   2,
+   #{name},
+   #{nickName},
+   #{email},
+   #{password},
+   #{phone})
+  </insert>-->
+
+
+
+<!--이메일 중복체크
+SELECT COUNT(*) FROM member WHERE email = '#{email}';
+-->
+</mapper>
