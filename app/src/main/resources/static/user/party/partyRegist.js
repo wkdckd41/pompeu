@@ -69,7 +69,7 @@ fetch("/userparty/add", {
   .then(function(result) {
     console.log(result);
   });
- //location.href = 'party-home.html'
+ location.href = 'party-home.html'
 };
 
   

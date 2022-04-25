@@ -82,4 +82,5 @@ public class DefaultUserPartyService implements UserPartyService{
   public List<Party> si(int no) {
     return userPartyDao.siSep(no);
   }
+
 }

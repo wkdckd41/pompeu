@@ -27,15 +27,15 @@ public interface UserMainDao {
 
   int didICount(LectureLike lectureLike);
 
-  //  Object memberStatus();
+  // Object memberStatus();
   //
-  //  Object lectureStatus();
+  // Object lectureStatus();
   //
-  //  Object undoStatusApply();
+  // Object undoStatusApply();
   //
-  //  Object undoStatusClaim();
+  // Object undoStatusClaim();
   //
-  //  Object memberSummary(int month);
+  // Object memberSummary(int month);
 
 }
 
