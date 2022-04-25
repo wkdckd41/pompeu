@@ -26,7 +26,9 @@
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
-      <collection property="memberType" resultMap="memberTypeMap"/>
+    <result column="delete_type" property="deleteType"/>
+    <result column="delete_detail" property="deleteDetail"/>
+    <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
   <resultMap type="users" id="usersMap">
@@ -241,6 +243,18 @@
     where 
       m.member_no=#{no}
   </select>
+
+  <select id="findGoodbyeReason" resultType="member" parameterType="int">
+    select  
+          m.delete_type                                            as deleteType,
+          m.delete_detail                                          as deleteDetail
+    from 
+          member as m
+    where 
+      m.member_no=#{no}
+  </select>
+
+
 
   <select id="findCreatorLecture" resultType="HashMap" parameterType="int">
     select  

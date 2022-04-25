@@ -8,8 +8,6 @@ var CBtn= document.querySelector("#cancel-btn");
 var MDBtn= document.querySelector("#modal-delete-btn");
 var MCBtn= document.querySelector("#modal-cancel-btn");
 
-	userNo = 35;
-
 function getCheckbox(event)  {
   if(event.target.checked)  {
     deleteReally = 1;
@@ -51,9 +49,39 @@ console.log(deleteText.innerHTML);
       })
       .then(function(text) {
         console.log(text);
-	    window.location.href = "/user/main/user-main.html";
-    });
+    }).then(fetch(`/userChange/deleteUserDetail?no=${userNo}`))
+      .then(function(response) {
+        return response.text2();
+      })
+      .then(function(result) {
+        console.log(result);
+    }).then(
+        //window.location.href = "/user/main/user-main.html"
+      );
 	}
+	
+		MDBtn.onclick = function() {  
+		fetch(`/userChange/deleteUser?no=${userNo}&deleteType=${deleteReason}&deleteDetail=${deleteText.value}`)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(text) {
+        console.log(text);
+				return fetch(`/userChange/deleteUserDetail?no=${userNo}`)
+    }).then(function(response2) {
+        return response2.json();
+      })
+      .then(function(result) {
+        console.log(result);
+    })
+//.then(
+        //window.location.href = "/user/main/user-main.html"
+  //    );
+	}
+	
+	
+	
+	
 	
   MCBtn.onclick = function() {  
 		$(".modal").fadeOut();

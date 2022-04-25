@@ -30,6 +30,8 @@ public interface MemberDao {
 
   List<Map<Object, Object>> findUserLecture(int no);
 
+  Member findGoodbyeReason(int no);
+
   List<Map<Object, Object>> findCreatorLecture(int no);
 
   List<Map<Object, Object>> findApplyingLecture(int no);

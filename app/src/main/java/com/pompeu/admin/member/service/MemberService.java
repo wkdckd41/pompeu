@@ -26,6 +26,8 @@ public interface MemberService {
 
   List<Map<Object, Object>> getLecture(int no);
 
+  Member findGoodbyeReason(int no);
+
   List<Map<Object, Object>> creatorLecture(int no);
 
   List<Map<Object, Object>> applyingLecture(int no);

@@ -1,5 +1,3 @@
-var userNo=23;
-
 var uImg = document.querySelector("#user-img-actual");
 var uName = document.querySelector("#user-name");
 var uEmail = document.querySelector("#user-email");

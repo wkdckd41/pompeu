@@ -185,5 +185,10 @@
       m.member_no=#{no}
   </update>
 
+  <delete id="deleteUserDetail" parameterType="int">
+			DELETE FROM users
+			WHERE users_no =#{no}
+  </delete>
+
 
 </mapper>
