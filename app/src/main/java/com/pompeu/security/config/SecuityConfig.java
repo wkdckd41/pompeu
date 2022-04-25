@@ -101,7 +101,6 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .passwordParameter("password")
     .successHandler(successHandler)
     .failureHandler(failureHandler)
-    //    .defaultSuccessUrl("/user/main/user-main.html", true)
     //    .failureUrl("/user/login/login.html");
     //
     .and()
@@ -109,7 +108,7 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
 
 
     .logoutUrl("/user/logout")
-    //    .deleteCookies("JSESSIONID") // 쿠키삭제
+    .deleteCookies("JSESSIONID") // 쿠키삭제
     .invalidateHttpSession(true) // 로그아웃시 세션초기화
     .logoutSuccessUrl("/user/main/user-main.html")
     //
@@ -155,7 +154,8 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
   public void configure(WebSecurity web) {
     //이미지,자바스크립트,css 디렉토리 보안 설정 
     web.ignoring().antMatchers("/resource/static/css/**",
-        "/resource/static/user/js/**", "resource/img/**");    
+        "/resource/static/user/js/**", "resource/img/**",
+        "/resource/static/form/**");    
   }
 
 

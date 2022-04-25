@@ -61,7 +61,7 @@ public class UserController {
   public String loginSuccess(Authentication auth) {
     log.info("success...");
     System.out.println("success:" + auth.getAuthorities().toString() + "==========" + auth.getPrincipal());
-
+    userService.loginDate(auth.getName());
     List<String>role = new ArrayList<>();
     auth.getAuthorities().forEach(authority -> {
       role.add(authority.getAuthority());
@@ -82,6 +82,17 @@ public class UserController {
   public String loginFail() {
     return "fail";
   }
+
+
+  @RequestMapping("/login/getLoginUser")
+  public String getLoginUser(Authentication auth) {
+    System.out.println(auth.getPrincipal());
+    if (auth.getName() != null) {
+      return "success";
+    }
+    return "fail";
+  }
+
 
 
   //  @RequestMapping("/user/login")

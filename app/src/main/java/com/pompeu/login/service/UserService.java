@@ -19,6 +19,8 @@ public interface UserService {
 
   //  Member getMember(String email, String password);
 
+  int loginDate(String email);
+
 
   int deleteUser(String email);
 

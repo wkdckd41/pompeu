@@ -67,12 +67,21 @@ public class DefaultUserService implements UserService{
   //    return userDao.findByEmail(email);
   //  }
 
+  @Override
+  public int loginDate(String email) {
+    return userDao.lastLoginDate(email);
+  }
+
 
 
   @Override
   public int deleteUser(String email) {
     return userDao.deleteUser(email);
   }
+
+
+
+
 
 
 
