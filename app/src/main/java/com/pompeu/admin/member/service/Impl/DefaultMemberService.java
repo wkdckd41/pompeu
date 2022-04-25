@@ -66,6 +66,11 @@ public class DefaultMemberService implements MemberService{
   }
 
   @Override
+  public Member findGoodbyeReason(int no) {
+    return memberDao.findGoodbyeReason(no);
+  }
+
+  @Override
   public List<Map<Object, Object>> creatorLecture(int no) {
     return memberDao.findCreatorLecture(no);
   }
@@ -74,6 +79,8 @@ public class DefaultMemberService implements MemberService{
   public List<Map<Object, Object>> applyingLecture(int no) {
     return memberDao.findApplyingLecture(no);
   }
+
+
 
 
 

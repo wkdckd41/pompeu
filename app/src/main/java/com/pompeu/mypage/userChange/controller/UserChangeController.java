@@ -87,6 +87,11 @@ public class UserChangeController {
     }
   }
 
+  @RequestMapping("/userChange/deleteUserDetail")
+  public Object deleteUserDetail(int no) {
+    return userChangeService.deleteUserDetail(no);
+  }
+
   @RequestMapping("/userChange/image")
   public ResponseEntity<Resource> image(String filename) {
 
