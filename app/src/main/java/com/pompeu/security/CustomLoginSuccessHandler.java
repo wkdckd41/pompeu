@@ -24,7 +24,7 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
 
     HttpSession session = request.getSession();
     session.setMaxInactiveInterval(600); // session 최대 유효시간
-    //    session.setAttribute("loginUser", authentication.getPrincipal());
+    session.setAttribute("loginUser", authentication.getPrincipal());
 
     System.out.println(authentication.getAuthorities());
 
