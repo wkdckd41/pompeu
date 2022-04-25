@@ -150,8 +150,17 @@
             ,  count(case when member_type_no = 1 then 1 else null end )        as user
             ,  count(case when member_type_no = 2 then 1 else null end )        as creator
           from member
-         where member_type_no in (1, 2)
+         where member_type_no in (1, 2) and use_check = 1
   </select>
+
+  <select id="findGoodbyeCount" resultType="hashmap">
+    select count(*)                                                    as total
+            ,  count(case when member_type_no = 1 then 1 else null end )        as user
+            ,  count(case when member_type_no = 2 then 1 else null end )        as creator
+          from member
+         where member_type_no in (1, 2) and use_check = 2
+  </select>
+
   
 <select id="srchMember" parameterType="member" resultMap="memberMap">
     select 
@@ -164,8 +173,8 @@
           member  m
           join member_type mt 
                 on m.member_type_no = mt.member_type_no 
-    where 1=1
-        
+    where
+          m.use_check = 1
     <if test="memberTypeNo != ''">
         and m.member_type_no = #{memberTypeNo}
     </if>
@@ -181,6 +190,37 @@
        order by 
           m.member_no asc
   </select>
+
+<select id="srchGoodbyeMember" parameterType="member" resultMap="memberMap">
+    select 
+          m.member_no                                           as member_no,  
+          mt.member_type                                        as member_type,
+          m.name                                                as name,
+          m.email                                               as email,
+          m.phone                                               as phone
+    from 
+          member  m
+          join member_type mt 
+                on m.member_type_no = mt.member_type_no 
+    where
+          m.use_check = 2
+    <if test="memberTypeNo != ''">
+        and m.member_type_no = #{memberTypeNo}
+    </if>
+    <if test="name != ''">
+        and m.name = #{name}
+    </if>
+    <if test="phone != ''">
+        and m.phone = #{phone}
+    </if>
+    <if test="email != ''">
+        and m.email = #{email}
+    </if> 
+       order by 
+          m.member_no asc
+  </select>
+
+
 
   <select id="findUserLecture" resultType="HashMap" parameterType="int">
     select  

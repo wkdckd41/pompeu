@@ -3,7 +3,6 @@ package com.pompeu.user.lecture.service.Impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.pompeu.domain.Ask;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
 import com.pompeu.user.lecture.dao.UserLectureDao;
@@ -35,7 +34,6 @@ public class DefaultUserLectureService implements UserLectureService{
     return userLectureDao.update(lecture);
   }
 
-
   @Override
   public int delete(int no) {
     return userLectureDao.delete(no);
@@ -62,6 +60,16 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
+  public List<Lecture> userCon(int no) {
+    return userLectureDao.userContent(no);
+  }
+
+  @Override
+  public List<Lecture> creator(int no) {
+    return userLectureDao.creatorPro(no);
+  }
+
+  @Override
   public List<Lecture> regist(int no) {
     return userLectureDao.registLecture(no);
   }
@@ -72,8 +80,8 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public int addAsk(Ask ask) {
-    return userLectureDao.insertAsk(ask);
+  public int addAsk(Lecture lecture) {
+    return userLectureDao.insertAsk(lecture);
   }
 
   @Override

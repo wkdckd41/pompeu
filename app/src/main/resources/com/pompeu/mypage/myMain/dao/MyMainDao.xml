@@ -5,11 +5,6 @@
   
 <mapper namespace="com.pompeu.mypage.myMain.dao.MyMainDao">
 
-  <resultMap type="memberType" id="memberTypeMap">
-    <id column="member_type_no" property="memberTypeNo"/>
-    <result column="member_type" property="memberType"/>
-  </resultMap>
-
   <resultMap type="member" id="memberMap">
     <id column="member_no" property="no"/>
     <result column="member_type_no" property="memberTypeNo"/>
@@ -26,8 +21,8 @@
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
-      <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
+
 
   <resultMap type="lecture" id="lectureMap">
     <id column="lecture_no" property="no"/>
@@ -46,20 +41,40 @@
     <result column="in_out_ex" property="inOutEx"/>
   </resultMap> 
 
-  <resultMap type="partyClaim" id="partyClaimMap">
-    <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="usersNo"/>
-    <result column="claim_reason_no" property="claimReasonNo"/>
-    <result column="claim_date" property="claimDate"/>
-    <result column="status" property="status"/>
+  <resultMap type="exercise" id="exerciseMap">
+    <id column="ex_no" property="exNo"/>
+    <result column="name" property="name"/>
+    <result column="ex_type_no" property="exTypeNo"/>
   </resultMap> 
 
-<!--
+  <resultMap type="lectureImage" id="lectureImageMap">
+    <id column="lecture_image_no" property="lectureImageNo"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="image" property="image"/>
+  </resultMap> 
+
+  <resultMap type="lectureLike" id="lectureLikeMap">
+    <id column="users_no" property="usersNo"/>
+    <id column="lecture_no" property="lectureNo"/>
+  </resultMap> 
+
   <resultMap type="users" id="usersMap">
     <id column="users_no" property="no"/>
     <result column="image" property="image"/>
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
+
+  <resultMap type="lectureTime" id="lectureTimeMap">
+    <id column="lecture_time_no" property="no"/>
+    <result column="lecture_no" property="lectureNo"/>
+    <result column="start_time" property="startTime"/>
+    <result column="end_time" property="endTime"/>
+    <result column="max_member" property="maxMember"/>
+    <result column="no_member" property="noMember"/>
+  </resultMap>
+
+
+<!--
 
   <resultMap type="mylectureList" id="mylectureListMap">
     <id column="mylecture_list_no" property="no"/>
@@ -155,6 +170,113 @@
     delete from member 
     where member_no=#{no}
   </delete>
+
+    <select id="myGoingLecture" parameterType="int" resultType="HashMap" >
+       select
+           l.lecture_no                                          as lNo, 
+           ex.name                                               as exName,
+           l.name                                                as lName,
+					 l.start_date                                          as sDate,
+				   l.end_date                                            as eDate,
+           li.image                                              as image,
+           lt.lecture_time_no                                    as ltNo,
+           ml.users_no                                           as users,
+           (select count(*) from lecture_like as ll
+            where ll.lecture_no=lNo)                             as likey 
+       from 
+           lecture as l
+       join exercise as ex 
+           on l.ex_no = ex.ex_no
+       join (
+						SELECT 
+						li.lecture_no,
+						li.image
+						from lecture_image as li
+						group by li.lecture_no 
+            )
+       as li
+           on l.lecture_no = li.lecture_no
+       join lecture_time as lt
+		       on l.lecture_no = lt.lecture_no
+			 join mylecture_list as ml
+		       on ml.lecture_time_no=lt.lecture_time_no
+			 where ml.users_no=#{no}
+       order by sDate DESC
+    </select>
+
+    <select id="myWishLecture" parameterType="int" resultType="HashMap" >
+       select
+           l.lecture_no                                          as lNo, 
+           ex.name                                               as exName,
+           l.name                                                as lName,
+					 l.start_date                                          as sDate,
+				   l.end_date                                            as eDate,
+           li.image                                              as image,
+           lw.users_no                                           as users,
+           (select count(*) from lecture_like as ll
+            where ll.lecture_no=lNo)                             as likey 
+       from 
+           lecture as l
+       join exercise as ex 
+           on l.ex_no = ex.ex_no
+       join (
+						SELECT 
+						li.lecture_no,
+						li.image
+						from lecture_image as li
+						group by li.lecture_no 
+            )
+       as li
+           on l.lecture_no = li.lecture_no
+       join lecture_wishlist as lw
+		       on l.lecture_no = lw.lecture_no
+			 where lw.users_no=#{no}
+       order by sDate DESC
+    </select>
+
+    <select id="myGoingParty" parameterType="int" resultType="HashMap" >
+       select
+					 p.party_no                                            as pNo,
+				   t.tag                                                 as tNo,
+					 p.name                                                as pName,
+					 p.start_date                                          as sDate,
+				   p.end_date                                            as eDate,
+	         p.image                                               as image,
+           pu.users_no                                           as users,
+           (select count(*) from party_user as pu
+            where pu.party_no=pNo)                               as curMember,
+           p.max_member                                          as maxMember
+       from 
+           party as p
+       left outer join tag_name as t 
+           on p.tag_no = t.tag_no
+       join party_user as pu
+           on p.party_no = pu.party_no
+			 where pu.users_no=#{no}
+       order by sDate DESC
+    </select>
+
+    <select id="myWishParty" parameterType="int" resultType="HashMap" >
+       select
+					 p.party_no                                            as pNo,
+				   t.tag                                                 as tNo,
+					 p.name                                                as pName,
+					 p.start_date                                          as sDate,
+				   p.end_date                                            as eDate,
+	         p.image                                               as image,
+           pw.users_no                                           as users,
+           (select count(*) from party_user as pu
+            where pu.party_no=pNo)                               as curMember,
+           p.max_member                                          as maxMember
+       from 
+           party as p
+       left outer join tag_name as t 
+           on p.tag_no = t.tag_no
+       join party_wishlist as pw
+           on p.party_no = pw.party_no
+			 where pw.users_no=#{no}
+       order by sDate DESC
+    </select>
 
 <!-- 
   <select id="memberStatus" resultType="hashmap">

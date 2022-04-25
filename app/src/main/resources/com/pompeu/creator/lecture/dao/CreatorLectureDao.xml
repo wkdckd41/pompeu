@@ -62,19 +62,19 @@
   </select>
 
 
-
+<!-- 강좌목록 출력-->
   <select id="findAll" resultMap="lectureMap">
     select
-      lecture_no,
-      creator_no,
-      name,
-      start_date,
-      end_date,
-      lecture_price,
-      register_date,
-      status
+      le.lecture_no,
+      le.creator_no,
+      le.name,
+      le.start_date,
+      le.end_date,
+      le.lecture_price,
+      le.register_date,
+      le.status
     from
-      lecture
+      lecture le
     order by
       lecture_no desc
   </select>

@@ -14,49 +14,51 @@ import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureImage;
-import com.pompeu.domain.LectureTime;
 
 @RestController
 @RequestMapping("/creatorLecture/")
 public class CreatorLectureController {
   // log를 출력하는 도구 준비
   private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
+
   @Autowired
   CreatorLectureService creatorlectureService;
 
   //클래스 목록조회
-  @RequestMapping("/creatorLecture/list")
+  @RequestMapping("list")
   public Object list() {
-    log.debug("error");
+    log.debug(creatorlectureService.list().toString());
     return creatorlectureService.list();
   }
 
   //클래스 등록
   @RequestMapping("add")
-  public Object add(Lecture lecture, String[] time, List <MultipartFile> files) {
-    log.debug(lecture);
+  public void add(Lecture lecture/* String[] time, List <MultipartFile> files*/) {
+    log.debug(lecture.toString());
 
-    //강의 시간 데이터
-    try {
-      ArrayList<LectureTime> timesList = new ArrayList<>();
-      for(int i= 0; i< time.length; i++) {
-        String[] value = time[i].split(",");
-        if(value[0].length() == 0) { //시작시간
-          continue;
-        } 
-        if(value[1].length() == 0) { //종료시간
-          continue;
-        }  
-        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
-        timesList.add(lectureTime);
-      }
-      lecture.setTimes(timesList);
-      lecture.setImages(saveFileMulti(files));
 
-    } catch (Exception e) {
-      e.printStackTrace();
-    } 
-    return creatorlectureService.add(lecture);
+
+    //    //강의 시간 데이터
+    //    try {
+    //      ArrayList<LectureTime> timesList = new ArrayList<>();
+    //      for(int i= 0; i< time.length; i++) {
+    //        String[] value = time[i].split(",");
+    //        if(value[0].length() == 0) { //시작시간
+    //          continue;
+    //        } 
+    //        if(value[1].length() == 0) { //종료시간
+    //          continue;
+    //        }  
+    //        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
+    //        timesList.add(lectureTime);
+    //      }
+    //      lecture.setTimes(timesList);
+    //      lecture.setImages(saveFileMulti(files));
+    //
+    //    } catch (Exception e) {
+    //      e.printStackTrace();
+    //    } 
+    //    return creatorlectureService.add(lecture);
   }
 
   //클래스 상세보기

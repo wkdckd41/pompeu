@@ -18,4 +18,6 @@ public class Notice {
   String content;
   java.sql.Date modifyDate;
   List<FileNames> fNames;
+  String realFile;
+
 }

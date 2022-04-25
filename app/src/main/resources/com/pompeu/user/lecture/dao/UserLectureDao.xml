@@ -205,29 +205,6 @@
         </if> 
   </select>
   
-  
-  <select id="findLecture" resultType="LectureIntro" parameterType="int">
-    select  
-          le.lecture_info                                       as lectureInfo,
-          cr.info                                               as info,
-          ml.content                                            as content,
-          ma.ask_content                                        as askContent,
-          ma.register_date                                      as registerDate,
-          (select image from users where users_no = ml.users_no order BY users_no asc LIMIT  1) as image
-    from 
-          lecture as le
-    join creator as cr 
-          on le.creator_no = cr.creator_no
-    join lecture_time as lt
-          on lt.lecture_no = le.lecture_no
-    join mylecture_list as ml
-          on ml.lecture_time_no = lt.lecture_time_no 
-    join mylecture_ask as ma
-          on ma.lecture_no = le.lecture_no
-    where 
-      le.lecture_no=#{no}
-  </select>
-  
   <select id="addImage" resultType="HashMap" parameterType="int">
     select  
           li.image                                              as image
@@ -235,6 +212,53 @@
           lecture as le
     join lecture_image as li
           on li.lecture_no = le.lecture_no
+    where 
+      le.lecture_no=#{no}
+  </select>
+  
+  <select id="findLecture" resultType="LectureIntro" parameterType="int">
+    select  
+          le.lecture_info                                       as lectureInfo,
+          cr.info                                               as info
+    from 
+          lecture as le
+    join creator as cr 
+          on le.creator_no = cr.creator_no
+    where 
+      le.lecture_no=#{no}
+  </select>
+  
+  
+  <select id="userContent" resultType="HashMap">
+    select  
+          mem.name                  as name,
+          ml.content                                            as content,
+          (select image from users where users_no = ml.users_no order BY users_no asc LIMIT  1) as image
+    from 
+          member as mem
+    join users as us 
+          on us.users_no = mem.member_no
+    join mylecture_list as ml
+          on ml.users_no = us.users_no
+    join lecture_time as lt
+          on lt.lecture_time_no = ml.lecture_time_no 
+    join lecture as le
+          on le.lecture_no = lt.lecture_no
+    where 
+      le.lecture_no=#{no}
+  </select>
+  
+  
+  <select id="creatorPro" resultType="HashMap">
+    select  
+          mem.name                  as name,
+          (select img from creator where le.creator_no = cr.creator_no order BY creator_no asc LIMIT  1) as img
+    from 
+          member as mem
+    join creator as cr 
+      on cr.creator_no = mem.member_no
+    join lecture as le
+          on le.creator_no = cr.creator_no
     where 
       le.lecture_no=#{no}
   </select>
@@ -271,9 +295,9 @@
           le.lecture_no=#{no}
   </select>
   
-  <insert id="insertAsk" parameterType="Ask">
-    insert into mylecture_ask(lecture_no,users_no,ask_content)
-    values(#{lectureNo},#{usersNo},#{content})
+  <insert id="insertAsk" parameterType="lecture">
+    insert into mylecture_ask(lecture_no,ask_content)
+    values(#{no},#{content})
   </insert>
   
   <select id="mapping" resultType="HashMap">

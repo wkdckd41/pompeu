@@ -24,7 +24,7 @@ $(document).ready(function () {
     var xRegisterDate = document.querySelector("#x-register-date")
 
     var xFnames = document.querySelector("#fnames")
-    
+
     fetch(`/notice/get?no=${no}`)
     .then(function (response) {
         return response.json();
@@ -33,21 +33,26 @@ $(document).ready(function () {
         console.log(result);
         // 4 연락처 상세 정보를 화면에 출력한다.
         var str = ""
-        for(var i=0; i < result.fnames.length; i++){
-          
-          //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
-          
-          str+=`<a href="/notice/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a>`
-          
-          
-          str+=`</br>`
+        for (var i = 0; i < result.fnames.length; i++) {
+
+            //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
+
+            str += `<label><a href="/notice/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a></label>&nbsp`
+  
         }
-        xFnames.innerHTML=str;
+        
+        xFnames.innerHTML = str;
         xNo.innerHTML = result.no;
         xName.innerHTML = result.name;
         xContent.innerHTML = result.content;
         xRegisterDate.innerHTML = result.registerDate;
-        
+
+        console.log("no =" + result.no);
+        console.log("name =" + result.name);
+        console.log("content =" + result.content)
+        console.log("criticalCheck =" + result.criticalCheck);
+        console.log("str = " + str);
+
     });
     /*
     var arr2 = no.split("=");
@@ -75,6 +80,7 @@ function init() {
     })
 
 }
+
 /*
 function fileDownLoad(orgFile, realFile){
     console.log("orgFile : " + orgFile);

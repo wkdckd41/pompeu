@@ -1,6 +1,7 @@
 package com.pompeu.mypage.myMain.dao;
 
 import java.util.List;
+import java.util.Map;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Member;
 
@@ -18,6 +19,14 @@ public interface MyMainDao {
   int update(Member member);
 
   int delete(int no);
+
+  List<Map<String, Object>> myGoingLecture(int no);
+
+  List<Map<String, Object>> myWishLecture(int no);
+
+  List<Map<String, Object>> myGoingParty(int no);
+
+  List<Map<String, Object>> myWishParty(int no);
 
   //  Object memberStatus();
   //

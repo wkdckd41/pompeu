@@ -45,7 +45,15 @@ public class DefaultNoticeService implements NoticeService{
 
   @Override
   public int update(Notice notice) {
-    return noticeDao.update(notice);
+
+    int rs = noticeDao.update(notice);
+
+    if(notice.getFNames().size()!=0) {
+      rs = noticeDao.insertFiles(notice.getNo(), notice.getFNames());
+
+      System.out.println("getFnamesSize : " + notice.getFNames().size());
+    }
+    return rs;
   }
 
   @Override
@@ -65,6 +73,11 @@ public class DefaultNoticeService implements NoticeService{
       }
     }
     return result;
+  }
+
+  @Override
+  public int fileRemove(Notice notice) {
+    return noticeDao.fileRemove(notice);
   }
 
 }

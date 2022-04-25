@@ -98,7 +98,7 @@
         <div id="content">
         
           <form name="form1" id="change-box">
-            <img id="thumbnail" src="/form/mypage/image/bono.jpg"><br>
+            <img id="thumbnail" src="/form/mypage/image/bono.jpg" ><br>
             
             <label id="thumbnail-file-button" for="thumbnail-file">사진 업로드</label><br>
             <table>
@@ -108,7 +108,7 @@
               </tr>            
             </table>
             <!-- <input name="file" id="thumbnail-file" type="file">-->
-             <input name="file" id="thumbnail-file" type="file" style="display:none">
+             <input name="file" id="thumbnail-file" type="file" style="display:none" onchange=preView(this)>
             이름<br>
             <input name="name" type="text"><br>
             닉네임<br>
@@ -152,6 +152,8 @@
 		$("#footer").load("/form/user/footer.html");
 		$("#sidebar").load("/form/mypage/sidebar.html");
 		</script>
+    
+
     
     <script src="/mypage/user-change/user-change.js"></script>
     
