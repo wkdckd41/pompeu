@@ -7,7 +7,9 @@ public interface AskService {
 
   int add(Ask ask);
 
-  List<Ask> list();
+  List<Ask> list(Ask ask);
+
+  List<Ask> userList(Ask ask);
 
   Ask get(int no);
 

@@ -16,7 +16,7 @@ $(document).ready(function () {
     // 2) 쿼리 스트링에서 no 값을 추출한다.
     var params = new URLSearchParams(qs);
     var no = params.get("no");
-    console.log("noticeNo : " + no);
+    console.log("ask : " + no);
 
     var xNo = document.querySelector("#x-no")
     var xName = document.querySelector("#x-name")
@@ -25,7 +25,7 @@ $(document).ready(function () {
 
     var xFnames = document.querySelector("#fnames")
 
-    fetch(`/notice/get?no=${no}`)
+    fetch(`/ask/get?no=${no}`)
     .then(function (response) {
         return response.json();
     })
@@ -43,12 +43,12 @@ $(document).ready(function () {
 
         xFnames.innerHTML = str;
         xNo.innerHTML = result.no;
-        xName.innerHTML = result.name;
-        xContent.innerHTML = result.content;
+        xName.innerHTML = result.askName;
+        xContent.innerHTML = result.askContent;
         xRegisterDate.innerHTML = result.registerDate;
 
         console.log("no =" + result.no);
-        console.log("name =" + result.name);
+        console.log("name =" + result.askName);
         console.log("content =" + result.content)
         console.log("criticalCheck =" + result.criticalCheck);
         console.log("str = " + str);

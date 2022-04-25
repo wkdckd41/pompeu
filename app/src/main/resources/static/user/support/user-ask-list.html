@@ -1,88 +1,106 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
     <title>POMPEU!</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!--부트스트랩  👈 -->
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  
+  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
+   
 </head>
+
 <style>
-  .content {
-    padding: 0px 60px 0 60px;
+
+.page-wrapper {
+  margin-top: -300px;
+}
+
+  * {
+    box-sizing: border-box;
   }
 
-  .pagination > li > a {
-    background-color: white;
+  .que:first-child {
+    border-top: 1px solid black;
+  }
+
+  .que {
+    position: relative;
+    padding: 27px 0;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    border-bottom: 1px solid #dddddd;
+
+  }
+
+  .que::before {
+    display: inline-block;
+    content: 'Q';
+    font-size: 18px;
+    font-weight: bold;
+    color: #04CF5C;
+    margin-right: 5px;
+  }
+
+  .que.on > span {
+    font-weight: bold;
+    font-weight: bold;
     color: black;
   }
 
-  .pagination > li > a:focus,
-  .pagination > li > a:hover,
-  .pagination > li > span:focus,
-  .pagination > li > span:hover {
-    color: purple;
-    background-color: #eee;
-    border-color: #ddd;
+  .anw {
+    display: none;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #f4f4f2;
+    padding: 27px 0;
   }
 
-  .pagination > .active > a {
-    color: white;
-    background-color: purple;
-    border: solid 1px purple;
+  .anw::before {
+    display: inline-block;
+    content: 'A';
+    font-size: 18px;
+    font-weight: bold;
+    color: #D3ECA7;
+    margin-right: 5px;
   }
-
-  .pagination > .active > a:hover {
-    background-color: purple;
-    border: solid 1px purple;
-  }
-
 </style>
 
 <body>
-<div class="main-container">
-    <div id="wrapper">
+  <div class="container">
+    
 
-        <div class="headers"></div>
-        <!--👉 헤더 😊-->
+    
+    <div id="wrapper" >
+    
+        <!-- 헤더 자리 시작 -->
+        <div id="header"></div>
+         <!-- 헤더 자리 끝 -->
 
-        <div class="page-wrapper">
-            <div class="container-fluid">
-                <div class="row" id="main">
-                    <div class="page-header">
+        <div id="page-wrapper">
+        
+        <!-- 사이드바 자리 시작 -->
+        <div id="sidebar"></div>
+         <!-- 사이드바 자리 끝 -->
 
-                        <h3>1:1 문의</h3>
-
-                    </div>
-
-                </div>
-
-                <!-- /row 타이틀 👈 -->
-            </div>
-        </div>
-        <!-- 타이틀 박스-->
-
-        <div class="content">
-            <ul class="nav nav-tabs">
-                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#"
-                                        onclick="selectMemberTypeNo(3)">전체</a></li>
-                <li class="nav-item"><a class="nav-link" href="#" onclick="selectMemberTypeNo(1)">이용자</a>
-                </li>
-                <li class="nav-item"><a class="nav-link" href="#" onclick="selectMemberTypeNo(2)">크리에이터</a>
-                </li>
-            </ul>
-
-
+   <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <div id="content">
+        
             <table class="table table-hover">
                 <thead>
                 <tr>
                     <th><input type="checkbox" name="_selected_all_"></th>
                     <th scope="col">게시글 번호</th>
-                    <th scope="col">구분</th>
                     <th scope="col">제목</th>
-                    <th scope="col">작성자</th>
                     <th scope="col">작성일자</th>
                     <th scope="col">답변여부</th>
                 </tr>
@@ -125,21 +143,33 @@
                 </nav>
             </div>
         </div>
+    <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
+        </div>
+        <!-- /#page-wrapper --> 
 
+        
+    <div id="footer"></div>
+    </div><!-- /#wrapper -->
     </div>
-    <!--/wrapper  -->
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-</div>
-<!-- /main-container 전체 😃🤣😄 -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+    
+    <script>
+    $("#header").load("/form/user/header.html");
+    $("#footer").load("/form/user/footer.html");
+    $("#sidebar").load("/form/support/sidebar.html");
+    
+    
+    </script>
 
-<!-- 밑에 3개적용 😊😊😊  -->
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<!-- 제이쿼리     1️⃣-->
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- 부트스트랩   2️⃣-->
-<script src="/admin/js/header.js"></script>
-<!-- 😊 헤더 👈 3️⃣ -->
-<script src="/admin/js/support/ask/ask-list.js"></script>
+    <script src="/user/support/user-ask-list.js"></script>
+
+    
 
 </body>
+</html>

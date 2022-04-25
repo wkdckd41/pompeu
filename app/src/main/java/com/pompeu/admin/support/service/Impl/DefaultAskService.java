@@ -19,8 +19,13 @@ public class DefaultAskService implements AskService{
   }
 
   @Override
-  public List<Ask> list() {
-    return askDao.findAll();
+  public List<Ask> list(Ask ask) {
+    return askDao.findAll(ask);
+  }
+
+  @Override
+  public List<Ask> userList(Ask ask) {
+    return askDao.userFindAll(ask);
   }
 
   @Override

@@ -9,7 +9,10 @@ public interface AskDao {
 
   int countAll();
 
-  List<Ask> findAll();
+  List<Ask> findAll(Ask ask);
+
+  List<Ask> userFindAll(Ask ask);
+
 
   int insert(Ask ask);
 

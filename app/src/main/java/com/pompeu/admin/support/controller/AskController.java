@@ -1,5 +1,7 @@
 package com.pompeu.admin.support.controller;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,9 +19,24 @@ public class AskController {
   AskService askService;
 
   @RequestMapping("/ask/list")
-  public Object list() {
-    return askService.list();
+  public Object list(Ask ask) {
+    return askService.list(ask);  
   }
+
+  @RequestMapping("/user-ask/list")
+  public Object userList(HttpSession session, HttpServletRequest request) {
+
+    //session = request.getSession();
+
+    Ask ask = new Ask();
+
+    //    ask.setMemberNo((int)session.getAttribute("memberNo"));
+    ask.setMemberNo(5);
+
+    return askService.userList(ask);
+  }
+
+
 
   @RequestMapping("/ask/add")
   public Object add(Ask ask) {
