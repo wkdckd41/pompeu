@@ -5,7 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'main' of https://github.com/linarano/pompeu.git
 @RestController
 @SpringBootApplication
 public class App {
