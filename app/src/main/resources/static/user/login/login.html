@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <title>Home | POMPEU</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/user_common.css">
+    <link rel="stylesheet" href="/user/login/login.css">
+</head>
+<!--/head-->
+
+<body>
+
+    <div class="container">
+        <div class="wrapper">
+            <div id="header"> </div>
+            <!-- 헤더 -->
+            <div id="page-wrapper">
+
+                <div class="page_wrapper">
+                    <div class="login_wrapper">
+                        <div class="login">
+                            <span class="login_name">로그인</span>
+                        </div>
+                        <form name="login" id="loginForm">
+
+                            <div class="login_form login_top">
+                                <div class="login_id login_label">
+                                    <label for="email">이메일</label>
+                                </div>
+                                <div class="login_id">
+                                    <input type="text" name="email" class="login_input" placeholder="이메일"
+                                        required="required">
+                                </div>
+                            </div>
+                            <div class="login_form">
+                                <div class="login_password login_label">
+                                    <label for="password">비밀번호</label>
+                                </div>
+                                <div class="login_password">
+                                    <input type="password" name="password" class="login_input" placeholder="비밀번호"
+                                        required="required">
+                                </div>
+                            </div>
+                            <div class="find">
+                                <a href="localhost:8080/" class="find">이메일/비밀번호 찾기</a>
+                                <a href="/user/login/join.html" class="join">이메일로 가입</a>
+                            </div>
+                            <div class="btn">
+                                <button type="button" class="login_btn">로그인</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="login_wrapper">
+                        <div class="login">
+                            <span class="login_name">간편 로그인</span>
+
+                        </div>
+                        <div class="easy_login">
+
+                            <div class="">
+                                <button type="button" class="kakao_btn easy_btn">카카오로 로그인하기</button>
+                            </div>
+                            <div>
+                                <button type="button" class="naver_btn easy_btn">네이버로 로그인하기</button>
+                            </div>
+                            <div>
+                                <button type="button" class="google_btn easy_btn">
+                                    <a href="/oauth2/authorization/google">구글로 로그인하기</a>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+    </div>
+    <!-- 내용 -->
+
+
+    <div id="footer"> </div>
+    <!-- 푸터 -->
+    </div>
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/user/js/layout.js"></script>
+    <script src="/user/login/login.js"></script>
+    <!-- <script src="/user/login/login.js"></script> -->
+    <!-- <script src="js/jquery.scrollUp.min.js"></script> -->
+    <!-- <script src="js/price-range.js"></script> -->
+    <!-- <script src="js/jquery.prettyPhoto.js"></script> -->
+</body>
+
+</html>

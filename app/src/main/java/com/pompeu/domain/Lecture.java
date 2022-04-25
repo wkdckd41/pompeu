@@ -20,6 +20,6 @@ public class Lecture {
   String adminMessage;
   double totalRate;
   int inOutEx;
-  List<LectureTime> times;
-  List<LectureImage> images;
+  List<LectureTime> times;//강좌시간
+  List<LectureImage> images;//강좌이미지 
 }
