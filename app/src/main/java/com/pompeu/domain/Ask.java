@@ -1,5 +1,6 @@
 package com.pompeu.domain;
 
+import java.util.List;
 import lombok.Data;
 
 @Data
@@ -20,5 +21,7 @@ public class Ask {
   int memberNo;
   String memberName;
   String memberEmail;
+  List<FileNames> fNames;
+  String realFile;
 
 }

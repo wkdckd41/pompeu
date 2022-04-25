@@ -36,13 +36,13 @@ public class NoticeController {
 
   @RequestMapping("/notice/list")
   public Object list(Notice notice) {
-    System.out.println("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
+    log.info("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
     return noticeService.list(notice);  
   }
 
   @RequestMapping("/notice/add")
   public Object add(Notice notice, List<MultipartFile> files) {
-    System.out.println("memberTypeNo : " + notice.getMemberTypeNo() +  " name: " + notice.getName() + 
+    log.info("memberTypeNo : " + notice.getMemberTypeNo() +  " name: " + notice.getName() + 
         " criticalCheck:" +  notice.getCriticalCheck() + " content:"  + notice.getContent());
     try {
 
@@ -53,7 +53,7 @@ public class NoticeController {
     }
 
     int count = noticeService.add(notice);
-    System.out.println("count = " + count);
+    log.info("count = " + count);
     if (count != 0) {
       return new ResultMap().setStatus("success");
     } else {
@@ -77,7 +77,7 @@ public class NoticeController {
   @RequestMapping("/notice/fileRemove")
   public Object fileRemove(Notice notice) {
     int count = noticeService.fileRemove(notice);
-    System.out.println("count = " + count);
+    log.info("count = " + count);
     if (count != 0) {
       return new ResultMap().setStatus("success");
     } else {
@@ -133,7 +133,7 @@ public class NoticeController {
 
   @RequestMapping("/notice/deleteAll")
   public Object deleteAll(String memberTypeNo) {
-    System.out.println("memberTypeNo : " + memberTypeNo);
+    log.info("memberTypeNo : " + memberTypeNo);
 
     int count = noticeService.deleteAll(memberTypeNo);
 
@@ -161,9 +161,9 @@ public class NoticeController {
         // 파일을 지정된 폴더에 저장한다.
 
         File photoFile = new File("./upload/notice-files/" + filename); // App 클래스를 실행하는 프로젝트 폴더
-        System.out.println("A");
+        log.info("A");
         files.get(i).transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
-        System.out.println("B");
+        log.info("B");
         // 썸네일 이미지 파일 생성
         //        Thumbnails.of(photoFile)
         //        .size(50, 50)
@@ -189,12 +189,12 @@ public class NoticeController {
 
   @RequestMapping("/notice/fileDownLoad")
   public void noticeFileDownLoad(HttpServletRequest request,HttpServletResponse response) throws Exception {
-    System.out.println("?????????????????");
+    log.info("?????????????????");
     String filename = request.getParameter("orgFile");
     String pathName = "";
     String realFilename=request.getParameter("realFile");
-    System.out.println("#### : " + filename);
-    System.out.println("@@@@ : " + realFilename);
+    log.info("#### : " + filename);
+    log.info("@@@@ : " + realFilename);
 
     try {
       String browser = request.getHeader("User-Agent"); 
@@ -209,7 +209,7 @@ public class NoticeController {
         realFilename = new String(realFilename.getBytes("UTF-8"), "ISO-8859-1");
       }
     } catch (UnsupportedEncodingException ex) {
-      System.out.println("UnsupportedEncodingException");
+      log.info("UnsupportedEncodingException");
     }
 
     pathName = "./upload/notice-files/" + realFilename;
@@ -236,7 +236,7 @@ public class NoticeController {
       fis.close();
       os.close();
     } catch (Exception e) {
-      System.out.println("FileNotFoundException : " + e);
+      log.info("FileNotFoundException : " + e);
     }
 
   }

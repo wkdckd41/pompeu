@@ -37,7 +37,7 @@ $(document).ready(function () {
 
             //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
 
-            str += `<label><a href="/notice/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a></label>&nbsp`
+            str += `<label><a href="/ask/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a></label>&nbsp`
 
         }
 
@@ -71,12 +71,12 @@ function init() {
 
     $("#btnModify").on("click", function () {
         var no = document.querySelector("#x-no").innerHTML
-        location.href = 'notice-modify.html?no=' + no
+        location.href = 'ask-modify.html?no=' + no
 
     })
 
     $("#btnCancel").on("click", function () {
-        location.href = 'notice-list.html'
+        location.href = 'ask-list.html'
     })
 
 }

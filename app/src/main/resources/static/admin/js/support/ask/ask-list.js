@@ -76,10 +76,6 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
 }
 
 function init() {
-    $("#btnWrite").on("click", function () {
-        location.href = 'notice-write.html'
-    })
-
     $("#btnDelete").on("click", function () {
 
         var chkId = '#chk_';

@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.pompeu.admin.support.dao.AskDao;
 import com.pompeu.admin.support.service.AskService;
 import com.pompeu.domain.Ask;
+import com.pompeu.domain.FileNames;
 
 @Service
 public class DefaultAskService implements AskService{
@@ -34,6 +35,11 @@ public class DefaultAskService implements AskService{
   }
 
   @Override
+  public List<FileNames> getFNames(int no) {
+    return askDao.findByFNamesNo(no);
+  }
+
+  @Override
   public int update(Ask ask) {
     return askDao.update(ask);
   }
@@ -42,5 +48,25 @@ public class DefaultAskService implements AskService{
   public int delete(int no) {
     return askDao.delete(no);
   }
+
+  @Override
+  public int deleteAll(String str) {
+    String[] strArray = str.split(",");
+    int result = 0;
+    for(int i=0; i< strArray.length; i++) {      
+      result = askDao.delete(Integer.parseInt(strArray[i]));
+
+      if(result == 0) {
+        return 0;
+      }
+    }
+    return result;
+  }
+
+  @Override
+  public int fileRemove(Ask ask) {
+    return askDao.fileRemove(ask);
+  }
+
 
 }
