@@ -283,6 +283,7 @@
   
   <select id="registTime" resultType="HashMap">
     select  
+          lt.lecture_time_no         as lectureTimeNo,
           le.start_date              as startDate,
           le.end_date                as endDate,
           lt.start_time              as startTime,

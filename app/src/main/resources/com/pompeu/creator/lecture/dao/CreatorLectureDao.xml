@@ -12,16 +12,29 @@
     <result column="location_no" property="locationNo"/>
     <result column="creator_no" property="creatorNo"/>
     <result column="ex_no" property="exNo"/>
-    <result column="name" property="name"/>
+    <result column="classtitle" property="name"/>
     <result column="start_date" property="startDate"/>
     <result column="end_date" property="endDate"/>
     <result column="lecture_price" property="lecturePrice"/>
     <result column="register_date" property="registerDate"/>
-    <result column="status" property="status"/>
+    <result column="classcheck" property="status"/>
     <result column="admin_message" property="adminMessage"/>
     <result column="total_rate" property="totalRate"/>
     <result column="in_out_ex" property="inOutEx"/>
     <result column="address" property="address"/>
+    
+    <collection property="times" ofType="lectureTime">
+      <id column="ct_no" property="no"/>
+      <result column="tt_no" property="telTypeNo"/>
+      <result column="tel" property="tel"/>
+    </collection>
+    
+    <collection property="images" ofType="lectureImage">
+	  <id column="ct_no" property="no"/>
+	  <result column="tt_no" property="telTypeNo"/>
+	  <result column="tel" property="tel"/>
+    </collection>
+    
   </resultMap> 
 
   <resultMap type="lectureTime" id="lectureTimeMap">
@@ -41,7 +54,7 @@
       <result column="random_image" property="randomImage"/>
   </resultMap>
 
-    <insert id="insert" parameterType="lecture" keyProperty="no" keyColumn="lecture_no" useGeneratedKeys="true" >
+  <insert id="insert" parameterType="lecture" keyProperty="no" keyColumn="lecture_no" useGeneratedKeys="true" >
     insert into lecture (
     location_no,
     creator_no,
@@ -52,33 +65,53 @@
     lecture_price,
     lecture_info,
     in_out_ex)
-
+    
    values(#{locationNo},#{creatorNo},#{exNo},#{name},#{startDate},
    #{endDate},#{lecturePrice},#{lectureInfo},#{inOutEx})
-    </insert>
+  </insert>
+    
+    
+        <insert id="insertTimes">
+    insert into lecture_time(lecture_no, start_time, end_time, max_member, no_member)
+    values
+    <foreach collection="times" item="lectureTime" separator=",">
+      (#{lectureNo}, #{lectureTime.startTime}, #{lectureTime.endTime}, #{lectureTime.maxMember}, #{lectureTime.noMember}) 
+    </foreach>
+  </insert>
+  
+    <insert id="insertImages">
+      insert into lecture_image ( lecture_no, image, random_image)
+        values
+    <foreach collection="images" item="lectureImage" separator=",">
+        values (#{lectureNo},#{images},#{random_image})
+    </foreach>
+  </insert>
+  
+    
 
   <select id="countAll" resultType="int">
     select count(*) from lecture
   </select>
 
 
-<!-- 강좌목록 출력-->
+<!-- 강좌목록 , 강좌이미지, 강좌시간 출력-->
   <select id="findAll" resultMap="lectureMap">
-    select
+    select 
       le.lecture_no,
-      le.creator_no,
-      le.name,
+      le.name as classtitle,
       le.start_date,
       le.end_date,
-      le.lecture_price,
-      le.register_date,
-      le.status
+      le.status,
+      le.status as classcheck,
+      t.start_time,
+      t.end_time,
+      t.max_member,
+      t.no_member
     from
-      lecture le
-    order by
-      lecture_no desc
+	  lecture le
+	  join lecture_time t on le.lecture_no=t.lecture_no
   </select>
-
+ 
   <select id="findByNo" resultMap="lectureMap" parameterType="int">
     select
       lecture_no,
@@ -90,6 +123,7 @@
       lecture_price,
       lecture_info,
       register_date,
+
       status,
       admin_message,
       total_rate,
@@ -119,39 +153,7 @@
     where
      lecture_no=#{no}
   </update>
-  
-  <insert id="insertTime" parameterType="lectureTime">
-    insert into lecture_time (
-      lecture_no,
-      start_time,
-      end_time,
-      max_member)
-      values
-      (#{lectureNo},#{startTime},#{endTime},#{maxMember})
-  </insert>
-  
-    <insert id="insertTimes">
-    insert into lecture_time(lecture_no, start_time, end_time, max_member, no_member)
-    values
-    <foreach collection="times" item="lectureTime" separator=",">
-      (#{lectureNo}, #{lectureTime.startTime}, #{lectureTime.endTime}, #{lectureTime.maxMember}, #{lectureTime.noMember}) 
-    </foreach>
-  </insert>
 
-
-    <insert id="insertImage" parameterType="lectureImage">
-        insert into lecture_image ( lecture_no, image, random_image)
-        values (#{lectureNo},#{image},#{random_image})
-    </insert>
-  
-    <insert id="insertImages">
-      insert into lecture_image ( lecture_no, image, random_image)
-        values
-    <foreach collection="images" item="lectureImage" separator=",">
-        values (#{lectureNo},#{images},#{random_image})
-    </foreach>
-  </insert>
-  
   
 
 </mapper>
