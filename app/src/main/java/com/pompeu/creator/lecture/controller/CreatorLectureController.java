@@ -22,19 +22,20 @@ public class CreatorLectureController {
   private static final Logger log = LogManager.getLogger(CreatorLectureController.class);
 
   @Autowired
-  CreatorLectureService creatorlectureService;
+  CreatorLectureService creatorLectureService;
 
   //클래스 목록조회
   @RequestMapping("list")
   public Object list() {
-    log.debug(creatorlectureService.list().toString());
-    return creatorlectureService.list();
+    log.debug(creatorLectureService.list().toString());
+    return creatorLectureService.list();
   }
 
   //클래스 등록
   @RequestMapping("add")
   public void add(Lecture lecture/* String[] time, List <MultipartFile> files*/) {
     log.debug(lecture.toString());
+    creatorLectureService.add(lecture);
 
 
 
@@ -58,13 +59,13 @@ public class CreatorLectureController {
     //    } catch (Exception e) {
     //      e.printStackTrace();
     //    } 
-    //    return creatorlectureService.add(lecture);
+    //    return creatorLectureService.add(lecture);
   }
 
   //클래스 상세보기
   @RequestMapping("get")
   public Object get(int no) {
-    Lecture lecture = creatorlectureService.get(no);
+    Lecture lecture = creatorLectureService.get(no);
     if (lecture == null) {
       return "";
     }
@@ -74,13 +75,13 @@ public class CreatorLectureController {
   //클래스 수정
   @RequestMapping("update")
   public Object update(Lecture lecture) {
-    return creatorlectureService.update(lecture);
+    return creatorLectureService.update(lecture);
   }
 
   //클래스 삭제
   @RequestMapping("delete")
   public Object delete(int no) {
-    return creatorlectureService.delete(no);
+    return creatorLectureService.delete(no);
   }
 
   //이미지파일 등록
