@@ -39,7 +39,7 @@
 
 
   
-  <insert id="insertUser" parameterType="member" useGeneratedKeys="true" keyColumn="member_no" keyProperty="no">
+  <!--<insert id="insertUser" parameterType="member" useGeneratedKeys="true" keyColumn="member_no" keyProperty="no">
    INSERT INTO member(
     member_type_no,
     name,
@@ -58,7 +58,7 @@
    #{phone},
    'USER')
   </insert>
-  <insert id=""></insert>
+  <insert id=""></insert>-->
   
 <!--<select id="findByEmail" resultType="memberMap">
   SELECT 

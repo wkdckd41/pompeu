@@ -20,6 +20,8 @@ public class DefaultUserService implements UserService{
   private PasswordEncoder passwordEncoder;
 
 
+
+
   @Transactional
   @Override
   public int add(Member member) {
@@ -27,10 +29,12 @@ public class DefaultUserService implements UserService{
     //        String encPassword = passwordEncoder.encode(member.getPassword());
     //        member.setPassword(encPassword);
 
+
     // 비밀번호 암호화
     member.setPassword(passwordEncoder.encode(member.getPassword()));
     //          member.setRole(PRIFIX+"USER") 
-
+    //    userDao.insertUser(member);
+    //    userDao.UsersAdd(member);
     return userDao.insertUser(member);
   }
 
