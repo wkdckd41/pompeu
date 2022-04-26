@@ -16,6 +16,9 @@ repositories {
 
 dependencies {
 
+  // 로그인  라이브러리
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+
   // 썸네일 이미지 생성 라이브러리
   implementation 'net.coobird:thumbnailator:0.4.17'
 
@@ -29,13 +32,22 @@ dependencies {
   developmentOnly 'org.springframework.boot:spring-boot-devtools'
   testImplementation 'org.springframework.boot:spring-boot-starter-test'
   
+  
+    // Spring Security
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+  
   // lombok
   compileOnly 'org.projectlombok:lombok:1.18.22'
   annotationProcessor 'org.projectlombok:lombok:1.18.22'
   
   testCompileOnly 'org.projectlombok:lombok:1.18.22'
   testAnnotationProcessor 'org.projectlombok:lombok:1.18.22'
+  
+    // spring security
+  implementation 'org.springframework.boot:spring-boot-starter-security'
 }
+
+
 
 test {
   useJUnitPlatform()

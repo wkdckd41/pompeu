@@ -1,6 +1,6 @@
 
 document.addEventListener("DOMContentLoaded", function(){
-   fetch("/member/findCount")
+   fetch("/member/findGoodbyeCount")
     .then(function(response) {
       return response.json();
     })
@@ -33,7 +33,6 @@ btn.addEventListener('click', function() {
   console.log("phone : " + phone);
   console.log("email : " + email);
   console.log("memberTypeNo : " + memberTypeNo);
-  console.log(mT);
   
   
   var tbody2 = document.querySelector("#tbody2");
@@ -43,7 +42,7 @@ btn.addEventListener('click', function() {
         tbody2.removeChild(tbody2.firstChild);
     }
   
-  fetch(`/member/srchMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
+  fetch(`/member/srchGoodbyeMember?memberTypeNo=${memberTypeNo}&name=${name}&phone=${phone}&email=${email}`)
   /*fetch(`/member/srchMember`)*/
     .then(function(response) {
       return response.json();
@@ -56,25 +55,10 @@ btn.addEventListener('click', function() {
       for (var rst of result) {
         count = count + 1;
 
-				var mt = rst.memberType.memberType;
-				console.log(mt)
-				var url;
-				
-				switch (mt) {
-  			case "이용자":
-    		url = "member-user.html?no=";
-   			break;
-  			case "크리에이터":
-    		url = "member-creator.html?no=";
-   			break;
-  			default:
-    		url = "값이 없쪙";
-}
-
         var tr = document.createElement("tr");
         tr.innerHTML = `<td>`+count+`</td>
         <td>${rst.memberType.memberType}</td> 
-        <td><a href=${url}${rst.no}>${rst.name}</a></td>
+        <td><a href="member-goodbye-detail.html?no=${rst.no}">${rst.name}</a></td>
         <td>${rst.email}</td>
         <td>${rst.phone}</td>`;
         tbody2.appendChild(tr);

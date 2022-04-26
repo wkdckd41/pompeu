@@ -58,4 +58,5 @@ public interface UserPartyService {
    * @return
    */
   List<Party> si(int no);
+
 }

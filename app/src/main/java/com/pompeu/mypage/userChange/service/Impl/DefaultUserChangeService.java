@@ -61,4 +61,9 @@ public class DefaultUserChangeService implements UserChangeService{
     return userChangeDao.deleteUser(member);
   }
 
+  @Override
+  public int deleteUserDetail(int no) {
+    return userChangeDao.deleteUserDetail(no);
+  }
+
 }

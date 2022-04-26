@@ -18,10 +18,8 @@ $(document).ready(function () {
     var no = params.get("no");
     console.log("noticeNo : " + no);
 
-
-
     getFileName(no);
-    
+
     /*
         fetch(`/notice/getfilename?no=${no}`)
     .then(function (response) {
@@ -49,8 +47,8 @@ $(document).ready(function () {
 });
 
 function getFileName(no) {
-  var xFnames = document.querySelector("#fnames")
-   fetch(`/notice/get?no=${no}`)
+    var xFnames = document.querySelector("#fnames")
+    fetch(`/notice/get?no=${no}`)
     .then(function (response) {
         return response.json();
     })
@@ -69,7 +67,6 @@ function getFileName(no) {
             str += `</br>`
         }
 
-
         xFnames.innerHTML = str;
         $('#no').val(result.no);
         $("#memberTypeNo").val(result.memberTypeNo);
@@ -85,38 +82,36 @@ function getFileName(no) {
     });
 };
 
-
-
 function fileRemove(no, realFile) {
-  window.alert("삭제하시겠습니");
-  console.log("no =" + no);
-  console.log("realFile =" + realFile);
-  
-  var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
+    window.alert("삭제하시겠습니");
+    console.log("no =" + no);
+    console.log("realFile =" + realFile);
 
-  param.set('no', no); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
-  param.set('realFile', realFile); 
-  fetch("/notice/fileRemove", { 
-    method: "POST",
-    body: param 
-  }).then(function (response) {
-    return response.json();
-  }).then(function (result) { 
-    if (result.status == "success") {
-      getFileName(no);
-    } else {
-      window.alert("게시글 변경 실패!");
-      console.log(result.data);
-    }
-  });
+    var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
+
+    param.set('no', no); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
+    param.set('realFile', realFile);
+    fetch("/notice/fileRemove", {
+        method: "POST",
+        body: param
+    }).then(function (response) {
+        return response.json();
+    }).then(function (result) {
+        if (result.status == "success") {
+            getFileName(no);
+        } else {
+            window.alert("게시글 변경 실패!");
+            console.log(result.data);
+        }
+    });
 };
 
 function init() {
-  
+
     $("#btnModify").on("click", function () {
         //제이쿼리 컨펌창
         var fd = new FormData(document.forms.namedItem("frm"));
-        
+
         console.log("FormData = " + fd)
 
         fetch("/notice/update", {
@@ -132,10 +127,10 @@ function init() {
             } else {
                 window.alert("게시글 변경 실패!");
                 console.log(result.data);
-            };
+            }
+            ;
         });
     });
-
 
     $("#btnCancel").on("click", function () {
         location.href = 'notice-list.html';

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 조회</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--부트스트랩  👈 -->
+      <link href="/admin/css/admin.css" rel="stylesheet">
+      <style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+  }
+  th, td {
+    background-color: rgb(249,252,251);
+  }
+
+  .page-wrapper {
+    padding-top: 40px;
+  }
+  </style>
+    
+</head>
+
+<body>
+    <div class="main-container">
+        <div id="wrapper">
+
+            <div class="headers"></div>
+            <!--👉 헤더 😊-->
+
+            <div class="page-wrapper">
+
+  <h2 style="margin-left: 30px;">탈퇴회원 상세정보</h2>
+  <h3 style="margin-left: 60px; margin-top: 40px;">탈퇴회원 정보</h3>
+  
+  <div style="margin-left: 50px;">
+    <table  style="width:80%">
+      <tr>
+        <td class="table-info" id="member_type_no">
+          회원구분
+        </td>
+        <td class="table-infos" id="member_type_nos">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info" id="name">
+          이름
+        </td>
+        <td class="table-infos" id="names">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info" id="nickName">
+          닉네임
+        </td>
+        <td class="table-infos" id="nickNames">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info" id="email">
+          이메일
+        </td>
+        <td class="table-infos" id="emails">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info" id="phone">
+          휴대폰 번호
+        </td>
+        <td class="table-infos" id="phones">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info" id="join_date">
+          가입일자
+        </td>
+        <td class="table-infos" id="join_dates">
+        </td>
+      </tr>
+      
+      <tr>
+        <td class="table-info" id="login_date">
+          최종접속일시
+        </td>
+        <td class="table-infos" id="login_dates">
+        </td>
+      </tr>
+      
+    </table>
+  </div>
+  
+  <div style="margin-left: 60px; margin-top: 40px; margin-bottom: 20px;">
+  <h3>탈퇴 코멘트</h3>
+  </div>
+  
+  <div style="margin-left: 50px;">
+    <table style="width:80%;">
+      <thead>
+        <tr>
+          <th class="table-top" style="width:20%;">탈퇴 이유</th>
+          <th class="table-top" >탈퇴 상세이유</th>
+        </tr>
+      </thead>
+      <tbody id="tbody2">
+      </tbody>      
+    </table>
+  </div>
+
+            </div>
+            <!--/page-wrapper 👉 내용  -->
+        </div>
+        <!--/wrapper  -->
+
+    </div>
+    <!-- /main-container 전체 😃🤣😄 -->
+
+    <!-- 밑에 3개적용 😊😊😊  -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 제이쿼리     1️⃣-->
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"> </script>
+    <!-- 부트스트랩   2️⃣-->
+    <script src="/admin/js/header.js"></script>
+    <!-- 😊 헤더 👈 3️⃣ -->
+    <script src="member-goodbye-detail.js"></script>
+    
+</body>
+
+</html>

@@ -181,4 +181,5 @@ public class UserPartyController {
   public Object siSep(int no) {
     return userPartyService.si(no);
   } 
+
 }

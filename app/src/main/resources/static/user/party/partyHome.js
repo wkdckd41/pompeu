@@ -52,3 +52,10 @@ function moveView(no) {
 function moveRegist() {
   location.href = 'party-regist.html'
 }
+
+
+function readImage() {
+  for (var i = 0;  i < `${maxMember}`; i++){
+    `<span><img src="/user/party/img/image.jpg"/></span>`
+  }
+}
