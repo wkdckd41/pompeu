@@ -14,10 +14,10 @@
   <link href="/css/user_common.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
   
-  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
+  <link href="/css/form/mypage/mypage.css" rel="stylesheet">
   
      <!-- swiper -->
-  <link rel="stylesheet" href="/user/main/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/user/main/swiper/swiper-bundle.min.css"/>
    
    <style>
      /* swiper start */
@@ -110,10 +110,6 @@
   /* lecture-box end */
     </style>
    
-   
-   </style>
-   
-   
 </head>
 <body>
   <div class="container">
@@ -138,345 +134,58 @@
         <h2>수강중인 클래스 </h2>
         
         <!-- Swiper 수강중인 클래스-->
+  <div id="ongoing-lecture">
     <div class="swiper">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual"/>
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
-                <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
+      <div class="swiper-wrapper" >
 
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
+  </div>
         <!-- Swiper 수강중인 클래스 끝-->
         
         <h2>찜한 클래스 </h2>
         
         <!-- Swiper 찜한 클래스-->
+   <div id="wish-lecture">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual"/>
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
-                <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
 
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
+  </div>
         <!-- Swiper 찜한 클래스 끝-->
         
         <h2>참여한 소모임 </h2>
         
         <!-- 참여한 소모임-->
+  <div id="ongoing-party">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual"/>
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
-                <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
+
 
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
+  </div>
         <!-- Swiper 참여한 소모임 끝-->
         
         <h2> 찜한 소모임 </h2>
         
         <!-- Swiper 찜한 소모임-->
+  <div id="wish-party">
     <div class="swiper">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual"/>
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
-                <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>        <div class="swiper-slide">
-        
-          <div class="lec-box"> <!--lecture/box -->
-            <div class="lec-img" id="new-img-0">
-            <img src="/user/main/image/bowling1.jpg" class="lec-img-actual" />
-            </div>
-            <div class="lec-cat" id="new-ex-0">볼링</div>
-            <div class="lec-title" id="new-name-0" data-value>볼링 초급</div>
-             <div>
-              <div class="lec-start" style="float: left; width: 50%;">2022-04-01</div>
-              <div class="lec-end" style="float: left; width: 50%;" >2022-04-30</div>
-            </div>
-            <div>
-              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
-              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
-            </div>
-          </div> <!--lecture/box -->
-          
-        </div>
 
       </div>
       <div class="swiper-button-next"></div>
       <div class="swiper-button-prev"></div>
     </div>
+  </div>
         <!-- Swiper 찜한 소모임 끝-->
           
         </div>
@@ -490,46 +199,221 @@
     </div><!-- /#wrapper -->
     </div>
     
+    <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
+    
     <script src="/node_modules/jquery/dist/jquery.js"></script>
+    
+        <script id="tr-template-1" type="text/x-handlebars-template">
+      {{#each this}} 
+        <div class="swiper-slide" onclick="moveViewLec({{lNo}})">
+          <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">
+              <img src="/myMain/imageLecture?filename={{image}}" class="lec-img-actual" />
+            </div>
+            <div class="lec-cat">{{exName}}</div>
+            <div class="lec-title" data-value>{{lName}}</div>
+            <div>
+              <div class="lec-start" style="float: left; width: 50%;">{{sDate}}</div>
+              <div class="lec-end" style="float: left; width: 50%;" >{{eDate}}</div>
+            </div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span>{{likey}}</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        </div>        
+      {{/each}}
+        </script>
+        
+        <script id="tr-template-2" type="text/x-handlebars-template">
+      {{#each this}} 
+        <div class="swiper-slide" onclick="moveViewLec({{lNo}})">
+          <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">
+              <img src="/myMain/imageLecture?filename={{image}}" class="lec-img-actual" />
+            </div>
+            <div class="lec-cat">{{exName}}</div>
+            <div class="lec-title" data-value>{{lName}}</div>
+            <div>
+              <div class="lec-start" style="float: left; width: 50%;">{{sDate}}</div>
+              <div class="lec-end" style="float: left; width: 50%;" >{{eDate}}</div>
+            </div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span>{{likey}}</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        </div>        
+      {{/each}}
+        </script>
+        
+        <script id="tr-template-3" type="text/x-handlebars-template">
+      {{#each this}} 
+        <div class="swiper-slide" onclick="moveViewParty({{pNo}})">
+          <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">
+              <img src="/myMain/imageParty?filename={{image}}" class="lec-img-actual" />
+            </div>
+            <div class="lec-cat">{{tNo}}</div>
+            <div class="lec-title" data-value>{{pName}}</div>
+            <div>
+              <div class="lec-start" style="float: left; width: 50%;">{{sDate}}</div>
+              <div class="lec-end" style="float: left; width: 50%;" >{{eDate}}</div>
+            </div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" >{{curMember}} / {{maxMember}}</div>
+            </div>
+          </div> <!--lecture/box -->
+        </div>        
+      {{/each}}
+        </script>
+        
+        <script id="tr-template-4" type="text/x-handlebars-template">
+      {{#each this}} 
+        <div class="swiper-slide" onclick="moveViewParty({{pNo}})">
+          <div class="lec-box"> <!--lecture/box -->
+            <div class="lec-img">
+              <img src="/myMain/imageParty?filename={{image}}" class="lec-img-actual" />
+            </div>
+            <div class="lec-cat">{{tNo}}</div>
+            <div class="lec-title" data-value>{{pName}}</div>
+            <div>
+              <div class="lec-start" style="float: left; width: 50%;">{{sDate}}</div>
+              <div class="lec-end" style="float: left; width: 50%;" >{{eDate}}</div>
+            </div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" >{{curMember}} / {{maxMember}}</div>
+            </div>
+          </div> <!--lecture/box -->
+        </div>        
+      {{/each}}
+        </script>
+        
+        
+    
+
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     
-          <!-- Swiper -->
-    <script src="/user/main/swiper/swiper-bundle.min.js"></script>
-  
-      <!-- Swiper -->
-    <script>
-      var swiper = new Swiper('.swiper', {
-        slidesPerView: 3,
-        direction: getDirection(),
-        navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev',
-        },
-        on: {
-          resize: function () {
-            swiper.changeDirection(getDirection());
-          },
-        },
-      });
+<script type="text/javascript">
+// 템플릿 엔진에서 사용할 HTML 조각을 가져오기
+var trTemplate1 = document.querySelector("#tr-template-1");
 
-      function getDirection() {
-        var windowWidth = window.innerWidth;
-        var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+//템플릿 엔진 준비
+var htmlGenerator1 = Handlebars.compile(trTemplate1.innerHTML);
 
-        return direction;
-      }
-    </script>
+var userNo=23;
+
+fetch(`/myMain/myGoingLecture?no=${userNo}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log("AAA");
+    console.log(result);
+   
+    $("#ongoing-lecture .swiper-wrapper").html(htmlGenerator1(result));
+  });
+</script>
     
-    
-    
-    
+<script type="text/javascript">
+// 템플릿 엔진에서 사용할 HTML 조각을 가져오기
+var trTemplate2 = document.querySelector("#tr-template-2");
+
+//템플릿 엔진 준비
+var htmlGenerator2 = Handlebars.compile(trTemplate2.innerHTML);
+
+userNo=23;
+
+fetch(`/myMain/myWishLecture?no=${userNo}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log("AAA");
+    console.log(result);
+   
+    $("#wish-lecture .swiper-wrapper").html(htmlGenerator2(result));
+  });
+</script>
+
+<script type="text/javascript">
+// 템플릿 엔진에서 사용할 HTML 조각을 가져오기
+var trTemplate3 = document.querySelector("#tr-template-3");
+
+//템플릿 엔진 준비
+var htmlGenerator3 = Handlebars.compile(trTemplate3.innerHTML);
+
+userNo=23;
+
+fetch(`/myMain/myGoingParty?no=${userNo}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log("AAA");
+    console.log(result);
+   
+    $("#ongoing-party .swiper-wrapper").html(htmlGenerator3(result));
+  });
+</script>
+
+<script type="text/javascript">
+// 템플릿 엔진에서 사용할 HTML 조각을 가져오기
+var trTemplate4 = document.querySelector("#tr-template-4");
+
+//템플릿 엔진 준비
+var htmlGenerator4 = Handlebars.compile(trTemplate4.innerHTML);
+
+userNo=23;
+
+fetch(`/myMain/myWishParty?no=${userNo}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log("AAA");
+    console.log(result);
+   
+    $("#wish-party .swiper-wrapper").html(htmlGenerator4(result));
+  });
+</script>
+
+
+
+
 		<script>
 		$("#header").load("/form/user/header.html");
 		$("#footer").load("/form/user/footer.html");
 		$("#sidebar").load("/form/mypage/sidebar.html");
 		</script>
+    
+
+    
+          <!-- Swiper -->
+<script src="/js/user/main/swiper/swiper-bundle.min.js"></script>
+  
+      <!-- Swiper -->
+<script src="/js/mypage/user-info/swiper.js"></script>
+
+<script type="text/javascript">
+    function moveViewLec(no) {
+	    location.href = '/user/lecture/lecture-detail.html?no='+no 
+	  };
+	  
+	  function moveViewParty(no) {
+		  location.href = '/user/party/party-detail.html?no='+no 
+		};
+</script>
+    
+
+    
+    
+    
+
     
 
 
