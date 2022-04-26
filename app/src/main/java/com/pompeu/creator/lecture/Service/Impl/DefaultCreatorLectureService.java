@@ -9,6 +9,8 @@ import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.creator.lecture.controller.CreatorLectureController;
 import com.pompeu.creator.lecture.dao.CreatorLectureDao;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.LectureList;
+import com.pompeu.domain.Test;
 
 @Service
 public class DefaultCreatorLectureService implements CreatorLectureService {
@@ -23,9 +25,8 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
   //강좌 목록 호출 - 강좌, 강좌시간, 강좌이미지
   @Override
-  public List<Lecture> list() {
-    log.debug(creatorLectureDao.findAll());
-    return creatorLectureDao.findAll();
+  public List<LectureList> list() {
+    return creatorLectureDao.findAllMyclass();
   }
 
   @Override
@@ -51,4 +52,8 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
     return creatorLectureDao.delete(no);
   }
 
+  @Override
+  public List<Test> test() {
+    return creatorLectureDao.test();
+  }
 }

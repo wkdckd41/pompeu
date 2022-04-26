@@ -14,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureImage;
+import com.pompeu.domain.LectureList;
 
 @RestController
 @RequestMapping("/creatorLecture/")
@@ -24,11 +25,20 @@ public class CreatorLectureController {
   @Autowired
   CreatorLectureService creatorLectureService;
 
-  //클래스 목록조회
+  //크리에이터가 등록한 클래스 목록조회
   @RequestMapping("list")
-  public Object list() {
-    log.debug(creatorLectureService.list().toString());
+  public List<LectureList> list() {
+    log.debug(creatorLectureService.list());
     return creatorLectureService.list();
+    /*
+    LectureList result; 
+    try {
+      result = (LectureList) creatorLectureService.list();
+    } catch(Exception e){
+      log.debug(e);  
+    }
+    return result;
+     */
   }
 
   //클래스 등록
@@ -110,5 +120,4 @@ public class CreatorLectureController {
     return list;
 
   }
-
 }

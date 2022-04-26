@@ -68,11 +68,6 @@ public class MemberController {
     return memberService.getLecture(no);
   }
 
-  @RequestMapping("/member/findGoodbyeReason")
-  public Object findGoodbyeReason(int no) {
-    return memberService.findGoodbyeReason(no);
-  }
-
   @RequestMapping("/member/creatorLecture")
   public Object creatorLecture(int no) {
     return memberService.creatorLecture(no);

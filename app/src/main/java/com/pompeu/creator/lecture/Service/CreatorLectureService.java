@@ -2,12 +2,14 @@ package com.pompeu.creator.lecture.Service;
 
 import java.util.List;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.LectureList;
+import com.pompeu.domain.Test;
 
 public interface CreatorLectureService {
 
   int countAll();
 
-  List<Lecture> list();
+  List<LectureList> list();
 
   Lecture get(int no);
 
@@ -17,5 +19,6 @@ public interface CreatorLectureService {
 
   int delete(int no);
 
+  List<Test> test();
 
 }
