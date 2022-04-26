@@ -9,10 +9,16 @@
   <resultMap id="lectureListMap" type="lectureList">
    
     <id column="lecture_no" property="lectureNo"/>
+    <result column="creatorNo" property="creatorNo"/>
     <result column="classTitle" property="classTitle"/>
     <result column="startDate" property="startDate"/>
     <result column="endDate" property="endDate"/>
     <result column="status" property="status"/>
+        
+    <association property="writer" javaType="creator">
+      <id column="no" property="no"/>
+      <result column="name" property="name"/>
+    </association>
         
     <collection property="times" ofType="lectureTime">
      <id column="no" property="no"/>
@@ -27,8 +33,12 @@
   
 
   <select id="findAllMyclass" resultMap="lectureListMap">
+    
+    
+    <!--
     select
 	    le.lecture_no  lectureNo,
+	    le.creator_no creatorNo,
 	    le.name        classTitle,
 	    le.start_date  startDate,
 	    le.end_date    endDate,
@@ -41,9 +51,26 @@
         t.no_member    membercount
     from
         lecture le
-        left outer join lecture_time t on le.lecture_no=t.lecture_no
+        join lecture_time t on le.lecture_no=t.lecture_no
         order by le.lecture_no desc
+        -->
+select
+        c.creator_no creatorNo,
+        le.lecture_no  lectureNo,
+        le.name        classTitle,
+        le.start_date  startDate,
+        le.end_date    endDate,
+        le.status,
+        t.lecture_time_no no,
+        t.lecture_no,
+        t.start_time   startTime,
+        t.end_time     endTime,
+        t.max_member   maxMember,
+        t.no_member    membercount
+ from 
+        creator c
+        left outer join lecture le on c.creator_no=le.creator_no
+        left outer join lecture_time t on le.lecture_no=t.lecture_no    
     </select>
-
 
 </mapper>

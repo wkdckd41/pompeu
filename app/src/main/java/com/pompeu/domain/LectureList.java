@@ -7,6 +7,7 @@ import lombok.Data;
 @Data
 public class LectureList {
   int lectureNo;
+  String creatorNo;
   String classTitle;
   Date startDate;
   Date endDate;
@@ -14,4 +15,5 @@ public class LectureList {
   int maxMember;
   int membercount;
   List<LectureTime> times;
+  Creator writer;
 }
