@@ -130,7 +130,7 @@
           m.phone                                               as phone
     from 
           member m
-          join users u 
+          left outer join users u 
           on m.member_no = u.users_no
     where 
       m.member_no=#{no}

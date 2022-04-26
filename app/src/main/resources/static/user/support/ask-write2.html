@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POMPEU!</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--부트스트랩  👈 -->
+</head>
+<style>
+  .content {
+    padding: 0px 60px 0 60px;
+  }
+
+  .upload {
+    margin-left: 75px;
+  }
+
+  .filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+
+  .filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+  }
+
+  /* named upload */
+  .filebox .upload-name {
+    display: inline-block;
+    padding: .5em .85em;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* imaged preview */
+  .filebox .upload-display {
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: 768px) {
+    .filebox .upload-display {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 0;
+    }
+  }
+
+  .filebox .upload-thumb-wrap {
+    display: inline-block;
+    width: 54px;
+    padding: 2px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .filebox .upload-display img {
+    display: block;
+    max-width: 100%;
+    width: 100% \9;
+    height: auto;
+  }
+
+  .filebox.bs3-primary label {
+    color: #fff;
+    background-color: gray;
+    border-color: #2e6da4;
+
+  }
+
+</style>
+<body>
+<div class="main-container">
+    <div id="wrapper">
+
+        <div class="headers"></div>
+        <!--👉 헤더 😊-->
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row" id="main">
+                    <div class="page-header">
+                        <h3>1:1문의 작성하기</h3>
+                    </div> 
+
+                    <!-- /row 타이틀 👈 -->
+                </div>
+            </div>
+            <!-- 타이틀 박스-->
+            <div class="content">
+                <form class="form-horizontal" id="frm" name="frm" method="post"
+                      enctype="multipart/form-data">
+
+                    <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
+                    <div class="form-group row text-center">
+                      <label class="col-sm-1 ">작성자</label>
+                      <div class="col-md-4 ">
+                          <input class="form-control" id="member_type_no" name="member_type_no"readonly>
+                      </div>
+                  </div>
+
+                  <div class="form-group row ">
+                      <label class="col-sm-1 col-form-label text-center" for="content">문의</label>
+                      <div class="col-sm-10 col-xs-12">
+        <textarea rows="20" class="form-control" id="answer"
+                  name="answer" placeholder="문의내용"></textarea>
+                      </div>
+                  </div>
+
+                    <div class="upload">
+                        <div class="filebox bs3-primary preview-image">
+                            <input class="upload-name" value="파일선택" disabled="disabled"
+                                   style="width: 200px;">
+                            <label for="input_file">업로드</label>
+                            <input type="file" id="input_file" name="files" class="upload-hidden"
+                                   multiple>
+                        </div>
+                    </div>
+
+
+                    <div class="form-group row ">
+                        <div class="col-lg-12 col-sm-10 text-lg-end text-center">
+                            <div class="col-lg-11 col-sm-18 text-lg-end text-right">
+                                <button type="button" class="btn" id="btnWrite"
+                                        name="btnWrite">작성
+                                </button>
+                                <button type="button" class="btn" id="btnCancel"
+                                        name="btnCancel">취소
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!--/page-wrapper 👉 내용  -->
+    </div>
+    <!--/wrapper  -->
+
+</div>
+<!-- /main-container 전체 😃🤣😄 -->
+
+<!-- 밑에 3개적용 😊😊😊  -->
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- 제이쿼리     1️⃣-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- 부트스트랩   2️⃣-->
+<script src="/admin/js/header.js"></script>
+<!-- 😊 헤더 👈 3️⃣ -->
+<script src="/admin/js/user/ask-write.js"></script>
+
+</body>

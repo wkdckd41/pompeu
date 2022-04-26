@@ -5,7 +5,6 @@ import com.pompeu.domain.Lecture;
 
 public interface AdminLectureService {
 
-
   int countAll();
 
   List<Lecture> list();

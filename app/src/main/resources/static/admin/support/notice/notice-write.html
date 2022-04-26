@@ -14,92 +14,92 @@
     padding: 0px 60px 0 60px;
   }
 
-.upload {
-margin-left: 75px;
-}
-
-.filebox input[type="file"] {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip:rect(0,0,0,0);
-  border: 0;
-}
-
-.filebox label {
-  display: inline-block;
-  padding: .5em .75em;
-  color: #999;
-  font-size: inherit;
-  line-height: normal;
-  vertical-align: middle;
-  background-color: #fdfdfd;
-  cursor: pointer;
-  border: 1px solid #ebebeb;
-  border-bottom-color: #e2e2e2;
-  border-radius: .25em;
-}
-
-/* named upload */
-.filebox .upload-name {
-  display: inline-block;
-  padding: .5em .85em;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: normal;
-  vertical-align: middle;
-  background-color: #f5f5f5;
-  border: 1px solid #ebebeb;
-  border-bottom-color: #e2e2e2;
-  border-radius: .25em;
-  -webkit-appearance: none; /* 네이티브 외형 감추기 */
-  -moz-appearance: none;
-  appearance: none;
-}
-
-/* imaged preview */
-.filebox .upload-display {
-  margin-bottom: 5px;
-}
-
-@media(min-width: 768px) {
-  .filebox .upload-display {
-    display: inline-block;
-    margin-right: 5px;
-    margin-bottom: 0;
+  .upload {
+    margin-left: 75px;
   }
-}
 
-.filebox .upload-thumb-wrap {
-  display: inline-block;
-  width: 54px;
-  padding: 2px;
-  vertical-align: middle;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #fff;
-}
+  .filebox input[type="file"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
 
-.filebox .upload-display img {
-  display: block;
-  max-width: 100%;
-  width: 100% \9;
-  height: auto;
-}
+  .filebox label {
+    display: inline-block;
+    padding: .5em .75em;
+    color: #999;
+    font-size: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #fdfdfd;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+  }
 
-.filebox.bs3-primary label {
-  color: #fff;
-  background-color: gray;
-  border-color: #2e6da4;
-  
-}
+  /* named upload */
+  .filebox .upload-name {
+    display: inline-block;
+    padding: .5em .85em;
+    font-size: inherit;
+    font-family: inherit;
+    line-height: normal;
+    vertical-align: middle;
+    background-color: #f5f5f5;
+    border: 1px solid #ebebeb;
+    border-bottom-color: #e2e2e2;
+    border-radius: .25em;
+    -webkit-appearance: none; /* 네이티브 외형 감추기 */
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  /* imaged preview */
+  .filebox .upload-display {
+    margin-bottom: 5px;
+  }
+
+  @media (min-width: 768px) {
+    .filebox .upload-display {
+      display: inline-block;
+      margin-right: 5px;
+      margin-bottom: 0;
+    }
+  }
+
+  .filebox .upload-thumb-wrap {
+    display: inline-block;
+    width: 54px;
+    padding: 2px;
+    vertical-align: middle;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+
+  .filebox .upload-display img {
+    display: block;
+    max-width: 100%;
+    width: 100% \9;
+    height: auto;
+  }
+
+  .filebox.bs3-primary label {
+    color: #fff;
+    background-color: gray;
+    border-color: #2e6da4;
+
+  }
 
 </style>
 <body>
-<div class="main-container"> 
+<div class="main-container">
     <div id="wrapper">
 
         <div class="headers"></div>
@@ -157,11 +157,13 @@ margin-left: 75px;
                     </div>
 
                     <div class="upload">
-                      <div class="filebox bs3-primary preview-image">
-                        <input class="upload-name" value="파일선택" disabled="disabled" style="width: 200px;">
-                        <label for="input_file">업로드</label> 
-                        <input type="file" id="input_file" name="files" class="upload-hidden" multiple> 
-                      </div>
+                        <div class="filebox bs3-primary preview-image">
+                            <input class="upload-name" value="파일선택" disabled="disabled"
+                                   style="width: 200px;">
+                            <label for="input_file">업로드</label>
+                            <input type="file" id="input_file" name="files" class="upload-hidden"
+                                   multiple>
+                        </div>
                     </div>
 
 

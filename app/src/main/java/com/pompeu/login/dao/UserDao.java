@@ -40,7 +40,9 @@ public interface UserDao {
   Optional<Member> findByEmail(String email);
 
 
-
+  //멤버넘버 찾기 
+  @Select("SELECT member_no FROM member where email = #{email}")
+  int findByMemberNo(String email);
 
   // 아이디 비밀번호
   //  @Select("SELECT no, email, password, role FROM member where email=#{email} and password=#{password}")

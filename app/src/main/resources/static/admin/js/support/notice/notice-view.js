@@ -38,9 +38,9 @@ $(document).ready(function () {
             //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
 
             str += `<label><a href="/notice/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a></label>&nbsp`
-  
+
         }
-        
+
         xFnames.innerHTML = str;
         xNo.innerHTML = result.no;
         xName.innerHTML = result.name;

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POMPEU!</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <!--부트스트랩  👈 -->
+</head>
+<style>
+  .content {
+    padding: 0px 60px 0 60px;
+  }
+
+  .pagination > li > a {
+    background-color: white;
+    color: black;
+  }
+
+  .pagination > li > a:focus,
+  .pagination > li > a:hover,
+  .pagination > li > span:focus,
+  .pagination > li > span:hover {
+    color: purple;
+    background-color: #eee;
+    border-color: #ddd;
+  }
+
+  .pagination > .active > a {
+    color: white;
+    background-color: purple;
+    border: solid 1px purple;
+  }
+
+  .pagination > .active > a:hover {
+    background-color: purple;
+    border: solid 1px purple;
+  }
+
+</style>
+
+<body>
+<div class="main-container">
+    <div id="wrapper">
+
+        <div class="headers"></div>
+        <!--👉 헤더 😊-->
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                <div class="row" id="main">
+                    <div class="page-header">
+
+                        <h3>1:1 문의</h3>
+
+                    </div>
+
+                </div>
+
+                <!-- /row 타이틀 👈 -->
+            </div>
+        </div>
+        <!-- 타이틀 박스-->
+
+        <div class="content">
+
+            <h3>1:1 문의</h3>
+            
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th><input type="checkbox" name="_selected_all_"></th>
+                    <th scope="col">게시글 번호</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">작성일자</th>
+                    <th scope="col">답변여부</th>
+                </tr>
+                </thead>
+                <tbody id="tbody1">
+                <!--
+                    <tr>
+                        <td><input type="checkbox" name="_selected_" value="ROW_8"></td>
+                        <td scope="row">10</td>
+                        <td>이용자</td>
+                        <td>음란물 및 사행성 게시물 제재 안내</td>
+                        <td>2021-10-10</td>
+                    </tr>
+                 -->
+                </tbody>
+
+            </table>
+
+
+            <div class="col-lg-12 col-sm-18 text-lg-end text-right">
+                <button type="button" class="btn" id="btnWrite" name="btnWrite">작성하기
+                </button>
+                <button type="button" class="btn" id="btnDelete" name="btnDelete">삭제하기
+                </button>
+            </div>
+
+            <br>
+            <br>
+            <div class="text-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                        <li class="page-item"><a class="page-link" href="#">4</a></li>
+                        <li class="page-item"><a class="page-link" href="#">5</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+
+    </div>
+    <!--/wrapper  -->
+
+</div>
+<!-- /main-container 전체 😃🤣😄 -->
+
+<!-- 밑에 3개적용 😊😊😊  -->
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<!-- 제이쿼리     1️⃣-->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- 부트스트랩   2️⃣-->
+<script src="/admin/js/header.js"></script>
+<!-- 😊 헤더 👈 3️⃣ -->
+<script src="/user/support/user-ask-list.js"></script>
+
+</body>

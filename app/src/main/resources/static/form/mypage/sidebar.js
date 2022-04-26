@@ -2,7 +2,7 @@ var uImg = document.querySelector("#user-img-actual");
 var uName = document.querySelector("#user-name");
 var uEmail = document.querySelector("#user-email");
 
-fetch(`/userChange/getUser?no=${userNo}`)
+fetch("/userChange/getUser")
   .then(function(response) {
     return response.json();
   })

@@ -7,7 +7,8 @@
 
   <resultMap type="ask" id="askMap">
     <id column="ask_no" property="no"/>
-    <result column="member_no" property="memberNo"/>
+    <result column="answer_no" property="answerNo"/>
+    <result column="ask_name" property="askName"/>
     <result column="ask_content" property="askContent"/>
     <result column="answer_content" property="answerContent"/>
     <result column="register_date" property="registerDate"/>
@@ -16,40 +17,83 @@
     <result column="answer_check_name" property="answerCheckName"/>
     <result column="member_type_no" property="memberTypeNo"/>
     <result column="member_type" property="memberType"/>
+    <result column="member_no" property="memberNo"/>
+    <result column="name" property="memberName"/>
+    <result column="email" property="memberEmail"/>
   </resultMap>
+  
+  <resultMap type="fileNames" id="fileNamesMap">
+    <id column="ask_file_no" property="no"/>
+    <result column="ask_no" property="askNo"/>
+    <result column="org_file" property="orgFile"/>
+    <result column="real_file" property="realFile"/>
+  </resultMap>  
 
   <select id="countAll" resultType="int">
     select count(*) from ask
   </select>
   
-  <!--일반회원 1:1 문의 목록 -->
-  <select id="findAll" resultMap="askMap">
-    select 
-      a.ask_no,
-      a.name,
-      a.register_date,
-      m.name,
-      m.member_type_no,
-      <!--
-      case when m.member_type_no = 1 then '이용자'
-           when m.member_type_no = 2 then '크리에이터' 
-           else '관리자'
-       end                            as member_type,
-      -->
-      mt.member_type,
-      a.answer_check,
-      case when a.answer_check = true
-           then '답변완료'
-           else '답변대기'
-       end                            as answer_check_name
-             
-    from 
-      member m 
-      inner join ask a on m.member_no=a.member_no
-      left join member_type mt on m.member_type_no = mt.member_type_no
+  <select id="findAll" parameterType="ask" resultMap="askMap"> <!--   Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다 --> 
+    select a.ask_no       as ask_no 
+        , a.parents_ask_no    as parents_ask_no 
+        , a.ask_name          as ask_name 
+        , a.ask_content       as ask_content 
+        , a.answer_content    as answer_content 
+        , a.register_date     as register_date 
+        , a.answer_date       as answer_date
+        , a.answer_check      as answer_check 
+        , a.member_no         as member_no 
+        , a.answer_check      as answer_check 
+        , m.member_type_no    as member_type_no
+        , m.email             as email 
+        , mt.member_type       as member_type
+        
+        , case when answer_check = '1' then '답변완료'
+           else  '미답변' 
+           end as answer_check_name
+        
+      from ask a
+        left outer join member m
+        on a.member_no = m.member_no
+        left outer join member_type mt
+        on m.member_type_no = mt.member_type_no
+           
+     where 1=1
+       <if test="memberTypeNo != 3">
+          and m.member_type_no = #{memberTypeNo}
+      </if>
+
+       order by ask_no desc
+       LIMIT 10
+        
       
-    order by 
-      ask_no desc
+  </select>
+  
+  <!--일반회원 1:1 문의 목록 -->
+  <select id="userFindAll" resultMap="askMap" parameterType="ask">
+    select a.ask_no       as ask_no 
+        , a.parents_ask_no    as parents_ask_no 
+        , a.ask_name          as ask_name 
+        , a.ask_content       as ask_content 
+        , a.answer_content    as answer_content 
+        , a.register_date     as register_date 
+        , a.answer_date       as answer_date
+        , a.answer_check      as answer_check 
+        , a.member_no         as member_no 
+        , m.member_type_no    as member_type_no
+        , m.email             as email 
+        , mt.member_type       as member_type
+      from ask a
+        left outer join member m
+        on a.member_no = m.member_no
+        left outer join member_type mt
+        on m.member_type_no = mt.member_type_no
+  
+      where (a.ask_no in (select ask_no from ask where member_no = #{memberNo}) 
+            or a.parents_ask_no in (select ask_no from ask where member_no = #{memberNo})) 
+      order by (case when a.parents_ask_no is null then a.register_date else 
+            (select register_date from ask where ask_no =a.parents_ask_no) end)
+          , (case when parents_ask_no is null then 0 else 1 END) 
   </select>
   
   
@@ -61,11 +105,10 @@
 
   <!--일반회원 1:1 문의상세 -->
   <select id="findByNo" resultMap="askMap" parameterType="int"> 
-    select 
-      ask_no,
+    select ask_no
       member_no,
       register_date,
-      name
+      ask_name,
       ask_content,
       answer_content,
       answer_date,
@@ -75,6 +118,8 @@
     where 
       ask_no=#{no}
   </select>
+  
+  
   
   <!-- 1:1 문의 답변 -->
   <update id="update" parameterType="ask">
