@@ -43,7 +43,7 @@ public class CreatorLectureController {
 
   //클래스 등록
   @RequestMapping("add")
-  public void add(Lecture lecture/* String[] time, List <MultipartFile> files*/) {
+  public void add(Lecture lecture, String[] time, List <MultipartFile> files) {
     log.debug(lecture.toString());
     creatorLectureService.add(lecture);
 
