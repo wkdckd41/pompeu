@@ -35,7 +35,17 @@ public class UserController {
   @PostMapping("/user/join")
   public String joinMember(@RequestBody Member member) {
     log.info("user/join.....");
-    if (userService.add(member) == 1) {
+    if (userService.addMember(member) == 1) {
+      return "success";
+    } else {
+      return "fail";
+    }
+  }
+
+  @PostMapping("/user/joinCreator")
+  public String joinCreator(@RequestBody Member member) {
+    log.info("user/join.....");
+    if (userService.addCreator(member) == 1) {
       return "success";
     } else {
       return "fail";
