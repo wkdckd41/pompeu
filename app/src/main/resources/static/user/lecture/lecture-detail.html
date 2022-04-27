@@ -141,7 +141,7 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}} 
   <label class="lecture-timeContainer">
-    <input type="radio" name="time" id="lectureTime" data-no="{{lectureTimeNo}}" onclick="button_click();">
+    <input type="radio" name="time" id="lectureTime" data-no="{{lectureTimeNo}}" onclick="registBtn(event);">
     <span>{{startDate}} ~ {{endDate}}<br>{{startTime}} ~ {{endTime}}</span>
   </label>
 {{/each}}

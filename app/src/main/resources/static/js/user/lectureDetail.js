@@ -224,34 +224,27 @@ var lectureAsk = document.querySelector("#lecture-ask");
     });
 };
 
+var selectedTimeNo;
 
-
-var bb = document.querySelector("#lectureTime");
-
-function button_click() {
-    
-    console.log(bb.dataset);
-    
-      document.querySelector("#btn-regist").onclick = function() {
-    
-    /*
-    var fd = new FormData(document.forms.namedItem("form1"));
-      
-    fetch("/userLecture/add", {
-        method: "POST",
-        body: new URLSearchParams(fd)
-      }).then(function(response) {
-        return response.json();
-      })
-      .then(function(result) {
-        console.log(result);
-      });
-    */
-    console.log("버튼 실행되었습니다")
-  };
-    
+function registBtn(e) {
+    selectedTimeNo = e.target.getAttribute("data-no");
 }
 
+document.querySelector("#btn-regist").onclick = function() {
+    
+  console.log(selectedTimeNo)
+  
+  fetch(`/userLecture/add?lectureTimeNo=${selectedTimeNo}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log(result);
+    
+    location.reload();
+  });
+  
+};
   
 
     
