@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.myLectureAsk;
 import com.pompeu.domain.myLectureList;
 
 @Mapper  
@@ -13,6 +14,8 @@ public interface UserLectureDao {
   List<Lecture> findAll();
 
   int insert(myLectureList mylecturelist);
+
+  int addAsk(myLectureAsk mylectureask);
 
   Lecture findByNo(int no);
 
@@ -30,13 +33,13 @@ public interface UserLectureDao {
 
   List<Lecture> userContent(int no);
 
+  List<Lecture> askContent(int no);  
+
   List<Lecture> creatorPro(int no);
 
   List<Lecture> registLecture(int no);
 
   List<Lecture> registTime(int no);
-
-  int insertAsk(Lecture lecture);
 
   List<Lecture> addImage(int no);
 

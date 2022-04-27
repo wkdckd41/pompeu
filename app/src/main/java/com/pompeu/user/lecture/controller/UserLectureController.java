@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.Member;
+import com.pompeu.domain.myLectureAsk;
 import com.pompeu.domain.myLectureList;
 import com.pompeu.user.lecture.service.UserLectureService;
 
@@ -40,6 +41,15 @@ public class UserLectureController {
     mylecturelist.setUsersNo(member.getNo());
     System.out.println("========");
     return userLectureService.add(mylecturelist);
+  }
+
+  @RequestMapping("/userLecture/addAsk")
+  public Object addAsk(myLectureAsk mylectureask, @AuthenticationPrincipal Member member) {
+    log.info("lecture-add.....");
+    System.out.println(member.getNo());
+    mylectureask.setUsersNo(member.getNo());
+    System.out.println("========");
+    return userLectureService.ask(mylectureask);
   }
 
   @RequestMapping("/userLecture/get")
@@ -85,6 +95,12 @@ public class UserLectureController {
     return object;
   }
 
+  @RequestMapping("/userLecture/askContent")
+  public Object askContent(int no) {
+    Object object = userLectureService.askCon(no);
+    return object;
+  }
+
   @RequestMapping("/userLecture/creatorPro")
   public Object creatorPro(int no) {
     Object object = userLectureService.creator(no);
@@ -100,11 +116,6 @@ public class UserLectureController {
   public Object registTime(int no) {
     return userLectureService.time(no);
   }
-
-  @RequestMapping("/userLecture/addAsk")
-  public Object addAsk(Lecture lecture) {
-    return userLectureService.addAsk(lecture);
-  }  
 
   @RequestMapping("/userLecture/addImage")
   public Object addImage(int no) {
