@@ -27,14 +27,14 @@ public class CustomLoginSuccessHandler implements AuthenticationSuccessHandler {
     System.out.println(member.getNo()); 
     System.out.println("------------------------------");
     System.out.println(member.getEmail());
-    System.out.println((int) authentication.getPrincipal());
+    System.out.println(authentication.getPrincipal());
     System.out.println("==========================");
     System.out.println(authentication.getDetails());
 
     //System.out.println(authentication.);
     HttpSession session = request.getSession();
-    //    session.setMaxInactiveInterval(600); // session 최대 유효시간
-    //    session.setAttribute("loginUser", authentication.getPrincipal());
+    //        session.setMaxInactiveInterval(600); // session 최대 유효시간
+    session.setAttribute("loginUser", authentication.getPrincipal());
 
     System.out.println(authentication.getAuthorities());
 
