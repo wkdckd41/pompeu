@@ -32,7 +32,6 @@ public class Member implements UserDetails {
   String deleteDetail;
   String role;
   MemberType memberType;
-  Creator creator;
 
 
 

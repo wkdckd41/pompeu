@@ -24,19 +24,39 @@ public class DefaultUserService implements UserService{
 
   @Transactional
   @Override
-  public int add(Member member) {
+  public int addMember(Member member) {
     //        String rawPassword = member.getPassword();
     //        String encPassword = passwordEncoder.encode(member.getPassword());
-    //        member.setPassword(encPassword);
-
-
+    //        member.setPassword(encPassword); 
     // 비밀번호 암호화
-    member.setPassword(passwordEncoder.encode(member.getPassword()));
-    //          member.setRole(PRIFIX+"USER") 
-    //    userDao.insertUser(member);
-    //    userDao.UsersAdd(member);
-    return userDao.insertUser(member);
+    if (userDao.emailCheck(member.getEmail()) != 1 || userDao.nickNameCheck(member.getNickName()) != 1) {
+      member.setPassword(passwordEncoder.encode(member.getPassword()));
+      userDao.insertUser(member);
+      System.out.println(member.getNo());
+      System.out.println("==========");
+      userDao.usersAdd(member);
+      return 1;
+    }   else {
+      return 0;
+    }
   }
+
+
+  @Transactional
+  @Override
+  public int addCreator(Member member) {
+    if (userDao.emailCheck(member.getEmail()) != 1 || userDao.nickNameCheck(member.getNickName()) != 1) {
+      member.setPassword(passwordEncoder.encode(member.getPassword()));
+      userDao.insertCreator(member);
+      System.out.println(member.getNo());
+      System.out.println("==========");
+      userDao.creatorAdd(member);
+      return 1;
+    }   else {
+      return 0;
+    }
+  }
+
 
 
 
@@ -82,6 +102,10 @@ public class DefaultUserService implements UserService{
   public int deleteUser(String email) {
     return userDao.deleteUser(email);
   }
+
+
+
+
 
 
 
