@@ -35,7 +35,7 @@
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
 
-  <resultMap type="userUpdate" id="userUpdate">
+  <resultMap type="userUpdate" id="userUpdateMap">
     <id column="member_no" property="no"/>
     <result column="name" property="name"/>
     <result column="nickname" property="nickName"/>
@@ -170,8 +170,6 @@
 			count(case when m.nickname = #{nickname} then 1 else null end)
 		from 
 			member as m
-		where
-			m.member_type_no =1
   </select>
 
   <update id="deleteUser" parameterType="member">

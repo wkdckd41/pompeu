@@ -9,5 +9,5 @@ public class Creator {
   String info;
   String bank;
   String account;
-
+  String img;
 }
