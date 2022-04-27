@@ -30,31 +30,29 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
 
     param.set('memberTypeNo', no); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
 
-    fetch("/ask/list", { // 컨트롤러고 가기위한 경로
+    fetch("/notice/list", { // 컨트롤러고 가기위한 경로
         method: "POST",
         body: param         // 파라미터 객체를 세팅해준다. 커트롤러로 고고!!
     }).then(function (response) {
         return response.json();
     })
-        .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
-            console.log(result);
-            var count = 0;
-            for (var rst of result) {
-                var tr = document.createElement("tr");
-                tr.innerHTML = `<td><input type="checkbox" id = "chk_` + count
-                    + `" name="_selected_" value="ROW_` + count + `"></td>
+    .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
+        console.log(result);
+        var count = 0;
+        for (var rst of result) {
+            var tr = document.createElement("tr");
+            tr.innerHTML = `<td><input type="checkbox" id = "chk_` + count
+                + `" name="_selected_" value="ROW_` + count + `"></td>
           <td style="display:none"><input type="text" id= "no_` + count
-                    + `" value="${rst.no}""></td>
-          <td onclick="moveView(${rst.no});">${rst.no}</td>
-          <td onclick="moveView(${rst.no});">${rst.memberType}</td>
-          <td onclick="moveView(${rst.no});">${rst.askName}</td>
-          <td>${rst.memberEmail}</td>
-          <td>${rst.registerDate}</td>
-          <td>${rst.answerCheckName}</td>`;
-                document.querySelector("#tbody1").appendChild(tr);
-                count++;
-            }
-        });
+                + `" value="${rst.no}""></td>
+          <td>${rst.no}</td>
+          <td>${rst.memberType}</td>
+          <td onclick="moveView(${rst.no});">${rst.name}</td>
+          <td>${rst.registerDate}</td>`;
+            document.querySelector("#tbody1").appendChild(tr);
+            count++;
+        }
+    });
 
     /*
     fetch(`/notice/list?memberTypeNo=${memberTypeNo}`)
@@ -76,6 +74,10 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
 }
 
 function init() {
+    $("#btnWrite").on("click", function () {
+        location.href = 'notice-write.html'
+    })
+
     $("#btnDelete").on("click", function () {
 
         var chkId = '#chk_';
@@ -108,21 +110,21 @@ function init() {
         }).then(function (response) {
             return response.json();
         })
-            .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
-                if (result.status == "success") {
-                    location.href = "notice-list.html";
-                } else {
-                    window.alert("게시글 변경 실패!");
-                    console.log(result.data);
-                }
+        .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
+            if (result.status == "success") {
+                location.href = "notice-list.html";
+            } else {
+                window.alert("게시글 변경 실패!");
+                console.log(result.data);
+            }
 
-            });
+        });
 
     });
 }
 
 function moveView(no) {
-    location.href = 'ask-write.html?no=' + no
+    location.href = 'notice-view.html?no=' + no
 }
 
 //체크박스 전체선택 및 해제 기능은

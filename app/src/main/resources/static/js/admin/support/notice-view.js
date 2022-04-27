@@ -16,7 +16,7 @@ $(document).ready(function () {
     // 2) 쿼리 스트링에서 no 값을 추출한다.
     var params = new URLSearchParams(qs);
     var no = params.get("no");
-    console.log("ask : " + no);
+    console.log("noticeNo : " + no);
 
     var xNo = document.querySelector("#x-no")
     var xName = document.querySelector("#x-name")
@@ -25,35 +25,35 @@ $(document).ready(function () {
 
     var xFnames = document.querySelector("#fnames")
 
-    fetch(`/ask/get?no=${no}`)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (result) {
-            console.log(result);
-            // 4 연락처 상세 정보를 화면에 출력한다.
-            var str = ""
-            for (var i = 0; i < result.fnames.length; i++) {
+    fetch(`/notice/get?no=${no}`)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (result) {
+        console.log(result);
+        // 4 연락처 상세 정보를 화면에 출력한다.
+        var str = ""
+        for (var i = 0; i < result.fnames.length; i++) {
 
-                //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
+            //str+=`<a href="#this" onclick="fileDownLoad('${result.fnames[i].orgFile}','${result.fnames[i].realFile}')">${result.fnames[i].orgFile}</a>`
 
-                str += `<label><a href="/ask/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a></label>&nbsp`
+            str += `<span class="label label-default"><a href="/notice/fileDownLoad?orgFile=${result.fnames[i].orgFile}&realFile=${result.fnames[i].realFile}" >${result.fnames[i].orgFile}</a></span>&nbsp`
 
-            }
+        }
 
-            xFnames.innerHTML = str;
-            xNo.innerHTML = result.no;
-            xName.innerHTML = result.askName;
-            xContent.innerHTML = result.askContent;
-            xRegisterDate.innerHTML = result.registerDate;
+        xFnames.innerHTML = str;
+        xNo.innerHTML = result.no;
+        xName.innerHTML = result.name;
+        xContent.innerHTML = result.content;
+        xRegisterDate.innerHTML = result.registerDate;
 
-            console.log("no =" + result.no);
-            console.log("name =" + result.askName);
-            console.log("content =" + result.content)
-            console.log("criticalCheck =" + result.criticalCheck);
-            console.log("str = " + str);
+        console.log("no =" + result.no);
+        console.log("name =" + result.name);
+        console.log("content =" + result.content)
+        console.log("criticalCheck =" + result.criticalCheck);
+        console.log("str = " + str);
 
-        });
+    });
     /*
     var arr2 = no.split("=");
     if (arr2.length == 1) {
@@ -71,12 +71,12 @@ function init() {
 
     $("#btnModify").on("click", function () {
         var no = document.querySelector("#x-no").innerHTML
-        location.href = 'ask-modify.html?no=' + no
+        location.href = 'notice-modify.html?no=' + no
 
     })
 
     $("#btnCancel").on("click", function () {
-        location.href = 'ask-list.html'
+        location.href = 'notice-list.html'
     })
 
 }
