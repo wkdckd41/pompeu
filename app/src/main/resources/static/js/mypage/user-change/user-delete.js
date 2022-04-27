@@ -43,46 +43,23 @@ console.log(deleteText.innerHTML);
 	}
 	
 	MDBtn.onclick = function() {  
-		fetch(`/userChange/deleteUser?no=${userNo}&deleteType=${deleteReason}&deleteDetail=${deleteText.value}`)
+		fetch(`/userChange/deleteUser?deleteType=${deleteReason}&deleteDetail=${deleteText.value}`)
       .then(function(response) {
         return response.text();
       })
       .then(function(text) {
         console.log(text);
-    }).then(fetch(`/userChange/deleteUserDetail?no=${userNo}`))
+    }).then(fetch("/userChange/deleteUserDetail"))
       .then(function(response) {
         return response.text2();
       })
       .then(function(result) {
         console.log(result);
     }).then(
-        //window.location.href = "/user/main/user-main.html"
+        window.location.href = "/user/main/user-main.html"
       );
 	}
-	
-		MDBtn.onclick = function() {  
-		fetch(`/userChange/deleteUser?no=${userNo}&deleteType=${deleteReason}&deleteDetail=${deleteText.value}`)
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(text) {
-        console.log(text);
-				return fetch(`/userChange/deleteUserDetail?no=${userNo}`)
-    }).then(function(response2) {
-        return response2.json();
-      })
-      .then(function(result) {
-        console.log(result);
-    })
-//.then(
-        //window.location.href = "/user/main/user-main.html"
-  //    );
-	}
-	
-	
-	
-	
-	
+
   MCBtn.onclick = function() {  
 		$(".modal").fadeOut();
 	}

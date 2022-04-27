@@ -17,7 +17,7 @@
   <link href="/css/form/mypage/mypage.css" rel="stylesheet">
   
      <!-- swiper -->
-  <link rel="stylesheet" href="css/user/main/swiper/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="/css/user/main/swiper/swiper-bundle.min.css"/>
    
    <style>
      /* swiper start */
@@ -305,9 +305,7 @@ var trTemplate1 = document.querySelector("#tr-template-1");
 //템플릿 엔진 준비
 var htmlGenerator1 = Handlebars.compile(trTemplate1.innerHTML);
 
-var userNo=23;
-
-fetch(`/myMain/myGoingLecture?no=${userNo}`)
+fetch("/myMain/myGoingLecture")
   .then(function(response) {
     return response.json();
   })
@@ -326,9 +324,7 @@ var trTemplate2 = document.querySelector("#tr-template-2");
 //템플릿 엔진 준비
 var htmlGenerator2 = Handlebars.compile(trTemplate2.innerHTML);
 
-userNo=23;
-
-fetch(`/myMain/myWishLecture?no=${userNo}`)
+fetch("/myMain/myWishLecture")
   .then(function(response) {
     return response.json();
   })
@@ -347,9 +343,9 @@ var trTemplate3 = document.querySelector("#tr-template-3");
 //템플릿 엔진 준비
 var htmlGenerator3 = Handlebars.compile(trTemplate3.innerHTML);
 
-userNo=23;
+userNo=85;
 
-fetch(`/myMain/myGoingParty?no=${userNo}`)
+fetch("/myMain/myGoingParty")
   .then(function(response) {
     return response.json();
   })
@@ -368,9 +364,7 @@ var trTemplate4 = document.querySelector("#tr-template-4");
 //템플릿 엔진 준비
 var htmlGenerator4 = Handlebars.compile(trTemplate4.innerHTML);
 
-userNo=23;
-
-fetch(`/myMain/myWishParty?no=${userNo}`)
+fetch("/myMain/myWishParty")
   .then(function(response) {
     return response.json();
   })

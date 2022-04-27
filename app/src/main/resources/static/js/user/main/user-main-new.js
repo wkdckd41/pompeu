@@ -5,9 +5,7 @@
     var newLikey = [6];
     var newThumb = [6];
     var newBox = [6];
-    
-    var userNo = 1;
-    
+
     newImg[0] = document.getElementById("new-img-0");
     newEx[0] = document.getElementById("new-ex-0");
     newName[0] = document.getElementById("new-name-0");
@@ -56,7 +54,7 @@
     newThumb[5] = document.getElementById("new-thumb-5");
     newBox[5] = document.getElementById("new-box-5");
 
-    fetch(`/userMain/newLecture?no=${userNo}`)
+    fetch("/userMain/newLecture")
     .then(function(response) {
       return response.json();
     })

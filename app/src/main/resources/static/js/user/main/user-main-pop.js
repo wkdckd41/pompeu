@@ -5,9 +5,7 @@
     var popLikey = [6];
     var popThumb = [6];
     var popBox = [6];
-    
-   // var userNo = 1;
-    
+
     popImg[0] = document.getElementById("pop-img-0");
     popEx[0] = document.getElementById("pop-ex-0");
     popName[0] = document.getElementById("pop-name-0");
@@ -56,7 +54,7 @@
     popThumb[5] = document.getElementById("pop-thumb-5");
     popBox[5] = document.getElementById("pop-box-5");
 
-    fetch(`/userMain/topLecture?no=${userNo}`)
+    fetch("/userMain/topLecture")
     .then(function(response) {
       return response.json();
     })

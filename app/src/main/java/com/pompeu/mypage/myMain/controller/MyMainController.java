@@ -8,6 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Member;
@@ -50,22 +51,26 @@ public class MyMainController {
   }
 
   @RequestMapping("/myMain/myGoingLecture")
-  public Object myGoingLecture(int no) {
+  public Object myGoingLecture(@AuthenticationPrincipal Member member) {
+    int no = member.getNo();
     return myMainService.myGoingLecture(no);
   }
 
   @RequestMapping("/myMain/myWishLecture")
-  public Object myWishLecture(int no) {
+  public Object myWishLecture(@AuthenticationPrincipal Member member) {
+    int no = member.getNo();
     return myMainService.myWishLecture(no);
   }
 
   @RequestMapping("/myMain/myGoingParty")
-  public Object myGoingParty(int no) {
+  public Object myGoingParty(@AuthenticationPrincipal Member member) {
+    int no = member.getNo();
     return myMainService.myGoingParty(no);
   }
 
   @RequestMapping("/myMain/myWishParty")
-  public Object myWishParty(int no) {
+  public Object myWishParty(@AuthenticationPrincipal Member member) {
+    int no = member.getNo();
     return myMainService.myWishParty(no);
   }
 

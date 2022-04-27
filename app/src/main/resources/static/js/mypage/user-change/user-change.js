@@ -13,11 +13,9 @@
   var UBtn = document.querySelector("#update-btn");
   var DBtn = document.querySelector("#delete-btn");
 
-	userNo = 35;
-	
 	var nickCheck=false;
 	
-  fetch(`/userChange/getUser?no=${userNo}`)
+  fetch("/userChange/getUser")
     .then(function(response) {
       return response.json();
     })
@@ -102,7 +100,7 @@
     //}
     
     // 변경할 독서록 데이터의 PK 값을 FormData에 추가한다.
-    fd.append("no", userNo);
+    //fd.append("no", userNo);
     
     fetch("/userChange/updateUser", { 
         method: "POST",
