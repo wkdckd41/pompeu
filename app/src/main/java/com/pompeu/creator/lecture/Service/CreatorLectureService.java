@@ -9,7 +9,7 @@ public interface CreatorLectureService {
 
   int countAll();
 
-  List<LectureList> list();
+  List<LectureList> list(int no);
 
   Lecture get(int no);
 

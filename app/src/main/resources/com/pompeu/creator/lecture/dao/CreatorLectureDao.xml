@@ -32,10 +32,8 @@
   </resultMap>
   
 
-  <select id="findAllMyclass" resultMap="lectureListMap">
-    
-    
-    <!--
+  <select id="findAllMyclass" resultMap="lectureListMap" parameterType="int">
+        <!--
     select
 	    le.lecture_no  lectureNo,
 	    le.creator_no creatorNo,
@@ -54,23 +52,25 @@
         join lecture_time t on le.lecture_no=t.lecture_no
         order by le.lecture_no desc
         -->
-select
-        c.creator_no creatorNo,
-        le.lecture_no  lectureNo,
-        le.name        classTitle,
-        le.start_date  startDate,
-        le.end_date    endDate,
-        le.status,
-        t.lecture_time_no no,
-        t.lecture_no,
-        t.start_time   startTime,
-        t.end_time     endTime,
-        t.max_member   maxMember,
-        t.no_member    membercount
- from 
-        creator c
-        left outer join lecture le on c.creator_no=le.creator_no
-        left outer join lecture_time t on le.lecture_no=t.lecture_no    
+  select
+    c.creator_no creatorNo,
+    le.lecture_no  lectureNo,
+    le.name        classTitle,
+    le.start_date  startDate,
+    le.end_date    endDate,
+    le.status,
+    t.lecture_time_no no,
+    t.lecture_no,
+    t.start_time   startTime,
+    t.end_time     endTime,
+    t.max_member   maxMember,
+    t.no_member    membercount
+  from 
+    creator c 
+    join lecture le on c.creator_no=le.creator_no
+    join lecture_time t on le.lecture_no=t.lecture_no 
+    where
+    c.creator_no=#{no} 
     </select>
 
 </mapper>

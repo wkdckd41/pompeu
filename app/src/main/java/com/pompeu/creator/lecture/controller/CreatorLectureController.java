@@ -1,6 +1,7 @@
 package com.pompeu.creator.lecture.controller;
 
 
+import static com.pompeu.creator.lecture.controller.ResultMap.SUCCESS;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,13 +9,14 @@ import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureImage;
-import com.pompeu.domain.LectureList;
+import com.pompeu.domain.Member;
 
 @RestController
 @RequestMapping("/creatorLecture/")
@@ -27,18 +29,10 @@ public class CreatorLectureController {
 
   //크리에이터가 등록한 클래스 목록조회
   @RequestMapping("list")
-  public List<LectureList> list() {
-    log.debug(creatorLectureService.list());
-    return creatorLectureService.list();
-    /*
-    LectureList result; 
-    try {
-      result = (LectureList) creatorLectureService.list();
-    } catch(Exception e){
-      log.debug(e);  
-    }
-    return result;
-     */
+  public Object list(@AuthenticationPrincipal Member member) {
+    log.debug(member.toString());
+    //return new ResultMap().setStatus(SUCCESS).setData(boardService.list());
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(member.getNo()));
   }
 
   //클래스 등록

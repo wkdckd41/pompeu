@@ -25,8 +25,8 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
   //강좌 목록 호출 - 강좌, 강좌시간, 강좌이미지
   @Override
-  public List<LectureList> list() {
-    return creatorLectureDao.findAllMyclass();
+  public List<LectureList> list(int no) {
+    return creatorLectureDao.findAllMyclass(no);
   }
 
   @Override
