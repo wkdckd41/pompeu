@@ -3,12 +3,13 @@ package com.pompeu.user.lecture.service;
 import java.util.List;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.myLectureList;
 
 public interface UserLectureService {
 
   List<Lecture> list();
 
-  int add(Lecture lecture);
+  int add(myLectureList mylecturelist);
 
   Lecture get(int no);
 

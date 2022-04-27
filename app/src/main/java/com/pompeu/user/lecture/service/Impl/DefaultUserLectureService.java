@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.myLectureList;
 import com.pompeu.user.lecture.dao.UserLectureDao;
 import com.pompeu.user.lecture.service.UserLectureService;
 
@@ -20,8 +21,8 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public int add(Lecture lecture) {
-    return userLectureDao.insert(lecture);
+  public int add(myLectureList mylecturelist) {
+    return userLectureDao.insert(mylecturelist);
   }
 
   @Override
