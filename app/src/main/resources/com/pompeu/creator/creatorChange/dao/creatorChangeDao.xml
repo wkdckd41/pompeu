@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
-<mapper namespace="com.pompeu.mypage.userChange.dao.UserChangeDao">
+<mapper namespace="com.pompeu.creator.creatorChange.dao.CreatorChangeDao">
 
   <resultMap type="memberType" id="memberTypeMap">
     <id column="member_type_no" property="memberTypeNo"/>
@@ -29,13 +29,15 @@
       <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
-  <resultMap type="users" id="usersMap">
-    <id column="users_no" property="no"/>
-    <result column="image" property="image"/>
-    <result column="ex_type_no" property="exTypeNo"/>
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="no"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+    <result column="img" property="img"/>
   </resultMap>
 
-  <resultMap type="userUpdate" id="userUpdateMap">
+  <resultMap type="creatorUpdate" id="creatorUpdateMap">
     <id column="member_no" property="no"/>
     <result column="name" property="name"/>
     <result column="nickname" property="nickName"/>
@@ -43,8 +45,9 @@
     <result column="password" property="password"/>
     <result column="phone" property="phone"/>
     <result column="birth" property="birth"/>
-    <result column="image" property="image"/>
+    <result column="img" property="img"/>
   </resultMap>
+
 
 <!--
   <resultMap type="creator" id="creatorMap">
@@ -120,26 +123,26 @@
     where member_no=#{no}
   </delete>
 
-  <select id="getUser" resultType="HashMap" parameterType="int">
+  <select id="getCreator" resultType="HashMap" parameterType="int">
     select  
 					m.member_no                                           as no,
-          u.image                                               as image,
+          c.img                                                 as img,
           m.name                                                as name,
           m.nickname                                            as nickName,
           m.email                                               as email,
           m.phone                                               as phone
     from 
           member m
-          left outer join users u 
-          on m.member_no = u.users_no
+          left outer join creator c 
+          on m.member_no = c.creator_no
     where 
       m.member_no=#{no}
   </select>
 
-  <update id="updateUser" parameterType="userUpdate">
+  <update id="updateCreator" parameterType="creatorUpdate">
     update 
 			member as m,
-			users as u
+			creator as c
    <trim prefix="SET" suffixOverrides=",">
     <if test="name != ''">
       m.name=#{name},
@@ -156,13 +159,13 @@
     <if test="phone != ''">
       m.phone=#{phone},
     </if>
-    <if test="image != null">
-      u.image=#{image},
+    <if test="img != null">
+      c.img=#{img},
     </if>
    </trim>
     where 
       m.member_no=#{no}
-			and u.users_no=#{no}
+			and c.creator_no=#{no}
   </update>
 
   <select id="checkNickname" parameterType="string" resultType="int">
@@ -172,7 +175,7 @@
 			member as m
   </select>
 
-  <update id="deleteUser" parameterType="member">
+  <update id="deleteCreator" parameterType="member">
     update 
 			member as m
 	  set
@@ -183,9 +186,9 @@
       m.member_no=#{no}
   </update>
 
-  <delete id="deleteUserDetail" parameterType="int">
-			DELETE FROM users
-			WHERE users_no =#{no}
+  <delete id="deleteCreatorDetail" parameterType="int">
+			DELETE FROM creator
+			WHERE creator_no =#{no}
   </delete>
 
 

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    <title>Document</title>
+    <link href="/css/common.css" rel="stylesheet">
+    
+       <style type="text/css">
+   
+   #change-box {
+   margin-left:30%;
+   margin-top:10%;
+   margin-bottom:10%;
+   font-size : 20px;
+   line-height: 40px;
+   }
+   
+   input {
+   width:400px;
+   height:30px;
+}
+
+   button, #thumbnail-file-button{
+      color: white;
+      background-color: #16A085;
+      border-radius: 10px;
+      
+   }
+   
+   #thumbnail-file-button{
+   padding: 5px;
+           margin-left:120px;
+   }
+   
+   #thumbnail {
+        border: 1px solid black;
+        width: 120px;
+        height : 120px;
+        border-radius: 70%;
+        overflow: hidden;
+        margin-left:120px;
+        margin-bottom: 10px;
+   }
+   
+   #nickname-box {
+     height:70px;
+   }
+   
+   #nickname-input {
+     width : 250px;
+   }
+   
+   #check-btn {
+   width : 150px;
+   }
+   
+   #phone-input {
+        margin-bottom: 10px;
+   }
+   
+   #update-btn, #delete-btn{
+     width : 400px;
+     margin-bottom : 10px;
+   }
+   
+   
+   </style>
+    
+    
+    
+</head>
+<body>
+  <div class="container">
+  
+    <div id="wrapper">
+    
+        <!-- 헤더 & 사이드바 자리 시작 -->
+        <div id="header"></div>
+    <!-- 헤더 & 사이드바 자리 끝 -->
+    
+    <!-- 내용물 자리 시작 -->
+        <div id="page-wrapper"> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        
+        
+          <form name="form1" id="change-box">
+            <img id="thumbnail" src="/form/mypage/image/bono.jpg" ><br>
+            
+            <label id="thumbnail-file-button" for="thumbnail-file">사진 업로드</label><br>
+            <table>
+              <tr>
+                <td>선택된 파일 : &nbsp;</td>
+                <td id="file-name">선택된 파일 없음</td>
+              </tr>            
+            </table>
+            <!-- <input name="file" id="thumbnail-file" type="file">-->
+             <input name="file" id="thumbnail-file" type="file" style="display:none" onchange=preView(this)>
+            이름<br>
+            <input name="name" type="text"><br>
+            닉네임<br>
+            <div id="nickname-box">
+            <input name="nickName" id="nickname-input" type="text">
+            <button id="check-btn" type="button">중복확인</button>
+            </div>
+            
+            이메일<br>
+            <input name="email" type="email"><br>
+            비밀번호<br>
+            <input name="password" type="password"><br>
+            비밀번호확인<br>
+            <input id="passwordCheck" type="password"><br>
+            휴대폰 번호<br>
+            <input name="phone" id="phone-input"type="number"><br>
+
+            <button id="update-btn" type="button">수정하기</button>
+            <br>
+            <button id="delete-btn" type="button">회원탈퇴</button>
+          </form>
+            
+            
+        </div> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- /#page-wrapper --> 
+    <!-- 내용물 자리 끝 -->
+        
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/creator/layout.js"></script>
+<script src="/js/creator/creator-change/creator-change.js"></script>
+    
+
+</body>
+</html>
