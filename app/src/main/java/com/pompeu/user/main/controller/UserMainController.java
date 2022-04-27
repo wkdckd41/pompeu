@@ -58,13 +58,25 @@ public class UserMainController {
 
   @RequestMapping("/userMain/topLecture")
   public Object findTopLecture(@AuthenticationPrincipal Member member) {
-    int no = member.getNo();
+    int no;
+
+    if (member != null) {
+      no = member.getNo();
+    } else {
+      no = 0;
+    }
     return userMainService.findTopLecture(no);
   }
 
   @RequestMapping("/userMain/newLecture")
   public Object findNewLecture(@AuthenticationPrincipal Member member) {
-    int no = member.getNo();
+    int no;
+
+    if (member != null) {
+      no = member.getNo();
+    } else {
+      no = 0;
+    }
     return userMainService.findNewLecture(no);
   }
 
