@@ -1,6 +1,6 @@
   
   var arr = location.href.split("?");
-  console.log(arr);
+  // console.log(arr);
 
   if (arr.length == 1) {
     alert("요청 형식이 옳바르지 않습니다.")
@@ -8,7 +8,7 @@
   }
 
   var qs = arr[1];
-  console.log(qs);
+  // console.log(qs);
 
   var params = new URLSearchParams(qs);
   var no = params.get("no");
@@ -25,15 +25,17 @@
   var xEndDate = document.querySelector("#x-endDate");
   var xCrew = document.querySelector("#x-crew");
   var xTag = document.querySelector("#x-tag");
-  var xHost = document.querySelector("#x-host");
+  var xNickname = document.querySelector("#x-nickname");
   var xImage = document.querySelector("#x-image");
+ 
+  var xParty;
   
   fetch(`/userparty/get?no=${no}`)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
-      console.log("AAA");
+      console.log("getparty");
       console.log(result);
       
       xTitle.innerHTML = result[0].title;
@@ -42,20 +44,23 @@
       xEndDate.innerHTML = result[0].endDate;
       xCrew.innerHTML = result[0].maxMember;
       xTag.innerHTML = result[0].tag;
-      xHost.innerHTML = result[0].name;
-      xImage.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="350px" height="210px">`;
+      xNickname.innerHTML = result[0].nickname;
+      xImage.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="430px" height="300px">`;
+      
+      xParty = result[0].partyNo;
     }) 
     
-    
-    var xAddress = document.querySelector(".x-address");
+
+  // 지도 API 
+  var xAddress = document.querySelector(".x-address");
      
     fetch(`/userparty/mapping?no=${no}`)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
-      console.log("AAA");
-      console.log(result);
+     // console.log("map");
+     // console.log(result);
 
     add = result[0].address;
     xAddress.innerHTML = add;
@@ -92,18 +97,39 @@
   });    
 })
 
-     var xlocation = document.querySelector(".x-location");
-     
+  // 지역 Tag
+  var xlocation = document.querySelector(".x-location");
+   
      fetch(`/userparty/siSep?no=${no}`)
     .then(function(response) {
       return response.json();
     })
     .then(function(result) {
-      console.log("AAA");
-      console.log(result);
+      // console.log("AAA");
+      // console.log(result);
           
     si = result[0].address
     xlocation.innerHTML = si;
      })
 
- 
+   
+  // 소모임 참가
+  document.querySelector("#x-btn-regist").onclick = function() {
+    console.log("regist");
+    console.log(xParty);
+    
+    fetch(`/userparty/crewAdd?partyNo=${xParty}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log(result);
+      
+      // location.href = '/mypage/user-info/user-info3.html/'
+    });
+  };
+  
+
+
+
+

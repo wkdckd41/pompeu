@@ -56,6 +56,7 @@ function moveRegist() {
 
 function readImage() {
   for (var i = 0;  i < `${maxMember}`; i++){
-    `<span><img src="/user/party/img/image.jpg"/></span>`
+    document.write("<img src="/user/party/img/crew.png/">");
+    //`<a><img src="/user/party/img/crew.png/" style="width:45px; height:45px;"/></a>`
   }
 }

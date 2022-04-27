@@ -19,6 +19,10 @@
     <result column="tag_no" property="tagNo"/>
     <result column="address" property="address"/>
     <result column="searchType" property="searchType"/>
+    <association property="writer" javaType="member">
+      <id column="member_no" property="no"/>
+      <result column="nickname" property="nickname"/>
+    </association>
   </resultMap>
 
   <resultMap type="location" id="locationMap">
@@ -29,12 +33,11 @@
   <resultMap type="partyUser" id="partyUserMap">
     <id column="users_no" property="usersNo"/>
     <result column="party_no" property="partyNo"/>
-    <result column="party_maker" property="partyMaker"/>
     <result column="join_date" property="joinDate"/>
   </resultMap>
   
   <resultMap type="users" id="usersMap">
-    <id column="users_no" property="no"/>
+    <id column="users_no" property="usersNo"/>
     <result column="image" property="image"/>
     <result column="ex_type_no" property="exTypeNo"/>
   </resultMap>
@@ -51,7 +54,7 @@
   
   <resultMap type="partyClaim" id="partyClaimMap">
     <id column="party_no" property="partyNo"/>
-    <result column="users_no" property="userNo"/>
+    <result column="users_no" property="usersNo"/>
     <result column="claim_reason_no" property="claimReasonNo"/>
     <result column="claim_date" property="claimDate"/>
     <result column="status" property="status"/>
@@ -70,7 +73,7 @@
     <result column="name" property="name"/>
     <result column="email" property="email"/>
     <result column="phone" property="phone"/>
-    <result column="nickname" property="nickName"/>
+    <result column="nickname" property="nickname"/>
     <result column="use_check;" property="useCheck"/>    
     <result column="login_date" property="loginDate"/>
     <result column="modify_date" property="modifyDate"/>
@@ -78,7 +81,6 @@
     <result column="password" property="password"/>
     <result column="birth" property="birth"/>
     <result column="gender" property="gender"/>
-      <collection property="memberType" resultMap="memberTypeMap"/>
   </resultMap>
 
     <!-- 소모임 목록 총 갯수 -->
@@ -102,6 +104,7 @@
 	          party as p
 	        join tag_name as tn
 	             on p.tag_no = tn.tag_no
+	        inner join member m on (p.writer = m.member_no)
         WHERE
           1=1
 	            <if test="region != 'all'">
@@ -129,14 +132,22 @@
     <!-- 소모임 등록 -->
 	  <insert id="insert" parameterType="party">
 	  /*insert*/
-	    insert into party(name,max_member,content,start_date,end_date,in_out_ex,image,tag_no,address) 
-	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx},#{image},#{tagNo},#{address})
+	    insert into party(name,max_member,content,start_date,end_date,in_out_ex,image,tag_no,address,writer) 
+	    values(#{title},#{maxMember},#{content},#{startDate},#{endDate},#{inOutEx},#{image},#{tagNo},#{address},#{writer})
 	  </insert>
 	  
+	<!-- 소모임 참가 -->
+      <insert id="crewInsert" parameterType="party">
+      /*crewInsert*/
+        insert into party_user(users_no,party_no) 
+        values(#{usersNo},#{partyNo})
+      </insert>
+      	  
     <!-- 소모임 상세 -->
 	  <select id="findByNo" resultType="PartyIntro" parameterType="int">
       /*findByNo*/
         select 
+                  p.party_no              as partyNo,
                   p.name                  as title,
                   p.content               as content,
                   p.start_date            as startDate,
@@ -144,17 +155,13 @@
                   p.max_member            as maxMember,
                   p.image                 as image,
                   tn.tag                  as tag,
-                  m.name                  as name
+                  m.member_no             as no,
+                  m.nickname              as nickname
             from 
                   party as p
             join tag_name as tn
                   on p.tag_no = tn.tag_no
-            join party_user as u
-                  on p.party_no = u.party_no
-                 and 
-                  u.party_maker = '1'
-            join member as m 
-                 on m.member_no  = u.users_no 
+            inner join member as m on (p.writer = m.member_no) 
             where 
                 p.party_no=#{no}
       </select>
@@ -174,7 +181,7 @@
 		      tag_no=#{tagNo},
 		      image=#{image}
 	    where 
-	      party_no=#{no}
+	      party_no=#{no} and writer=#{writer.no}
 	  </update>
 
     <!-- 소모임 삭제 -->
@@ -183,7 +190,7 @@
 	   delete 
 	       from party 
 	    where 
-	       party_no=#{no}
+	       party_no=#{no} and writer=#{writer.no}
 	  </delete>
 	
     <!--운동 tag 가져오기-->

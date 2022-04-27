@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.pompeu.domain.Party;
 import com.pompeu.domain.PartyIntro;
+import com.pompeu.domain.PartyUser;
 import com.pompeu.user.party.dao.UserPartyDao;
 import com.pompeu.user.party.service.UserPartyService;
 
@@ -16,7 +17,7 @@ public class DefaultUserPartyService implements UserPartyService{
   UserPartyDao userPartyDao;
 
   /**
-   * 게시판 목록
+   * 소모임 목록
    */
   @Override
   public List<Party> list(String region, String sort, String inOutEx) {
@@ -24,17 +25,28 @@ public class DefaultUserPartyService implements UserPartyService{
   }
 
   /**
-   * 게시판 등록
+   * 소모임 등록
    */
   @Override
   @Transactional
+
   public int add(Party party) {
+    System.out.println(party.getImage());
     System.out.println("Service### : " + party.getInOutEx());
     return userPartyDao.insert(party);
   }
 
   /**
-   * 게시판 상세
+   * 소모임 참가
+   */
+  @Override
+  @Transactional
+  public int crewAdd(PartyUser partyuser) {
+    return userPartyDao.crewInsert(partyuser);
+  }
+
+  /**
+   * 소모임 상세
    */
   @Override
   public List<PartyIntro> get(int no) {
@@ -42,7 +54,7 @@ public class DefaultUserPartyService implements UserPartyService{
   }
 
   /**
-   * 게시판 수정
+   * 소모임 수정
    */
   @Override
   @Transactional
@@ -51,7 +63,7 @@ public class DefaultUserPartyService implements UserPartyService{
   }
 
   /**
-   * 게시판 삭제
+   * 소모임 삭제
    */
   @Override
   @Transactional

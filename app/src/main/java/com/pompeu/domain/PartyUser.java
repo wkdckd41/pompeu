@@ -8,6 +8,5 @@ public class PartyUser {
 
   int usersNo;
   int partyNo;
-  boolean partyMaker;
   Date joinDate;
 }
