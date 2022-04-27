@@ -100,9 +100,9 @@ a#scrollUp i {
     padding: 5px;
 }
 
-.social-icons ul li{
+/* .social-icons ul li{
     display: inline-block;
-}
+} */
 
 .social-icons ul li a i {
     padding: 6px 6px;
@@ -503,4 +503,9 @@ a#scrollUp i {
   margin-top:3px;  
   font-size: 19px;
     font-weight: 600;
+}
+
+.row {
+    margin-right: 0px; 
+    margin-left: -15px;
 }

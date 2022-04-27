@@ -7,6 +7,45 @@ $(document).ready(function () {    //html문서가 다 로드된후에 자바스
 
 function init() {
 
+    // 1) URL에서 쿼리스트링(query string)을 추출한다.
+    var arr = location.href.split("?");
+    console.log(arr);
+
+    if (arr.length == 1) {
+        alert("요청 형식이 옳바르지 않습니다.")
+        throw "URL 형식 오류!";
+    }
+
+    var qs = arr[1];
+    console.log("qs : " + qs);
+
+    // 2) 쿼리 스트링에서 no 값을 추출한다.
+    var params = new URLSearchParams(qs);
+    var no = params.get("no");
+    console.log("ask : " + no);
+
+    var memberEmail = document.querySelector("#memberEmail")
+    var askName = document.querySelector("#askName")
+    var askContent = document.querySelector("#askContent")
+
+
+    fetch(`/ask/get?no=${no}`)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (result) {
+            console.log(result);
+            // 4 연락처 상세 정보를 화면에 출력한다.
+            askName.innerHTML = result.askName;
+            memberEmail.innerHTML = result.memberEmail;
+            askContent.innerHTML = result.askContent;
+
+            console.log("memberEmail =" + result.memberEmail);
+            console.log("askContent =" + result.askContent);
+
+
+        });
+
     var fileTarget = $('.filebox .upload-hidden');
 
     fileTarget.on('change', function (e) {
@@ -101,15 +140,15 @@ function init() {
         }).then(function (response) {
             return response.json();
         })
-        .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
-            if (result.status == "success") {
-                location.href = "notice-list.html";
-            } else {
-                window.alert("게시글 등록 실패!");
-                console.log(result.data);
-            }
+            .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
+                if (result.status == "success") {
+                    location.href = "notice-list.html";
+                } else {
+                    window.alert("게시글 등록 실패!");
+                    console.log(result.data);
+                }
 
-        });
+            });
 
     });
     $("#btnCancel").on("click", function () {
@@ -119,5 +158,5 @@ function init() {
 }
 
 
- 
+
 

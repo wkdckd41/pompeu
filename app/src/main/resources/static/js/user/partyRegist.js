@@ -20,7 +20,7 @@ $("select[name=inOutEx]").change(function() {
 });
   
 // 운동 선택
-  $("select[name=tagNo]").change(function() {
+$("select[name=tagNo]").change(function() {
   console.log($(this).val());   //value값 가져오기
   console.log($("select[name=tagNo] option:selected").text());  // text 값 가져오기
 });
@@ -38,7 +38,8 @@ var xStartDate = document.querySelector("input[name=startDate]");
 var xEndDate = document.querySelector("input[name=endDate]");
 var xInOutEx = document.querySelector("select[name=inOutEx]");
 var xExTag = document.querySelector("select[name=tagNo]");
-var xaddress = document.querySelector("input[name=address]");
+var xAddress = document.querySelector("input[name=address]");
+var xFile = document.querySelector("input[name=file]");
 
 document.querySelector("#x-add-btn").onclick = function() {
   
@@ -49,17 +50,16 @@ document.querySelector("#x-add-btn").onclick = function() {
       xEndDate.value == "" || 
       xInOutEx.value == "" ||
       xExTag.value == "" ||
-      xaddress.value == "") {
+      xAddress.value == "" ||
+      xFile.value == "" ) {
     window.alert("필수 입력 항목이 비어있습니다.");
     return;
+    }
     
-  }
-  
-
 var fd = new FormData(document.forms.namedItem("frm"));
 
   
-fetch("/userparty/add", {  
+fetch("/userparty/add",{  
     method: "POST",
     body: fd
   }) 
@@ -71,7 +71,7 @@ fetch("/userparty/add", {
   });
  location.href = 'party-home.html'
 };
-
+  
   
 // 취소버튼
 function moveList() {

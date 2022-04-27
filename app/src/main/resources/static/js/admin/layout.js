@@ -1,4 +1,4 @@
-$('head').append($('<link rel="stylesheet"/>').attr('href', '/css/admin/css/layout.css'));
+$('head').append($('<link rel="stylesheet"/>').attr('href', '/css/admin/layout.css'));
 $(".headers").load("/form/admin/header.html");
 $(function () {
     $('[data-toggle="tooltip"]').tooltip();

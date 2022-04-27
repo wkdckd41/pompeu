@@ -2,26 +2,24 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
-    <title>POMPEU!</title>
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/css/user_common.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+
+  <title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/user_common.css">
+  <link rel="stylesheet" href="/css/user/mypage.css">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-  
-  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
-   
+
+
 </head>
 
 <style>
-
-.page-wrapper {
-  margin-top: -300px;
-}
+  .page-wrapper {
+    margin-top: -300px;
+  }
 
   * {
     box-sizing: border-box;
@@ -50,7 +48,7 @@
     margin-right: 5px;
   }
 
-  .que.on > span {
+  .que.on>span {
     font-weight: bold;
     font-weight: bold;
     color: black;
@@ -77,36 +75,36 @@
 
 <body>
   <div class="container">
-    
 
-    
-    <div id="wrapper" >
-    
-        <!-- 헤더 자리 시작 -->
-        <div id="header"></div>
-         <!-- 헤더 자리 끝 -->
 
-        <div id="page-wrapper">
-        
+
+    <div id="wrapper">
+
+      <!-- 헤더 자리 시작 -->
+      <div id="header"></div>
+      <!-- 헤더 자리 끝 -->
+
+      <div id="page-wrapper">
+
         <!-- 사이드바 자리 시작 -->
         <div id="sidebar"></div>
-         <!-- 사이드바 자리 끝 -->
+        <!-- 사이드바 자리 끝 -->
 
-   <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
         <div id="content">
-        
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th><input type="checkbox" name="_selected_all_"></th>
-                    <th scope="col">게시글 번호</th>
-                    <th scope="col">제목</th>
-                    <th scope="col">작성일자</th>
-                    <th scope="col">답변여부</th>
-                </tr>
-                </thead>
-                <tbody id="tbody1">
-                <!--
+
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th><input type="checkbox" name="_selected_all_"></th>
+                <th scope="col">게시글 번호</th>
+                <th scope="col">제목</th>
+                <th scope="col">작성일자</th>
+                <th scope="col">답변여부</th>
+              </tr>
+            </thead>
+            <tbody id="tbody1">
+              <!--
                     <tr>
                         <td><input type="checkbox" name="_selected_" value="ROW_8"></td>
                         <td scope="row">10</td>
@@ -115,61 +113,52 @@
                         <td>2021-10-10</td>
                     </tr>
                  -->
-                </tbody>
+            </tbody>
 
-            </table>
+          </table>
 
 
-            <div class="col-lg-12 col-sm-18 text-lg-end text-right">
-                <button type="button" class="btn" id="btnWrite" name="btnWrite">작성하기
-                </button>
-                <button type="button" class="btn" id="btnDelete" name="btnDelete">삭제하기
-                </button>
-            </div>
+          <div class="col-lg-12 col-sm-18 text-lg-end text-right">
+            <button type="button" class="btn" id="btnWrite" name="btnWrite">작성하기
+            </button>
+            <button type="button" class="btn" id="btnDelete" name="btnDelete">삭제하기
+            </button>
+          </div>
 
-            <br>
-            <br>
-            <div class="text-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
-            </div>
+          <br>
+          <br>
+          <div class="text-center">
+            <nav aria-label="Page navigation example">
+              <ul class="pagination">
+                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+              </ul>
+            </nav>
+          </div>
         </div>
-    <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-        </div>
-        <!-- /#page-wrapper --> 
+      </div>
+      <!-- /#page-wrapper -->
 
-        
-    <div id="footer"></div>
+
+      <div id="footer"></div>
     </div><!-- /#wrapper -->
-    </div>
-    
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
 
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    
-    
-    <script>
-    $("#header").load("/form/user/header.html");
-    $("#footer").load("/form/user/footer.html");
-    $("#sidebar").load("/form/support/sidebar.html");
-    
-    
-    </script>
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/js/user/layout.js"></script>
+  <script src="/js/user/sidebar.js"></script>
+  <script src="/js/user/ask-list.js"></script>
+  <script>$("#sidebar").load("/form/support/sidebar.html");</script>
 
-    <script src="/user/support/ask-list.js"></script>
-
-    
 
 </body>
+
 </html>

@@ -119,6 +119,11 @@
     values(#{usersNo},#{lectureTimeNo})
   </insert>
   
+  <insert id="addAsk" parameterType="Lecture">
+    insert into mylecture_ask(users_no,lecture_no,ask_content) 
+    values(#{usersNo},#{lectureNo},#{askContent})
+  </insert>
+  
    <select id="findEverything" resultType="HashMap">
     select
           ex.name                    as exName,
@@ -222,12 +227,17 @@
   
   <select id="findLecture" resultType="LectureIntro" parameterType="int">
     select  
+          le.lecture_no                                         as lectureNo,
           le.lecture_info                                       as lectureInfo,
-          cr.info                                               as info
+          cr.info                                               as info,
+          ma.ask_content                                        as askContent
+          
     from 
           lecture as le
     join creator as cr 
           on le.creator_no = cr.creator_no
+    join mylecture_ask as ma
+          on ma.lecture_no = le.lecture_no
     where 
       le.lecture_no=#{no}
   </select>
@@ -248,6 +258,17 @@
           on lt.lecture_time_no = ml.lecture_time_no 
     join lecture as le
           on le.lecture_no = lt.lecture_no
+    where 
+      le.lecture_no=#{no}
+  </select>
+  
+  <select id="askContent" resultType="HashMap">
+    select  
+          ma.ask_content                                            as content
+    from 
+          mylecture_ask as ma
+    join lecture as le
+          on le.lecture_no = ma.lecture_no
     where 
       le.lecture_no=#{no}
   </select>

@@ -3,38 +3,46 @@ package com.pompeu.user.party.service;
 import java.util.List;
 import com.pompeu.domain.Party;
 import com.pompeu.domain.PartyIntro;
+import com.pompeu.domain.PartyUser;
 
 public interface UserPartyService {
 
   /**
-   * 게시판 목록
+   * 소모임 목록
    * @return
    */
   List<Party> list(String region, String sort, String inOutEx);
 
   /**
-   * 게시판 등록
+   * 소모임 등록
    * @param party
    * @return
    */
   int add(Party party);
 
   /**
-   * 게시판 상세
+   * 소모임 참가
+   * @param partyuser
+   * @return
+   */
+  int crewAdd(PartyUser partyuser);
+
+  /**
+   * 소모임 상세
    * @param no
    * @return
    */
   List<PartyIntro> get(int no);
 
   /**
-   * 게시판 수정
+   * 소모임 수정
    * @param party
    * @return
    */
   int update(Party party);
 
   /**
-   * 게시판 삭제
+   * 소모임 삭제
    */
   int delete(int no);
 

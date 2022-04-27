@@ -12,10 +12,14 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
+import com.pompeu.domain.Member;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyUser;
 import com.pompeu.user.party.service.UserPartyService;
 
 @RestController 
@@ -28,7 +32,7 @@ public class UserPartyController {
   UserPartyService userPartyService;
 
   /**
-   * 게시판 목록
+   * 소모임 목록
    * @return
    */
   @RequestMapping("/userparty/list")
@@ -41,12 +45,21 @@ public class UserPartyController {
   }
 
   /**
-   * 게시판 등록
+   * 소모임 등록
    * @param party
    * @return
    */
-  @RequestMapping("/userparty/add")
-  public Object add(Party party, MultipartFile file) throws Exception {
+  @PostMapping("/userparty/add")
+  public Object add(Party party, MultipartFile file, @AuthenticationPrincipal Member member) throws Exception {
+    log.info("party---add");
+    //    System.out.println(member.getNo());
+    //    party.setWriter(member.getNo());
+    System.out.println(file);
+    party.setWriter(member.getNo());    
+    System.out.println(party.getWriter());
+    System.out.println("=======");
+    log.debug(party.toString()); // 개발자가 확인하기를 원하는 정보
+
     System.out.println("party = " + party);
     try {
       party.setImage(saveFile(file));
@@ -59,20 +72,39 @@ public class UserPartyController {
   }
 
   /**
-   * 게시판 상세
+   * 소모임 참가
+   * @param partyuser
+   * @param member
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping("/userparty/crewAdd")
+  public Object crewAdd(PartyUser partyuser, @AuthenticationPrincipal Member member) {
+    log.info("partyCrewAdd.....");
+    partyuser.setUsersNo(member.getNo());
+    System.out.println(member.getNo());
+    System.out.println("========");
+    System.out.println("partyuser:"+partyuser.getUsersNo());
+    System.out.println("partyno:"+partyuser.getPartyNo());
+    System.out.println("--------");
+    return userPartyService.crewAdd(partyuser);
+  }
+
+  /**
+   * 소모임 상세
    * @param no
    * @return
    */
   @RequestMapping("/userparty/get")
   public Object findByNo(int no) {
     Object object = userPartyService.get(no);
-    System.out.println("no:   "+no);
+    System.out.println("no: "+no);
 
     return object;
   }
 
   /**
-   * 게시판 수정
+   * 소모임 수정
    * @param party
    * @return
    */
@@ -89,7 +121,7 @@ public class UserPartyController {
   }
 
   /**
-   * 게시판 삭제
+   * 소모임 삭제
    * @param no
    * @return
    */
@@ -138,6 +170,8 @@ public class UserPartyController {
    * @throws Exception
    */
   private String saveFile(MultipartFile file) throws Exception {
+    System.out.println("file: " + file);
+    System.out.println("===========");
     if (file != null && file.getSize() > 0) {
       String filename = UUID.randomUUID().toString();
 
@@ -151,6 +185,8 @@ public class UserPartyController {
 
       return filename;
     } else {
+      //      log.info(" image..... " + file + member);
+      //      System.out.println(file + "-----" + member.getEmail());
       return null;
     }
   }

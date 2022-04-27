@@ -5,7 +5,7 @@ import lombok.Data;
 @Data
 public class Users {
 
-  int no;
+  int usersNo;
   String image;
   String exTypeNo;
 

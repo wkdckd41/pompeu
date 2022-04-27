@@ -41,8 +41,9 @@ console.log(no);
 var lectureInfo = document.querySelector("#lecture-introduce");
 var info = document.querySelector("#teacher-introduce");
 var askContent = document.querySelector("#ask-content");
+var addingAsk;
  
-  fetch(`/userLecture/findLecture?no=${no}`)
+fetch(`/userLecture/findLecture?no=${no}`)
   .then(function(response) {
     return response.json();
   })
@@ -52,12 +53,7 @@ var askContent = document.querySelector("#ask-content");
     
     lectureInfo.innerHTML = result[0].lectureInfo;
     info.innerHTML = result[0].info;
-    
-    
- if (result[0].askContent != null) {
-    askContent.innerHTML = `${result[0].askContent}`;
-    }
- })
+})
    
 
 var userContent = document.querySelector("#user-content");
@@ -72,7 +68,7 @@ var userContent = document.querySelector("#user-content");
     
     $("#user-con").html(htmlGenerator2(result));
 })
-     
+
      
 var creatorContent = document.querySelector("#creator-content");
  
@@ -101,6 +97,7 @@ fetch(`/userLecture/addImage?no=${no}`)
 .then(function(result) {
   console.log("BBB");
   console.log(result);
+  
   for (i=0; i<4; i++){
     if (result[i].image == null) {
       result[i].image = "default.jpg";
@@ -108,7 +105,7 @@ fetch(`/userLecture/addImage?no=${no}`)
     lectureImage[i].innerHTML = `<img src="/userLecture/image?filename=${result[i].image}" width="350px" height="210px">`; 
   }
 })
- 
+
 var exercise = document.querySelector("#exercise");
 var lectureName = document.querySelector("#lecture-name");
 var maxMember = document.querySelector("#max-member");
@@ -126,6 +123,7 @@ var lecturePrice = document.querySelector("#lecture-price");
  lectureName.innerHTML = result[0].name;
  maxMember.innerHTML = `최대인원: ${result[0].maxMember} 명`;
  lecturePrice.innerHTML = `수강금액: ${result[0].lecturePrice}원`;
+ addingAsk = result[0].lectureNo;
  })
  
  
@@ -224,35 +222,49 @@ var lectureAsk = document.querySelector("#lecture-ask");
     });
 };
 
+var selectedTimeNo;
 
-
-var bb = document.querySelector("#lectureTime");
-
-function button_click() {
-    
-    console.log(bb.dataset);
-    
-      document.querySelector("#btn-regist").onclick = function() {
-    
-    /*
-    var fd = new FormData(document.forms.namedItem("form1"));
-      
-    fetch("/userLecture/add", {
-        method: "POST",
-        body: new URLSearchParams(fd)
-      }).then(function(response) {
-        return response.json();
-      })
-      .then(function(result) {
-        console.log(result);
-      });
-    */
-    console.log("버튼 실행되었습니다")
-  };
-    
+function registBtn(e) {
+    selectedTimeNo = e.target.getAttribute("data-no");
 }
 
+document.querySelector("#btn-regist").onclick = function() {
+    
+  console.log(selectedTimeNo)
   
+  fetch(`/userLecture/add?lectureTimeNo=${selectedTimeNo}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log(result);
+    
+    location.reload();
+  });
+};
+  
+var contentAsk = document.querySelector("#lecture-ask");
 
+document.querySelector("#btn-ask").onclick = function() {
+    if (lectureAsk.value == "") {
+    window.alert("필수 입력 항목이 비어 있습니다.");
+    return;
+  }
+    
+  askText = contentAsk.value;
+  
+  fetch(`/userLecture/addAsk?lectureNo=${addingAsk}&askContent=${askText}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log(result);
+    
+    location.reload();
+  });
+  
+  
+};
+  
     
   

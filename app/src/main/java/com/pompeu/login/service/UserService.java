@@ -5,7 +5,9 @@ import com.pompeu.domain.Member;
 public interface UserService {
 
 
-  int add(Member member);
+  int addMember(Member member);
+
+  int addCreator(Member member);
 
   int nickCheck(String nickname);
 
