@@ -154,7 +154,12 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
   public void configure(WebSecurity web) {
     //이미지,자바스크립트,css 디렉토리 보안 설정 
     web.ignoring().antMatchers("/resource/static/css/**",
+        "/css/**",
+        "/js/**",
+        "/form/**",
+        "/image/**",
         "/resource/static/user/js/**", "resource/img/**",
+        "resource/static/js/**",
         "/resource/static/form/**");    
   }
 

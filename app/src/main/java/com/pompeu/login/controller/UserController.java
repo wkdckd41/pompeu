@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -85,9 +86,9 @@ public class UserController {
 
 
   @RequestMapping("/login/getLoginUser")
-  public String getLoginUser(Authentication auth) {
-    System.out.println(auth.getPrincipal());
-    if (auth.getName() != null) {
+  public String getLoginUser(@AuthenticationPrincipal Member member) {
+    System.out.println(member.getEmail());
+    if (member.getEmail() != null) {
       return "success";
     }
     return "fail";
