@@ -504,3 +504,8 @@ a#scrollUp i {
   font-size: 19px;
     font-weight: 600;
 }
+
+.row {
+    margin-right: 0px; 
+    margin-left: -15px;
+}
