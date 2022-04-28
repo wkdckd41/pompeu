@@ -89,13 +89,13 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     //    .antMatchers("/user/**").hasAnyRole("ADMIN", "CREATOR", "USER")
     .antMatchers("/creator/**").hasRole("CREATOR")
     .antMatchers("/admin/**").hasRole("ADMIN") // ROLE_ADMIN
-    //    .anyRequest().authenticated() // authenticated() 요청에대해 인증된사용자만 접근설정
+//    .anyRequest().authenticated() // authenticated() 요청에대해 인증된사용자만 접근설정
 
     .and()
 
     .formLogin()
     //    .disable() // 폼기반 로그인 인증 허용x
-    .loginPage("/user/login/login.html")
+        .loginPage("/user/login/login.html")
     .loginProcessingUrl("/user/login") // login 주소 호출시 시큐리티가 진행
     .usernameParameter("email")
     .passwordParameter("password")
