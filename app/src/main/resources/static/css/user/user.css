@@ -667,7 +667,7 @@ border: 1px solid black;
   border-radius:5px;
 }
 
-#ask-content {
+#creator-content2 {
   border:2px solid black;
 	width:380px;
 	margin-top: 15spx;
@@ -680,7 +680,7 @@ border: 1px solid black;
 border: 1.5px solid black;
     border-radius: 5px;
     margin: 8px 5px;
-    min-width: 100%;
+    max-width: 360px;
     min-height: 30px;
     padding: 7px 10px;
     line-height: 20px;
@@ -691,12 +691,11 @@ border: 1.5px solid black;
 	  font-weight:bold;
     display: flex;
     align-content: stretch;
-    justify-content: center;
     flex-wrap: wrap;
     flex-direction: row;
     align-items: baseline;
     margin-top: -10px;
-    margin-left:-20px;
+    margin-left:70px;
 }
 
 .user-image {

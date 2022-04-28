@@ -3,6 +3,7 @@ package com.pompeu.user.lecture.service.Impl;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.pompeu.domain.CreatorContent;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
 import com.pompeu.domain.myLectureAsk;
@@ -72,8 +73,8 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public List<Lecture> askCon(int no) {
-    return userLectureDao.askContent(no);
+  public List<CreatorContent> creatorCon(int no) {
+    return userLectureDao.creatorContent(no);
   }
 
   @Override
