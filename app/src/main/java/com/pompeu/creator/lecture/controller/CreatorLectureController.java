@@ -12,11 +12,13 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.Member;
 
 @RestController
 @RequestMapping("/creatorLecture/")
@@ -29,23 +31,22 @@ public class CreatorLectureController {
 
   //크리에이터가 등록한 클래스 목록조회
   @RequestMapping("list")
-  public Object list(/*@AuthenticationPrincipal Member member*/) {
-    //log.debug(member.toString());member.getNo()
-    //return new ResultMap().setStatus(SUCCESS).setData(boardService.list());
-    int no=93;
-    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(no));
+  public Object list(@AuthenticationPrincipal Member member) {
+    log.debug(member.toString());
+
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(member.getNo()));
   }
 
   //클래스 등록
   @RequestMapping("add")
-  public Object add(/*Lecture lecture, String[] time,*/ MultipartFile files) {
-    log.debug(files.toString());
-    System.out.println("하하핳");
-    try { saveFile(files);
-
-    } catch (Exception e) {
-      e.getStackTrace();
-    }
+  public void add(/*Lecture lecture, String[] time, MultipartFile files*/) {
+    //    log.debug(files.toString());
+    //    System.out.println("하하핳");
+    //    try { saveFile(files);
+    //
+    //    } catch (Exception e) {
+    //      e.getStackTrace();
+    //    }
     //log.debug(lecture.toString());
     // creatorLectureService.add(lecture);
 
@@ -73,7 +74,7 @@ public class CreatorLectureController {
     //      e.printStackTrace();
     //    } 
     //    return creatorLectureService.add(lecture);
-    return "1";
+
   }
 
   //클래스 상세보기

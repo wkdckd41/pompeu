@@ -6,6 +6,7 @@
 
 <mapper namespace="com.pompeu.creator.lecture.dao.CreatorLectureDao">
 
+<!--
   <resultMap id="lectureListMap" type="lectureList">
    
     <id column="lecture_no" property="lectureNo"/>
@@ -14,6 +15,7 @@
     <result column="startDate" property="startDate"/>
     <result column="endDate" property="endDate"/>
     <result column="status" property="status"/>
+    <result column="register_date" property="status"/>
         
     <association property="writer" javaType="creator">
       <id column="no" property="no"/>
@@ -29,7 +31,18 @@
       <result column="membercount" property="noMember"/>
     </collection>  
     
-   <!--
+        le.creator_no creatorNo,
+        le.lecture_no  lectureNo,
+        le.name        classTitle,
+        le.start_date  startDate,
+        le.end_date    endDate,
+        le.status,
+        le.register_date,
+        img.upload_img,
+        t.times_check
+    
+    
+  
     <collection property="img" ofType="lectureImage">
      <id column="no" property="no"/>
      <result column="lecture_no" property="lectureNo"/>
@@ -39,75 +52,35 @@
       <result column="membercount" property="noMember"/>
     </collection> 
     
-  -->
-
-  </resultMap>
   
 
-  <select id="findAllMyclass" resultMap="lectureListMap" parameterType="int">
-     
+  </resultMap>
+  -->
+
+  <select id="findAllMyclass" resultType="lectureList" parameterType="int">
     select
+	    le.creator_no creatorWriter,
 	    le.lecture_no  lectureNo,
-	    le.creator_no creatorNo,
 	    le.name        classTitle,
 	    le.start_date  startDate,
 	    le.end_date    endDate,
 	    le.status,
-	    t.lecture_time_no no,
-	    t.lecture_no,
-        t.start_time   startTime,
-        t.end_time     endTime,
-        t.max_member   maxMember,
-        t.no_member    membercount
-    from
-        lecture le
-        join lecture_time t on le.lecture_no=t.lecture_no
-        order by le.lecture_no desc
-        -->
-  <!--
-  select
-    c.creator_no creatorNo,
-    le.lecture_no  lectureNo,
-    le.name        classTitle,
-    le.start_date  startDate,
-    le.end_date    endDate,
-    le.status,
-    t.lecture_time_no no,
-    t.lecture_no,
-    t.start_time   startTime,
-    t.end_time     endTime,
-    t.max_member   maxMember,
-    t.no_member    membercount,
-    img.image 
-  from 
-    creator c 
-    join lecture le on c.creator_no=le.creator_no
-    join lecture_time t on le.lecture_no=t.lecture_no 
-    left outer join lecture_image img on le.lecture_no=img.lecture_no
-    group by img.lecture_no
-    where
-    c.creator_no=93
- 
-    
-    select 
-		le.creator_no creatorNo,
-		le.lecture_no  lectureNo,
-		le.name        classTitle,
-		le.start_date  startDate,
-		le.end_date    endDate,
-		le.status,
-		t.lecture_time_no no,
-		t.lecture_no,
-		t.start_time   startTime,
-		t.end_time     endTime,
-		t.max_member   maxMember,
-		t.no_member    membercount
-		img.image
-    from lecture le
-    join lecture_image img on le.lecture_no=img.lecture_no 
-    join lecture_time t on le.lecture_no=t.lecture_no
-       -->
+	    le.register_date registerDate,
+	    img.upload_img,
+	    t.times_check
+	from lecture le
+        left outer join (select
+                            img.lecture_no lecture_no, 
+                            count(*) as upload_img
+                        from lecture_image img 
+                        group by img.lecture_no) as img on img.lecture_no =le.lecture_no
+        left outer join (select 
+                            t.lecture_no, count(*) as times_check
+        from lecture_time t group by t.lecture_no) as t on t.lecture_no=le.lecture_no
+       where 
+       le.creator_no = 16
+       order by register_date desc
       
-    </select>
+  </select>
 
 </mapper>

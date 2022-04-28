@@ -10,7 +10,6 @@ import com.pompeu.creator.lecture.controller.CreatorLectureController;
 import com.pompeu.creator.lecture.dao.CreatorLectureDao;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureList;
-import com.pompeu.domain.Test;
 
 @Service
 public class DefaultCreatorLectureService implements CreatorLectureService {
@@ -52,8 +51,4 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
     return creatorLectureDao.delete(no);
   }
 
-  @Override
-  public List<Test> test() {
-    return creatorLectureDao.test();
-  }
 }

@@ -1,20 +1,17 @@
 package com.pompeu.domain;
 
 import java.sql.Date;
-import java.util.List;
 import lombok.Data;
 
 @Data
 public class LectureList {
   int lectureNo;
-  String creatorNo;
+  String creatorWriter;
   String classTitle;
   Date startDate;
   Date endDate;
   int status;
-  int maxMember;
-  int membercount;
-  List<LectureTime> times;
-  Creator writer;
-  String photo;
+  Date registerDate;
+  String times_check;
+  String upload_img;
 }
