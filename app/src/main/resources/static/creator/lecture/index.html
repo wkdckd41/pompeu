@@ -29,6 +29,15 @@ div.page-header > h3{
   padding: 30px 70px;
   width: 100%;
 }
+
+.menu {
+  width: 30px;
+  height: 10px;
+  color: aqua;
+  background-color: red;
+  margin:5px;
+}
+
 </style>
 </head>
 
@@ -50,7 +59,7 @@ div.page-header > h3{
   <span class="menu">전체</span> 
   <span class="menu">클래스</span> 
   <span class="menu">개설요청</span>
-  <span class="menu">새 클래스등록</span>
+  <span class="new-class">새 클래스등록</span>
 </div>
 <div id="class-list">
  <table id="x-board-table" border="1">
@@ -63,6 +72,10 @@ div.page-header > h3{
   </tr>
 </thead>
 <tbody>
+  <th>제목</th>
+    <th>수업일시</th>
+    <th>진행상태</th>
+    <th>수강인원</th>
 </tbody>
 </table>
 </div>
@@ -93,12 +106,11 @@ var tbody = document.querySelector("#x-board-table tbody")
 
       for(lectureList of result.data){
         console.log(lectureList);
-  // var tr = document.createElement("tr");
-  // tr.innerHTML = `<td>${lectureList.classTitle}</td>
-  //   <td><span class=startdate>${lectureList.startDate}</span>~<span class= enddate>${lectureList.endDate}</span></td>
-      
-  //   <td>${lectureList.status}</td>
-  //   <td>${lectureList.maxMember}</td>`;
+        var tr = document.createElement("tr");
+        tr.innerHTML = `<td>${lectureList.classTitle}</td>
+          <td><span class=startdate>${lectureList.startDate}</span>~<span class= enddate>${lectureList.endDate}</span></td>
+          <td>${lectureList.status}</td>
+          <td>${lectureList.maxMember}</td>`;
   //   console.log(lectureList.times.length);
 
   //   for (var i = 0; i <  lectureList.times.length; i++) {

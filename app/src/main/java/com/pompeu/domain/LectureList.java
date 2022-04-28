@@ -16,4 +16,5 @@ public class LectureList {
   int membercount;
   List<LectureTime> times;
   Creator writer;
+  String photo;
 }

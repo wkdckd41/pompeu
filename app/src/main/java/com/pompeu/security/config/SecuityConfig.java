@@ -87,7 +87,8 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .antMatchers("/*/login/**", "/login/auth/**").permitAll()
     //    .antMatchers("/user/main/**").permitAll()
     //    .antMatchers("/user/**").hasAnyRole("ADMIN", "CREATOR", "USER")
-    .antMatchers("/creator/**").hasRole("CREATOR")
+    .antMatchers("/creator/**").permitAll()
+    //.antMatchers("/creator/**").hasRole("ADMIN")
     .antMatchers("/admin/**").hasRole("ADMIN") // ROLE_ADMIN
 //    .anyRequest().authenticated() // authenticated() 요청에대해 인증된사용자만 접근설정
 
