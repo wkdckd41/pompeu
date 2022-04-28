@@ -52,6 +52,7 @@ public class UserLectureController {
     return userLectureService.ask(mylectureask);
   }
 
+
   @RequestMapping("/userLecture/get")
   public Object get(int no) {
     Lecture lecture = userLectureService.get(no);
@@ -95,9 +96,9 @@ public class UserLectureController {
     return object;
   }
 
-  @RequestMapping("/userLecture/askContent")
-  public Object askContent(int no) {
-    Object object = userLectureService.askCon(no);
+  @RequestMapping("/userLecture/creatorContent")
+  public Object creatorContent(int no) {
+    Object object = userLectureService.creatorCon(no);
     return object;
   }
 

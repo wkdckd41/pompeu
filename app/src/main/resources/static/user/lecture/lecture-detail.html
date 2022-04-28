@@ -93,10 +93,8 @@
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold; position: relative;">문의</h4>
                 <button type="button" id="btn-ask">문의하기</button>
-                <div>image</div>
-                <div>아이러브볼링</div>
                 <textarea id="lecture-ask"></textarea>
-                <div id="ask-content"></div>
+                <div id="creator-content"></div>
               </div>
           </div>
         </form>
@@ -172,9 +170,7 @@
 
 <script id="tr-template4" type="text/x-handlebars-template">
 {{#each this}} 
-  <div>
-    <div class="user" id="user-con">{{content}}</div>
-  </div>
+    <div class="creator" id="creator-content2">{{askContent}}</div>
 {{/each}}
 </script>
 
