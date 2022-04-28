@@ -37,6 +37,12 @@
       console.log("getparty");
       console.log(result);
       
+        
+          for (var i = 0; i < result.max_member; i++) {
+            
+          } 
+      console.log(result);
+      
       xTitle.innerHTML = result[0].title;
       xPartyContent.innerHTML = result[0].content;
       xStartDate.innerHTML = result[0].startDate;
@@ -45,6 +51,7 @@
       xTag.innerHTML = result[0].tag;
       xNickname.innerHTML = result[0].nickname;
       xImage.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="430px" height="300px">`;
+      
       
       xParty = result[0].partyNo;
     }) 
@@ -164,7 +171,5 @@
         alert("신고 요청이 완료되었습니다.");
     });           
   };
-  
-  
   
   
