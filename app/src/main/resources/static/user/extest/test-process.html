@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    
+    
+    <title>테스트 메인 화면</title>
+  <link rel="stylesheet" href="/user/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+   
+   <!-- flexslider -->
+  <link rel="stylesheet" href="/css/user/main/flexslider/flexslider.css" type="text/css" media="screen" /> 
+    
+   <!-- swiper -->
+  <link rel="stylesheet" href="/css/user/main/swiper/swiper-bundle.min.css"/>
+    
+    <style>
+    
+      #test-box {
+        position : relative;
+        height : 1400px;
+        background-color: #8ee3f6;
+        margin-bottom: 50px;
+      }
+      
+      #test-title {
+        position : absolute;
+        margin : 100px 240px;
+        font-size : 60px;
+        font-family: "Verdana";
+        font-weight: bold;
+        color:white;
+        text-shadow:3px 3px 3px #000;
+      }
+      
+      #test-title-second {
+        color:#ffea5b;
+      }
+    
+    #test-process {
+      position : absolute;
+      margin-top : 200px ;
+      margin-left : 230px;
+      
+      width: 670px;
+      
+      text-align:right;
+      font-size: 30px;
+      font-family: "Verdana";
+      border-bottom: 2px solid black;
+    }
+    
+    #test-question {
+      position : absolute;
+      margin-top : 400px ;
+      margin-left : 230px;
+      
+      width: 670px;
+      
+      text-align:center;
+      font-size: 30px;
+      font-family: "Verdana";
+    }
+    
+     #test-answer-1 {
+      margin-top : 700px ;
+      margin-left : 250px;
+      width: 600px;
+      height:150px;
+      background-color: #ffea5b;
+      font-size: 40px;
+      font-family: "Verdana";
+      color: #ff3b8b;
+      border : 2px solid black;
+    }
+    
+      #test-answer-2 {
+      margin-top : 50px ;
+      margin-left : 250px;
+      width: 600px;
+      height:150px;
+      background-color: #ffea5b;
+      font-size: 40px;
+      font-family: "Verdana";
+      color: #ff3b8b;
+      border : 2px solid black;
+    }
+
+    </style>
+    
+    
+</head>
+<body>
+  <div class="container">
+  
+    <div id="wrapper">
+    
+        <!-- 헤더 & 사이드바 자리 시작 -->
+        <div id="header"></div>
+    <!-- 헤더 & 사이드바 자리 끝 -->
+    
+    <!-- 내용물 자리 시작 -->
+        <div id="page-wrapper"> <!-- 이 안에 때려박으세영!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          
+          <div id="test-box">
+          
+          <div id="test-title">
+          <span id="test-title-first"> 나의&nbsp; </span>
+          <span id="test-title-second"> 운동 성향 </span>
+          <span id="test-title-third"> &nbsp;테스트 </span>
+          </div>
+          
+          <div id="test-process">
+          1/4
+          </div>
+          
+          <div id="test-question">
+          1번 질문입니다.
+          </div>
+          
+          <button id="test-answer-1">1-1 대답입니다.</button>
+          
+          <button id="test-answer-2">1-2 대답입니다.</button>
+          
+          </div>
+          
+
+        </div> <!-- 이 밑으론  HTML 만지지마!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- /#page-wrapper --> 
+    <!-- 내용물 자리 끝 -->
+        
+    <div id="footer"></div>
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+		<script src="/user/js/layout.js"></script>
+
+    
+    <!-- 공통코드 -->
+    <script>
+    
+    function moveView() {
+    console.log(event.currentTarget);
+    location.href = '/user/lecture/lecture-detail.html?no='+event.currentTarget.dataset.value;
+    }
+    </script>
+    <script src="/user/extest/test-process.js"></script>
+
+
+</body>
+</html>
