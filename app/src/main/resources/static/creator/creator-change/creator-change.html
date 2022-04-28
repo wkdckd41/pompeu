@@ -61,8 +61,18 @@
    }
    
    #phone-input {
-        margin-bottom: 10px;
+    margin-bottom: 10px;
    }
+   
+    #info-input {
+    margin-bottom: 10px;
+   }
+   
+   #account-input {
+    width : 290px;
+    margin-bottom: 50px;
+   }
+   
    
    #update-btn, #delete-btn{
      width : 400px;
@@ -116,7 +126,25 @@
             <input id="passwordCheck" type="password"><br>
             휴대폰 번호<br>
             <input name="phone" id="phone-input"type="number"><br>
+            
+            강사 정보<br>
+            <input name="info" id="info-input"type="text"><br>
+            은행 / 계좌번호<br>
 
+			      <select class="custom-select mr-sm-2" id="bank-input" name="bank" required>
+			        <option id="bank-input-default" value="" disabled selected></option>
+			        <option value="국민은행">국민은행</option>
+			        <option value="하나은행">하나은행</option>
+			        <option value="신한은행">신한은행</option>
+			        <option value="농협">농협</option>
+			        <option value="기업은행">기업은행</option>
+			        <option value="산업은행">산업은행</option>
+			        <option value="씨티은행">씨티은행</option>
+			        <option value="제일은행">제일은행</option>
+			        <option value="부산은행">부산은행</option>
+			      </select>
+            <input name="account" id="account-input"type="number"><br>
+            
             <button id="update-btn" type="button">수정하기</button>
             <br>
             <button id="delete-btn" type="button">회원탈퇴</button>
