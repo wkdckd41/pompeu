@@ -125,7 +125,7 @@ public class UserLectureController {
   @RequestMapping("/userLecture/mapping")
   public Object mapping(int no) {
     return userLectureService.map(no);
-  }  
+  }
 
   @RequestMapping("/userLecture/siSep2")
   public Object siSep(int no) {
