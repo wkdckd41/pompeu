@@ -66,8 +66,8 @@
 	    le.end_date    endDate,
 	    le.status,
 	    le.register_date registerDate,
-	    img.upload_img,
-	    t.times_check
+	    img.upload_img uploadImg,
+	    t.times_check timesCheck
 	from lecture le
         left outer join (select
                             img.lecture_no lecture_no, 
@@ -78,7 +78,7 @@
                             t.lecture_no, count(*) as times_check
         from lecture_time t group by t.lecture_no) as t on t.lecture_no=le.lecture_no
        where 
-       le.creator_no = 16
+       le.creator_no =#{no}
        order by register_date desc
       
   </select>

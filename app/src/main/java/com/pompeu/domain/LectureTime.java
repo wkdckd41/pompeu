@@ -10,7 +10,7 @@ public class LectureTime {
   String startTime;
   String endTime;
   int maxMember;
-  int noMember;
+
 
   LectureTime(){};
 

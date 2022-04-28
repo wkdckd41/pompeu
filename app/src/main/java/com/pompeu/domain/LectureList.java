@@ -12,6 +12,6 @@ public class LectureList {
   Date endDate;
   int status;
   Date registerDate;
-  String times_check;
-  String upload_img;
+  String timesCheck;
+  String uploadImg;
 }

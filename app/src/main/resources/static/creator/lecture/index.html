@@ -38,6 +38,18 @@ div.page-header > h3{
   margin:5px;
 }
 
+#page-menu{
+  position: relative;
+}
+.new-class{
+  position: relative;
+  right: 100px;
+}
+
+#x-lecture-table {
+  text-align: center;
+}
+
 </style>
 </head>
 
@@ -62,20 +74,19 @@ div.page-header > h3{
   <span class="new-class">새 클래스등록</span>
 </div>
 <div id="class-list">
- <table id="x-board-table" border="1">
+ <table id="x-lecture-table" border="1">
 <thead>
   <tr>
+    <th>번호</th>
     <th>제목</th>
     <th>수업일시</th>
+    <th>전체 수</th>
     <th>진행상태</th>
-    <th>수강인원</th>
+    <th>이미지파일수</th>
+    <th>등록일</th>
   </tr>
 </thead>
 <tbody>
-  <th>제목</th>
-    <th>수업일시</th>
-    <th>진행상태</th>
-    <th>수강인원</th>
 </tbody>
 </table>
 </div>
@@ -92,7 +103,8 @@ div.page-header > h3{
 <script src="/creator/js/creator.js"></script>
 <script type="text/javascript">
 
-var tbody = document.querySelector("#x-board-table tbody")
+var tbody = document.querySelector("#x-lecture-table tbody")
+
 	 	 fetch("/creatorLecture/list")
     .then(function(response) {
       return response.json();
@@ -104,91 +116,19 @@ var tbody = document.querySelector("#x-board-table tbody")
         return;
       }
 
-      for(lectureList of result.data){
+      for (var lectureList of result.data){
         console.log(lectureList);
         var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${lectureList.classTitle}</td>
-          <td><span class=startdate>${lectureList.startDate}</span>~<span class= enddate>${lectureList.endDate}</span></td>
-          <td>${lectureList.status}</td>
-          <td>${lectureList.maxMember}</td>`;
-  //   console.log(lectureList.times.length);
-
-  //   for (var i = 0; i <  lectureList.times.length; i++) {
-  //     console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
-
-              }        
-
-    });
-  
-  
-  
-/*
-
-   
-        for (var i = 0; i <  lectureList.times.length; i++) {
-          <td><span class=starttime>${lectureList.times[i].startTime}</span>~<span class=endtime>${lectureList.times[i].endTime}</span></td>
-         // console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
-         }
- var tr = document.createElement("tr");
-      tr.innerHTML = `<td>${lectureList.classTitle}</td>
-        <td><span class=startdate>${lectureList.startDate}</span>~<span class= enddate>${lectureList.endDate}</span></td>
-       
-        for (var i = 0; i <  lectureList.times.length; i++) {
-          <td><span class=starttime>${lectureList.times[i].startTime}</span>~<span class=endtime>${lectureList.times[i].endTime}</span></td>
-         // console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
-         }
-       
+        tr.innerHTML = `<td>${lectureList.lectureNo}</td>
+        <td><a href="?content=/board/view.html&no=${board.no}">${lectureList.classTitle}</a></td>
+        <td><span>${lectureList.startDate}</span>~<span>${lectureList.endDate}</span></td>
+        <td>${lectureList.timesCheck}</td>
         <td>${lectureList.status}</td>
-        <td>${lectureList.maxMember}</td>`;
-        console.log(lectureList.times.length);
-
-        for (var i = 0; i <  lectureList.times.length; i++) {
-         console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
-         }
-
-<h1>게시글</h1>
-<a href="?content=/board/form.html">새 게시글</a>
-<table id="x-board-table" border="1">
-<thead>
-  <tr>
-    <th>번호</th>
-    <th>제목</th>
-    <th>작성자</th>
-    <th>조회수</th>
-    <th>등록일</th>
-  </tr>
-</thead>
-<tbody>
-</tbody>
-</table>
-
-<script type="text/javascript">
-  var tbody = document.querySelector("#x-board-table tbody")
-
-  fetch("/board/list")
-    .then(function(response) {
-      return response.json();
-    })
-    .then(function(result) {
-      if (result.status == "fail") {
-        window.alert("서버 요청 오류!");
-        console.log(result.data);
-        return;
-      }
-      
-      for (var board of result.data) {
-        var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${board.no}</td>
-        <td><a href="?content=/board/view.html&no=${board.no}">${board.title}</a></td>
-        <td>${board.writer.name}</td>
-        <td>${board.viewCount}</td>
-        <td>${board.createdDate}</td>`;
+        <td>${lectureList.uploadImg}</td>
+        <td>${lectureList.registerDate}</td>`;
         tbody.appendChild(tr);
       }
-    });
-    
-    */
-  
+    });      
 </script>
 </body>
 </html>

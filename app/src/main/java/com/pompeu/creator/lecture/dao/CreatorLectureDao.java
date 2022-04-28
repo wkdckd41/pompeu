@@ -14,7 +14,7 @@ public interface CreatorLectureDao {
 
   int countAll();
 
-  List<LectureList> findAllMyclass(int no);
+  List<LectureList> findAllMyclass(@Param("no") int no);
 
   int insert(Lecture lecture);
 

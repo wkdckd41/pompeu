@@ -21,5 +21,5 @@ public class Lecture {
   double totalRate;
   int inOutEx;
   List<LectureTime> times;//강좌시간
-  List<LectureImage> images;//강좌이미지 
+  List<String> images;//강좌이미지 
 }

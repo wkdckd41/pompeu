@@ -1,6 +1,7 @@
 package com.pompeu.creator.lecture.controller;
 
 
+import static com.pompeu.creator.lecture.controller.ResultMap.SUCCESS;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.ArrayList;
@@ -14,14 +15,12 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
-import com.pompeu.domain.LectureImage;
-import com.pompeu.domain.Member;
+import com.pompeu.domain.LectureTime;
 
 @RestController
 @RequestMapping("/creatorLecture/")
@@ -34,66 +33,47 @@ public class CreatorLectureController {
 
   //크리에이터가 등록한 클래스 목록조회
   @RequestMapping("list")
-  public Object list(@AuthenticationPrincipal Member member) {
-    log.debug(member.toString());
-
-    //return new ResultMap().setStatus(SUCESS).setData(creatorLectureService.list(member.getNo()));
-    return creatorLectureService.list(member.getNo());
+  public Object list() { // 각자 역할에 따른 분리 - 웹기술은 컨트럴러 단에서만 처리 하도록 
+    //log.debug(member.toString());
+    int no=16;
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(no));
+    //return creatorLectureService.list(member.getNo());
   }
 
   //클래스 등록
   @RequestMapping("add")
-  public Object add(Lecture lecture, List<MultipartFile> files) {
+  public Object add(Lecture lecture, String[] time ,List<MultipartFile> file) {
 
-    ArrayList<LectureImage> imagesList = new ArrayList<>();
+    //강의 시간 데이터 가공
+    try {
+      ArrayList<LectureTime> timesList = new ArrayList<>();
+      for(int i= 0; i< time.length; i++) {
+        String[] value = time[i].split(",");
+        if(value[0].length() == 0) { //시작시간
+          continue;
+        } 
+        if(value[1].length() == 0) { //종료시간
+          continue;
+        }  
+        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
+        timesList.add(lectureTime);
+      }
+      lecture.setTimes(timesList);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }    
 
-
-    for (int i = 0; i < files.size(); i++) { 
-
+    //강의 이미지 데이터 가공 
+    ArrayList<String> fileList = new ArrayList<>();
+    for (int i = 0; i < file.size(); i++) { 
       try {
-        log.debug(files.size());
-        //log.debug(files.get(i));
-        log.debug(saveFile(files.get(0)));
-        String aFile = (String) saveFile(files.get(i));
-        LectureImage lectureImage = new LectureImage();
-        lectureImage.setImage(aFile);
-
-        //System.out.println(lectureImage.setImage(aFile));
-        //imagesList.add(lectureImage);
+        fileList.add(savePhoto(file.get(i)));
       } catch (Exception e) {
         e.printStackTrace();
       }
+      lecture.setImages(fileList);
     }
-
-
-
-
-    //    //강의 시간 데이터
-    //    try {
-    //
-    //     // lecture.setPhoto(saveFile(file))
-    //
-    //      ArrayList<LectureTime> timesList = new ArrayList<>();
-    //      for(int i= 0; i< time.length; i++) {
-    //        String[] value = time[i].split(",");
-    //        if(value[0].length() == 0) { //시작시간
-    //          continue;
-    //        } 
-    //        if(value[1].length() == 0) { //종료시간
-    //          continue;
-    //        }  
-    //        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
-    //        timesList.add(lectureTime);
-    //      }
-    //      lecture.setTimes(timesList);
-    //      lecture.setImages(saveFileMulti(files));
-    //
-    //    } catch (Exception e) {
-    //      e.printStackTrace();
-    //    } 
-    //return creatorLectureService.add(lecture);
-    return "리나"; 
-
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.add(lecture));
   }
 
   //클래스 상세보기
@@ -167,7 +147,7 @@ public class CreatorLectureController {
 
 
   //이미지파일 등록
-  private Object saveFile(MultipartFile file) throws Exception {
+  private String savePhoto(MultipartFile file) throws Exception {
 
     if (file != null && file.getSize() > 0) { 
 
@@ -184,7 +164,6 @@ public class CreatorLectureController {
 
       // 파일을 지정된 폴더에 저장한다.
       File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
-      log.debug(photoFile);
       file.transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
 
       return filename;
