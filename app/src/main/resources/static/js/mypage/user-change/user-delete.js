@@ -47,17 +47,18 @@ console.log(deleteText.innerHTML);
       .then(function(response) {
         return response.text();
       })
-      .then(function(text) {
-        console.log(text);
-    }).then(fetch("/userChange/deleteUserDetail"))
-      .then(function(response) {
-        return response.text2();
+      .then(function(result) {
+        console.log(result);
+        return fetch("/userChange/deleteUserDetail")
+    }).then(function(response) {
+        return response.text();
       })
       .then(function(result) {
         console.log(result);
-    }).then(
+        return (fetch("/user/logout"));
+    }).then(function() {
         window.location.href = "/user/main/user-main.html"
-      );
+      })
 	}
 
   MCBtn.onclick = function() {  
