@@ -97,7 +97,7 @@ public class UserLectureController {
   @RequestMapping("/userLecture/addAsk")
   public Object addAsk(Lecture lecture) {
     return userLectureService.addAsk(lecture);
-  }  
+  }
 
   @RequestMapping("/userLecture/addImage")
   public Object addImage(int no) {
@@ -107,7 +107,7 @@ public class UserLectureController {
   @RequestMapping("/userLecture/mapping")
   public Object mapping(int no) {
     return userLectureService.map(no);
-  }  
+  }
 
   @RequestMapping("/userLecture/siSep2")
   public Object siSep(int no) {
