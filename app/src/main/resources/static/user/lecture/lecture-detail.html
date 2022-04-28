@@ -141,7 +141,7 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each this}} 
   <label class="lecture-timeContainer">
-    <input type="radio" name="time" value="apple" id="btn-everything" data-no="{{lectureTimeNo}}">
+    <input type="radio" name="time" id="lectureTime" data-no="{{lectureTimeNo}}" onclick="registBtn(event);">
     <span>{{startDate}} ~ {{endDate}}<br>{{startTime}} ~ {{endTime}}</span>
   </label>
 {{/each}}
@@ -170,6 +170,13 @@
 {{/each}}
 </script>
 
+<script id="tr-template4" type="text/x-handlebars-template">
+{{#each this}} 
+  <div>
+    <div class="user" id="user-con">{{content}}</div>
+  </div>
+{{/each}}
+</script>
 
 
 <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
@@ -189,8 +196,8 @@ $("#footer").load("/form/user/footer.html");
 
 <script src="/node_modules/jquery/dist/jquery.min.js"></script><!-- 관련 js 파일들 -->
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
+<script src="/js/user/layout.js"></script> <!-- header footer -->
 <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="/js/user/layout.js"></script>// <!-- header footer -->
 <script src="/js/user/jquery.scrollUp.min.js"></script> <!-- 관련 js 파일들 -->
 <script src="/js/user/main.js"></script> <!-- 관련 js 파일들 -->
 <script src="/js/user/lectureDetail.js"></script>

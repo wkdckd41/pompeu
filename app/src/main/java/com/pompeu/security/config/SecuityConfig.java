@@ -132,7 +132,7 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .and()
     .sessionManagement()
     .maximumSessions(1) //같은 아이디로 1명만 로그인
-    .maxSessionsPreventsLogin(true) //false :신규 로그인은 허용, 기존 사용자는 세션 아웃  true: 이미 로그인 한경우 로그인 불가 
+    .maxSessionsPreventsLogin(false) //false :신규 로그인은 허용, 기존 사용자는 세션 아웃  true: 이미 로그인 한경우 로그인 불가 
     .expiredUrl("/user/login/login.html"); // 세션만료시 경로 
 
   }
@@ -154,7 +154,12 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
   public void configure(WebSecurity web) {
     //이미지,자바스크립트,css 디렉토리 보안 설정 
     web.ignoring().antMatchers("/resource/static/css/**",
+        "/css/**",
+        "/js/**",
+        "/form/**",
+        "/image/**",
         "/resource/static/user/js/**", "resource/img/**",
+        "resource/static/js/**",
         "/resource/static/form/**");    
   }
 

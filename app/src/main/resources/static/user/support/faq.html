@@ -2,18 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
     
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
-    <title>POMPEU!</title>
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/css/user_common.css" rel="stylesheet">
-  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-  
-  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
+   <title>POMPEU!</title>
+   <link rel="stylesheet" href="/css/user_common.css">
+   <link rel="stylesheet" href="/css/user/mypage.css">
+   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
    
 </head>
 
@@ -162,22 +160,12 @@
     </div><!-- /#wrapper -->
     </div>
     
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    
-    
-    <script>
-    $("#header").load("/form/user/header.html");
-    $("#footer").load("/form/user/footer.html");
-    $("#sidebar").load("/form/support/sidebar.html");
-    
-    
-    </script>
-
-    <script src="/user/support/faq.js"></script>
-
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/user/layout.js"></script>
+    <script src="/js/user/sidebar.js"></script>
+    <script src="/js/user/faq.js"></script>
+    <script>$("#sidebar").load("/form/support/sidebar.html");</script>
     
 
 </body>

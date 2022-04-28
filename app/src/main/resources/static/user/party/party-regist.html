@@ -5,14 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
-    <link href="/css/user_common.css" rel="stylesheet">
-    <link href="/user/css/user.css" rel="stylesheet">
-    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
 
     <title>POMPEU!</title>
+    
+  <link rel="stylesheet" href="/css/user_common.css">
+  <link rel="stylesheet" href="/css/user/user.css" >
+  <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+  
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>    
+    
   <style>
   table, th, td {
     border: 1px solid black;
@@ -94,7 +95,7 @@
   
             <div class="form-group row" id="party-fifle">
                 <div class="col-sm-10 col-xs-12">
-                    <input class="form-control" id="bfile" name="file" type="file" placeholder="이미지를 선택해주세요"/>
+                    <input class="form-control" id="x-file" name="file" type="file" placeholder="이미지를 선택해주세요"/>
                 </div>
             </div>
             
@@ -123,18 +124,13 @@
 {{/each}}
 </script>
 
+
+<script src="/node_modules/jquery/dist/jquery.min.js"></script><!-- 관련 js 파일들 -->
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script> <!-- 관련 js 파일들 -->
 <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="/js/user/layout.js"></script>// <!-- header footer -->
+<script src="/js/user/partyRegist.js"></script>
 
-<script src="/node_modules/jquery/dist/jquery.js"></script>-->
-<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<script>
-$("#header").load("/form/user/header.html");
-$("#footer").load("/form/user/footer.html");
-</script>
-
-<script src="partyRegist.js"></script>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

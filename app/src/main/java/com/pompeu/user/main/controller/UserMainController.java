@@ -8,6 +8,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.LectureLike;
@@ -56,12 +57,26 @@ public class UserMainController {
   //  }
 
   @RequestMapping("/userMain/topLecture")
-  public Object findTopLecture(int no) {
+  public Object findTopLecture(@AuthenticationPrincipal Member member) {
+    int no;
+
+    if (member != null) {
+      no = member.getNo();
+    } else {
+      no = 0;
+    }
     return userMainService.findTopLecture(no);
   }
 
   @RequestMapping("/userMain/newLecture")
-  public Object findNewLecture(int no) {
+  public Object findNewLecture(@AuthenticationPrincipal Member member) {
+    int no;
+
+    if (member != null) {
+      no = member.getNo();
+    } else {
+      no = 0;
+    }
     return userMainService.findNewLecture(no);
   }
 

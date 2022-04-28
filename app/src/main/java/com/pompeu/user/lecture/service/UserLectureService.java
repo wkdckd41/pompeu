@@ -3,12 +3,16 @@ package com.pompeu.user.lecture.service;
 import java.util.List;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.myLectureAsk;
+import com.pompeu.domain.myLectureList;
 
 public interface UserLectureService {
 
   List<Lecture> list();
 
-  int add(Lecture lecture);
+  int add(myLectureList mylecturelist);
+
+  int ask(myLectureAsk mylectureask);
 
   Lecture get(int no);
 
@@ -26,13 +30,13 @@ public interface UserLectureService {
 
   List<Lecture> userCon(int no);
 
+  List<Lecture> askCon(int no);
+
   List<Lecture> creator(int no);
 
   List<Lecture> regist(int no);
 
   List<Lecture> time(int no);
-
-  int addAsk(Lecture lecture);
 
   List<Lecture> img(int no);
 

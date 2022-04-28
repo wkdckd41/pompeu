@@ -5,14 +5,16 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureImage;
+import com.pompeu.domain.LectureList;
 import com.pompeu.domain.LectureTime;
+import com.pompeu.domain.Test;
 
 @Mapper
 public interface CreatorLectureDao {
 
   int countAll();
 
-  List<Lecture> findAll();
+  List<LectureList> findAllMyclass();
 
   int insert(Lecture lecture);
 
@@ -27,6 +29,8 @@ public interface CreatorLectureDao {
   int update(Lecture lecture);
 
   int delete(int no);
+
+  List<Test> test();
 
 }
 

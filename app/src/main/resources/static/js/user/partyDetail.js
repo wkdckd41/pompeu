@@ -1,0 +1,135 @@
+  
+  var arr = location.href.split("?");
+  // console.log(arr);
+
+  if (arr.length == 1) {
+    alert("요청 형식이 옳바르지 않습니다.")
+    throw "URL 형식 오류!";
+  }
+
+  var qs = arr[1];
+  // console.log(qs);
+
+  var params = new URLSearchParams(qs);
+  var no = params.get("no");
+
+  if (no == null) {
+    alert("게시글 번호가 없습니다.");
+    throw "파라미터 오류!";
+  }
+  console.log(no);
+  
+  var xTitle = document.querySelector("#x-title");
+  var xPartyContent = document.querySelector("#x-partyContent");
+  var xStartDate = document.querySelector("#x-startDate");
+  var xEndDate = document.querySelector("#x-endDate");
+  var xCrew = document.querySelector("#x-crew");
+  var xTag = document.querySelector("#x-tag");
+  var xNickname = document.querySelector("#x-nickname");
+  var xImage = document.querySelector("#x-image");
+ 
+  var xParty;
+  
+  fetch(`/userparty/get?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log("getparty");
+      console.log(result);
+      
+      xTitle.innerHTML = result[0].title;
+      xPartyContent.innerHTML = result[0].content;
+      xStartDate.innerHTML = result[0].startDate;
+      xEndDate.innerHTML = result[0].endDate;
+      xCrew.innerHTML = result[0].maxMember;
+      xTag.innerHTML = result[0].tag;
+      xNickname.innerHTML = result[0].nickname;
+      xImage.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="430px" height="300px">`;
+      
+      xParty = result[0].partyNo;
+    }) 
+    
+
+  // 지도 API 
+  var xAddress = document.querySelector(".x-address");
+     
+    fetch(`/userparty/mapping?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+     // console.log("map");
+     // console.log(result);
+
+    add = result[0].address;
+    xAddress.innerHTML = add;
+        
+  var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+      mapOption = {
+          center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+          level: 3 // 지도의 확대 레벨
+      };  
+  
+  // 지도를 생성합니다    
+  var map = new kakao.maps.Map(mapContainer, mapOption); 
+  
+  // 주소-좌표 변환 객체를 생성합니다
+  var geocoder = new kakao.maps.services.Geocoder();
+  
+  // 주소로 좌표를 검색합니다
+  geocoder.addressSearch(add, function(result, status) {
+  
+      // 정상적으로 검색이 완료됐으면 
+       if (status === kakao.maps.services.Status.OK) {
+  
+          var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+  
+          // 결과값으로 받은 위치를 마커로 표시합니다
+          var marker = new kakao.maps.Marker({
+              map: map,
+              position: coords
+          });
+  
+          // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+          map.setCenter(coords);
+      } 
+  });    
+})
+
+  // 지역 Tag
+  var xlocation = document.querySelector(".x-location");
+   
+     fetch(`/userparty/siSep?no=${no}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      // console.log("AAA");
+      // console.log(result);
+          
+    si = result[0].address
+    xlocation.innerHTML = si;
+     })
+
+   
+  // 소모임 참가
+  document.querySelector("#x-btn-regist").onclick = function() {
+    console.log("regist");
+    console.log(xParty);
+    
+    fetch(`/userparty/crewAdd?partyNo=${xParty}`)
+    .then(function(response) {
+      return response.json();
+    })
+    .then(function(result) {
+      console.log(result);
+      
+      // location.href = '/mypage/user-info/user-info3.html/'
+    });
+  };
+  
+
+
+
+

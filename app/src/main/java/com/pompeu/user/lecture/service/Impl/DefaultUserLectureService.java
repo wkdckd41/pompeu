@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.myLectureAsk;
+import com.pompeu.domain.myLectureList;
 import com.pompeu.user.lecture.dao.UserLectureDao;
 import com.pompeu.user.lecture.service.UserLectureService;
 
@@ -20,8 +22,13 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
-  public int add(Lecture lecture) {
-    return userLectureDao.insert(lecture);
+  public int add(myLectureList mylecturelist) {
+    return userLectureDao.insert(mylecturelist);
+  }
+
+  @Override
+  public int ask(myLectureAsk mylectureask) {
+    return userLectureDao.addAsk(mylectureask);
   }
 
   @Override
@@ -65,6 +72,11 @@ public class DefaultUserLectureService implements UserLectureService{
   }
 
   @Override
+  public List<Lecture> askCon(int no) {
+    return userLectureDao.askContent(no);
+  }
+
+  @Override
   public List<Lecture> creator(int no) {
     return userLectureDao.creatorPro(no);
   }
@@ -77,11 +89,6 @@ public class DefaultUserLectureService implements UserLectureService{
   @Override
   public List<Lecture> time(int no) {
     return userLectureDao.registTime(no);
-  }
-
-  @Override
-  public int addAsk(Lecture lecture) {
-    return userLectureDao.insertAsk(lecture);
   }
 
   @Override

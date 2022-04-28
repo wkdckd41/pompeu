@@ -10,9 +10,13 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.Member;
+import com.pompeu.domain.myLectureAsk;
+import com.pompeu.domain.myLectureList;
 import com.pompeu.user.lecture.service.UserLectureService;
 
 @RestController 
@@ -31,8 +35,21 @@ public class UserLectureController {
   }
 
   @RequestMapping("/userLecture/add")
-  public Object add(Lecture lecture) {
-    return userLectureService.add(lecture);
+  public Object add(myLectureList mylecturelist, @AuthenticationPrincipal Member member) {
+    log.info("lecture-add.....");
+    System.out.println(member.getNo());
+    mylecturelist.setUsersNo(member.getNo());
+    System.out.println("========");
+    return userLectureService.add(mylecturelist);
+  }
+
+  @RequestMapping("/userLecture/addAsk")
+  public Object addAsk(myLectureAsk mylectureask, @AuthenticationPrincipal Member member) {
+    log.info("lecture-add.....");
+    System.out.println(member.getNo());
+    mylectureask.setUsersNo(member.getNo());
+    System.out.println("========");
+    return userLectureService.ask(mylectureask);
   }
 
   @RequestMapping("/userLecture/get")
@@ -75,6 +92,12 @@ public class UserLectureController {
   @RequestMapping("/userLecture/userContent")
   public Object userContent(int no) {
     Object object = userLectureService.userCon(no);
+    return object;
+  }
+
+  @RequestMapping("/userLecture/askContent")
+  public Object askContent(int no) {
+    Object object = userLectureService.askCon(no);
     return object;
   }
 

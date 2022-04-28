@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.pompeu.creator.creatorChange.dao.CreatorChangeDao">
+
+  <resultMap type="memberType" id="memberTypeMap">
+    <id column="member_type_no" property="memberTypeNo"/>
+    <result column="member_type" property="memberType"/>
+  </resultMap>
+
+  <resultMap type="member" id="memberMap">
+    <id column="member_no" property="no"/>
+    <result column="member_type_no" property="memberTypeNo"/>
+    <result column="sns_no" property="snsNo"/>
+    <result column="join_date" property="joinDate"/>
+    <result column="name" property="name"/>
+    <result column="email" property="email"/>
+    <result column="phone" property="phone"/>
+    <result column="nickname" property="nickName"/>
+    <result column="use_check;" property="useCheck"/>    
+    <result column="login_date" property="loginDate"/>
+    <result column="modify_date" property="modifyDate"/>
+    <result column="admin_check" property="adminCheck"/>
+    <result column="password" property="password"/>
+    <result column="delete_type" property="deleteType"/>
+    <result column="delete_detail" property="deleteDetail"/>
+      <collection property="memberType" resultMap="memberTypeMap"/>
+  </resultMap>
+
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="no"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+    <result column="img" property="img"/>
+  </resultMap>
+
+  <resultMap type="creatorUpdate" id="creatorUpdateMap">
+    <id column="member_no" property="no"/>
+    <result column="name" property="name"/>
+    <result column="nickname" property="nickName"/>
+    <result column="email" property="email"/>
+    <result column="password" property="password"/>
+    <result column="phone" property="phone"/>
+    <result column="birth" property="birth"/>
+    <result column="img" property="img"/>
+  </resultMap>
+
+
+<!--
+  <resultMap type="creator" id="creatorMap">
+    <id column="creator_no" property="no"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
+  </resultMap>
+-->
+
+
+  <select id="countAll" resultType="int">
+    select count(*) from member
+  </select>
+  
+  <select id="findAll" resultMap="memberMap">
+    select 
+      member_no,
+      name,
+      email,
+      phone,
+      nickname,
+      login_date,
+      join_date
+    from 
+      member 
+    order by 
+      member_no asc
+  </select>
+  
+  <insert id="insert" parameterType="member">
+    insert into member(member_type_no, name,email,phone,nickname,use_check,join_date,modify_date,admin_check,password,birth,gender,sns_no) 
+    values(#{memberTypeNo},#{name},#{email},#{phone},#{nickName},#{useCheck},#{joinDate},#{modifyDate},#{adminCheck},#{password},#{birth},#{gender},#{snsNo})
+  </insert>
+  
+  <select id="findByNo" resultMap="memberMap" parameterType="int">
+    select  
+          mt.member_type                                        as member_type,
+          m.name                                                as name,
+          m.nickname                                            as nickname,
+          m.email                                               as email,
+          m.phone                                               as phone,
+               m.join_date                                           as join_date,
+               m.login_date                                          as login_date
+    from 
+          member  m
+          join member_type mt 
+                on m.member_type_no = mt.member_type_no 
+    where 
+      m.member_no=#{no}
+  </select>
+
+  <update id="update" parameterType="member">
+    update member set 
+        name=#{name},
+        email=#{email},
+        phone=#{phone},
+        nickname=#{nickName},
+        use_check=#{useCheck},
+        join_date=#{joinDate},
+        modify_date=#{modifyDate},
+        admin_check=#{adminCheck},
+        password=#{password},
+        birth=#{birth},
+        gender=#{gender},
+        sns_no=#{snsNo}
+    where 
+      member_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from member 
+    where member_no=#{no}
+  </delete>
+
+  <select id="getCreator" resultType="HashMap" parameterType="int">
+    select  
+					m.member_no                                           as no,
+          c.img                                                 as img,
+          m.name                                                as name,
+          m.nickname                                            as nickName,
+          m.email                                               as email,
+          m.phone                                               as phone
+    from 
+          member m
+          left outer join creator c 
+          on m.member_no = c.creator_no
+    where 
+      m.member_no=#{no}
+  </select>
+
+  <update id="updateCreator" parameterType="creatorUpdate">
+    update 
+			member as m,
+			creator as c
+   <trim prefix="SET" suffixOverrides=",">
+    <if test="name != ''">
+      m.name=#{name},
+    </if>
+    <if test="nickName != ''">
+      m.nickname=#{nickName},
+    </if>
+    <if test="email != ''">
+      m.email=#{email},
+    </if>
+    <if test="password != ''">
+      m.password=#{password},
+    </if>
+    <if test="phone != ''">
+      m.phone=#{phone},
+    </if>
+    <if test="img != null">
+      c.img=#{img},
+    </if>
+   </trim>
+    where 
+      m.member_no=#{no}
+			and c.creator_no=#{no}
+  </update>
+
+  <select id="checkNickname" parameterType="string" resultType="int">
+    select 
+			count(case when m.nickname = #{nickname} then 1 else null end)
+		from 
+			member as m
+  </select>
+
+  <update id="deleteCreator" parameterType="member">
+    update 
+			member as m
+	  set
+      m.use_check=2,
+      m.delete_type=#{deleteType},
+      m.delete_detail=#{deleteDetail}
+    where 
+      m.member_no=#{no}
+  </update>
+
+  <delete id="deleteCreatorDetail" parameterType="int">
+			DELETE FROM creator
+			WHERE creator_no =#{no}
+  </delete>
+
+
+</mapper>

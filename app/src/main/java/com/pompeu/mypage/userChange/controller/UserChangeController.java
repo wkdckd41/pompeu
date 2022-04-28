@@ -10,6 +10,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
@@ -54,16 +55,18 @@ public class UserChangeController {
   }
 
   @RequestMapping("/userChange/getUser")
-  public Object getUser(int no) {
+  public Object getUser(@AuthenticationPrincipal Member member) {
+    int no = member.getNo();
     Map<Object,Object> user = userChangeService.getUser(no);
     return user != null ? user : "";
   }
 
   @RequestMapping("/userChange/updateUser")
-  public Object updateUser(UserUpdate user, MultipartFile file) {
+  public Object updateUser(UserUpdate user, MultipartFile file, @AuthenticationPrincipal Member member) {
     try {
       user.setImage(saveFile(file));
       System.out.println(user.getImage());
+      user.setNo(member.getNo());
       return userChangeService.updateUser(user);
 
     } catch (Exception e) {
@@ -78,8 +81,9 @@ public class UserChangeController {
   }
 
   @RequestMapping("/userChange/deleteUser")
-  public Object deleteUser(Member member) {
+  public Object deleteUser(Member member, @AuthenticationPrincipal Member noBringer) {
     try {
+      member.setNo(noBringer.getNo());
       return userChangeService.deleteUser(member);
     } catch (Exception e) {
       e.printStackTrace();
@@ -88,7 +92,8 @@ public class UserChangeController {
   }
 
   @RequestMapping("/userChange/deleteUserDetail")
-  public Object deleteUserDetail(int no) {
+  public Object deleteUserDetail(@AuthenticationPrincipal Member member) {
+    int no = member.getNo();
     return userChangeService.deleteUserDetail(no);
   }
 
