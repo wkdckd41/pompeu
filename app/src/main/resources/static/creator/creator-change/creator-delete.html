@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    <title>Document</title>
+    <link href="/css/common.css" rel="stylesheet">
+    
+   <style type="text/css">
+   
+   #content {
+   margin-top: 100px;
+   margin-left: 50px;
+   }
+   
+   h2 {
+   font-weight: bold;
+   }
+   
+   p {
+   font-size:20px;
+   }
+   
+   #check-line {
+   margin-left: 150px;
+   }
+   
+   #user-delete-border {
+   width: 800px; 
+   height:400px; 
+   border:solid 1px black;
+   margin-bottom:30px;
+      font-size:20px;
+      border-radius:10px;
+   }
+   #radio-box {
+   margin-top:50px;
+      margin-left:50px;
+   }
+   
+   #user-delete-text {
+   width: 700px; 
+   height:250px; 
+   border:solid 1px black;
+   margin-top:30px;
+   margin-left:50px;
+   resize: none;
+   }
+   
+   #button-box {
+   margin-bottom:100px;
+   }
+   
+   #delete-btn, #cancel-btn {
+      width: 100px; 
+      height:50px; 
+      font-size:20px;
+      font-weight: bold;
+   }
+   
+      #delete-btn{
+      color: white;
+      background-color: #16A085;
+      margin-left:300px;
+   }
+   
+   /* modal start */
+   
+.modal{ 
+  position:absolute; width:100%; height:100%; top:0; left:0; display:none;
+}
+
+.modal_content{
+  width:350px; height:200px;
+  border:solid 1px black;
+  background:#fff; border-radius:10px;
+  position:relative; top:50%; left:50%;
+  margin-top:-100px; margin-left:-100px;
+  text-align:center;
+  box-sizing:border-box; padding:50px;
+  line-height:23px; cursor:pointer;
+  font-size:50px;
+  font-weight: bold;
+}
+
+   #modal-button-box {
+   margin-top:30px;
+   }
+   
+   #modal-delete-btn, #modal-cancel-btn {
+      width: 100px; 
+      height:50px; 
+      font-size:20px;
+      font-weight: bold;
+   }
+   
+    #modal-delete-btn{
+      color: white;
+      background-color: #16A085;
+   }
+   /* modal end */
+   
+   </style>
+    
+    
+    
+</head>
+<body>
+  <div class="container">
+  
+    <div id="wrapper">
+    
+        <!-- 헤더 & 사이드바 자리 시작 -->
+        <div id="header"></div>
+    <!-- 헤더 & 사이드바 자리 끝 -->
+    
+    <!-- 내용물 자리 시작 -->
+        <div id="page-wrapper"> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        
+        <div id="content">
+        
+        <h2>회원 탈퇴</h2><br>
+        
+        <h3> 회원탈퇴 신청 전 아래 사항을 확인 부탁드립니다 😊 </h3><br>
+
+        <p> 1. 신청일부터 5일 후 회원탈퇴가 처리되며, 회원탈퇴 처리 전까지 고객센터(@수정요@)에서 그 신청을 철회할 수 있습니다. </p> 
+        <p> 2. 회원탈퇴 후 기존 계정으로 회원가입을 신청할 수 없습니다.</p>
+        <p> 3. 배송/교환/반품 중인 상품이 있는 경우 신청할 수 없습니다.</p>
+        <p> 4. 회원탈퇴 시 수강권, 코칭권, 포인트, 캐시, 쿠폰 등 회원이 가진 권리는 모두 소멸합니다. <br>회원탈퇴 후 수강권, 코칭권, 캐시 등의 환불이 불가하므로 필요한 경우 탈퇴 전에 환불을 신청해주세요.</p>
+        <p> 5. 회원탈퇴 시 회사가 보관하고 있는 회원 데이터는 모두 영구적으로 삭제됩니다. <br>다만, 관련 법령에 따라 회사가 보관할 의무가 있는 정보 또는 자료는 일정기간 동안 보관됩니다.</p>
+        <p> 6. 회원탈퇴 후 폼프에 게시한 게시물을 편집하거나 삭제할 수 없습니다. <br>필요한 경우 신청 전 게시물을 편집하거나 삭제해주세요.</p><br>
+        
+        <p id="check-line">
+        <input type="checkbox" name="delete-really" value="sure" onclick="getCheckbox(event)" style="width:20px; height:20px;"> 
+        &nbsp;안내사항을 모두 확인하였으며, 이에 동의합니다.</p>
+        <div style="height:100px;"></div>
+        <h3> 폼프를 탈퇴하시는 이유를 알려주시면 보다 좋은 서비스 제공을 위해 <br>노력하겠습니다. 😊 </h3><br>
+        <div id="user-delete-border">
+          <div id="radio-box">
+            <input type='radio' name='delete-reason' onclick="getReason(event)" value=1 checked/>회원 탈퇴 후 재가입&nbsp;
+            <input type='radio' name='delete-reason' onclick="getReason(event)" value=2 />서비스 이용 안함&nbsp;
+            <input type='radio' name='delete-reason' onclick="getReason(event)" value=3 />혜택 부족&nbsp;
+            <input type='radio' name='delete-reason' onclick="getReason(event)" value=4 />서비스 이용 불편&nbsp;
+            <input type='radio' name='delete-reason' onclick="getReason(event)" value=5 />기타
+          </div>
+        <textarea id="user-delete-text" placeholder="여기에 내용을 입력해주세요"></textarea>
+        </div>
+        <div id="button-box">
+        <button id="delete-btn" type="button">탈퇴신청</button>&nbsp;
+        <button id="cancel-btn" type="button">취소</button>
+        </div>
+        
+
+         <div class="modal">
+           <div class="modal_content">
+             <p> 정말 탈퇴하시겠습니까?</p>
+              <div id="modal-button-box">
+                <button id="modal-delete-btn" type="button">네</button>&nbsp;
+                <button id="modal-cancel-btn" type="button">아니오</button>
+              </div>
+            </div>
+          </div>
+            
+          </div>
+            
+        </div> <!-- 이 안에 내용 넣기!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- /#page-wrapper --> 
+    <!-- 내용물 자리 끝 -->
+        
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/js/creator/layout.js"></script>
+<script src="/js/creator/creator-change/creator-delete.js"></script>
+    
+
+</body>
+</html>
