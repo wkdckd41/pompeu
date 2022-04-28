@@ -77,29 +77,26 @@
     <!-- 게시판 목록 -->
 	  <select id="findAll" resultType="HashMap">
 	      /*findAll*/
-	    select 
-	          p.party_no                            as party_no,
-	          p.name                                as name,
-	          mb.name                               as member_name,
-	          p.register_date                       as register_date,
-	          pc.status                             as status
-	    from 
-	         party as p
-	    join party_user as u 
-	          on p.party_no = u.party_no 
-	          and u.party_maker = '1'
-	    join member as mb 
-	          on u.users_no = mb.member_no 
-	    left outer join party_claim as pc 
-	          on p.party_no = pc.party_no 
-	     WHERE 
+        select 
+              p.party_no                            as party_no,
+              p.name                                as name,
+              mb.name                               as member_name,
+              p.register_date                       as register_date,
+              pc.status                             as status
+        from 
+             party as p
+        join member as mb 
+              on p.writer = mb.member_no 
+        left outer join party_claim as pc 
+              on p.party_no = pc.party_no 
+         WHERE 
 		    1=1
 		    <if test="searchType != null or searchType != ''">
 			    <if test="searchType == 'so'">
-			    and pc.status = '1' 
+			    and pc.status is NULL 
 			    </if>
 			    <if test="searchType == 'em'">
-			    and pc.status is NULL 
+			    and pc.status = '1' 
 			    </if>
 			 </if>
 			  
@@ -122,7 +119,7 @@
 			  </choose>
 			  -->
 	   order by
-	      p.party_no asc
+	      p.party_no desc
 	  </select>
   
     <!-- 게시판 등록 -->

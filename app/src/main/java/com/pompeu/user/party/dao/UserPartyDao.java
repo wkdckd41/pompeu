@@ -4,8 +4,10 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyClaim;
 import com.pompeu.domain.PartyIntro;
 import com.pompeu.domain.PartyUser;
+import com.pompeu.domain.PartyWishlist;
 
 
 @Mapper
@@ -37,6 +39,20 @@ public interface UserPartyDao {
    * @return
    */
   int crewInsert(PartyUser partyuser);
+
+  /**
+   * 소모임 찜하기
+   * @param parywishlist
+   * @return
+   */
+  int wishlistInsert(PartyWishlist parywishlist);
+
+  /**
+   * 소모임 신고
+   * @param partyclaim
+   * @return
+   */
+  int claimInsert(PartyClaim partyclaim);
 
   /**
    * 소모임 상세

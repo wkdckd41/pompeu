@@ -2,8 +2,10 @@ package com.pompeu.user.party.service;
 
 import java.util.List;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyClaim;
 import com.pompeu.domain.PartyIntro;
 import com.pompeu.domain.PartyUser;
+import com.pompeu.domain.PartyWishlist;
 
 public interface UserPartyService {
 
@@ -26,6 +28,20 @@ public interface UserPartyService {
    * @return
    */
   int crewAdd(PartyUser partyuser);
+
+  /**
+   * 소모임 찜하기
+   * @param parywishlist
+   * @return
+   */
+  int wishlistAdd(PartyWishlist parywishlist);
+
+  /**
+   * 소모임 신고
+   * @param partyclaim
+   * @return
+   */
+  int claimAdd(PartyClaim partyclaim);
 
   /**
    * 소모임 상세

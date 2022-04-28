@@ -19,7 +19,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.domain.Member;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyClaim;
 import com.pompeu.domain.PartyUser;
+import com.pompeu.domain.PartyWishlist;
 import com.pompeu.user.party.service.UserPartyService;
 
 @RestController 
@@ -80,6 +82,7 @@ public class UserPartyController {
    */
   @RequestMapping("/userparty/crewAdd")
   public Object crewAdd(PartyUser partyuser, @AuthenticationPrincipal Member member) {
+
     log.info("partyCrewAdd.....");
     partyuser.setUsersNo(member.getNo());
     System.out.println(member.getNo());
@@ -89,6 +92,46 @@ public class UserPartyController {
     System.out.println("--------");
     return userPartyService.crewAdd(partyuser);
   }
+
+  /**
+   * 소모임 찜하기
+   * @param partyuser
+   * @param member
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping("/userparty/wishlistAdd")
+  public Object wishlistAdd(PartyWishlist parywishlist, @AuthenticationPrincipal Member member) {
+
+    log.info("partyWishlist.....");
+    parywishlist.setUsersNo(member.getNo());
+    System.out.println(member.getNo());
+    System.out.println("========");
+    System.out.println("partyuser:"+parywishlist.getUsersNo());
+    System.out.println("partyno:"+parywishlist.getPartyNo());
+    System.out.println("--------");
+    return userPartyService.wishlistAdd(parywishlist);
+  }
+
+  /**
+   * 소모임 신고
+   * @param partyuser
+   * @param member
+   * @return
+   * @throws Exception
+   */
+  @RequestMapping("/userparty/claimAdd")
+  public Object claimAdd(PartyClaim partyclaim, @AuthenticationPrincipal Member member) {
+
+    log.info("partyClaimAdd.....");
+    partyclaim.setUsersNo(member.getNo());
+    System.out.println(member.getNo());
+    System.out.println("========");
+    System.out.println("partyuser:"+partyclaim.getUsersNo());
+    System.out.println("partyno:"+partyclaim.getPartyNo());
+    System.out.println("--------");
+    return userPartyService.claimAdd(partyclaim);
+  }  
 
   /**
    * 소모임 상세

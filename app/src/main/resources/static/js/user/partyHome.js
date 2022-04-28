@@ -39,7 +39,15 @@ function loadList() {
     .then(function(result) {
       console.log("AAA");
       console.log(result);
-      
+      for (var party of result) {
+        
+        var arr = [];
+         for (var i = 0; i < party.max_member; i++ ) {
+            arr.push(1);
+        }
+        party.members = arr;       
+      }
+      console.log(result);
       $("#party-index").html(htmlGenerator(result));
 
     });
@@ -50,13 +58,6 @@ function moveView(no) {
 }
 
 function moveRegist() {
+  
   location.href = 'party-regist.html'
-}
-
-
-function readImage() {
-  for (var i = 0;  i < `${maxMember}`; i++){
-    document.write("<img src="/user/party/img/crew.png/">");
-    //`<a><img src="/user/party/img/crew.png/" style="width:45px; height:45px;"/></a>`
-  }
 }
