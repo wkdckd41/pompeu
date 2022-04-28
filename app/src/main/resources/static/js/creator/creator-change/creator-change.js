@@ -26,9 +26,9 @@
       cEmail.placeholder = result.email;
       cPhone.placeholder = result.phone;
       
-      if (result.image != "") {
+      if (result.img != "") {
     	  cThumbNail.src = "/creatorChange/image?filename=" + result.img;
-      } else if (result.image == ""){
+      } else if (result.img == ""){
 				cThumbNail.src = "/creatorChange/image?filename=default.jpg";
 			}
     });
@@ -114,11 +114,11 @@
 				window.location.reload();
       });
   };
-/*
+
   DBtn.onclick = function() {
-	    window.location.href = "user-delete.html";
+	    window.location.href = "creator-delete.html";
 }
-*/
+
 
  function preView(tag){
       var reader = new FileReader();

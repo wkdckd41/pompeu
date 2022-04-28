@@ -1,6 +1,6 @@
 var deleteReally = 0;
 var deleteReason = 1;
-var deleteText= document.querySelector("#user-delete-text");
+var deleteText= document.querySelector("#creator-delete-text");
 
 var DBtn= document.querySelector("#delete-btn");
 var CBtn= document.querySelector("#cancel-btn");
@@ -39,7 +39,7 @@ console.log(deleteText.innerHTML);
 	}
 	
 	CBtn.onclick = function() {  
-	    window.location.href = "user-change.html";
+	    window.location.href = "creator-change.html";
 	}
 	
 	MDBtn.onclick = function() {  
@@ -47,17 +47,18 @@ console.log(deleteText.innerHTML);
       .then(function(response) {
         return response.text();
       })
-      .then(function(text) {
-        console.log(text);
-    }).then(fetch("/creatorChange/creatorUserDetail"))
-      .then(function(response) {
-        return response.text2();
+      .then(function(result) {
+        console.log(result);
+        return fetch("/creatorChange/deleteCreatorDetail")
+    }).then(function(response) {
+        return response.text();
       })
       .then(function(result) {
         console.log(result);
-    }).then(
+        return (fetch("/user/logout"));
+    }).then(function() {
         window.location.href = "/user/main/user-main.html"
-      );
+      })
 	}
 
   MCBtn.onclick = function() {  
