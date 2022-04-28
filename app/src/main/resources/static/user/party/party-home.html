@@ -101,13 +101,17 @@
 
 
 <script id="tr-template" type="text/x-handlebars-template">
-{{#each this}}
+{{#each this}}  
     <div class="party-box" onclick="moveView({{no}});">
       <div class="tag" id="x-tag">{{tag}}</div>
+      <div class="x-address-tag" id="x-address-tag">{{address}}</div><br>
       <div id="x-title" style="font-weight:bold; font-size:15px;">{{title}}</div>
       <hr  style="height:1px; border:none; color:#C0C0C0; background-color:#C0C0C0; margin-top:3px; margin-bottom:7px;" />
-      <div id="x-crew" hide="readImage()"></div>
-      <div class="x-address-tag" id="x-address-tag">{{address}}</div>
+      <div id="x-crew">
+        {{#each members}}
+          <img src="/user/party/img/img.png/" style="width:45px; height:45px; margin-top:10px;" />
+        {{/each}}
+      </div>
       <div class="x-date" id="x-date"><span>모집마감 : </span>{{end_date}}</div>
     </div>
 {{/each}}
@@ -116,7 +120,7 @@
 <script src="/node_modules/jquery/dist/jquery.min.js"></script><!-- 관련 js 파일들 -->
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script><!-- 관련 js 파일들 --> 
 <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
-<script src="/js/user/layout.js"></script>// <!-- header footer -->
+<script src="/js/user/layout.js"></script> <!-- header footer -->
 <script src="/js/user/partyHome.js"></script>
 
 </body>

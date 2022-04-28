@@ -103,18 +103,4 @@ public class DefaultUserService implements UserService{
     return userDao.deleteUser(email);
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

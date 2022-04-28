@@ -7,6 +7,11 @@
   var cPassword = document.querySelector("input[name=password]");
   var cPasswordCheck = document.querySelector("#passwordCheck");
   var cPhone = document.querySelector("input[name=phone]");
+  var cInfo = document.querySelector("input[name=info]");
+  var cBank = document.querySelector("input[name=bank]");
+  var cAccount = document.querySelector("input[name=account]");
+  
+  var cBankDefault = document.querySelector("#bank-input-default");
 
   var TBtn = document.querySelector("#thumbnail-file-button");
   var CBtn = document.querySelector("#check-btn");
@@ -25,10 +30,20 @@
       cNickName.placeholder = result.nickName;
       cEmail.placeholder = result.email;
       cPhone.placeholder = result.phone;
+      cInfo.placeholder = result.info;
       
-      if (result.image != "") {
+      console.log(cBankDefault);
+      
+      if (result.bank == "") {
+      cBankDefault.innerHTML = "값없음";
+      } else {        
+      cBankDefault.innerHTML = result.bank;
+      }
+      cAccount.placeholder = result.account;
+      
+      if (result.img != "") {
     	  cThumbNail.src = "/creatorChange/image?filename=" + result.img;
-      } else if (result.image == ""){
+      } else if (result.img == ""){
 				cThumbNail.src = "/creatorChange/image?filename=default.jpg";
 			}
     });
@@ -114,11 +129,11 @@
 				window.location.reload();
       });
   };
-/*
+
   DBtn.onclick = function() {
-	    window.location.href = "user-delete.html";
+	    window.location.href = "creator-delete.html";
 }
-*/
+
 
  function preView(tag){
       var reader = new FileReader();

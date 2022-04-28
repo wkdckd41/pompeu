@@ -46,6 +46,9 @@
     <result column="phone" property="phone"/>
     <result column="birth" property="birth"/>
     <result column="img" property="img"/>
+    <result column="info" property="info"/>
+    <result column="bank" property="bank"/>
+    <result column="account" property="account"/>
   </resultMap>
 
 
@@ -123,14 +126,17 @@
     where member_no=#{no}
   </delete>
 
-  <select id="getCreator" resultType="HashMap" parameterType="int">
+  <select id="getCreator" resultType="creatorUpdate" parameterType="int">
     select  
 					m.member_no                                           as no,
           c.img                                                 as img,
           m.name                                                as name,
           m.nickname                                            as nickName,
           m.email                                               as email,
-          m.phone                                               as phone
+          m.phone                                               as phone,
+          c.info                                                as info,
+          c.bank                                                as bank,
+          c.account                                             as account
     from 
           member m
           left outer join creator c 
@@ -162,6 +168,16 @@
     <if test="img != null">
       c.img=#{img},
     </if>
+    <if test="info != ''">
+      c.info=#{info},
+    </if>
+    <if test="bank != ''">
+      c.bank=#{bank},
+    </if>
+    <if test="account != ''">
+      c.account=#{account},
+    </if>
+    
    </trim>
     where 
       m.member_no=#{no}

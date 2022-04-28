@@ -29,6 +29,15 @@ div.page-header > h3{
   padding: 30px 70px;
   width: 100%;
 }
+
+.menu {
+  width: 30px;
+  height: 10px;
+  color: aqua;
+  background-color: red;
+  margin:5px;
+}
+
 </style>
 </head>
 
@@ -50,7 +59,7 @@ div.page-header > h3{
   <span class="menu">전체</span> 
   <span class="menu">클래스</span> 
   <span class="menu">개설요청</span>
-  <span class="menu">새 클래스등록</span>
+  <span class="new-class">새 클래스등록</span>
 </div>
 <div id="class-list">
  <table id="x-board-table" border="1">
@@ -63,6 +72,10 @@ div.page-header > h3{
   </tr>
 </thead>
 <tbody>
+  <th>제목</th>
+    <th>수업일시</th>
+    <th>진행상태</th>
+    <th>수강인원</th>
 </tbody>
 </table>
 </div>
@@ -82,30 +95,56 @@ div.page-header > h3{
 var tbody = document.querySelector("#x-board-table tbody")
 	 	 fetch("/creatorLecture/list")
     .then(function(response) {
-      var test= response.json();
-      console.log(test);
+      return response.json();
     })
     .then(function(result) {
-     /* if (result.status == "fail") {
+      if (result.status == "fail") {
         window.alert("서버 요청 오류!");
         console.log(result.data);
         return;
       }
-      
-      for (var board of result.data) {
+
+      for(lectureList of result.data){
+        console.log(lectureList);
         var tr = document.createElement("tr");
-        tr.innerHTML = `<td>${board.no}</td>
-        <td><a href="?content=/board/view.html&no=${board.no}">${board.title}</a></td>
-        <td>${board.writer.name}</td>
-        <td>${board.viewCount}</td>
-        <td>${board.createdDate}</td>`;
-        tbody.appendChild(tr);
-      }*/
+        tr.innerHTML = `<td>${lectureList.classTitle}</td>
+          <td><span class=startdate>${lectureList.startDate}</span>~<span class= enddate>${lectureList.endDate}</span></td>
+          <td>${lectureList.status}</td>
+          <td>${lectureList.maxMember}</td>`;
+  //   console.log(lectureList.times.length);
+
+  //   for (var i = 0; i <  lectureList.times.length; i++) {
+  //     console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
+
+              }        
+
     });
   
   
   
 /*
+
+   
+        for (var i = 0; i <  lectureList.times.length; i++) {
+          <td><span class=starttime>${lectureList.times[i].startTime}</span>~<span class=endtime>${lectureList.times[i].endTime}</span></td>
+         // console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
+         }
+ var tr = document.createElement("tr");
+      tr.innerHTML = `<td>${lectureList.classTitle}</td>
+        <td><span class=startdate>${lectureList.startDate}</span>~<span class= enddate>${lectureList.endDate}</span></td>
+       
+        for (var i = 0; i <  lectureList.times.length; i++) {
+          <td><span class=starttime>${lectureList.times[i].startTime}</span>~<span class=endtime>${lectureList.times[i].endTime}</span></td>
+         // console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
+         }
+       
+        <td>${lectureList.status}</td>
+        <td>${lectureList.maxMember}</td>`;
+        console.log(lectureList.times.length);
+
+        for (var i = 0; i <  lectureList.times.length; i++) {
+         console.log( i+1, lectureList.times[i].no, lectureList.times[i].startTime, lectureList.times[i].endTime);
+         }
 
 <h1>게시글</h1>
 <a href="?content=/board/form.html">새 게시글</a>
