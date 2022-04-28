@@ -1,5 +1,4 @@
-  
-  var arr = location.href.split("?");
+   var arr = location.href.split("?");
   // console.log(arr);
 
   if (arr.length == 1) {
@@ -38,6 +37,12 @@
       console.log("getparty");
       console.log(result);
       
+        
+          for (var i = 0; i < result.max_member; i++) {
+            
+          } 
+      console.log(result);
+      
       xTitle.innerHTML = result[0].title;
       xPartyContent.innerHTML = result[0].content;
       xStartDate.innerHTML = result[0].startDate;
@@ -46,6 +51,7 @@
       xTag.innerHTML = result[0].tag;
       xNickname.innerHTML = result[0].nickname;
       xImage.innerHTML = `<img src="/userparty/image?filename=${result[0].image}" width="430px" height="300px">`;
+      
       
       xParty = result[0].partyNo;
     }) 
@@ -118,18 +124,52 @@
     console.log("regist");
     console.log(xParty);
     
+    
     fetch(`/userparty/crewAdd?partyNo=${xParty}`)
     .then(function(response) {
-      return response.json();
+      return response.text();
     })
     .then(function(result) {
       console.log(result);
-      
-      // location.href = '/mypage/user-info/user-info3.html/'
+      if(result == "null"){
+        alert("로그인을 해주세요");
+              }else{
+     location.href = '/user/party/party-home.html/'
+        
+      }
     });
+  }; 
+    
+  // 소모임 찜하기
+  document.querySelector("#x-btn-zzim").onclick = function() {
+    console.log("wishlist");
+    console.log(xParty);
+    
+    
+    fetch(`/userparty/wishlistAdd?partyNo=${xParty}`)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(result) {
+      console.log(result);
+     //location.href = '/user/party/party-home.html/'
+     });
+  };
+    
+   // 소모임 신고하기
+  document.querySelector("#btn-claim").onclick = function() {
+    console.log("claim");
+    console.log(xParty);
+    
+    
+    fetch(`/userparty/claimAdd?partyNo=${xParty}`)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(result) {
+      console.log(result);
+        alert("신고 요청이 완료되었습니다.");
+    });           
   };
   
-
-
-
-
+  

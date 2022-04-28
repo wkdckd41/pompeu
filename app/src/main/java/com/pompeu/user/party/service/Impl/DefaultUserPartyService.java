@@ -5,8 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import com.pompeu.domain.Party;
+import com.pompeu.domain.PartyClaim;
 import com.pompeu.domain.PartyIntro;
 import com.pompeu.domain.PartyUser;
+import com.pompeu.domain.PartyWishlist;
 import com.pompeu.user.party.dao.UserPartyDao;
 import com.pompeu.user.party.service.UserPartyService;
 
@@ -43,6 +45,22 @@ public class DefaultUserPartyService implements UserPartyService{
   @Transactional
   public int crewAdd(PartyUser partyuser) {
     return userPartyDao.crewInsert(partyuser);
+  }
+
+  /**
+   * 소모임 찜하기
+   */
+  @Override
+  public int wishlistAdd(PartyWishlist parywishlist) {
+    return userPartyDao.wishlistInsert(parywishlist);
+  }
+
+  /**
+   * 소모임 신고
+   */
+  @Override
+  public int claimAdd(PartyClaim partyclaim) {
+    return userPartyDao.claimInsert(partyclaim);
   }
 
   /**
