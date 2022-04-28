@@ -14,6 +14,10 @@ body {
     font-weight: 400px;
 }
 
+.row {
+    margin-right: 0px; 
+    margin-left: -15px;
+}
 
 ul li {
     list-style: none;
@@ -505,7 +509,3 @@ a#scrollUp i {
     font-weight: 600;
 }
 
-.row {
-    margin-right: 0px; 
-    margin-left: -15px;
-}

@@ -117,11 +117,6 @@ public class UserLectureController {
     return userLectureService.time(no);
   }
 
-  @RequestMapping("/userLecture/addAsk")
-  public Object addAsk(Lecture lecture) {
-    return userLectureService.addAsk(lecture);
-  }
-
   @RequestMapping("/userLecture/addImage")
   public Object addImage(int no) {
     return userLectureService.img(no);
