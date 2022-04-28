@@ -142,6 +142,21 @@
         insert into party_user(users_no,party_no) 
         values(#{usersNo},#{partyNo})
       </insert>
+      
+    <!-- 소모임 찜하기 -->
+      <insert id="wishlistInsert" parameterType="party">
+      /*wishlistInsert*/
+        insert into party_wishlist(users_no,party_no) 
+        values(#{usersNo},#{partyNo})
+      </insert>  
+      
+    <!-- 소모임 신고 -->
+      <insert id="claimInsert" parameterType="party">
+      /*claimInsert*/
+        insert into party_claim(users_no,party_no) 
+        values(#{usersNo},#{partyNo})
+      </insert>  
+      
       	  
     <!-- 소모임 상세 -->
 	  <select id="findByNo" resultType="PartyIntro" parameterType="int">

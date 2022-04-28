@@ -85,7 +85,9 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .antMatchers("/user/user-join").permitAll()
     .antMatchers("/join/**").permitAll()
     .antMatchers("/*/login/**", "/login/auth/**").permitAll()
-    //    .antMatchers("/user/main/**").permitAll()
+    .antMatchers("/user/party/party-regist.html").hasRole("USER")
+    .antMatchers("/userparty/crewAdd").hasRole("USER")
+    //        .antMatchers("/user/main/**").permitAll()
     //    .antMatchers("/user/**").hasAnyRole("ADMIN", "CREATOR", "USER")
     .antMatchers("/creator/**").hasRole("CREATOR")
     .antMatchers("/admin/**").hasRole("ADMIN") // ROLE_ADMIN
