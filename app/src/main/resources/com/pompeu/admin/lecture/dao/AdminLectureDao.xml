@@ -26,22 +26,31 @@
     select count(*) from lecture
   </select>
   
-  <select id="findAll" resultMap="lectureMap">
-    select 
-      lecture_no,
-      creator_no,
-      name,
-      start_date,
-      end_date,
-      lecture_price,
-      register_date,
-      status
-    from 
-      lecture
-    order by 
-      lecture_no desc
+  <!--
+  
+  <select id="findAll" resultMap="">
+    select
+    c.creator_no creatorNo,
+    mem.name,
+    le.lecture_no  lectureNo,
+    le.name        classTitle,
+    le.start_date  startDate,
+    le.end_date    endDate,
+    le.status,
+    t.lecture_time_no no,
+    t.lecture_no,
+    t.start_time   startTime,
+    t.end_time     endTime,
+    t.max_member   maxMember,
+    t.no_member    membercount
+  from 
+    creator c 
+    join member mem on c.creator_no=mem.member_no
+    join lecture le on c.creator_no=le.creator_no
+    join lecture_time t on le.lecture_no=t.lecture_no 
   </select>
- 
+  
+ -->
   <select id="findByNo" resultMap="lectureMap" parameterType="int"> 
     select 
       lecture_no,
