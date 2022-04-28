@@ -102,7 +102,7 @@ function init() {
 
         param.set('memberTypeNo', str.substr(0, str.length - 1)); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
 
-        fetch("/notice/deleteAll", { // 컨트롤러고 가기위한 경로
+        fetch("/ask/deleteAll", { // 컨트롤러고 가기위한 경로
             method: "POST",
             body: param         // 파라미터 객체를 세팅해준다. 커트롤러로 고고!!
         }).then(function (response) {
@@ -110,7 +110,7 @@ function init() {
         })
             .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
                 if (result.status == "success") {
-                    location.href = "notice-list.html";
+                    location.href = "ask-list.html";
                 } else {
                     window.alert("게시글 변경 실패!");
                     console.log(result.data);

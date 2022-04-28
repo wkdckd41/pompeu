@@ -7,17 +7,18 @@ import com.pompeu.admin.lecture.service.AdminLectureService;
 import com.pompeu.domain.Lecture;
 
 @RestController
+@RequestMapping("/adminlecture/")
 public class AdminLectureController {
 
   @Autowired
   AdminLectureService adminlectureService;
 
-  @RequestMapping("/adminlecture/list")
+  @RequestMapping("list")
   public Object list() {
     return adminlectureService.list();
   }
 
-  @RequestMapping("/adminlecture/get")
+  @RequestMapping("get")
   public Object get(int no) {
     Lecture lecture = adminlectureService.get(no);
     if (lecture == null) {
@@ -26,7 +27,7 @@ public class AdminLectureController {
     return lecture;
   }
 
-  @RequestMapping("/adminlecture/update")
+  @RequestMapping("update")
   public Object update(Lecture lecture) {
     return adminlectureService.update(lecture);
   }
