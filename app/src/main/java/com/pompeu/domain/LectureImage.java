@@ -11,7 +11,7 @@ public class LectureImage {
 
   public LectureImage(){}
 
-  public LectureImage(String image, String randomName) {
+  public LectureImage(String image) {
     this.image= image;
   }
 
