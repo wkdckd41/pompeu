@@ -332,17 +332,17 @@ xCreatorBtn.addEventListener('click', (e) => {
 // })
 
 
-$("#passwordCheck").blur(function () {
-    if ($("#passwordCheck".val() == $("#password").val())) {
-        $(".successPwcheck").text("비밀번호가 일치합니다.");
-        $(".successPwcheck").css("color", "green");
-        $("#pwDoubleChk").val("true");
-    } else {
-        $(".successPwcheck").text("비밀번호가 일치하지 않습니다.");
-        $(".successPwcheck").css("color", "red");
-        $("#pwDoubleChk").val("false");
-    }
-})
+// $("#passwordCheck").blur(function () {
+//     if ($("#passwordCheck".val() == $("#password").val())) {
+//         $(".successPwcheck").text("비밀번호가 일치합니다.");
+//         $(".successPwcheck").css("color", "green");
+//         $("#pwDoubleChk").val("true");
+//     } else {
+//         $(".successPwcheck").text("비밀번호가 일치하지 않습니다.");
+//         $(".successPwcheck").css("color", "red");
+//         $("#pwDoubleChk").val("false");
+//     }
+// })
 
 
 
