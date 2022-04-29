@@ -46,14 +46,18 @@ public class PrincipalDetailService implements UserDetailsService {
     log.info("유저이메일 log...");
     System.out.println("email:" + email);
     Member member = userDao.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException(email + "not found"));
-    System.out.println( member.getNo());
-    member.setNo(userDao.findByMemberNo(email));
-    System.out.println("=======");
-    System.out.println(member.getNo());
-    return member;
-    //    return userDao.findByEmail(email).orElseThrow(() -> new UsernameNotFoundException((email + "not found")));
-  }
+    System.out.println(userDao.findUseCheck(email));
+    if (userDao.findUseCheck(email) == 2) {
+      return null; // 탈퇴회원 로그인불가
+    } else {
 
+      System.out.println( member.getNo());
+      member.setNo(userDao.findByMemberNo(email));
+      System.out.println("=======");
+      System.out.println(member.getNo());
+      return member;
+    }
+  }
 
 
 
