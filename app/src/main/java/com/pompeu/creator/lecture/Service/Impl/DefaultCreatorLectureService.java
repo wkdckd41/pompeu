@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.creator.lecture.controller.CreatorLectureController;
 import com.pompeu.creator.lecture.dao.CreatorLectureDao;
@@ -29,10 +30,12 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
 
   @Override
+  @Transactional 
   public int add(Lecture lecture) {
+    log.info("강좌등록");
     creatorLectureDao.insert(lecture);
     //creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
-    //creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
+    creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
     return 1;
   }
 

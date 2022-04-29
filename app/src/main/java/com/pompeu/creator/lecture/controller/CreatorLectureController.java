@@ -1,9 +1,12 @@
 package com.pompeu.creator.lecture.controller;
 
 
+import static com.pompeu.creator.lecture.controller.ResultMap.FAIL;
 import static com.pompeu.creator.lecture.controller.ResultMap.SUCCESS;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -34,16 +37,16 @@ public class CreatorLectureController {
   //크리에이터가 등록한 클래스 목록조회
   @RequestMapping("list")
   public Object list() { // 각자 역할에 따른 분리 - 웹기술은 컨트럴러 단에서만 처리 하도록 
-    //log.debug(member.toString());
     int no=16;
+    log.debug(creatorLectureService.list(no));
     return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(no));
     //return creatorLectureService.list(member.getNo());
   }
 
   //클래스 등록
   @RequestMapping("add")
-  public Object add(Lecture lecture, String[] time ,List<MultipartFile> file) {
-
+  public Object add(Lecture lecture , String[] time , List<MultipartFile> file) {
+    log.debug(lecture.toString()); 
     //강의 시간 데이터 가공
     try {
       ArrayList<LectureTime> timesList = new ArrayList<>();
@@ -57,24 +60,38 @@ public class CreatorLectureController {
         }  
         LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
         timesList.add(lectureTime);
-      }
+      } 
+      log.debug(timesList.toString()); 
       lecture.setTimes(timesList);
-    } catch (Exception e) {
-      e.printStackTrace();
+      log.info(SUCCESS);
+    } catch(Exception e) {
+      StringWriter out = new StringWriter();
+      e.printStackTrace(new PrintWriter(out));
+      log.error(out.toString());
+      log.info("시간등록실패");
     }    
 
     //강의 이미지 데이터 가공 
     ArrayList<String> fileList = new ArrayList<>();
-    for (int i = 0; i < file.size(); i++) { 
-      try {
+    try { 
+      for(int i = 0; i< file.size(); i++) { 
         fileList.add(savePhoto(file.get(i)));
-      } catch (Exception e) {
-        e.printStackTrace();
       }
       lecture.setImages(fileList);
-    }
-    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.add(lecture));
+      creatorLectureService.add(lecture);
+      log.info("사진등록성공");
+      return new ResultMap().setStatus(SUCCESS);
+
+    } catch (Exception e) {
+      StringWriter out = new StringWriter();
+      e.printStackTrace(new PrintWriter(out));
+      log.error(out.toString());
+      log.info("사진등록실패");
+
+      return new ResultMap().setStatus(FAIL);
+    } 
   }
+
 
   //클래스 상세보기
   @RequestMapping("get")

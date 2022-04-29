@@ -55,7 +55,15 @@
   
 
   </resultMap>
-  -->
+ 
+    <resultMap type="insertImages" id="insertImagesMap">
+    <id column="lecture_no" property="no"/>
+    <result column="contact_no" property="contactNo"/>
+    <result column="tt_no" property="telTypeNo"/>
+    <result column="tel" property="tel"/>
+  </resultMap>
+  
+ -->
 
   <select id="findAllMyclass" resultType="lectureList" parameterType="int">
     select
@@ -82,5 +90,27 @@
        order by register_date desc
       
   </select>
+  
+    <!-- 자동 증가된 PK 값을 받고 싶을 때! -->
+  <insert id="insert" parameterType="lecture" keyProperty="no" keyColumn="lecture_no" useGeneratedKeys="true">
+    insert into lecture(location_no,creator_no, ex_no, name, start_date, end_date,lecture_price,lecture_info, register_date,status,in_out_ex, address) 
+    values(#{locationNo},#{creatorNo}, #{exNo}, #{name}, #{startDate}, #{endDate},#{lecturePrice},#{lectureInfo}, #{registerDate},#{status},#{inOutEx}, #{address})
+  </insert>
+  
+    <insert id="insertImages">
+    insert into lecture_image(lecture_no,lecture_image_no, image)
+    values
+    <foreach collection="images" item="lectureImage" separator=",">
+      (#{lectureNo}, #{lectureImage.lectureImageNo}, #{lectureImage.images}) 
+    </foreach>
+  </insert>
+  
+    <insert id="insertTimes">
+    insert into lecture_times(lecture_no, lecture_time_no, image)
+    values
+    <foreach collection="times" item="lectureTime" separator=",">
+      (#{lectureNo}, #{lectureTime.lectureNo}, #{lectureTime.times}) 
+    </foreach>
+  </insert>
 
 </mapper>
