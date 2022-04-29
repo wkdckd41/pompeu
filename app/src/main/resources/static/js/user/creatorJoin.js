@@ -56,30 +56,30 @@ const xCreatorBtn = document.querySelector('.creator_submit');
 
 
 
-let nicknameCheck = nickNameBtn.addEventListener('click', function (e) {
-    e.stopPropagation();
-    fetch(`/user/nickcheck?nickname=${xNickName.value}`)
-        .then((response) => response.text())
-        .then((data) => {
-            console.log(data);
-            if (data == 'success') {
+// let nicknameCheck = nickNameBtn.addEventListener('click', function (e) {
+//     e.stopPropagation();
+//     fetch(`/user/nickcheck?nickname=${xNickName.value}`)
+//         .then((response) => response.text())
+//         .then((data) => {
+//             console.log(data);
+//             if (data == 'success') {
 
-                Swal.fire({
-                    icon: 'success',
-                    title: '사용가능한 닉네임입니다.',
-                });
-                nickNameBtn.value = 'Y';
-                $("#memberEmail").focus();
-            } else {
-                Swal.fire({
-                    icon: 'warning',
-                    title: '이미 사용중인 닉네임입니다.',
-                });
-                const input = xNickName.focus();
-            }
+//                 Swal.fire({
+//                     icon: 'success',
+//                     title: '사용가능한 닉네임입니다.',
+//                 });
+//                 nickNameBtn.value = 'Y';
+//                 $("#memberEmail").focus();
+//             } else {
+//                 Swal.fire({
+//                     icon: 'warning',
+//                     title: '이미 사용중인 닉네임입니다.',
+//                 });
+//                 const input = xNickName.focus();
+//             }
 
-        })
-});
+//         })
+// });
 
 emailBtn.addEventListener('click', function (e) {
 
@@ -128,7 +128,7 @@ emailBtn.addEventListener('click', function (e) {
 
 
 
-xBtn.addEventListener('click', (e) => {
+xCreatorBtn.addEventListener('click', (e) => {
     e.preventDefault();
     const emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
     const telRule = /^\d{2,3}-\d{3,4}-\d{4}$/;

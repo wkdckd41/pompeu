@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.filter.CorsFilter;
+import com.pompeu.security.CustomAccessdeniedHandler;
 import com.pompeu.security.CustomLoginFailureHandler;
 import com.pompeu.security.CustomLoginSuccessHandler;
 import lombok.RequiredArgsConstructor;
@@ -48,7 +49,8 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
   @Autowired
   CustomLoginFailureHandler failureHandler;
 
-
+  @Autowired
+  CustomAccessdeniedHandler accessdeniedHandler;
 
   //  @Bean
   //  @Override
@@ -85,6 +87,7 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .antMatchers("/user/user-join").permitAll()
     .antMatchers("/join/**").permitAll()
     .antMatchers("/*/login/**", "/login/auth/**").permitAll()
+    .antMatchers("/user/mypage/**").hasRole("USER")
     .antMatchers("/user/party/party-regist.html").hasRole("USER")
     .antMatchers("/userparty/crewAdd").hasRole("USER")
     //        .antMatchers("/user/main/**").permitAll()
@@ -92,13 +95,13 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .antMatchers("/creator/**").permitAll()
     //.antMatchers("/creator/**").hasRole("ADMIN")
     .antMatchers("/admin/**").hasRole("ADMIN") // ROLE_ADMIN
-//    .anyRequest().authenticated() // authenticated() 요청에대해 인증된사용자만 접근설정
+    //    .anyRequest().authenticated() // authenticated() 요청에대해 인증된사용자만 접근설정
 
     .and()
 
     .formLogin()
     //    .disable() // 폼기반 로그인 인증 허용x
-        .loginPage("/user/login/login.html")
+    .loginPage("/user/login/login.html")
     .loginProcessingUrl("/user/login") // login 주소 호출시 시큐리티가 진행
     .usernameParameter("email")
     .passwordParameter("password")
@@ -115,12 +118,12 @@ public class SecuityConfig extends WebSecurityConfigurerAdapter {
     .invalidateHttpSession(true) // 로그아웃시 세션초기화
     .logoutSuccessUrl("/user/main/user-main.html")
     //
-    //    .and()
+    .and()
     //
-    //    .exceptionHandling()  // ExceptionHandler 설정
-    //      .authenticationEntryPoint(new RestAuthenticationEntryPoint())
-    //    .accessDeniedPage("/access-denied")
-    //
+    .exceptionHandling()  // ExceptionHandler 설정
+    //              .authenticationEntryPoint(new RestAuthenticationEntryPoint())
+    //    .accessDeniedPage("/form/denied.html")
+    .accessDeniedHandler(accessdeniedHandler)    
     //
     //        .and()
     //    //

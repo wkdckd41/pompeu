@@ -35,6 +35,14 @@ span.join_title{
     text-align: center;
 }
 
+span.joinCreator_title{
+    font-size: 1.5em;
+    margin-top: -17px;
+    background-color: #ffffff;
+    width: 200px;
+    text-align: center;
+}
+
 div.join_name{
     margin-top: 30px;
 }
@@ -43,6 +51,10 @@ div.form_name{
     position: relative;
     left: 150px;
     display: flex;
+}
+
+div.join_password {
+    margin-bottom: 13px;
 }
 
 
@@ -82,11 +94,10 @@ input.input_password{
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    margin-bottom: 5px;
 }
 
 input.input_phone{
-    width: 210px;
+    width: 300px;
     height: 40px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -102,6 +113,17 @@ div.terms{
     border-top: 1px solid rgb(51, 51, 51);
     border-bottom: 1px solid rgb(51, 51, 51);
     color: rgb(51, 51, 51);
+}
+
+div.terms_item1{
+
+    position: relative;
+    right: 64px;
+    margin-top: 10px;
+}
+div.terms_item2{
+    position: relative;
+    right: 25px;
 }
 
 
@@ -146,4 +168,18 @@ button.btn_submit{
     font-size: 1.4em;
      color: #ffffff;
     background-color: #04CF5C;;
+}
+
+button.creator_submit{
+     width: 300px;
+    height: 40px;
+    border: 1px solid #04CF5C;
+     border-radius: 5px;
+    font-size: 1.4em;
+     color: #ffffff;
+    background-color: #04CF5C;;
+}
+
+em{
+    color: red;
 }
