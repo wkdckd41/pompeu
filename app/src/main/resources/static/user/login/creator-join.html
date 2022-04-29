@@ -6,88 +6,120 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
   <title>Home | POMPEU</title>
-  <!-- <link href="/template/mainheadfoot/css/prettyPhoto.css" rel="stylesheet"> -->
-  <!-- <link href="/template/mainheadfoot/css/price-range.css" rel="stylesheet"> -->
-  <!-- <link href="/template/mainheadfoot/css/animate.css" rel="stylesheet"> -->
-  <!-- <link href="css/responsive.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/user/login/userjoin.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <link rel="stylesheet" href="/css/user_common.css">
+  <link rel="stylesheet" href="/css/user/userjoin.css">
+  <script src="/node_modules/jquery/dist/jquery.min.js" defer></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
+  <script src="/js/user/layout.js" defer></script>
 </head>
 <!--/head-->
 
 <body>
 
-  <div class="main_container">
-    <div class="main_wrapper">
-      <div class="headers">
+  <div class="container">
+    <div class="wrapper">
+      <div id="header"> </div>
 
-      </div>
+
       <!-- 헤더 -->
 
-      <div class="page_wrapper">
-        <div class="join_wrapper">
-          <div class="user_join">
-            <div class="join_main">
-              <h2>간편 회원가입</h2>
-            </div>
-          </div>
-          <form name="join">
-            <div class="join_name">
-              <label for="name">이름</label>
-              <div class="join_name">
-                <input type="text" name="name" placeholder="홍길동" required="required">
-              </div>
-            </div>
-            <div class="join_nickname">
-              <label for="nickname">닉네임</label>
-              <div class="join_nickname">
-                <input type="text" name="nickName" placeholder="닉네임" required="required">
-                <button type="button">중복확인</button>
-              </div>
+      <div id="page-wrapper">
+        <div class="page_wrapper">
+
+          <div class="join_wrapper">
+            <div class="user_join">
+
+              <span class="joinCreator_title">
+                크리에이터 회원가입
+              </span>
 
             </div>
-            <div class="join_email">
-              <label for="email">이메일</label>
+            <form name="join" autocomplete="off">
+              <div class="join_name">
+                <div class="form_name">
+                  <em>*</em><label for="name">이름</label>
+                </div>
+                <div class="form_input">
+                  <input type="text" name="name" id="memberName" class="input_name" placeholder="이름을 입력하세요"
+                    required="required" autofocus>
+                </div>
+                <!-- 이름 -->
+              </div>
+              <div class="join_nickname">
+                <div class="form_name">
+                  <em>*</em> <label for="nickName">닉네임</label>
+                </div>
+                <div class="form_input">
+                  <input type="text" name="nickName" id="memberNickName" class="input_nickname" placeholder="닉네임을 입력하세요"
+                    required="required">
+                  <button type="button" class="btn_nickname">중복확인</button>
+                </div>
+              </div>
+              <!-- 닉네임 -->
               <div class="join_email">
-                <input type="email" name="email" placeholder="이메일을 입력해주세요" required="required">
-                <button type="button">중복확인</button>
+                <div class="form_name">
+                  <em>*</em> <label for="email">이메일</label>
+                </div>
+                <div class="form_input">
+                  <input type="email" name="email" id="memberEmail" class="input_email" placeholder="이메일을 입력하세요"
+                    required="required">
+                  <button type="button" class="btn_email" id="emailCheck">중복확인</button>
+                </div>
               </div>
-            </div>
-            <div class="join_password">
-              <label for="password">비밀번호</label>
+              <!-- 이메일 -->
               <div class="join_password">
-                <input type="password" name="password" placeholder="홍길동" required="required">
+                <div class="form_name">
+                  <em>*</em> <label for="password">비밀번호</label>
+                </div>
+                <div class="form_input">
+                  <input type="password" name="password" id="password" class="input_password" placeholder="비밀번호를 입력하세요"
+                    required="required">
+                </div>
+                <span class="point">※ 영문/숫자/특수문자 8자 이상으로 설정해주세요　</span>
               </div>
-            </div>
-            <div class="join_passwordcheck">
-              <label for="password_check">비밀번호 확인</label>
-              <div class="join_password">
-                <input type="password" placeholder="홍길동" required="required">
+              <!-- 비밀번호 -->
+              <div class="join_passwordcheck">
+                <div class="form_name">
+                  <label for="password_check">비밀번호 확인</label>
+                </div>
+                <div class="join_password">
+                  <input type="password" id="passwordCheck" placeholder="비밀번호 확인" class="input_password"
+                    required="required">
+                  <span class="point successPwcheck"></span>
+                  <input type="hidden" id="pwDoubleChk">
+                </div>
               </div>
-            </div>
-            <div class="join_phone">
-              <label for="phone">휴대폰 번호</label>
+              <!-- 비밀번호 체크 -->
               <div class="join_phone">
-                <input type="tel" name="phone" placeholder="010-xxxx-xxxx" required="required">
-                <button type="button">인증하기</button>
+                <div class="form_name">
+                  <em>*</em> <label for="phone">휴대폰 번호</label>
+                </div>
+                <div class="form_input">
+                  <input type="tel" name="phone" class="input_phone" placeholder="010-xxxx-xxxx" required="required">
+                </div>
               </div>
-            </div>
-            <div class="terms">
-              <div class="terms_item">
-                <input type="checkbox" name="terms">
-                <label for="terms">이용약관에 동의합니다.</label>
+              <!-- 휴대폰 번호 -->
+              <div class="terms">
+                <div class="terms_item1">
+                  <input type="checkbox" name="terms">
+                  <label for="terms">이용약관에 동의합니다.</label>
+                </div>
+                <!-- 이용약관 -->
+                <div class="terms_item2">
+                  <input type="checkbox" name="terms">
+                  <label for="terms">개인정보수집 및 이용에 동의합니다.</label>
+                </div>
+                <!-- 개인정보 -->
               </div>
-              <div class="terms_item">
-                <input type="checkbox" name="terms">
-                <label for="terms">개인정보수집 및 이용에 동의합니다.</label>
+              <div class="join_btn">
+                <button type="button" class="creator_submit">회원 가입</button>
               </div>
+            </form>
+            <div>
+              <!-- 회원가입 양식 -->
             </div>
-            <div class="join_btn">
-              <button type="button" class="join_btn">회원가입</button>
-            </div>
-          </form>
-          <div>
-            <!-- 회원가입 양식 -->
           </div>
         </div>
       </div>
@@ -99,22 +131,14 @@
     </div>
     <!-- 내용 -->
 
-    <div class="footers">
-
-    </div>
+    <div id="footer"> </div>
     <!-- 푸터 -->
   </div>
-  </div>
 
-  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
-  <script src="/user/js/layout.js"></script>
-  <script src="/user/login/userjoin.js"></script>
 
-  <!-- <script src="/user/js/main.js"></script> -->
-  <!-- <script src="js/jquery.scrollUp.min.js"></script> -->
-  <!-- <script src="js/price-range.js"></script> -->
-  <!-- <script src="js/jquery.prettyPhoto.js"></script> -->
+  <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+  <script src="/js/user/creatorJoin.js"></script>
 </body>
 
 </html>

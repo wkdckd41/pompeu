@@ -99,12 +99,14 @@ public class UserController {
   public String getLoginUser(@AuthenticationPrincipal Member member) {
     System.out.println(member.getNo());
     System.out.println(member.getEmail());
+
     if (member.getEmail() != null) {
       return "success";
     }
     return "fail";
-
-  }
+  } 
+  
+  
 
 
 

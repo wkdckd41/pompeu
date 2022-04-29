@@ -6,7 +6,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CustomAccessdeniedHandler implements AccessDeniedHandler {
 
   @Override
@@ -14,7 +16,7 @@ public class CustomAccessdeniedHandler implements AccessDeniedHandler {
       AccessDeniedException accessDeniedException) throws IOException, ServletException {
 
 
-    response.sendRedirect("/err/denied.html");
+    response.sendRedirect("/form/denied.html");
   }
 
 }
