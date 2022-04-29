@@ -2,55 +2,102 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
-    
-    <title>POMPEU!</title>
-  <link rel="stylesheet" href="/user/css/common.css">
-  <link href="/user/css/user.css" rel="stylesheet">
-  <link href="/css/user_common.css" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+
+  <title>POMPEU!</title>
+  <link rel="stylesheet" href="/css/user_common.css">
+  <link rel="stylesheet" href="/css/user/mypage.css">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-  
-  <link href="/form/mypage/css/mypage.css" rel="stylesheet">
-   
+
 </head>
+<style>
+  .page-wrapper {
+    margin-top: -300px;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  /* 상단 네비탭 */
+  .nav-tabs>li>a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    color: black;
+    font-weight: bold;
+  }
+
+  .content {
+    padding: 0 60px 0 60px;
+  }
+
+  .pagination>li>a {
+    background-color: white;
+    color: black;
+  }
+
+  .pagination>li>a:focus,
+  .pagination>li>a:hover,
+  .pagination>li>span:focus,
+  .pagination>li>span:hover {
+    color: #04CF5C;
+    background-color: #D3ECA7;
+    border-color: #ddd;
+  }
+
+  .pagination>.active>a {
+    color: white;
+    background-color: purple;
+    border: solid 1px purple;
+  }
+
+  .pagination>.active>a:hover {
+    background-color: purple;
+    border: solid 1px purple;
+  }
+</style>
+
 <body>
   <div class="container">
-    
 
-    
-    <div id="wrapper" >
-    
-        <!-- 헤더 자리 시작 -->
-        <div id="header"></div>
-         <!-- 헤더 자리 끝 -->
+    <div id="wrapper">
 
-        <div id="page-wrapper">
-        
-        <!-- 사이드바 자리 시작 -->
-        <div id="sidebar"></div>
-         <!-- 사이드바 자리 끝 -->
+      <!-- 헤더 자리 시작 -->
+      <div id="header"></div>
+      <!-- 헤더 자리 끝 -->
 
-   <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+      <div id="page-wrapper">
+
+        <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
         <div id="content">
-        
-            <h3>공지사항</h3>
-            <br><br>
+
+          <h3>공지사항</h3>
+          <hr><br><br>
+          <div>
+            <ul class="nav nav-tabs">
+              <li class="nav-item"><a class="nav-link active" aria-current="page"
+                  href="/user/support/notice-list.html">공지사항</a></li>
+              <li class="nav-item"><a class="nav-link" href="/user/support/faq.html">FAQ</a>
+              </li>
+            </ul>
 
             <table class="table table-hover">
-                <thead>
+              <thead>
                 <tr>
-                    <th scope="col">게시글 번호</th>
-                    <th scope="col">구분</th>
-                    <th scope="col">제목</th>
-                    <th scope="col">작성일자</th>
+                  <th scope="col">게시글 번호</th>
+                  <th scope="col">구분</th>
+                  <th scope="col">제목</th>
+                  <th scope="col">작성일자</th>
                 </tr>
-                </thead>
-                <tbody id="tbody1">
-                </tbody>
+              </thead>
+              <tbody id="tbody1">
+              </tbody>
 
             </table>
 
@@ -58,45 +105,38 @@
             <br>
             <br>
             <div class="text-center">
-                <nav aria-label="Page navigation example">
-                    <ul class="pagination">
-                        <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">4</a></li>
-                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                    </ul>
-                </nav>
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+              </nav>
             </div>
-          
+          </div>
         </div>
-    <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+        <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
 
-        </div>
-        <!-- /#page-wrapper --> 
+      </div>
+      <!-- /#page-wrapper -->
 
-        
-    <div id="footer"></div>
+
+      <div id="footer"></div>
     </div><!-- /#wrapper -->
-    </div>
-    
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  </div>
 
-    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-    
-    
-    <script>
-    $("#header").load("/form/user/header.html");
-    $("#footer").load("/form/user/footer.html");
-    $("#sidebar").load("/form/support/sidebar.html");
-    </script>
-    
-    <script src="/user/support/notice-list.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.js"></script>
+  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="/js/user/layout.js"></script>
+  <script src="/user/support/notice-list.js"></script>
 
-    
+
 
 </body>
+
 </html>

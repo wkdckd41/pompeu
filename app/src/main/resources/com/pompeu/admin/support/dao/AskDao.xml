@@ -89,11 +89,13 @@
         left outer join member_type mt
         on m.member_type_no = mt.member_type_no
   
-      where (a.ask_no in (select ask_no from ask where member_no #{memberNo}) 
+      where (a.ask_no in (select ask_no from ask where member_no = #{memberNo}) 
             or a.parents_ask_no in (select ask_no from ask where member_no = #{memberNo})) 
       order by (case when a.parents_ask_no is null then a.register_date else 
             (select register_date from ask where ask_no =a.parents_ask_no) end)
           , (case when parents_ask_no is null then 0 else 1 END) 
+          
+     
   </select>
   
   
@@ -101,6 +103,11 @@
   <insert id="insert" parameterType="ask">
     insert into ask(member_no,name,register_date,ask_content,answer_check) 
     values(#{memberNo},#{name},#{registerDate},#{askContent},#{answerCheck})
+  </insert>
+  
+    <insert id="userInsert" parameterType="ask">
+    insert into ask(member_no,ask_name,register_date,ask_content,answer_check) 
+    values(#{memberNo},#{askName},#{registerDate},#{askContent},#{answerCheck})
   </insert>
 
   <!--일반회원 1:1 문의상세 -->

@@ -1,29 +1,26 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+
     <title>POMPEU!</title>
-    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <!--부트스트랩  👈 -->
+    <link rel="stylesheet" href="/user/css/common.css">
+    <link href="/user/css/user.css" rel="stylesheet">
+    <link href="/css/user_common.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
+    <link href="/form/mypage/css/mypage.css" rel="stylesheet">
 </head>
 <style>
-  .content {
-    padding: 0px 60px 0 60px;
-  }
-
-  a {
-    color: white;
-  }
-
-  #x-content{
-    padding:10px;
-    overflow: auto;
-    white-space: pre-wrap;
-} 
-
+    pre {
+        max-height: 500px;
+        background-color: #D3ECA7;
+    }
 </style>
 
 <body>
@@ -68,11 +65,8 @@
                 <div class="form-group row">
                     <div class="col-lg-12 col-sm-12 text-lg-end text-center">
                         <div class="col-lg-12 col-sm-12 text-lg-end text-right">
-                            <button type="button" class="btn" id="btnModify"
-                                    name="btnModify">수정
-                            </button>
-                            <button type="button" class="btn" id="btnCancel"
-                                    name="btnCancel">취소
+                            <button type="button" class="btn btn-success" id="btnCancel"
+                                    name="btnCancel">목록
                             </button>
                         </div>
                     </div>
@@ -84,15 +78,11 @@
 </div>
 <!-- /main-container 전체 😃🤣😄 -->
 
-<!-- 밑에 3개적용 😊😊😊  -->
-<script src="/node_modules/jquery/dist/jquery.min.js"></script>
-<!-- 제이쿼리     1️⃣-->
+<script src="/node_modules/jquery/dist/jquery.js"></script>
 <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<!-- 부트스트랩   2️⃣-->
-<!--<script src="/admin/js/header.js"></script>!-->
-<script src="/js/admin/layout.js"></script>
-<!-- 😊 헤더 👈 3️⃣ -->
-<!-- 자바스크립트-->
-<script src="/js/admin/support/notice-view.js"></script>
+<script src="/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="/js/user/layout.js"></script>
+<script src="/user/support/notice-viewcopy.js"></script>
+
 
 </body>

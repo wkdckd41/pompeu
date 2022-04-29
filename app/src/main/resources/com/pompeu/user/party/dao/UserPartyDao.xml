@@ -167,6 +167,8 @@
                   p.content               as content,
                   p.start_date            as startDate,
                   p.end_date              as endDate,
+            (select count(*) from party_user as pu
+                where pu.party_no=partyNo)                 as curMember,
                   p.max_member            as maxMember,
                   p.image                 as image,
                   tn.tag                  as tag,

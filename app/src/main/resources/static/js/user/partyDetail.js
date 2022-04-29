@@ -26,7 +26,7 @@
   var xTag = document.querySelector("#x-tag");
   var xNickname = document.querySelector("#x-nickname");
   var xImage = document.querySelector("#x-image");
- 
+  var xCur = document.querySelector("#x-cur");
   var xParty;
   
   fetch(`/userparty/get?no=${no}`)
@@ -37,16 +37,11 @@
       console.log("getparty");
       console.log(result);
       
-        
-          for (var i = 0; i < result.max_member; i++) {
-            
-          } 
-      console.log(result);
-      
       xTitle.innerHTML = result[0].title;
       xPartyContent.innerHTML = result[0].content;
       xStartDate.innerHTML = result[0].startDate;
       xEndDate.innerHTML = result[0].endDate;
+      xCur.innerHTML = result[0].curMember;
       xCrew.innerHTML = result[0].maxMember;
       xTag.innerHTML = result[0].tag;
       xNickname.innerHTML = result[0].nickname;
@@ -139,11 +134,22 @@
       }
     });
   }; 
+  
+  var zzimCheck = 0;
+  var xHeart = document.querySelector("#x-heart");
     
   // 소모임 찜하기
   document.querySelector("#x-btn-zzim").onclick = function() {
     console.log("wishlist");
     console.log(xParty);
+    
+    if (zzimCheck == 0) {
+      xHeart.style.color = "red";
+      zzimCheck = 1;
+    } else if (zzimCheck == 1) {
+      xHeart.style.color = "black";
+      zzimCheck = 0;
+    }
     
     
     fetch(`/userparty/wishlistAdd?partyNo=${xParty}`)
@@ -154,6 +160,7 @@
       console.log(result);
      //location.href = '/user/party/party-home.html/'
      });
+     
   };
     
    // 소모임 신고하기

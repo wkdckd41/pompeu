@@ -11,6 +11,7 @@ public class PartyIntro {
   private String content;
   private Date startDate;
   private Date endDate;
+  private int curMember;
   private int maxMember;
   private String tag;
   private String nickname;

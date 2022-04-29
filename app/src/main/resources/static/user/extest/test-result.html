@@ -10,7 +10,7 @@
     
     
     
-    <title>테스트 과정 화면</title>
+    <title>테스트 결과 화면</title>
   <link rel="stylesheet" href="/user/css/common.css">
   <link href="/user/css/user.css" rel="stylesheet">
   <link href="/css/user_common.css" rel="stylesheet">
@@ -26,7 +26,7 @@
     
       #test-box {
         position : relative;
-        height : 1400px;
+        height : 1650px;
         background-color: #8ee3f6;
         margin-bottom: 50px;
       }
@@ -58,42 +58,106 @@
       border-bottom: 2px solid black;
     }
     
-    #test-question {
+    #test-msg {
       position : absolute;
-      margin-top : 400px ;
+      margin-top : 300px ;
       margin-left : 230px;
       
+      padding-top : 50px;
+      
       width: 670px;
+      height: 150px;
+      
+      background-color: #ffea5b;
+      color: black;
+      text-align:center;
+      font-size:35px;
+      font-family: "Verdana";
+      font-weight: bold;
+    }
+        
+    #test-select-box {
+      position : absolute;
+      margin-top : 480px ;
+      margin-left : 270px;
+      
+      width: 580px;
       
       text-align:center;
       font-size: 30px;
       font-family: "Verdana";
+      
+      display: flex;
+      justify-content: space-between;
     }
     
-     #test-answer-1 {
-      margin-top : 700px ;
-      margin-left : 250px;
-      width: 600px;
-      height:150px;
-      background-color: #ffea5b;
-      font-size: 30px;
-      font-family: "Verdana";
-      color: #ff3b8b;
-      border : 2px solid black;
+     .test-select-btn {
+     
+     padding : 20px;
+     
+     border : 1px solid black;
+     
+     background-color: black;
+     color: #ff3b8b;
     }
     
-      #test-answer-2 {
-      margin-top : 50px ;
-      margin-left : 250px;
-      width: 600px;
-      height:150px;
-      background-color: #ffea5b;
+    #test-result-box {
+      position :absolute;
+      margin-top : 610px ;
+      margin-left : 230px;
+      
+      width: 670px;
+      height : 800px;
+      
+      text-align:center;
       font-size: 30px;
       font-family: "Verdana";
-      color: #ff3b8b;
-      border : 2px solid black;
-    }
+      
+      background-color: #fffce8;
 
+    }
+    
+     #test-result-title {
+      margin : 30px 0;
+      
+      font-size: 40px;
+      font-family: "Verdana";
+      font-weight: bold;
+    }
+    
+      #test-result-img {
+      margin-bottom : 30px;
+
+    }
+    
+     #test-result-detail {
+      margin-bottom : 30px;
+      text-align:left;
+      font-size: 25px;
+      font-family: "Verdana";
+
+    }
+    
+    #test-result-detail li{
+      margin : 20px 70px;
+      list-style-type: square;
+    }
+    
+    
+    
+     #test-gogo {
+      margin-top : 1450px ;
+      margin-left : 250px;
+      width: 630px;
+      height:150px;
+      background-color: black;
+      font-size: 40px;
+      font-family: "Verdana";
+      font-weight: bold;
+      color: white;
+      border : 2px solid black;
+    }
+    
     </style>
     
     
@@ -119,16 +183,34 @@
           </div>
           
           <div id="test-process">
-          1/12
+          테스트 완료
           </div>
           
-          <div id="test-question">
-          집 앞에 도착하니 여러 사람들이 비명을 지르며 도망치고 있다. 당신은?
+          <div id="test-msg">
+           당신께 추천드리는 운동은...?
           </div>
           
-          <button id="test-answer-1">이불아는 위험해. 사람들을 따라 도망친다</button>
+          <div id="test-select-box">
           
-          <button id="test-answer-2">이불바끈 위험해. 집으로 들어간다</button>
+          <button class="test-select-btn" id="test-select-btn-1">스케이트보드</button>
+          <button class="test-select-btn" id="test-select-btn-2">산악자전거</button>
+          <button class="test-select-btn" id="test-select-btn-3">서핑</button>
+          
+          </div>
+          
+          <div id="test-result-box">
+            <p id="test-result-title"> 스케이트보드 </p>
+            <img id="test-result-img" src="/user/extest/image/boardriding.jpg" style="width:400px; height:300px;">
+            <ul id="test-result-detail">   
+              <li>평평하고 넓은 공간이 있다면 어디서든지 탈 수 있어요</li>
+              <li>롱보드, 스케이트보드, 크루저보드 등 여러 형태로 즐길 수 있어요</li>
+              <li>숙달되면 여러 트릭들을 구사할 수 있어요</li>
+            </ul>
+          
+          
+          </div>
+          
+          <button id="test-gogo"> 추천받은 운동 보러가기 > </button>
           
           </div>
           
@@ -157,7 +239,7 @@
     location.href = '/user/lecture/lecture-detail.html?no='+event.currentTarget.dataset.value;
     }
     </script>
-    <script src="/user/extest/test-process.js"></script>
+    <script src="/user/extest/test-result.js"></script>
 
 
 </body>
