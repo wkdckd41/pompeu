@@ -1,9 +1,11 @@
 package com.pompeu.creator.lecture.controller;
 
 
-import static com.pompeu.creator.lecture.controller.ResultMap.SUCCESS;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.UUID;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.LectureImage;
 import com.pompeu.domain.Member;
 
 @RestController
@@ -34,21 +37,36 @@ public class CreatorLectureController {
   public Object list(@AuthenticationPrincipal Member member) {
     log.debug(member.toString());
 
-    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(member.getNo()));
+    //return new ResultMap().setStatus(SUCESS).setData(creatorLectureService.list(member.getNo()));
+    return creatorLectureService.list(member.getNo());
   }
 
   //클래스 등록
   @RequestMapping("add")
-  public void add(/*Lecture lecture, String[] time, MultipartFile files*/) {
-    //    log.debug(files.toString());
-    //    System.out.println("하하핳");
-    //    try { saveFile(files);
-    //
-    //    } catch (Exception e) {
-    //      e.getStackTrace();
-    //    }
-    //log.debug(lecture.toString());
-    // creatorLectureService.add(lecture);
+  public Object add(Lecture lecture, List<MultipartFile> files) {
+
+    ArrayList<LectureImage> imagesList = new ArrayList<>();
+
+
+    for (int i = 0; i < files.size(); i++) { 
+
+      try {
+        log.debug(files.size());
+        //log.debug(files.get(i));
+        log.debug(saveFile(files.get(0)));
+        String aFile = (String) saveFile(files.get(i));
+        LectureImage lectureImage = new LectureImage();
+        lectureImage.setImage(aFile);
+
+        //System.out.println(lectureImage.setImage(aFile));
+        //imagesList.add(lectureImage);
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+
+
+
 
     //    //강의 시간 데이터
     //    try {
@@ -73,7 +91,8 @@ public class CreatorLectureController {
     //    } catch (Exception e) {
     //      e.printStackTrace();
     //    } 
-    //    return creatorLectureService.add(lecture);
+    //return creatorLectureService.add(lecture);
+    return "리나"; 
 
   }
 
@@ -148,33 +167,30 @@ public class CreatorLectureController {
 
 
   //이미지파일 등록
-  private Object saveFile(MultipartFile files) throws Exception {
-    log.info("호출되었음");
-    log.debug(files);
-    //    List<LectureImage> list = new ArrayList<LectureImage>();
-    //    for(int i=0; i<files.size(); i++) {
-    //
-    //      if (files.get(i) != null && files.get(i).getSize() > 0) { 
-    //        // 파일을 저장할 때 사용할 파일명을 준비한다.
-    //        String filename = UUID.randomUUID().toString();
-    //
-    //        // 파일명의 확장자를 알아낸다.
-    //        int dotIndex = files.get(i).getOriginalFilename().lastIndexOf(".");
-    //        if (dotIndex != -1) {
-    //          filename += files.get(i).getOriginalFilename().substring(dotIndex);
-    //        }
-    //
-    //        // 파일을 지정된 폴더에 저장한다.
-    //        File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
-    //        files.get(i).transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
-    //
-    //        LectureImage filenames = new LectureImage(files.get(i).getOriginalFilename(), filename);
-    //        list.add(filenames);
-    //      }
-    //    } 
-    //    log.debug(list.toString());
-    //    return list;
-    return "1";
+  private Object saveFile(MultipartFile file) throws Exception {
 
+    if (file != null && file.getSize() > 0) { 
+
+      // 파일을 저장할 때 사용할 파일명을 준비한다.
+      String filename = UUID.randomUUID().toString();
+      log.debug(filename);
+
+      // 파일명의 확장자를 알아낸다.
+      int dotIndex = file.getOriginalFilename().lastIndexOf(".");
+      if (dotIndex != -1) {
+
+        filename += file.getOriginalFilename().substring(dotIndex);
+      }
+
+      // 파일을 지정된 폴더에 저장한다.
+      File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
+      log.debug(photoFile);
+      file.transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
+
+      return filename;
+
+    } else {
+      return null;
+    }
   }
 }

@@ -262,9 +262,9 @@
       le.lecture_no=#{no}
   </select>
   
-  <select id="askContent" resultType="HashMap">
+  <select id="creatorContent" resultType="CreatorContent"  parameterType="int">
     select  
-          ma.ask_content                                            as content
+          ma.ask_content                                            as askContent
     from 
           mylecture_ask as ma
     join lecture as le

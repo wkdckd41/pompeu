@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    
+    
+    <title>테스트 결과 화면</title>
+  <link rel="stylesheet" href="/user/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+   
+   <!-- flexslider -->
+  <link rel="stylesheet" href="/css/user/main/flexslider/flexslider.css" type="text/css" media="screen" /> 
+    
+   <!-- swiper -->
+  <link rel="stylesheet" href="/css/user/main/swiper/swiper-bundle.min.css"/>
+    
+    <style>
+    
+      #test-box {
+        position : relative;
+        height : 1650px;
+        background-color: #8ee3f6;
+        margin-bottom: 50px;
+      }
+      
+      #test-title {
+        position : absolute;
+        margin : 100px 240px;
+        font-size : 60px;
+        font-family: "Verdana";
+        font-weight: bold;
+        color:white;
+        text-shadow:3px 3px 3px #000;
+      }
+      
+      #test-title-second {
+        color:#ffea5b;
+      }
+    
+    #test-process {
+      position : absolute;
+      margin-top : 200px ;
+      margin-left : 230px;
+      
+      width: 670px;
+      
+      text-align:right;
+      font-size: 30px;
+      font-family: "Verdana";
+      border-bottom: 2px solid black;
+    }
+    
+    #test-msg {
+      position : absolute;
+      margin-top : 300px ;
+      margin-left : 230px;
+      
+      padding-top : 50px;
+      
+      width: 670px;
+      height: 150px;
+      
+      background-color: #ffea5b;
+      color: black;
+      text-align:center;
+      font-size:35px;
+      font-family: "Verdana";
+      font-weight: bold;
+    }
+        
+    #test-select-box {
+      position : absolute;
+      margin-top : 480px ;
+      margin-left : 270px;
+      
+      width: 580px;
+      
+      text-align:center;
+      font-size: 30px;
+      font-family: "Verdana";
+      
+      display: flex;
+      justify-content: space-between;
+    }
+    
+     .test-select-btn {
+     
+     padding : 20px;
+     
+     border : 1px solid black;
+     
+     background-color: black;
+     color: #ff3b8b;
+    }
+    
+    #test-result-box {
+      position :absolute;
+      margin-top : 610px ;
+      margin-left : 230px;
+      
+      width: 670px;
+      height : 800px;
+      
+      text-align:center;
+      font-size: 30px;
+      font-family: "Verdana";
+      
+      background-color: #fffce8;
+
+    }
+    
+     #test-result-title {
+      margin : 30px 0;
+      
+      font-size: 40px;
+      font-family: "Verdana";
+      font-weight: bold;
+    }
+    
+      #test-result-img {
+      margin-bottom : 30px;
+
+    }
+    
+     #test-result-detail {
+      margin-bottom : 30px;
+      
+      font-size: 30px;
+      font-family: "Verdana";
+
+    }
+    
+    #test-result-detail li{
+      margin : 20px 70px;
+      list-style-type: square;
+    }
+    
+    
+    
+     #test-gogo {
+      margin-top : 1450px ;
+      margin-left : 250px;
+      width: 630px;
+      height:150px;
+      background-color: black;
+      font-size: 40px;
+      font-family: "Verdana";
+      font-weight: bold;
+      color: white;
+      border : 2px solid black;
+    }
+    
+    </style>
+    
+    
+</head>
+<body>
+  <div class="container">
+  
+    <div id="wrapper">
+    
+        <!-- 헤더 & 사이드바 자리 시작 -->
+        <div id="header"></div>
+    <!-- 헤더 & 사이드바 자리 끝 -->
+    
+    <!-- 내용물 자리 시작 -->
+        <div id="page-wrapper"> <!-- 이 안에 때려박으세영!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+          
+          <div id="test-box">
+          
+          <div id="test-title">
+          <span id="test-title-first"> 나의&nbsp; </span>
+          <span id="test-title-second"> 운동 성향 </span>
+          <span id="test-title-third"> &nbsp;테스트 </span>
+          </div>
+          
+          <div id="test-process">
+          테스트 완료
+          </div>
+          
+          <div id="test-msg">
+           당신께 추천드리는 운동은...?
+          </div>
+          
+          <div id="test-select-box">
+          
+          <button class="test-select-btn" id="test-select-btn-1">1번운동</button>
+          <button class="test-select-btn" id="test-select-btn-2">2번운동</button>
+          <button class="test-select-btn" id="test-select-btn-3">3번운동</button>
+          
+          </div>
+          
+          <div id="test-result-box">
+            <p id="test-result-title"> 스케이트보드 </p>
+            <img id="test-result-img" src="/user/extest/image/boardriding.jpg" style="width:400px; height:300px;">
+            <ul id="test-result-detail">   
+              <li>대충 스케이트 첫번째 내용</li>
+              <li>대충 스케이트 두번째 내용</li>
+              <li>대충 스케이트 세번째 내용</li>
+            </ul>
+          
+          
+          </div>
+          
+          <button id="test-gogo"> 추천받은 운동 보러가기 > </button>
+          
+          </div>
+          
+
+        </div> <!-- 이 밑으론  HTML 만지지마!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- /#page-wrapper --> 
+    <!-- 내용물 자리 끝 -->
+        
+    <div id="footer"></div>
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+		<script src="/user/js/layout.js"></script>
+
+    
+    <!-- 공통코드 -->
+    <script>
+    
+    function moveView() {
+    console.log(event.currentTarget);
+    location.href = '/user/lecture/lecture-detail.html?no='+event.currentTarget.dataset.value;
+    }
+    </script>
+    <script src="/user/extest/test-result.js"></script>
+
+
+</body>
+</html>

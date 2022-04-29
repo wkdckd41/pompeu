@@ -2,11 +2,13 @@
 var trTemplate = document.querySelector("#tr-template");
 var trTemplate2 = document.querySelector("#tr-template2");
 var trTemplate3 = document.querySelector("#tr-template3");
+var trTemplate4 = document.querySelector("#tr-template4");
 
 //템플릿 엔진 준비
 var htmlGenerator = Handlebars.compile(trTemplate.innerHTML);
 var htmlGenerator2 = Handlebars.compile(trTemplate2.innerHTML);
 var htmlGenerator3 = Handlebars.compile(trTemplate3.innerHTML);
+var htmlGenerator4 = Handlebars.compile(trTemplate4.innerHTML);
   
 // Can also be used with $(document).ready()
 $(window).load(function() {
@@ -69,7 +71,20 @@ var userContent = document.querySelector("#user-content");
     $("#user-con").html(htmlGenerator2(result));
 })
 
-     
+var creatorContent = document.querySelector("#creator-content");
+ 
+  fetch(`/userLecture/creatorContent?no=${no}`)
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(result) {
+    console.log("AAA");
+    console.log(result);
+    
+    $("#creator-content").html(htmlGenerator4(result));
+})
+
+
 var creatorContent = document.querySelector("#creator-content");
  
   fetch(`/userLecture/creatorPro?no=${no}`)
@@ -105,6 +120,7 @@ fetch(`/userLecture/addImage?no=${no}`)
     lectureImage[i].innerHTML = `<img src="/userLecture/image?filename=${result[i].image}" width="350px" height="210px">`; 
   }
 })
+
 
 var exercise = document.querySelector("#exercise");
 var lectureName = document.querySelector("#lecture-name");
@@ -238,11 +254,14 @@ document.querySelector("#btn-regist").onclick = function() {
   })
   .then(function(result) {
     console.log(result);
-    
-    location.reload();
+  
+  location.href = '/user/payment/myorder.html/'
+  
   });
 };
-  
+
+
+
 var contentAsk = document.querySelector("#lecture-ask");
 
 document.querySelector("#btn-ask").onclick = function() {

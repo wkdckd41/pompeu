@@ -54,6 +54,9 @@ public interface UserDao {
   // SELECT * FROM user WHERE email = 1?;
   Optional<Member> findByEmail(String email);
 
+  // 탈퇴여부확인
+  @Select("SELECT use_check FROM member WHERE email = #{email}")
+  int findUseCheck(String email);
 
   //멤버넘버 찾기 
   @Select("SELECT member_no FROM member where email = #{email}")

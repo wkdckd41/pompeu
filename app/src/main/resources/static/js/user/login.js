@@ -24,15 +24,39 @@ const xBtn = document.querySelector('.login_btn')
 
 document.querySelector('form[name=login]').onsubmit = function () {
     if (xEmail.value == "") {
-        alert("이메일을 입력해주세요.");
+        Swal.fire({
+            icon: 'warning',
+            title: '이메일을 입력해주세요.',
+        });
         $("input[type=email]").focus();
 
     } else if (xPassword.value == "") {
-        alert("비밀번호를 입력해주세요.");
+        Swal.fire({
+            icon: 'warning',
+            title: '비밀번호를 입력해주세요.',
+        });
         $("input[type=password]").focus();
         return false;
     }
 }
+// if (xEmail.value == "") {
+//     Swal.fire({
+//         icon: 'warning',
+//         title: '이메일을 입력해주세요.',
+//     });
+//     $('#emailInput').focus();
+
+// }
+// if (xPassword.value == "") {
+//     Swal.fire({
+//         icon: 'warning',
+//         title: '비밀번호를 입력해주세요.',
+//     });
+//     $('#passwordInput').focus();
+
+// }
+
+
 
 
 xBtn.addEventListener('click', (e) => {
@@ -70,7 +94,10 @@ xBtn.addEventListener('click', (e) => {
             } else if (text == "user") {
                 location.href = "/user/main/user-main.html"
             } else if (text == "fail") {
-                alert("다시 로그인해주세요");
+                Swal.fire({
+                    icon: 'warning',
+                    title: '다시 로그인 해주세요.',
+                });
             }
         })
     // .then(function (text) {

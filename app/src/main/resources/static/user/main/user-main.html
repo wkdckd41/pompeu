@@ -59,11 +59,22 @@
   #flex-text-2 {
   font-size:40px;
   font-weight:bold;
-  color :#39ffb3;
+  color :white;
   position: absolute;
   z-index: 1;
   top: 300px;
   left: 650px;
+  }
+  
+  #flex-button-2 {
+  font-size:30px;
+  font-weight:bold;
+  padding : 10px;
+  color :black;
+  position: absolute;
+  z-index: 1;
+  top: 370px;
+  left: 730px;
   }
   
   
@@ -204,7 +215,8 @@
             </li>
             <li id="m-slider-2">
               <img src="/user/main/flexslider/images/main2-1.jpg" />
-              <span id="flex-text-2">어서와 보드는 처음이지?</span>
+              <span id="flex-text-2">당신만을 위한 운동 추천</span>
+              <button id="flex-button-2">지금 바로 테스트 해보기</button>
             </li>
             <li id="m-slider-3">
               <img src="/user/main/flexslider/images/main3-1.jpg" />
@@ -497,6 +509,12 @@
     function moveView() {
     console.log(event.currentTarget);
     location.href = '/user/lecture/lecture-detail.html?no='+event.currentTarget.dataset.value;
+    }
+    
+    var testGoBtn = document.querySelector("#flex-button-2")
+    
+    testGoBtn.onclick = function() {
+        window.location.href = "/user/extest/test-main.html";
     }
     </script>
     <script src="/js/user/main/user-main-pop.js"></script>

@@ -10,9 +10,7 @@
     <link rel="stylesheet" href="/css/common.css">
     <link rel="stylesheet" href="/css/user_common.css">
     <link rel="stylesheet" href="/css/user/login.css">
-    <script src="/node_modules/jquery/dist/jquery.min.js" defer></script>
-    <script src="/node_modules/bootstrap/dist/js/bootstrap.js" defer></script>
-    <script src="/js/user/layout.js" defer></script>
+
 </head>
 <!--/head-->
 
@@ -36,8 +34,8 @@
                                     <label for="email">이메일</label>
                                 </div>
                                 <div class="login_id">
-                                    <input type="text" name="email" class="login_input" placeholder="이메일"
-                                        required="required">
+                                    <input type="text" name="email" id="emailInput" class="login_input"
+                                        placeholder="이메일" required="required">
                                 </div>
                             </div>
                             <div class="login_form">
@@ -45,8 +43,8 @@
                                     <label for="password">비밀번호</label>
                                 </div>
                                 <div class="login_password">
-                                    <input type="password" name="password" class="login_input" placeholder="비밀번호"
-                                        required="required">
+                                    <input type="password" name="password" id="passwordInput" class="login_input"
+                                        placeholder="비밀번호" required="required">
                                 </div>
                             </div>
                             <div class="find">
@@ -96,7 +94,11 @@
     </div>
     </div>
 
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/js/user/layout.js"></script>
     <script src="/js/user/login.js"></script>
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
     <!-- <script src="js/jquery.scrollUp.min.js"></script> -->
 </body>
 
