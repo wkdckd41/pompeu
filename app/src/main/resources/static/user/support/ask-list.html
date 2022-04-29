@@ -12,8 +12,6 @@
   <link rel="stylesheet" href="/css/user_common.css">
   <link rel="stylesheet" href="/css/user/mypage.css">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
-
-
 </head>
 
 <style>
@@ -92,7 +90,7 @@
 
         <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
         <div id="content">
-
+          <h3>1:1 문의내역</h3><br>
           <table class="table table-hover">
             <thead>
               <tr>
@@ -119,10 +117,8 @@
 
 
           <div class="col-lg-12 col-sm-18 text-lg-end text-right">
-            <button type="button" class="btn" id="btnWrite" name="btnWrite">작성하기
-            </button>
-            <button type="button" class="btn" id="btnDelete" name="btnDelete">삭제하기
-            </button>
+            <button type="button" class="btn btn-success" id="btnWrite" name="btnWrite">작성</button>
+            <button type="button" class="btn btn-success" id="btnDelete" name="btnDelete">삭제</button>
           </div>
 
           <br>
@@ -154,9 +150,8 @@
   <script src="/node_modules/jquery/dist/jquery.min.js"></script>
   <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
   <script src="/js/user/layout.js"></script>
-  <script src="/js/user/sidebar.js"></script>
   <script src="/js/user/ask-list.js"></script>
-  <script>$("#sidebar").load("/form/support/sidebar.html");</script>
+  <script>$("#sidebar").load("/form/mypage/sidebar.html");</script>
 
 
 </body>

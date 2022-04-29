@@ -25,10 +25,12 @@ public class AskController {
 
   @RequestMapping("/ask/list")
   public Object list(Ask ask) {
-    return askService.list(ask);  
+    return askService.list(ask);
   }
 
-  @RequestMapping("/user-ask/list")
+
+
+  @RequestMapping("/ask/user-list")
   public Object userList(@AuthenticationPrincipal Member member, Ask ask) {
 
     //  int no = member.getNo();
@@ -48,6 +50,21 @@ public class AskController {
 
     return askService.add(ask);  
   };
+
+  @RequestMapping("/ask/user-add")
+  public Object userAdd(Ask ask, @AuthenticationPrincipal Member member) {
+    log.info("askAdd.....");
+    ask.setMemberNo(member.getNo());
+    log.info(member.getNo());
+    log.info("========");
+    int count = askService.userAdd(ask);
+    log.info("count = " + count);
+    if (count != 0) {
+      return new ResultMap().setStatus("success");
+    } else {
+      return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
+    }
+  }
 
   @RequestMapping("/ask/get")
   public Object get(int no) {
@@ -79,10 +96,10 @@ public class AskController {
   }
 
   @RequestMapping("/ask/deleteAll")
-  public Object deleteAll(String memberTypeNo) {
-    log.info("memberTypeNo : " + memberTypeNo);
+  public Object deleteAll(String memberNo) {
+    log.info("memberNo : " + memberNo);
 
-    int count = askService.deleteAll(memberTypeNo);
+    int count = askService.deleteAll(memberNo);
 
     if (count == 1) {
       return new ResultMap().setStatus("success");

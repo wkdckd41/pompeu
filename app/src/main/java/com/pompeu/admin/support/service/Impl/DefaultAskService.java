@@ -19,6 +19,12 @@ public class DefaultAskService implements AskService{
   }
 
   @Override
+  public int userAdd(Ask ask) {
+    System.out.println("service no : " + ask.getMemberNo());
+    return askDao.userInsert(ask);
+  }
+
+  @Override
   public List<Ask> list(Ask ask) {
     return askDao.findAll(ask);
   }
