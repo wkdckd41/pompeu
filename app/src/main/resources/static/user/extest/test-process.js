@@ -44,6 +44,7 @@
     		console.log(poorRich);
     		console.log(safeRisk);
     		console.log(aloneTeam);
+    		window.location.href = "/user/extest/test-result.html";
    			break;
   			default:
 	      console.log("호에에엥1");
@@ -84,6 +85,7 @@
     		console.log(poorRich);
     		console.log(safeRisk);
     		console.log(aloneTeam);
+    		window.location.href = "/user/extest/test-result.html";
    			break;
   			default:
 	      console.log("호에에엥2");
