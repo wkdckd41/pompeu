@@ -180,6 +180,11 @@ button.creator_submit{
     background-color: #04CF5C;;
 }
 
+span.point{
+    font-size: 0.9em;
+    color: red;
+}
+
 em{
     color: red;
 }
