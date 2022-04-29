@@ -101,7 +101,13 @@
 				question.innerHTML = "갑자기 음악이 좀 하고 싶어졌다";
 				aloneTeam++;
 				count++;
+			  console.log("outIn:" + outIn);
+        console.log("safeRisk:" + safeRisk);
+        console.log("aloneTeam:" + aloneTeam);
+        console.log("poorRich:" + poorRich);
    			break;
+
+   			
   			case 12:
 				poorRich++;
 				
@@ -208,6 +214,10 @@
         question.innerHTML = "갑자기 음악이 좀 하고 싶어졌다";
         aloneTeam--;
         count++;
+        console.log("outIn:" + outIn);
+        console.log("safeRisk:" + safeRisk);
+        console.log("aloneTeam:" + aloneTeam);
+        console.log("poorRich:" + poorRich);
         break;
         case 12:
         poorRich--;
