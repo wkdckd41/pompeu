@@ -19,38 +19,40 @@
   .page-wrapper {
     margin-top: -300px;
   }
+  
+  .board_notice_tt {margin:30px 0 20px;line-height:24px;font-size:28px;font-weight:bold;letter-spacing:-2px;}
+  
+  
+.nav-tabs {padding:20px 0;}
+.nav-item {margin-right:20px;}
+.nav-item .nav-link {padding:0;font-size:14px;letter-spacing:-1px;}
 
   #content {
-
-    padding-left: 0px;
-    margin-left: 115px;
+margin:0;
+padding:0;
+width:100%;
 }
 
   * {
     box-sizing: border-box;
   }
 
-  .que:first-child {
-    border-top: 1px solid black;
-  }
-
   .que {
     position: relative;
-    padding: 27px 0;
+    padding: 18px 15px;
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
     border-bottom: 1px solid #dddddd;
-
   }
 
   .que::before {
     display: inline-block;
-    content: 'Q';
+    content: 'Q.';
     font-size: 18px;
     font-weight: bold;
     color: #04CF5C;
-    margin-right: 5px;
+    margin-right: 12px;
   }
 
   .que.on>span {
@@ -65,16 +67,20 @@
     font-size: 14px;
     font-weight: bold;
     background-color: #f4f4f2;
-    padding: 27px 0;
+    padding: 20px 55px;
+    position:relative;
   }
+  
+  .anw span {}
 
   .anw::before {
-    display: inline-block;
-    content: 'A';
+  position:absolute;
+  top:17px;
+  left:30px;
+    content: 'A.';
     font-size: 18px;
     font-weight: bold;
     color: #D3ECA7;
-    margin-right: 5px;
   }
 
   /* 상단 네비탭 */
@@ -115,6 +121,9 @@
     background-color: purple;
     border: solid 1px purple;
   }
+  
+.page-item .page-link {color:#000;border:none;}
+.page-item .page-link:hover {background:#ddd;border-radius:50%;color:#000;}
 </style>
 
 <body>
@@ -129,10 +138,9 @@
       <div id="page-wrapper">
 
         <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
-        <div id="content">
+        <div id="content" style="margin:0;">
 
-          <h3>FAQ</h3>
-          <hr><br>
+          <h3 class="board_notice_tt">FAQ</h3>
           <ul class="nav nav-tabs">
             <li class="nav-item"><a class="nav-link active" aria-current="page"
                 href="/user/support/notice-list.html">공지사항</a></li>
@@ -197,13 +205,13 @@
       <div class="text-center">
         <nav aria-label="Page navigation example">
           <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">&lt</a></li>
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
             <li class="page-item"><a class="page-link" href="#">4</a></li>
             <li class="page-item"><a class="page-link" href="#">5</a></li>
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            <li class="page-item"><a class="page-link" href="#">&gt</a></li>
           </ul>
         </nav>
       </div>

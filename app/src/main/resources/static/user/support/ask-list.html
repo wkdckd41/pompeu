@@ -69,6 +69,16 @@
     color: #D3ECA7;
     margin-right: 5px;
   }
+  
+  
+.ask_table {border-bottom:1px solid #ddd;}
+.ask_table tr th {background:#fafafa;border-top:1px solid #000 !important;text-align:center;}
+.ask_table tr th.ask_th {border:none;}
+.ask_table tr td {text-align:center;}
+.ask_table tr td.table_title {text-align:left;}
+
+.page-item .page-link {color:#000;border:none;}
+.page-item .page-link:hover {background:#ddd;border-radius:50%;color:#000;}
 </style>
 
 <body>
@@ -91,14 +101,14 @@
         <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
         <div id="content">
           <h3>1:1 문의내역</h3><br>
-          <table class="table table-hover">
+          <table class="table table-hover ask_table">
             <thead>
               <tr>
-                <th><input type="checkbox" name="_selected_all_"></th>
-                <th scope="col">게시글 번호</th>
-                <th scope="col">제목</th>
-                <th scope="col">작성일자</th>
-                <th scope="col">답변여부</th>
+                <th class="ask_th"><input type="checkbox" name="_selected_all_"></th>
+                <th scope="col" class="ask_th">NO</th>
+                <th scope="col" class="ask_th">제목</th>
+                <th scope="col" class="ask_th">작성일자</th>
+                <th scope="col" class="ask_th">답변여부</th>
               </tr>
             </thead>
             <tbody id="tbody1">
@@ -126,13 +136,13 @@
           <div class="text-center">
             <nav aria-label="Page navigation example">
               <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link" href="#">&lt</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
                 <li class="page-item"><a class="page-link" href="#">3</a></li>
                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                 <li class="page-item"><a class="page-link" href="#">5</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                <li class="page-item"><a class="page-link" href="#">&gt</a></li>
               </ul>
             </nav>
           </div>
