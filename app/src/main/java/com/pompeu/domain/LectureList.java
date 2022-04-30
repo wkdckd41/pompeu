@@ -6,12 +6,11 @@ import lombok.Data;
 @Data
 public class LectureList {
   int lectureNo;
-  String creatorWriter;
   String classTitle;
-  Date startDate;
-  Date endDate;
+  String startDate;
+  String endDate;
   int status;
   Date registerDate;
-  String timesCheck;
-  String uploadImg;
+  String startTime;
+  String endTime;
 }

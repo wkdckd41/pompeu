@@ -66,7 +66,7 @@ div.page-header > h3{
 <div id="content">
 
 <div class="page-header">
-  <h3>클래스 등록</h3>
+  <h3>클래스 조회</h3>
 </div>
 
 <div id="page-menue">
@@ -75,16 +75,18 @@ div.page-header > h3{
   <span class="menu">개설요청</span>
   <span class="new-class"><a href="/creator/lecture/creator-lecture.html">새 클래스등록</a></span>
 </div>
+
 <div id="class-list">
- <table id="x-lecture-table" border="1">
+
+
+<table id="x-lecture-table" class="table">
 <thead>
   <tr>
     <th>번호</th>
     <th>제목</th>
     <th>수업일시</th>
-    <th>전체 수</th>
+    <th>수업시간</th>
     <th>진행상태</th>
-    <th>이미지파일수</th>
     <th>등록일</th>
   </tr>
 </thead>
@@ -109,8 +111,10 @@ var tbody = document.querySelector("#x-lecture-table tbody")
 
 	 	 fetch("/creatorLecture/list")
     .then(function(response) {
-      return response.json();
-    })
+      console.log(response.json());
+    	//return
+  
+    })/*
     .then(function(result) {
       if (result.status == "fail") {
         window.alert("서버 요청 오류!");
@@ -118,19 +122,27 @@ var tbody = document.querySelector("#x-lecture-table tbody")
         return;
       }
 
+
       for (var lectureList of result.data){
         console.log(lectureList);
+
         var tr = document.createElement("tr");
+      
         tr.innerHTML = `<td>${lectureList.lectureNo}</td>
-        <td><a href="no=${board.no}">${lectureList.classTitle}</a></td>
+        <td>${lectureList.classTitle}</a></td>
         <td><span>${lectureList.startDate}</span>~<span>${lectureList.endDate}</span></td>
         <td>${lectureList.timesCheck}</td>
         <td>${lectureList.status}</td>
         <td>${lectureList.uploadImg}</td>
         <td>${lectureList.registerDate}</td>`;
+            
         tbody.appendChild(tr);
+        console.log(tr);
       }
+
     });      
+    */
+
 </script>
 </body>
 </html>
