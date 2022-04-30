@@ -10,15 +10,21 @@ public class LectureTime {
   String startTime;
   String endTime;
   int maxMember;
-  int noMember;
+
 
   LectureTime(){};
 
-  public LectureTime(String value, String value2, int value3){
-    this.startTime = value;
-    this.endTime = value2;
-    this.maxMember=value3;
+  public LectureTime(String startTime, String endTime, int maxMember){
+    this.startTime = startTime;
+    this.endTime = endTime;
+    this.maxMember= maxMember;
   };
+
+  public LectureTime(int no, String startTime, String endTime, int maxMember){
+    this(startTime, endTime, maxMember);
+    this.no = no;
+  };
+
 
 
 }
