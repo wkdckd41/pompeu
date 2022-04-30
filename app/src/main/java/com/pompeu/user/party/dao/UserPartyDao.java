@@ -45,7 +45,7 @@ public interface UserPartyDao {
    * @param parywishlist
    * @return
    */
-  int wishlistInsert(PartyWishlist parywishlist);
+  int wishlistInsert(PartyWishlist partywishlist);
 
   /**
    * 소모임 신고

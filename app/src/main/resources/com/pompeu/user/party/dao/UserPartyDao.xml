@@ -148,7 +148,7 @@
       /*wishlistInsert*/
         insert into party_wishlist(users_no,party_no) 
         values(#{usersNo},#{partyNo})
-      </insert>  
+      </insert>
       
     <!-- 소모임 신고 -->
       <insert id="claimInsert" parameterType="party">

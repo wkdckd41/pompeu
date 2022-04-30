@@ -51,8 +51,8 @@ public class DefaultUserPartyService implements UserPartyService{
    * 소모임 찜하기
    */
   @Override
-  public int wishlistAdd(PartyWishlist parywishlist) {
-    return userPartyDao.wishlistInsert(parywishlist);
+  public int wishlistAdd(PartyWishlist partywishlist) {
+    return userPartyDao.wishlistInsert(partywishlist);
   }
 
   /**
