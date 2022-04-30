@@ -28,7 +28,7 @@
     select count(*) from notice
   </select>
   
-  <select id="findAll" parameterType="notice" resultMap="noticeMap"> <!--   Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다 --> 
+  <select id="findAll" resultMap="noticeMap"> <!--   Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다 --> 
     select n.notice_no               as notice_no                    <!--  resultMap이 noticeMap인 이유는 Dao에서 리턴을 받는 타입이 list<Notice> 이기 때문이다 -->
 			  ,  n.member_type_no          as member_type_no                 
 			  ,  mt.member_type            as member_type
@@ -43,8 +43,7 @@
 	        and n.member_type_no = #{memberTypeNo}
 	    </if>  
 			 order by notice_no desc
-			 LIMIT 10
-			  
+			 limit #{offset}, #{rowCount}
       
   </select>
   

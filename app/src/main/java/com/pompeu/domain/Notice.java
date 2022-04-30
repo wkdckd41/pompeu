@@ -19,5 +19,7 @@ public class Notice {
   java.sql.Date modifyDate;
   List<FileNames> fNames;
   String realFile;
+  int pageNo;
+  int pageSize;
 
 }

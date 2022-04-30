@@ -30,8 +30,13 @@ public class DefaultNoticeService implements NoticeService{
 
   @Override
   public List<Notice> list(Notice notice) { //서비스에서 넘어온 객체
-    return noticeDao.findAll(notice); //noticeDao에 findAll 매서드를 호출하면서 notice 객체를 가지고간다
+    return noticeDao.findAll(notice.getMemberTypeNo(), notice.getPageSize(), ((notice.getPageNo() - 1) * notice.getPageSize())); //noticeDao에 findAll 매서드를 호출하면서 notice 객체를 가지고간다
   }
+
+  @Override
+  public int size() {
+    return noticeDao.countAll();
+  }  
 
   @Override
   public Notice get(int no) {

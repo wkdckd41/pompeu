@@ -37,8 +37,43 @@ public class NoticeController {
   @RequestMapping("/notice/list")
   public Object list(Notice notice) {
     log.info("memberTypeNo : " + notice.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
-    return noticeService.list(notice);  
+    log.info("pageNo : " + notice.getPageNo());
+    log.info("pageSize : " + notice.getPageSize());
+    int totalPageSize = 0;
+
+    try { // pageSize 파라미터 값이 있다면 기본 값을 변경한다.
+      if (notice.getPageSize() < 10 || notice.getPageSize() > 100) {
+        notice.setPageSize(10);
+      }
+    } catch (Exception e) {}
+
+    //게시글 전체 개수를 알아내서 페이지 개수를 계산한다.
+    int noticeSize = noticeService.size(); 
+    totalPageSize = noticeSize / notice.getPageSize(); // 예: 게시글개수 / 페이지당개수 = 16 / 5 = 3 
+    if ((noticeSize % notice.getPageSize()) > 0) {
+      totalPageSize++;
+    }
+
+
+    try { // pageNo 파라미터 값이 있다면 기본 값을 변경한다.
+      if (notice.getPageNo() < 1 || notice.getPageNo() > totalPageSize) {// pageNo 유효성 검증
+        notice.setPageNo(1);
+      }
+    } catch (Exception e) {}
+
+    log.info("totalPageSize =" + totalPageSize);
+    log.info("PageNo =" + notice.getPageNo());
+    log.info("PageSize =" + notice.getPageSize());
+
+    ResultMap resultMap = new ResultMap();
+    resultMap.setPageNo(notice.getPageNo());
+    resultMap.setPageSize(notice.getPageSize());
+    resultMap.setTotalPageSize(totalPageSize);
+    resultMap.setNoticeList(noticeService.list(notice));
+
+    return resultMap;  
   }
+
 
   @RequestMapping("/notice/add")
   public Object add(Notice notice, List<MultipartFile> files) {
@@ -52,7 +87,15 @@ public class NoticeController {
 
     }
 
-    int count = noticeService.add(notice);
+    int count = 0;
+    if (notice.getMemberTypeNo()==3) {
+      notice.setMemberTypeNo(1);
+      count += noticeService.add(notice);
+      notice.setMemberTypeNo(2);
+      count += noticeService.add(notice);
+    }else {
+      count = noticeService.add(notice);
+    }
     log.info("count = " + count);
     if (count != 0) {
       return new ResultMap().setStatus("success");

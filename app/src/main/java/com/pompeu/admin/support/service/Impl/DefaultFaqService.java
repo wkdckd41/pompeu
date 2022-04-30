@@ -24,6 +24,11 @@ public class DefaultFaqService implements FaqService{
   }
 
   @Override
+  public List<Faq> userList(Faq faq) {
+    return faqDao.userFindAll(faq);
+  }
+
+  @Override
   public Faq get(int no) {
     return faqDao.findByNo(no);
   }

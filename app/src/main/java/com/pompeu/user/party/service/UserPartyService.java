@@ -34,7 +34,7 @@ public interface UserPartyService {
    * @param parywishlist
    * @return
    */
-  int wishlistAdd(PartyWishlist parywishlist);
+  int wishlistAdd(PartyWishlist partywishlist);
 
   /**
    * 소모임 신고

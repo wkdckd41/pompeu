@@ -9,6 +9,8 @@ public interface FaqService {
 
   List<Faq> list(Faq faq);
 
+  List<Faq> userList(Faq faq);
+
   Faq get(int no);
 
   int update(Faq faq);
