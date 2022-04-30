@@ -78,7 +78,7 @@
   
     btnGo.onclick = function() {  
     
-    window.location.href = "/user/lecture/lecture-home.html";
+    window.location.href = "/user/main/user-main2.html";
     
   }
 	
