@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+
+    <title>POMPEU!</title>
+    <link rel="stylesheet" href="/css/user_common.css">
+    <link rel="stylesheet" href="/css/user/mypage.css">
+    <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+
+</head>
+
+<style>
+    .content {
+        padding: 0px 60px 0 60px;
+    }
+
+    .upload {
+        margin-left: 75px;
+    }
+
+    .filebox input[type="file"] {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
+    }
+
+    .filebox label {
+        display: inline-block;
+        padding: .5em .75em;
+        color: #999;
+        font-size: inherit;
+        line-height: normal;
+        vertical-align: middle;
+        background-color: #fdfdfd;
+        cursor: pointer;
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+    }
+
+    /* named upload */
+    .filebox .upload-name {
+        display: inline-block;
+        padding: .5em .85em;
+        font-size: inherit;
+        font-family: inherit;
+        line-height: normal;
+        vertical-align: middle;
+        background-color: #f5f5f5;
+        border: 1px solid #ebebeb;
+        border-bottom-color: #e2e2e2;
+        border-radius: .25em;
+        -webkit-appearance: none;
+        /* 네이티브 외형 감추기 */
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    /* imaged preview */
+    .filebox .upload-display {
+        margin-bottom: 5px;
+    }
+
+    @media (min-width: 768px) {
+        .filebox .upload-display {
+            display: inline-block;
+            margin-right: 5px;
+            margin-bottom: 0;
+        }
+    }
+
+    .filebox .upload-thumb-wrap {
+        display: inline-block;
+        width: 54px;
+        padding: 2px;
+        vertical-align: middle;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: #fff;
+    }
+
+    .filebox .upload-display img {
+        display: block;
+        max-width: 100%;
+        width: 100% \9;
+        height: auto;
+    }
+
+    .filebox.bs3-primary label {
+        color: #fff;
+        background-color: gray;
+        border-color: #2e6da4;
+    }
+
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9 {
+        margin-top: 10px;
+    }
+</style>
+
+<body>
+    <div class="container">
+
+
+
+        <div id="wrapper">
+
+            <!-- 헤더 자리 시작 -->
+            <div id="header"></div>
+            <!-- 헤더 자리 끝 -->
+
+            <div id="page-wrapper">
+
+                <!-- 사이드바 자리 시작 -->
+                <div id="sidebar"></div>
+                <!-- 사이드바 자리 끝 -->
+
+                <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+                <div id="content">
+                    <h3>1:1문의</h3>
+                    <br><br>
+
+                    <form class="form-horizontal" id="frm" name="frm" method="post" enctype="multipart/form-data">
+                        <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
+                        <div class="form-group row">
+                            <label class="col-sm-1 col-form-label text-right" for="content">작성자</label>
+                            <div class="col-md-4 ">
+                                <label class="form-control" id="memberEmail" name="memberEmail"style="background-color: #fdfff1"></label>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-sm-1 col-form-label text-center" for="content">제목</label>
+                            <div class="col-md-4 ">
+                                <label class="form-control" id="askName" name="askName" style="background-color: #fdfff1"></label>
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+                            <label class="col-sm-1 col-form-label text-center" for="content" >질문</label>
+                            <div class="col-sm-10 col-xs-12">
+                                <textarea rows="8" class="form-control" id="askContent" name="askContent"
+                                    placeholder="질문내용" readonly style="background-color: #fdfff1"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+                            <label class="col-sm-1 col-form-label text-center" for="content">답변</label>
+                            <div class="col-sm-10 col-xs-12">
+                                <textarea rows="8" class="form-control" id="answerContent" name="answerContent"
+                                    placeholder="답변내용" readonly style="background-color: #fdfff1"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row ">
+                            <div class="col-lg-12 col-sm-10 text-lg-end text-center">
+                                <div class="col-lg-11 col-sm-18 text-lg-end text-right">
+                                    <button type="button" class="btn btn-success" id="btnCancel"
+                                        name="btnCancel">목록</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <!-- 내용물 자리 끝 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
+
+            </div>
+            <!-- /#page-wrapper -->
+
+
+            <div id="footer"></div>
+        </div><!-- /#wrapper -->
+    </div>
+
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/js/user/layout.js"></script>
+    <script>$("#sidebar").load("/form/mypage/sidebar.html");</script>
+    <script src="/js/user/ask-view.js"></script>
+
+
+</body>
+
+</html>

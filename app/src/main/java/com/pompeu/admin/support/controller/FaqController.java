@@ -27,16 +27,30 @@ public class FaqController {
     return faqService.list(faq);
   }
 
+  @RequestMapping("/faq/userList")
+  public Object userList(Faq faq) {
+    log.info("memberTypeNo : " + faq.getMemberType());
+    return faqService.userList(faq);
+  }
+
   @RequestMapping("/faq/add")
   public Object add(Faq faq) {
-    int count = faqService.add(faq);
-    if (count == 1) {
+    int count = 0;
+    if (faq.getMemberTypeNo()==3) {
+      faq.setMemberTypeNo(1);
+      count += faqService.add(faq);
+      faq.setMemberTypeNo(2);
+      count += faqService.add(faq);
+    }else {
+      count = faqService.add(faq);
+    }
+    log.info("count = " + count);
+    if (count != 0) {
       return new ResultMap().setStatus("success");
     } else {
       return new ResultMap().setStatus("fail").setData("게시글 번호가 유효하지 않거나 게시글 작성자가 아닙니다.");
     }
   }
-
 
 
   @RequestMapping("/faq/get")

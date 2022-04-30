@@ -3,7 +3,6 @@ package com.pompeu.admin.support.dao;
 import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 import com.pompeu.domain.Ask;
-import com.pompeu.domain.FileNames;
 
 @Mapper
 public interface AskDao {
@@ -14,9 +13,9 @@ public interface AskDao {
 
   List<Ask> userFindAll(Ask ask);
 
-  List<FileNames> findByFNamesNo(int no);
-
   int insert(Ask ask);
+
+  int userInsert(Ask ask);
 
   Ask findByNo(int no);
 
@@ -24,6 +23,5 @@ public interface AskDao {
 
   int delete(int no);
 
-  int fileRemove(Ask ask);
 
 }

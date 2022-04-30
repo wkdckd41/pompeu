@@ -11,7 +11,7 @@ public interface NoticeDao {
 
   int countAll();
 
-  List<Notice> findAll(Notice notice); // Dao에서 객체를 받음 
+  List<Notice> findAll( @Param("memberTypeNo") int memberTypeNo, @Param("rowCount") int rowCount, @Param("offset") int offset); // Dao에서 객체를 받음 
 
   int insert(Notice notice);
 
@@ -20,7 +20,6 @@ public interface NoticeDao {
   Notice findByNo(int no);
 
   List<FileNames> findByFNamesNo(int no);
-
 
   int update(Notice notice);
 

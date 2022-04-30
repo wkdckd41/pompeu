@@ -7,12 +7,16 @@
 
   <resultMap type="faq" id="faqMap">
     <id column="faq_no" property="no"/>
+    <result column="no" property="memberNo"/>
     <result column="member_type_no" property="memberTypeNo"/>
     <result column="member_type" property="memberType"/>
     <result column="ask" property="ask"/>
     <result column="answer" property="answer"/>
     <result column="register_date" property="registerDate"/>
     <result column="modify_date" property="modifyDate"/>
+    <result column="name" property="memberName"/>
+    <result column="email" property="memberEmail"/>
+    
     </resultMap>
 
   <select id="countAll" resultType="int">
@@ -36,9 +40,27 @@
       </if>
       order by faq_no desc
       LIMIT 10
+  </select>    
+        
+        <select id="userFindAll" parameterType="faq" resultMap="faqMap">
+    select f.faq_no                 as faq_no
+      ,  f.member_type_no           as member_type_no
+      ,  mt.member_type             as member_type
+      ,  f.ask                      as ask
+      ,  f.answer                   as answer
+      ,  f.register_date            as register_date
+      ,  f.modify_date              as modify_date
+    from faq f 
+    left outer join member_type mt
+      on f.member_type_no = mt.member_type_no
+    where 1=1
+      <if test="memberTypeNo != 3">
+          and f.member_type_no = #{memberTypeNo} 
+      </if>
+      order by faq_no desc
+      LIMIT 6
+   </select>  
 
-
-  </select>
   
   <insert id="insert" parameterType="faq">
     insert into faq(member_type_no,ask,answer) 

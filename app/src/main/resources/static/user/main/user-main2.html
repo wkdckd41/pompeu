@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   <link href="/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+    
+    
+    
+    <title>이용자 메인 화면</title>
+  <link rel="stylesheet" href="/user/css/common.css">
+  <link href="/user/css/user.css" rel="stylesheet">
+  <link href="/css/user_common.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
+   
+   <!-- flexslider -->
+  <link rel="stylesheet" href="/css/user/main/flexslider/flexslider.css" type="text/css" media="screen" /> 
+    
+   <!-- swiper -->
+  <link rel="stylesheet" href="/css/user/main/swiper/swiper-bundle.min.css"/>
+    
+    <style>
+    
+  /* flexslider start */
+  .flexslider {  
+  width: 1140px;
+  height : 570px;
+  }
+  
+    #m-slider-1 {
+  position: relative;
+  }
+
+  #flex-text-1-1 {
+  font-size:40px;
+  color :white;
+  position: absolute;
+  z-index: 1;
+  top: 110px;
+  left: 560px;
+  }
+  
+  #flex-text-1-2 {
+  font-size:80px;
+  color :white;
+  position: absolute;
+  z-index: 1;
+  top: 160px;
+  left: 550px;
+  }
+  
+  #m-slider-2 {
+  position: relative;
+  }
+
+  #flex-text-2 {
+  font-size:40px;
+  font-weight:bold;
+  color :white;
+  position: absolute;
+  z-index: 1;
+  top: 300px;
+  left: 650px;
+  }
+  
+  #flex-button-2 {
+  font-size:30px;
+  font-weight:bold;
+  padding : 10px;
+  color :black;
+  position: absolute;
+  z-index: 1;
+  top: 370px;
+  left: 730px;
+  }
+  
+  
+  #m-slider-3 {
+  position: relative;
+  }
+
+  #flex-text-3 {
+  font-size:40px;
+  font-weight:bold;
+  color :#39ffb3;
+  position: absolute;
+  z-index: 1;
+  top: 300px;
+  left: 400px;
+  }
+  
+  #m-slider-4 {
+  position: relative;
+  }
+  
+  #flex-text-4 {
+  font-size:40px;
+  font-weight:bold;
+  color :#39ffb3;
+  position: absolute;
+  z-index: 1;
+  top: 100px;
+  left: 350px;
+  }
+  
+  /* flexslider end */
+  
+  /* swiper start */
+        .swiper {
+        /*border: 1px solid black;*/
+        width: 1140px;
+        height: 380px;
+        margin: 50px 0px ;
+      }
+
+      .swiper-slide {
+        /*border: 1px solid black;*/
+        text-align: center;
+        font-size: 18px;
+        background: #fff;
+
+        /* Center slide text vertically */
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+      }
+
+      @media (max-width: 760px) {
+        .swiper-button-next {
+          right: 20px;
+          transform: rotate(90deg);
+        }
+
+        .swiper-button-prev {
+          left: 20px;
+          transform: rotate(90deg);
+        }
+      }
+  /* swiper end */
+  
+  /* lecture-box start */
+     .lec-box{
+      width : 350px;
+      height : 350px;
+    }
+    
+    .lec-img{
+      height : 60%;
+    }
+    
+    .lec-cat{
+      height : 8%;
+      text-align: left;
+      font-size: 18px;
+      padding-top: 5px;
+      padding-left: 5px;
+    }
+    
+    .lec-title{
+      height : 16%;
+      text-align: left;
+      font-size: 28px;
+      padding-top: 5px;
+      padding-left: 5px;
+    }
+    
+    .lec-price{
+      height : 8%;
+      text-align: left;
+      font-size: 18px;
+      padding-left: 5px;
+    }
+    
+    .lec-wish, .lec-like{
+      text-align: left;
+      font-size: 18px;
+      padding-left: 5px;
+    }
+  /* lecture-box end */
+    </style>
+    
+    
+</head>
+<body>
+  <div class="container">
+  
+    <div id="wrapper">
+    
+        <!-- 헤더 & 사이드바 자리 시작 -->
+        <div id="header"></div>
+    <!-- 헤더 & 사이드바 자리 끝 -->
+    
+    <!-- 내용물 자리 시작 -->
+        <div id="page-wrapper"> <!-- 이 안에 때려박으세영!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        
+        <!-- flexslider -->
+        <div class="flexslider">  
+          <ul class="slides">
+            <li id="m-slider-1">
+              <img src="/user/main/flexslider/images/main1-1.jpg" />
+              <span id="flex-text-1-1">당신만의 폼나는 라이프</span>
+              <span id="flex-text-1-2">폼프</span>
+            </li>
+            <li id="m-slider-2">
+              <img src="/user/main/flexslider/images/main2-1.jpg" />
+              <span id="flex-text-2">당신만을 위한 운동 추천</span>
+              <button id="flex-button-2">지금 바로 테스트 해보기</button>
+            </li>
+            <li id="m-slider-3">
+              <img src="/user/main/flexslider/images/main3-1.jpg" />
+              <span id="flex-text-3"></span>
+            </li>
+            <li id="m-slider-4">
+              <img src="/user/main/flexslider/images/main4-1.jpg" />
+              <span id="flex-text-4">
+              </span>
+            </li>
+          </ul>
+        </div>  
+        <!-- flexslider -->
+
+        <h2>추천 클래스 </h2>
+        
+        <!-- Swiper 추천클래스-->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+      
+        <div class="swiper-slide">
+        
+          <div class="lec-box" onclick="moveGo1()"> <!--lecture/box -->
+            <div class="lec-img">
+            <img src="/user/main/image/f1.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat">서핑</div>
+            <div class="lec-title" data-value>서핑 강좌1</div>
+            <div class="lec-price" >50,000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up">&nbsp;</i><span>6</span></div>
+            </div>
+          </div> <!--lecture/box -->
+          
+        </div>
+        
+        <div class="swiper-slide">
+        
+           <div class="lec-box" onclick="moveGo2()"> <!--lecture/box -->
+            <div class="lec-img">
+            <img src="/user/main/image/m1.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" >산악자전거</div>
+            <div class="lec-title" id="new-name-1" data-value>산악자전거 강좌1</div>
+            <div class="lec-price" id="new-price-1">70,000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up">&nbsp;</i><span>5</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        
+        <div class="swiper-slide">
+        
+           <div class="lec-box" onclick="moveGo3()"> <!--lecture/box -->
+            <div class="lec-img">
+            <img src="/user/main/image/s1.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" >스케이트보드</div>
+            <div class="lec-title" id="new-name-1" data-value>스케이트보드 강좌1</div>
+            <div class="lec-price" id="new-price-1">40,000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up">&nbsp;</i><span>12</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        
+        <div class="swiper-slide">
+        
+           <div class="lec-box" onclick="moveGo4()"> <!--lecture/box -->
+            <div class="lec-img">
+            <img src="/user/main/image/m2.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" >산악자전거</div>
+            <div class="lec-title" id="new-name-1" data-value>산악자전거 강좌2</div>
+            <div class="lec-price" id="new-price-1">90,000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up">&nbsp;</i><span>7</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        
+        <div class="swiper-slide">
+        
+           <div class="lec-box" onclick="moveGo5()"> <!--lecture/box -->
+            <div class="lec-img">
+            <img src="/user/main/image/s2.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" >스케이트보드</div>
+            <div class="lec-title" id="new-name-1" data-value>스케이트보드 강좌2</div>
+            <div class="lec-price" id="new-price-1">60,000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up">&nbsp;</i><span>11</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        
+        <div class="swiper-slide">
+        
+           <div class="lec-box" onclick="moveGo6()"> <!--lecture/box -->
+            <div class="lec-img">
+            <img src="/user/main/image/f1.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" >서핑</div>
+            <div class="lec-title" id="new-name-1" data-value>서핑 강좌2</div>
+            <div class="lec-price" id="new-price-1">100,000원</div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up">&nbsp;</i><span>7</span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        
+
+        
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+        <!-- Swiper 추천 클래스-->
+
+
+
+
+
+
+
+        <h2>신규 클래스 </h2>
+        
+        <!-- Swiper 신규클래스-->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        
+          <div class="lec-box" id="new-box-0" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="new-img-0" >
+            <img src="/user/main/image/bowling1.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="new-ex-0"></div>
+            <div class="lec-title" id="new-name-0" data-value></div>
+            <div class="lec-price" id="new-price-0"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="new-thumb-0">&nbsp;</i><span id="new-likey-0"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+          
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="new-box-1" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="new-img-1">
+            <img src="/user/main/image/bowling2.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="new-ex-1"></div>
+            <div class="lec-title" id="new-name-1" data-value></div>
+            <div class="lec-price" id="new-price-1"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="new-thumb-1" data-value>&nbsp;</i><span id="new-likey-1"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="new-box-2" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="new-img-2">
+            <img src="/user/main/image/bowling3.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="new-ex-2"></div>
+            <div class="lec-title" id="new-name-2" data-value></div>
+            <div class="lec-price" id="new-price-2"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="new-thumb-2" data-value>&nbsp;</i><span id="new-likey-2"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="new-box-3" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="new-img-3">
+            <img src="/user/main/image/bowling4.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="new-ex-3"></div>
+            <div class="lec-title" id="new-name-3" data-value></div>
+            <div class="lec-price" id="new-price-3"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="new-thumb-3" data-value>&nbsp;</i><span id="new-likey-3"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="new-box-4" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="new-img-4">
+            <img src="/user/main/image/bowling5.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="new-ex-4"></div>
+            <div class="lec-title" id="new-name-4" data-value></div>
+            <div class="lec-price" id="new-price-4"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;"  ><i class="fa-solid fa-thumbs-up" id="new-thumb-4" data-value>&nbsp;</i><span id="new-likey-4"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="new-box-5" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="new-img-5">
+            <img src="/user/main/image/bowling6.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="new-ex-5"></div>
+            <div class="lec-title" id="new-name-5" data-value></div>
+            <div class="lec-price" id="new-price-5"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="new-thumb-5" data-value>&nbsp;</i><span id="new-likey-5"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+        <!-- Swiper 신규클래스-->
+        
+        
+        <h2>인기 클래스 추천</h2>
+        
+        <!-- Swiper 인기클래스-->
+    <div class="swiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+        
+          <div class="lec-box" id="pop-box-0" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="pop-img-0">
+            <img src="/user/main/image/bowling1.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="pop-ex-0"></div>
+            <div class="lec-title" id="pop-name-0"></div>
+            <div class="lec-price" id="pop-price-0"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" > <i class="fa-solid fa-thumbs-up" id="pop-thumb-0">&nbsp;</i><span id="pop-likey-0"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+          
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="pop-box-1" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="pop-img-1" >
+            <img src="/user/main/image/bowling2.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="pop-ex-1"></div>
+            <div class="lec-title" id="pop-name-1"></div>
+            <div class="lec-price" id="pop-price-1"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="pop-thumb-1" data-value>&nbsp;</i><span id="pop-likey-1"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="pop-box-2" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="pop-img-2" >
+            <img src="/user/main/image/bowling3.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="pop-ex-2"></div>
+            <div class="lec-title" id="pop-name-2"></div>
+            <div class="lec-price" id="pop-price-2"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="pop-thumb-2" data-value>&nbsp;</i><span id="pop-likey-2"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="pop-box-3" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="pop-img-3" >
+            <img src="/user/main/image/bowling4.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="pop-ex-3"></div>
+            <div class="lec-title" id="pop-name-3"></div>
+            <div class="lec-price" id="pop-price-3"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="pop-thumb-3" data-value>&nbsp;</i><span id="pop-likey-3"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="pop-box-4" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="pop-img-4">
+            <img src="/user/main/image/bowling5.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="pop-ex-4"></div>
+            <div class="lec-title" id="pop-name-4"></div>
+            <div class="lec-price" id="pop-price-4"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;"  ><i class="fa-solid fa-thumbs-up" id="pop-thumb-4" data-value>&nbsp;</i><span id="pop-likey-4"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+        <div class="swiper-slide">
+        
+                  <div class="lec-box" id="pop-box-5" data-value onclick="moveView()"> <!--lecture/box -->
+            <div class="lec-img" id="pop-img-5">
+            <img src="/user/main/image/bowling6.jpg" width="350px" height="210px" />
+            </div>
+            <div class="lec-cat" id="pop-ex-5"></div>
+            <div class="lec-title" id="pop-name-5"></div>
+            <div class="lec-price" id="pop-price-5"></div>
+            <div>
+              <div class="lec-wish" style="float: left; width: 50%;"><i class="fa-solid fa-heart">&nbsp;</i></div>
+              <div class="lec-like" style="float: left; width: 50%;" ><i class="fa-solid fa-thumbs-up" id="pop-thumb-5" data-value>&nbsp;</i><span id="pop-likey-5"></span></div>
+            </div>
+          </div> <!--lecture/box -->
+        
+        </div>
+      </div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+        <!-- Swiper 인기클래스-->
+
+        </div> <!-- 이 밑으론  HTML 만지지마!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
+        <!-- /#page-wrapper --> 
+    <!-- 내용물 자리 끝 -->
+        
+    <div id="footer"></div>
+    </div><!-- /#wrapper -->
+    </div>
+    
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    
+<!-- FlexSlider -->
+  <script defer src="/js/user/main/flexslider/jquery.flexslider.js"></script>       
+  
+  <!-- FlexSlider -->
+  <script type="text/javascript"> 
+  $(window).load(function() {
+    $('.flexslider').flexslider({
+      animation: "slide"
+    });
+  });
+  </script>       
+  
+      <!-- Swiper -->
+    <script src="/js/user/main/swiper/swiper-bundle.min.js"></script>
+  
+      <!-- Swiper -->
+    <script>
+      var swiper = new Swiper('.swiper', {
+        slidesPerView: 3,
+        direction: getDirection(),
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        on: {
+          resize: function () {
+            swiper.changeDirection(getDirection());
+          },
+        },
+      });
+
+      function getDirection() {
+        var windowWidth = window.innerWidth;
+        var direction = window.innerWidth <= 760 ? 'vertical' : 'horizontal';
+
+        return direction;
+      }
+    </script>
+    
+    
+
+		<script src="/user/js/layout.js"></script>
+
+    
+    <!-- 공통코드 -->
+    <script>
+    
+    function moveView() {
+    console.log(event.currentTarget);
+    location.href = '/user/lecture/lecture-detail.html?no='+event.currentTarget.dataset.value;
+    }
+    
+    var testGoBtn = document.querySelector("#flex-button-2")
+    
+    testGoBtn.onclick = function() {
+        window.location.href = "/user/extest/test-main.html";
+    }
+    
+    function moveGo1() {
+        console.log(event.currentTarget);
+        location.href = '/user/lecture/lecture-detail.html';
+        }
+    function moveGo2() {
+        console.log(event.currentTarget);
+        location.href = '/user/lecture/lecture-detail.html';
+        }
+    function moveGo3() {
+        console.log(event.currentTarget);
+        location.href = '/user/lecture/lecture-detail.html';
+        }
+    function moveGo4() {
+        console.log(event.currentTarget);
+        location.href = '/user/lecture/lecture-detail.html';
+        }
+    function moveGo5() {
+        console.log(event.currentTarget);
+        location.href = '/user/lecture/lecture-detail.html';
+        }
+    function moveGo6() {
+        console.log(event.currentTarget);
+        location.href = '/user/lecture/lecture-detail.html';
+        }
+    
+    
+    
+    </script>
+    <script src="/js/user/main/user-main-pop.js"></script>
+    <script src="/js/user/main/user-main-new.js"></script>
+    
+
+    
+
+</body>
+</html>

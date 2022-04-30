@@ -11,6 +11,8 @@ public interface FaqDao {
 
   List<Faq> findAll(Faq faq);
 
+  List<Faq> userFindAll(Faq faq);
+
   int insert(Faq faq);
 
   Faq findByNo(int no);

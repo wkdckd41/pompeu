@@ -30,7 +30,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
 
     param.set('memberNo', no); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
 
-    fetch("/user-ask/list", { // 컨트롤러고 가기위한 경로
+    fetch("/ask/user-list", { // 컨트롤러고 가기위한 경로
         method: "POST",
         body: param         // 파라미터 객체를 세팅해준다. 커트롤러로 고고!!
     }).then(function (response) {
@@ -48,7 +48,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
           <td onclick="moveView(${rst.no});">${rst.no}</td>
           <td onclick="moveView(${rst.no});">${rst.askName}</td>
           <td>${rst.registerDate}</td>
-          <td>${rst.answerCheck}</td>`;
+          <td>${rst.answerCheckName}</td>`;
             document.querySelector("#tbody1").appendChild(tr);
             count++;
         }
@@ -74,8 +74,9 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
 }
 
 function init() {
+    
     $("#btnWrite").on("click", function () {
-        location.href = 'notice-write.html'
+        location.href = 'ask-write.html'
     })
 
     $("#btnDelete").on("click", function () {
@@ -83,6 +84,8 @@ function init() {
         var chkId = '#chk_';
         var noId = '#no_';
         var str = '';
+
+
 
         for (var i = 0; i < $('#tbody1').children().length; i++) {
             if ($(chkId + i).is(':checked') == true) {
@@ -102,9 +105,9 @@ function init() {
 
         var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
 
-        param.set('memberNo', str.substr(0, str.length - 1)); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
+        param.set('memberNo', str.substr(0, str.length - 1)); //memberNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
 
-        fetch("/notice/deleteAll", { // 컨트롤러고 가기위한 경로
+        fetch("/ask/deleteAll", { // 컨트롤러고 가기위한 경로
             method: "POST",
             body: param         // 파라미터 객체를 세팅해준다. 커트롤러로 고고!!
         }).then(function (response) {
@@ -112,7 +115,7 @@ function init() {
         })
         .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
             if (result.status == "success") {
-                location.href = "notice-list.html";
+                location.href = "ask-list.html";
             } else {
                 window.alert("게시글 변경 실패!");
                 console.log(result.data);
