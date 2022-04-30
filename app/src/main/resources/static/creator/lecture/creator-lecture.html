@@ -46,17 +46,17 @@
                         </div>
 
                         <div class="form_controll">
-                            <div class="col-md-5 form_item">
+                            <div class="col-md-5 form_item"> <!-- 실내실외 -->
 
-                                <select name="in_out_ex" class="category">
+                                <select name="inOutEx" class="category"> 
                                     <option value="1">실내</option>
                                     <option value="2">실외</option>
                                 </select>
 
                             </div>
 
-                            <div class="col-md-7 form_item">
-                                <select name="ex_no" class="category">
+                            <div class="col-md-7 form_item"> <!-- 운동종목 -->
+                                <select name="exNo" class="category">
                                     <option value="1">볼링</option>
                                     <option value="2">농구</option>
                                     <option value="3">야구</option>
@@ -74,19 +74,19 @@
 
                         <div class="form_controll">
                             <div class="col-md-5 form_item">
-                                <label for="">연도</label>
+                                <label for="">시작일자</label>
                             </div>
                             <div class="col-md-7 form_item">
-                                <label for="">월</label>
+                                <label for="">종료일자</label>
                             </div>
                         </div>
 
                         <div class="form_controll">
-                            <div class="col-md-5 form_item">
-                                <input type="date" name="start_date" class="form_date">
+                            <div class="col-md-5 form_item"> <!-- 시작일자, 종료일자 -->
+                                <input type="date" name="startDate" class="form_date">
                             </div>
                             <div class="col-md-7 form_item">
-                                <input type="date" name="end_date" class="form_date">
+                                <input type="date" name="endDate" class="form_date">
                             </div>
                         </div>
 
@@ -97,17 +97,17 @@
                             </div>
                         </div>
                         <div class="form_controll_time row">
-                            <div class="col-md-2">
+                            <div class="col-md-2"> <!-- 시작시간, 종료시간 -->
                                 <input type="text" class="time" readonly="true" value="시작시간">
                             </div>
                             <div class="col-md-3">
-                                <input type="time" name="start_time" class="time_set">
+                                <input type="time" name="times" class="time_set"> <!-- 시작시간 -->
                             </div>
                             <div class="col-md-2">
                                 <input type="text" class="time" readonly="true" value="종료시간">
                             </div>
                             <div class="col-md-3">
-                                <input type="time" name="end_time" class="time_set">
+                                <input type="time" name="times" class="time_set"> <!-- 종료시간 -->
                             </div>
                             <button type="button" class="btn_time">시간 추가</button>
                         </div>
@@ -151,13 +151,13 @@
                             <div class="col-md-5 form_item">
 
                                 <input type="number" name="maxMember" class="max_member" placeholder="최대 인원" min="1"
-                                    max="30">
+                                    max="30"><!-- 인원 -->
 
                             </div>
 
                             <div class="col-md-7 form_item">
                                 <input type="number" name="lecturePrice" class="price" placeholder="수강료">
-                            </div>
+                            </div> <!-- 수강료 -->
                         </div>
 
                         <div class="form_controll">
@@ -174,7 +174,7 @@
                         <div class="form_controll">
                             <div class="col-md-12">
                                 <input type="text" name="name" class="name" placeholder="클래스의 주제를 연상시키는 제목을 작성해주세요"
-                                    required="true" maxlength="30">
+                                    required="true" maxlength="30"> <!-- 제목 -->
                             </div>
                         </div>
                         <div class="form_controll">
@@ -192,7 +192,7 @@
                             <div class="col-md-12">
                                 <div class="thumbnail_file">
                                     <label for="inputImage">
-                                        <input type="file" name="filePath" class="image" id="inputImage">
+                                        <input type="file" name="filePath" class="image" id="inputImage">  <!-- 이미지 -->
                                         <img src="/creator/image/nofile.jpg" class="dummy_image" id="previewImage">
                                     </label>
                                 </div>
@@ -209,7 +209,7 @@
                                 <div class="list_file">
                                     <div class="list_item">
                                         <label for="inputImageSt">
-                                            <input type="file" name="filePathSt" class="image" id="inputImageSt">
+                                            <input type="file" name="filePathSt" class="image" id="inputImageSt"> <!-- 이미지 -->
                                             <img src="/creator/image/nofile.jpg" class="dummy_image"
                                                 id="previewImageSt">
                                         </label>
@@ -241,7 +241,7 @@
                         <div class="form_controll">
                             <div class="col-md-12">
                                 <input type="textarea" name="lectureInfo" id="info" class="info"
-                                    placeholder="클래스 상세 소개">
+                                    placeholder="클래스 상세 소개"> <!-- 소개 -->
                             </div>
                         </div>
                         <div class="form_controll">
@@ -252,7 +252,7 @@
                         <div class="form_controll">
 
                             <div class="col-md-12">
-                        <input type="text" id="sample5_address" placeholder="주소를 입력하세요">
+                        <input type="text" id="sample5_address" placeholder="주소를 입력하세요"> <!-- 주소입력 -->
                         <input type="button" onclick="sample5_execDaumPostcode()" value="주소 검색"><br>
                         <div id="map" style="width:300px;height:300px;margin-top:10px;display:none"></div>
                             </div>
@@ -264,6 +264,8 @@
                             </div>
                         </div>
                     </form>
+
+
                 </div>
                 <!-- /.container-fluid -->
                 <div class="container-fluid">
@@ -325,68 +327,18 @@
         }).open();
     }
 </script>
+<script>
+  var xName = document.querySelector("#x-name");
+  var xEmail = document.querySelector("#x-email");
+  var xCompany = document.querySelector("#x-company");
+  var xTelDivContainer = document.querySelector("#x-tel-div-container");
+
+
+
+</script>
 </body>
 
 </html>
 
 
 
-<h1>새 독서록</h1>
-
-<form name="form1">
-제목*: <input name="title" type="text"><br>
-저자*: <input name="author" type="text"><br>
-출판사*: <input name="press" type="text"><br>
-사진: <input name="file" type="file"><br>
-페이지: <input name="page" type="number" value="0"><br>
-가격: <input name="price" type="number" value="0"><br>
-독서일: <input name="readDate" type="date"><br>
-소감*: <textarea name="feed" cols="60" rows="10"></textarea><br>
-별표(*) 항목은 필수 입력입니다.<br>
-<button id="x-add-btn" type="button">등록</button>
-<button id="x-cancel-btn" type="button">취소</button>
-</form>
-
-<script type="text/javascript">
-  var xTitle = document.querySelector("input[name=title]");
-  var xAuthor = document.querySelector("input[name=author]");
-  var xPress = document.querySelector("input[name=press]");
-  var xFeed = document.querySelector("textarea");
-  var xReadDate = document.querySelector("input[name=readDate]");
-  
-  document.querySelector("#x-add-btn").onclick = function() {
-    if (xTitle.value == "" || 
-        xAuthor.value == "" ||
-        xPress.value == "" ||
-        xFeed.value == "") {
-      window.alert("필수 입력 항목이 비어 있습니다.");
-      return;
-    }
-    
-    var fd = new FormData(document.forms.namedItem("form1"));
-    
-    if (xReadDate.value == "") { // 독서일을 지정하지 않았으면 서버에 보내지 않는다.
-      fd.delete("readDate");
-    }
-    
-    fetch("/book/add", { 
-        method: "POST",
-        body: fd
-      }) 
-      .then(function(response) {
-        return response.json();
-      })
-      .then(function(result) {
-        console.log(result);
-        if (result.status == "success") {
-          location.href = "?content=/book/index.html";
-        } else {
-          alert(result.data);
-        }
-      });
-  };
-
-  document.querySelector("#x-cancel-btn").onclick = function() {
-    window.location.href = "?content=/book/index.html";
-  };
-</script>

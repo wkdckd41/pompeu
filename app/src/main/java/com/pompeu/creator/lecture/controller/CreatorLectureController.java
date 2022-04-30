@@ -1,8 +1,12 @@
 package com.pompeu.creator.lecture.controller;
 
 
+import static com.pompeu.creator.lecture.controller.ResultMap.FAIL;
+import static com.pompeu.creator.lecture.controller.ResultMap.SUCCESS;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -20,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.domain.Lecture;
-import com.pompeu.domain.LectureImage;
+import com.pompeu.domain.LectureTime;
 import com.pompeu.domain.Member;
 
 @RestController
@@ -34,89 +38,166 @@ public class CreatorLectureController {
 
   //크리에이터가 등록한 클래스 목록조회
   @RequestMapping("list")
-  public Object list(@AuthenticationPrincipal Member member) {
-    log.debug(member.toString());
+  public Object list(@AuthenticationPrincipal Member member) { // 각자 역할에 따른 분리 - 웹기술은 컨트럴러 단에서만 처리 하도록 
 
-    //return new ResultMap().setStatus(SUCESS).setData(creatorLectureService.list(member.getNo()));
-    return creatorLectureService.list(member.getNo());
+    log.debug(member.getNo());
+
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(member.getNo()));
+    //return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.list(no));
+    //return creatorLectureService.list(member.getNo());
   }
 
   //클래스 등록
   @RequestMapping("add")
-  public Object add(Lecture lecture, List<MultipartFile> files) {
+  public Object add(@AuthenticationPrincipal Member member, Lecture lecture , List<MultipartFile> file, LectureTime lectureTime)  {
+    //log.debug(file.toString(),lectureTime.toString()); 
 
-    ArrayList<LectureImage> imagesList = new ArrayList<>();
+    //강의 시간 데이터 가공 - 시간대 1개 입력가능
+
+    lecture.setCreatorNo(member.getNo());
+    log.debug(lecture);
+    log.debug(lectureTime);
+    lecture.setTimes(lectureTime); 
+
+    /*
+     * 파라미터로 스트링 배열을 받을 때 String[]
+    try {
+      ArrayList<LectureTime> timesList = new ArrayList<>();
+      for(int i= 0; i< time.length; i++) {
+
+        String[] value = time[i].split(",");
+        if(value[0].length() == 0) { //시작시간
+          continue;
+        } 
+        if(value[1].length() == 0) { //종료시간
+          continue;
+        }  
+        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
+        timesList.add(lectureTime);
+      } 
+
+      log.info("정보받아와3");
+
+      // lecture 객체에 타임리스트를 담는다. 
+      lecture.setTimes(timesList);
+      log.info(SUCCESS);
+
+    } catch(Exception e) {
+      StringWriter out = new StringWriter();
+      e.printStackTrace(new PrintWriter(out));
+      log.error(out);
+      log.info("시간등록실패");
+    }    
+     */
 
 
-    for (int i = 0; i < files.size(); i++) { 
-
-      try {
-        log.debug(files.size());
-        //log.debug(files.get(i));
-        log.debug(saveFile(files.get(0)));
-        String aFile = (String) saveFile(files.get(i));
-        LectureImage lectureImage = new LectureImage();
-        lectureImage.setImage(aFile);
-
-        //System.out.println(lectureImage.setImage(aFile));
-        //imagesList.add(lectureImage);
-      } catch (Exception e) {
-        e.printStackTrace();
+    //강의 이미지 데이터 가공 
+    ArrayList<String> fileList = new ArrayList<>();
+    try { 
+      for(int i = 0; i< file.size(); i++) { 
+        fileList.add(savePhoto(file.get(i)));
       }
-    }
 
+      // lecture 객체에 이미지리스트를 담는다. 
+      lecture.setImages(fileList);
 
+      //강좌정보와 이미지, 타임정보를 입력하라
+      creatorLectureService.add(lecture);
 
+      log.info("사진등록성공");
+      return new ResultMap().setStatus(SUCCESS);
 
-    //    //강의 시간 데이터
-    //    try {
-    //
-    //     // lecture.setPhoto(saveFile(file))
-    //
-    //      ArrayList<LectureTime> timesList = new ArrayList<>();
-    //      for(int i= 0; i< time.length; i++) {
-    //        String[] value = time[i].split(",");
-    //        if(value[0].length() == 0) { //시작시간
-    //          continue;
-    //        } 
-    //        if(value[1].length() == 0) { //종료시간
-    //          continue;
-    //        }  
-    //        LectureTime lectureTime = new LectureTime(value[0],value[1],Integer.parseInt(value[2]));
-    //        timesList.add(lectureTime);
-    //      }
-    //      lecture.setTimes(timesList);
-    //      lecture.setImages(saveFileMulti(files));
-    //
-    //    } catch (Exception e) {
-    //      e.printStackTrace();
-    //    } 
-    //return creatorLectureService.add(lecture);
-    return "리나"; 
+    } catch (Exception e) {
+
+      StringWriter out = new StringWriter();
+      e.printStackTrace(new PrintWriter(out));
+      log.error(out);
+      log.info("사진등록실패");
+
+      return new ResultMap().setStatus(FAIL);
+    } 
 
   }
+
 
   //클래스 상세보기
   @RequestMapping("get")
   public Object get(int no) {
     Lecture lecture = creatorLectureService.get(no);
     if (lecture == null) {
-      return "";
+      return new ResultMap().setStatus(FAIL).setData("해당 번호의 연락처가 없습니다.");
     }
-    return lecture;
+    return new ResultMap().setStatus(SUCCESS).setData(lecture);
   }
+
+
 
   //클래스 수정
   @RequestMapping("update")
-  public Object update(Lecture lecture) {
-    return creatorLectureService.update(lecture);
+  public Object update(Lecture lecture , String[] time , List<MultipartFile> file) {
+
+    //강의 시간 데이터 가공
+    try {
+      ArrayList<LectureTime> timesList = new ArrayList<>();
+      for(int i= 0; i< time.length; i++) {
+        String[] value = time[i].split(",");
+        if(value[0].length() == 0) { //시작시간
+          continue;
+        } 
+        if(value[1].length() == 0) { //종료시간
+          continue;
+        }  
+        //이미 강의 번호를 알고 있으므로 강의 번호를 꺼낸다. 
+        LectureTime lectureTime = new LectureTime(lecture.getNo(), value[0], value[1], Integer.parseInt(value[2]));
+        timesList.add(lectureTime);
+      } 
+
+      // lecture 객체에 타임리스트를 담는다. 
+      //lecture.setTimes(timesList);
+      log.info(SUCCESS);
+
+    } catch(Exception e) {
+      StringWriter out = new StringWriter();
+      e.printStackTrace(new PrintWriter(out));
+      log.error(out);
+      log.info("시간등록실패");
+    }    
+
+    //강의 이미지 데이터 가공 
+    ArrayList<String> fileList = new ArrayList<>();
+    try { 
+      for(int i = 0; i< file.size(); i++) { 
+        fileList.add(savePhoto(file.get(i)));
+      }
+
+      // lecture 객체에 이미지리스트를 담는다. 
+      lecture.setImages(fileList);
+
+      //강좌정보와 이미지, 타임정보를 입력하라
+      creatorLectureService.update(lecture);
+
+      log.info("사진등록성공");
+      return new ResultMap().setStatus(SUCCESS);
+
+    } catch (Exception e) {
+
+      StringWriter out = new StringWriter();
+      e.printStackTrace(new PrintWriter(out));
+      log.error(out);
+      log.info("사진등록실패");
+
+      return new ResultMap().setStatus(FAIL);
+    } 
   }
 
+  /*
   //클래스 삭제
   @RequestMapping("delete")
   public Object delete(int no) {
     return creatorLectureService.delete(no);
   }
+
+   */
 
   @RequestMapping("photo")
   public ResponseEntity<Resource> photo(String filename) {
@@ -167,7 +248,7 @@ public class CreatorLectureController {
 
 
   //이미지파일 등록
-  private Object saveFile(MultipartFile file) throws Exception {
+  private String savePhoto(MultipartFile file) throws Exception {
 
     if (file != null && file.getSize() > 0) { 
 
@@ -184,7 +265,6 @@ public class CreatorLectureController {
 
       // 파일을 지정된 폴더에 저장한다.
       File photoFile = new File("./upload/lecture_image/" + filename); // App 클래스를 실행하는 프로젝트 폴더
-      log.debug(photoFile);
       file.transferTo(photoFile.getCanonicalFile()); // 프로젝트 폴더의 전체 경로를 전달한다.
 
       return filename;
