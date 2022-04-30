@@ -85,7 +85,7 @@ emailBtn.addEventListener('click', function (e) {
 
     const emailRule = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
 
-    if ($(".nickNameBtn").val() != 'Y') {
+    if ($("#nicknameCheck").val() != 'Y') {
         Swal.fire({
             icon: 'warning',
             title: '닉네임 중복확인을 해주세요.',
