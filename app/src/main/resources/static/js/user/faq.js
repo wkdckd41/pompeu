@@ -31,7 +31,7 @@ function selectFaqList(no) {
 
     param.set('memberTypeNo', no);
 
-    fetch("/faq/list", {
+    fetch("/faq/userList", {
         method: "POST",
         body: param
     }).then(function (response) {

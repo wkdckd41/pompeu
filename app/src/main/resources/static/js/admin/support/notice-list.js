@@ -26,9 +26,16 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
     }
     console.log("memberTypeNo : " + no);
 
-    var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
+    var param = new URLSearchParams();
+    console.log("A");
+    param.set('pageNo', 1);
+    console.log("B");
+    param.set('pageSize', 5);
+    console.log("C");
+    param.set('memberTypeNo', no);
 
-    param.set('memberTypeNo', no); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
+    console.log(param);
+    console.log("D");
 
     fetch("/notice/list", { // 컨트롤러고 가기위한 경로
         method: "POST",
@@ -39,7 +46,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
     .then(function (result) { //긴 여행을 거쳐 컨트롤러에서 다시넘어온 결과값이다.
         console.log(result);
         var count = 0;
-        for (var rst of result) {
+        for (var rst of result.noticeList) {
             var tr = document.createElement("tr");
             tr.innerHTML = `<td><input type="checkbox" id = "chk_` + count
                 + `" name="_selected_" value="ROW_` + count + `"></td>
