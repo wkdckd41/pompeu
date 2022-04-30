@@ -264,7 +264,7 @@ xCreatorBtn.addEventListener('click', (e) => {
         //     reverseButtons: true, // 버튼 순서 거꾸로
 
         // })
-        fetch('/user/joinCreator', {
+        fetch('http://localhost:8080/user/join', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
