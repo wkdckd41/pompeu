@@ -6,7 +6,6 @@ import org.apache.ibatis.annotations.Param;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureList;
 import com.pompeu.domain.LectureTime;
-import com.pompeu.domain.Test;
 
 @Mapper
 public interface CreatorLectureDao {
@@ -15,9 +14,10 @@ public interface CreatorLectureDao {
 
   List<LectureList> findAllMyclass(@Param("no") int no);
 
+  //강의 등록 및 시간, 이미지 등록
   int insert(Lecture lecture);
 
-  int insertTimes(@Param("lectureNo") int lectureNo, @Param("times") List<LectureTime> times);
+  int insertTimes(@Param("lectureNo") int lectureNo, @Param("times") LectureTime times);
 
   int insertImages(@Param("lectureNo") int lectureNo, @Param("images") List<String> images);
 
@@ -27,7 +27,7 @@ public interface CreatorLectureDao {
 
   int delete(int no);
 
-  List<Test> test();
+  int deleteTelBylectureNo(int lectureNo);
 
 }
 

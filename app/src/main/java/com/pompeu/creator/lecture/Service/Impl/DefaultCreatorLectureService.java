@@ -30,11 +30,12 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
 
   @Override
-  @Transactional 
+  //@Transactional 
   public int add(Lecture lecture) {
     log.info("강좌등록");
     creatorLectureDao.insert(lecture);
-    //creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
+    //creatorLectureDao.insertTimes(lectureTime);
+    creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
     creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
     return 1;
   }
@@ -45,12 +46,20 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
 
   @Override
+  @Transactional 
   public int update(Lecture lecture) {
-    return creatorLectureDao.update(lecture);
+    int count = creatorLectureDao.update(lecture);
+    if (count > 0) {
+      creatorLectureDao.deleteTelBylectureNo(lecture.getNo()); //  강의 변경 전에 기존 데이터를를 모두 삭제한다.
+      //  creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
+      creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
+    }
+    return count;
   }
 
   @Override
   public int delete(int no) {
+    creatorLectureDao.deleteTelBylectureNo(no);
     return creatorLectureDao.delete(no);
   }
 
