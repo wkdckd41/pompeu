@@ -94,7 +94,16 @@ function init() {
         }
 
         if (str == '') {
-            alert("선택된 내역이 없습니다.");
+            
+
+            Swal.fire({
+                icon: 'warning',
+                title: "선택된 내역이 없습니다.",
+            });
+            
+            //alert("선택된 내역이 없습니다.");
+            
+            
             return;
         } else {
             var result = confirm('삭제하시겠습니까?');
@@ -102,6 +111,8 @@ function init() {
                 return;
             }
         }
+
+
 
         var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
 
