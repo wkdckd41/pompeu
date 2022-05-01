@@ -34,8 +34,8 @@ public class DefaultNoticeService implements NoticeService{
   }
 
   @Override
-  public int size() {
-    return noticeDao.countAll();
+  public int size(Notice notice) {
+    return noticeDao.countAll(notice);
   }  
 
   @Override

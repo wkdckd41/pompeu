@@ -6,6 +6,7 @@ import org.apache.ibatis.annotations.Param;
 import com.pompeu.domain.CreatorContent;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.LectureWishlist;
 import com.pompeu.domain.myLectureAsk;
 import com.pompeu.domain.myLectureList;
 
@@ -17,6 +18,8 @@ public interface UserLectureDao {
   int insert(myLectureList mylecturelist);
 
   int addAsk(myLectureAsk mylectureask);
+
+  int wishlistAdd(LectureWishlist lecturewishlist);
 
   Lecture findByNo(int no);
 

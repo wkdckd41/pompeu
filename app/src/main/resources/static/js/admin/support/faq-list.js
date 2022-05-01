@@ -47,7 +47,7 @@ function selectFaqList(no) {
                 + `" value="${rst.no}""></td>
           <td>${rst.no}</td>
           <td>${rst.memberType}</td>
-          <td onclick="moveView(${rst.no});">${rst.ask}</td>
+          <td onclick="moveView(${rst.no});" class="admin_table_name">${rst.ask}</td>
           <td>${rst.registerDate}</td>`;
             document.querySelector("#tbody1").appendChild(tr);
             count++;

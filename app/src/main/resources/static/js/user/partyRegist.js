@@ -52,7 +52,10 @@ document.querySelector("#x-add-btn").onclick = function() {
       xExTag.value == "" ||
       xAddress.value == "" ||
       xFile.value == "" ) {
-    window.alert("필수 입력 항목이 비어있습니다.");
+     Swal.fire({
+                    icon: 'warning',
+                    title: '필수 입력 사항을 기입해주세요',
+                });
     return;
     }
     

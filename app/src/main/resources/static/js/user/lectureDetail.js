@@ -281,9 +281,30 @@ document.querySelector("#btn-ask").onclick = function() {
     
     location.reload();
   });
-  
-  
 };
-  
+
+var zzimCheck = 0;
+  var xHeart = document.querySelector("#x-heart");
     
+  // 소모임 찜하기
+  document.querySelector("#x-btn-zzim").onclick = function() {
+    console.log("wishlist");
+    console.log(no);
+    
+    if (zzimCheck == 0) {
+      xHeart.style.color = "red";
+      zzimCheck = 1;
+    } else if (zzimCheck == 1) {
+      xHeart.style.color = "black";
+      zzimCheck = 0;
+    }
+  
+    fetch(`/userLecture/wishlistAdd?lectureNo=${no}`)
+    .then(function(response) {
+      return response.text();
+    })
+    .then(function(result) {
+      console.log(result);
+     });
+  };
   

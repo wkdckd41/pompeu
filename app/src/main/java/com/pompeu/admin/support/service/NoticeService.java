@@ -22,7 +22,7 @@ public interface NoticeService {
 
   int fileRemove(Notice notice);
 
-  int size();
+  int size(Notice notice);
 
 }
 

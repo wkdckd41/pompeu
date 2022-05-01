@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>클래스 조회</title>
+<link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css" id="bootstrap-css">
+<link rel="stylesheet" href="/creator/css/creator-lecture.css">
+<style>
+
+*{
+ padding:0px;
+ margin:0px;
+}  
+
+div.page-header {
+     margin-right: -15px;
+    margin-left: -15px;
+}
+   
+div.page-header > h3{
+  font-weight: bold;
+  font-size:24px;
+}
+
+#content{
+  padding: 30px 70px;
+  width: 100%;
+}
+
+
+.new-class{
+  border:1px solid gray;
+
+  right: 100px;
+}
+
+#x-lecture-table {
+  text-align: center;
+}
+
+#x-add-btn{
+    width: 100px;
+    height: 40px;
+    background-color: #04CF5C;
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+}
+
+
+th{
+text-align: center;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div id="wrapper">
+
+<div id="header"></div>
+    
+<div id="page-wrapper">
+<div id="content">
+
+<div class="page-header">
+  <h3>클래스 조회</h3>
+</div>
+
+<div id="page-menue">
+  <button type="button" class="add_btn"><a href="/creator/lecture/lecture-register.html">새 클래스등록</a></button>
+ 
+</div>
+
+<div id="class-list">
+
+
+<table id="x-lecture-table" class="table">
+<thead>
+  <tr>
+    <th>번호</th>
+    <th>제목</th>
+    <th>수업일시</th>
+    <th>수업시간</th>
+    <th>진행상태</th>
+    <th>등록일</th>
+  </tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+</div>
+
+<div class="text-center">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                  <li class="page-item"><a class="page-link" href="#">&lt</a></li>
+                  <li class="page-item"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item"><a class="page-link" href="#">&gt</a></li>
+                </ul>
+              </nav>
+            </div>
+
+</div>
+</div>
+
+  
+</div>
+</div>
+
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="/creator/js/creator.js"></script>
+<script type="text/javascript">
+
+var tbody = document.querySelector("#x-lecture-table tbody")
+
+     fetch("/creatorLecture/list")
+    .then(function(response) {
+      return response.json()
+  
+    })
+    .then(function(result) {
+      if (result.status == "fail") {
+        window.alert("서버 요청 오류!");
+        console.log(result.data);
+        return;
+      }
+       var count = 0;
+
+      for (var lectureList of result.data){
+        console.log(lectureList);
+        count ++;
+        var tr = document.createElement("tr");
+      
+        tr.innerHTML = `<td>${count}</td>
+        <td><a href="/user/lecture/lecture-detail.html?no=${lectureList.lectureNo}">${lectureList.classTitle}</a></td>
+        <td><span>${lectureList.startDate}</span>~<span>${lectureList.endDate}</span></td>
+        <td><span>${lectureList.startTime}</span>~<span>${lectureList.endTime}</span></td>
+        <td>${lectureList.statusCheck}</td>
+        <td>${lectureList.registerDate}</td>`;
+            
+        tbody.appendChild(tr);
+        console.log(tr);
+      }
+
+    });      
+    
+
+</script>
+</body>
+</html>

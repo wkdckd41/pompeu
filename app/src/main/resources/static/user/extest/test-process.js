@@ -31,16 +31,16 @@
 				count++;
    			break;
   			case 3:
-    		btn1.innerHTML = "개이득. 바로 입금하러감";
-    		btn2.innerHTML = "개이득. 오늘 저녁은 치킨이닭";
+    		btn1.innerHTML = "바로 입금하러간다";
+    		btn2.innerHTML = "오늘 저녁은 치킨이닭";
 				process.innerHTML = "4/12";
-				question.innerHTML = "코트를 뒤져보니 배춧잎 몇장이 나왔다";
+				question.innerHTML = "코트를 뒤져보니 만 원 짜리 몇장이 나왔다";
 				aloneTeam++;
 				count++;
    			break;
   			case 4:
-    		btn1.innerHTML = "계획한게 있으니 고대로 땡볕으로 전진";
-    		btn2.innerHTML = "계획은 깨지기 위해 있는거다. 바로 호캉스";
+    		btn1.innerHTML = "계획한게 있으니 고대로 땡볕으로 전진한다";
+    		btn2.innerHTML = "계획은 깨지기 위해 있는거다. 호캉스로 변경한다";
 				process.innerHTML = "5/12";
 				question.innerHTML = "필리핀 자유여행 3일차. 호텔서 나가기 전 핸드폰을 보는데 유래없는 폭염이란다";
 				poorRich++;
@@ -48,7 +48,7 @@
    			break;
   			case 5:
     		btn1.innerHTML = "이돈이 어디야. 얌전히 주머니로 집어넣는다";
-    		btn2.innerHTML = "무조건 직진! 전액 꼬라박는다";
+    		btn2.innerHTML = "무조건 직진! 당첨금액 전부로 다시산다";
 				process.innerHTML = "6/12";
 				question.innerHTML = "로또 50,000원에 당첨됬다. 당신은...?";
 				outIn++;
@@ -66,7 +66,7 @@
     		btn1.innerHTML = "당근을 켠다";
     		btn2.innerHTML = "키보드는 갬성이지. 고성능으로 추천받으러 간다";
 				process.innerHTML = "8/12";
-				question.innerHTML = "키보드가 맛이 갔다. 핸드폰을 켜고 당신은...?";
+				question.innerHTML = "키보드가 망가졌다. 핸드폰을 켜고 당신은...?";
 				aloneTeam++;
 				count++;
    			break;
@@ -80,7 +80,7 @@
    			break;
   			case 9:
     		btn1.innerHTML = "진짠가? 친구 말이 맞나보다 하고 넘어간다";
-    		btn2.innerHTML = "일단 돈부터 꺼내라. 쫄?";
+    		btn2.innerHTML = "일단 돈부터 꺼낸다";
 				process.innerHTML = "10/12";
 				question.innerHTML = "친구가 말도 안되는걸 우기며 내기를 하자 한다. 당신은...?";
 				outIn++;
@@ -144,16 +144,16 @@
         count++;
         break;
         case 3:
-        btn1.innerHTML = "개이득. 바로 입금하러감";
-        btn2.innerHTML = "개이득. 오늘 저녁은 치킨이닭";
+        btn1.innerHTML = "바로 입금하러간다";
+        btn2.innerHTML = "오늘 저녁은 치킨이닭";
         process.innerHTML = "4/12";
-        question.innerHTML = "코트를 뒤져보니 배춧잎 몇장이 나왔다";
+        question.innerHTML = "코트를 뒤져보니 만 원 짜리 몇장이 나왔다";
         aloneTeam--;
         count++;
         break;
         case 4:
-        btn1.innerHTML = "계획한게 있으니 고대로 땡볕으로 전진";
-        btn2.innerHTML = "계획은 깨지기 위해 있는거다. 바로 호캉스";
+        btn1.innerHTML = "계획한게 있으니 고대로 땡볕으로 전진한다";
+        btn2.innerHTML = "계획은 깨지기 위해 있는거다. 호캉스로 변경한다";
         process.innerHTML = "5/12";
         question.innerHTML = "필리핀 자유여행 3일차. 호텔서 나가기 전 핸드폰을 보는데 유래없는 폭염이란다";
         poorRich--;
@@ -161,7 +161,7 @@
         break;
         case 5:
         btn1.innerHTML = "이돈이 어디야. 얌전히 주머니로 집어넣는다";
-        btn2.innerHTML = "무조건 직진! 전액 꼬라박는다";
+        btn2.innerHTML = "무조건 직진! 당첨금액 전부로 다시산다";
         process.innerHTML = "6/12";
         question.innerHTML = "로또 50,000원에 당첨됬다. 당신은...?";
         outIn--;
@@ -179,7 +179,7 @@
         btn1.innerHTML = "당근을 켠다";
         btn2.innerHTML = "키보드는 갬성이지. 고성능으로 추천받으러 간다";
         process.innerHTML = "8/12";
-        question.innerHTML = "키보드가 맛이 갔다. 핸드폰을 켜고 당신은...?";
+        question.innerHTML = "키보드가 망가졌다. 핸드폰을 켜고 당신은...?";
         aloneTeam--;
         count++;
         break;
@@ -193,7 +193,7 @@
         break;
         case 9:
         btn1.innerHTML = "진짠가? 친구 말이 맞나보다 하고 넘어간다";
-        btn2.innerHTML = "일단 돈부터 꺼내라. 쫄?";
+        btn2.innerHTML = "일단 돈부터 꺼낸다";
         process.innerHTML = "10/12";
         question.innerHTML = "친구가 말도 안되는걸 우기며 내기를 하자 한다. 당신은...?";
         outIn--;

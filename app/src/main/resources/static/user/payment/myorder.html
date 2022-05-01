@@ -25,12 +25,10 @@ h3 {
   font-weight: bold;
   /*text-align: center;*/
   position: relative;
-  left:600px;
+
 }
 
-span {
-  border: 1px red solid;
-}
+
 
 hr {
   background-color: #000;
@@ -77,6 +75,11 @@ hr {
   font-weight: bold;
 }
 
+tr th, tr td {
+  padding: 10px;
+}
+
+
 </style> 
 </head>
 <body>
@@ -96,17 +99,17 @@ hr {
 <div id=customer-info>
   <span class="subname">주문자 정보</span>
   <hr>
-  <span>주문자</span><span>차승원</span>
-  <hr><br/>
-  <span>이메일</span><span>chacha@gmail.com</span>
+  <span style="font-weight:bold;">주문자 : </span><span>차승원</span>
   <hr>
-  <span>휴대폰번호</span><span>010-1111-1111</span>
+  <span style="font-weight:bold;">이메일 : </span><span>chacha@gmail.com</span>
+  <hr>
+  <span style="font-weight:bold;">휴대폰번호 : </span><span>010-1111-1111</span>
   <hr>
 </div>
 
 <div id=price>
   <span class="subname">최종 결제 금액</span>
-    <table style="border:1px solid red;">
+    <table>
     <thead>
       <tr>
         <th>총 상품금액</th>
@@ -127,7 +130,7 @@ hr {
 <div id=order-info>
   <span class="subname">주문정보</span>
   <hr>
-  <table style="border:1px solid red;">
+  <table >
     <thead>
       <tr>
         <th>상품정보</th>
@@ -152,12 +155,13 @@ hr {
 <div id =order-option>
   <span class="subname">결제방식</span>
   <hr>
-  <span class="order-op">카드 결제</span>
-  <span class="order-op">무통장 입금</span>
-  <span class="order-op">카카오 페이</span>
-  <span class="order-op">네이버 페이</span><br/>
-  <p><input type="checkbox">(필수) 이용약관, 개인정보 수집 및 이용, 개인정보 제공 내용을 확인하였고 동의합니다.</p>
-  <button type="button">결제하기</button>
+  <label><input type="radio" name="pay-option" value="1" checked>카드 결제</label>&nbsp;
+  <label><input type="radio" name="pay-option" value="2">무통장 입금</label>&nbsp;
+  <label><input type="radio" name="pay-option" value="3">카카오 페이</label>&nbsp;
+  <label><input type="radio" name="pay-option" value="4">네이버 페이</label>
+<br/>
+  <p><input type="checkbox">&nbsp;(필수) 이용약관, 개인정보 수집 및 이용, 개인정보 제공 내용을 확인하였고 동의합니다.</p>
+  <button type="button" id="pay-button" onclick="goPay()">결제하기</button>
 </div>
 
 </div>        
@@ -170,10 +174,17 @@ hr {
     <script src="/node_modules/jquery/dist/jquery.min.js"></script>
     <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/js/user/layout.js"></script>
-
+    
+<script>
+function goPay() {
+  window.location.href="/mypage/user-info/user-info.html"
+}
+</script>
 
 </body>
 </html>
+
+
 
 
 

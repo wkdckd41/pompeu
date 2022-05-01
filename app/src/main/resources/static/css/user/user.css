@@ -121,7 +121,7 @@ h5 {
 }
 
 .card-detail{
-     background-color: #F7F7F7;
+    background-color: #F7F7F7;
     width: 200px;
     height: 90px;
 }
@@ -191,6 +191,13 @@ border: 1px solid black;
 
 .party-list {
   min-height: 600px;
+}
+
+#x-partyContent {
+  background: none;
+  border: none;
+  margin-left: -10px;
+  
 }
 
 .party-regist {

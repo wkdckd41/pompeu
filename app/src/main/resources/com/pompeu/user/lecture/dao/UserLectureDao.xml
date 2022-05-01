@@ -124,6 +124,11 @@
     values(#{usersNo},#{lectureNo},#{askContent})
   </insert>
   
+  <insert id="wishlistAdd" parameterType="Lecture">
+        insert into lecture_wishlist(users_no,lecture_no) 
+        values(#{usersNo},#{lectureNo})
+      </insert>  
+  
    <select id="findEverything" resultType="HashMap">
     select
           ex.name                    as exName,
@@ -229,15 +234,11 @@
     select  
           le.lecture_no                                         as lectureNo,
           le.lecture_info                                       as lectureInfo,
-          cr.info                                               as info,
-          ma.ask_content                                        as askContent
-          
+          cr.info                                               as info          
     from 
           lecture as le
     join creator as cr 
           on le.creator_no = cr.creator_no
-    join mylecture_ask as ma
-          on ma.lecture_no = le.lecture_no
     where 
       le.lecture_no=#{no}
   </select>

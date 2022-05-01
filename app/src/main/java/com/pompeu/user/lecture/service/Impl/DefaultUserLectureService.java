@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import com.pompeu.domain.CreatorContent;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.LectureWishlist;
 import com.pompeu.domain.myLectureAsk;
 import com.pompeu.domain.myLectureList;
 import com.pompeu.user.lecture.dao.UserLectureDao;
@@ -30,6 +31,11 @@ public class DefaultUserLectureService implements UserLectureService{
   @Override
   public int ask(myLectureAsk mylectureask) {
     return userLectureDao.addAsk(mylectureask);
+  }
+
+  @Override
+  public int wishlist(LectureWishlist lecturewishlist) {
+    return userLectureDao.wishlistAdd(lecturewishlist);
   }
 
   @Override
