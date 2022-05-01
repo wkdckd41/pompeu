@@ -46,7 +46,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
           <td style="display:none"><input type="text" id= "no_` + count
                 + `" value="${rst.no}""></td>
           <td onclick="moveView(${rst.no});">${rst.no}</td>
-          <td onclick="moveView(${rst.no});">${rst.askName}</td>
+          <td onclick="moveView(${rst.no});" class="table_title">${rst.askName}</td>
           <td>${rst.registerDate}</td>
           <td>${rst.answerCheckName}</td>`;
             document.querySelector("#tbody1").appendChild(tr);

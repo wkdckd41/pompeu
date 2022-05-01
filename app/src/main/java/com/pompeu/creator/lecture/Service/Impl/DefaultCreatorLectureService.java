@@ -5,6 +5,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import com.pompeu.creator.lecture.Service.CreatorLectureService;
 import com.pompeu.creator.lecture.controller.CreatorLectureController;
 import com.pompeu.creator.lecture.dao.CreatorLectureDao;
@@ -29,10 +30,13 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
 
   @Override
+  //@Transactional 
   public int add(Lecture lecture) {
+    log.info("강좌등록");
     creatorLectureDao.insert(lecture);
-    //creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
-    //creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
+    //creatorLectureDao.insertTimes(lectureTime);
+    creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
+    creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
     return 1;
   }
 
@@ -42,12 +46,20 @@ public class DefaultCreatorLectureService implements CreatorLectureService {
   }
 
   @Override
+  @Transactional 
   public int update(Lecture lecture) {
-    return creatorLectureDao.update(lecture);
+    int count = creatorLectureDao.update(lecture);
+    if (count > 0) {
+      creatorLectureDao.deleteTelBylectureNo(lecture.getNo()); //  강의 변경 전에 기존 데이터를를 모두 삭제한다.
+      //  creatorLectureDao.insertTimes(lecture.getNo(), lecture.getTimes());
+      creatorLectureDao.insertImages(lecture.getNo(), lecture.getImages());
+    }
+    return count;
   }
 
   @Override
   public int delete(int no) {
+    creatorLectureDao.deleteTelBylectureNo(no);
     return creatorLectureDao.delete(no);
   }
 

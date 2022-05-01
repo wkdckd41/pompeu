@@ -42,9 +42,9 @@ function selectNoticeList(no) {
             tr.innerHTML = `
           <td style="display:none"><input type="text" id= "no_` + count
                 + `" value="${rst.no}""></td>
-          <td style="text-align: center"><span class="label label-success">공지</span></td>
-          <td onclick="moveView(${rst.no});">${rst.name}</td>
-          <td>${rst.registerDate}</td>`;
+          <td style="text-align: center" class="td_notice_td"><span class="label label-success td_notice">공지</span></td>
+          <td onclick="moveView(${rst.no});" class="td_tt">${rst.name}</td>
+          <td class="td_date">${rst.registerDate}</td>`;
             document.querySelector("#tbody1").appendChild(tr);
             count++;
         }

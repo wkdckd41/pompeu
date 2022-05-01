@@ -30,20 +30,30 @@
       cNickName.placeholder = result.nickName;
       cEmail.placeholder = result.email;
       cPhone.placeholder = result.phone;
+      
+      if (result.info == "" || result.info == null) {
+      cInfo.placeholder = "";
+      } else {        
       cInfo.placeholder = result.info;
-      
-      console.log(cBankDefault);
-      
-      if (result.bank == "") {
-      cBankDefault.innerHTML = "값없음";
+      }
+
+      if (result.bank == "" || result.bank == null) {
+      cBankDefault.innerHTML = "";
       } else {        
       cBankDefault.innerHTML = result.bank;
       }
+
+      if (result.account == "" || result.account == null) {
+      cAccount.placeholder = "";
+      } else {        
       cAccount.placeholder = result.account;
+      }
+
       
-      if (result.img != "") {
+      
+      if (result.img != null) {
     	  cThumbNail.src = "/creatorChange/image?filename=" + result.img;
-      } else if (result.img == ""){
+      } else if (result.img == null){
 				cThumbNail.src = "/creatorChange/image?filename=default.jpg";
 			}
     });

@@ -193,16 +193,18 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+    <a href="/user/main/user-main.html">
     <img src="/image/pompeuLogo.png"
       style="border:0px; height:260px; width:250px; margin-top:-105px; margin-bottom: -100px;" alt="" />
+    </a>
   </div>
   <!-- Top Menu Items -->
   <ul class="nav navbar-right top-nav" id="people">
     <li>
       <a href="#" class="tog">
-        <i class="fa fa-user">
+        <i class="fa fa-user">&nbsp;
         </i>
-        &nbsp; 크리에이터 1</a>
+         <span id="creator-name">크리에이터 1</span></a>
     </li>
     <li>
       <a href="/user/logout" class="tog">로그아웃 </a>
@@ -239,7 +241,7 @@
         </ul>
       </li>
       <li>
-        <a href="#" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-bars"></i> &nbsp; 크리에이터 정보</a>
+        <a href="/creator/creator-change/creator-change.html" data-toggle="collapse" data-target="#submenu-4"><i class="fa fa-bars"></i> &nbsp; 크리에이터 정보</a>
       </li>
     </ul>
   </div>
@@ -256,4 +258,19 @@
       $(this).prev().find(".fa").eq(1).removeClass("fa-angle-down").addClass("fa-angle-right");
     });
   })
+</script>
+
+<script>
+var ccName = document.querySelector("#creator-name");
+
+
+fetch("/userChange/getUser")
+.then(function(response) {
+  return response.json();
+})
+.then(function(result) {
+	console.log(result);
+    ccName.innerHTML = result.name;
+    
+});
 </script>

@@ -101,16 +101,16 @@ public class UserPartyController {
    * @throws Exception
    */
   @RequestMapping("/userparty/wishlistAdd")
-  public Object wishlistAdd(PartyWishlist parywishlist, @AuthenticationPrincipal Member member) {
+  public Object wishlistAdd(PartyWishlist partywishlist, @AuthenticationPrincipal Member member) {
 
     log.info("partyWishlist.....");
-    parywishlist.setUsersNo(member.getNo());
+    partywishlist.setUsersNo(member.getNo());
     System.out.println(member.getNo());
     System.out.println("========");
-    System.out.println("partyuser:"+parywishlist.getUsersNo());
-    System.out.println("partyno:"+parywishlist.getPartyNo());
+    System.out.println("partyuser:"+partywishlist.getUsersNo());
+    System.out.println("partyno:"+partywishlist.getPartyNo());
     System.out.println("--------");
-    return userPartyService.wishlistAdd(parywishlist);
+    return userPartyService.wishlistAdd(partywishlist);
   }
 
   /**

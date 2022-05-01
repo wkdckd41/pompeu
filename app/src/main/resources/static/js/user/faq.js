@@ -46,8 +46,8 @@ function selectFaqList(no) {
         for (var rst of result) {
         
         str += 
-         `<div class="que">&nbsp&nbsp<span>${rst.ask}</span></div>`+ 
-         `<div class="anw">&nbsp&nbsp<span>${rst.answer}</span></div>`
+         `<div class="que"><span>${rst.ask}</span></div>`+ 
+         `<div class="anw"><span>${rst.answer}</span></div>`
          }
          acco.innerHTML = str;
         

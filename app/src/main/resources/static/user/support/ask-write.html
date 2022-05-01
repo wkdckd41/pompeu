@@ -103,6 +103,22 @@
     border-color: #2e6da4;
 
   }
+  
+.board_notice_tt {margin:30px 0 20px;line-height:24px;font-size:24px;font-weight:bold;letter-spacing:-2px;}
+  
+
+.form-horizontal {border-top:1px solid #ddd;}
+.form-group {margin:0;border-bottom:1px solid #ddd;}
+.form-horizontal .form-group {margin:0;background:#fafafa;}
+.form-horizontal .form-group div {display:flex;width:calc(100% - 15%);background:#fff;}
+.form-control {margin:10px 0;}
+.q_table_th {margin:10px 0;padding:6px 0;width:15%;text-align:center;}
+.td_content {margin:0;}
+.table_th_name {border:none;box-shadow:none;}
+.form-textarea {background:#fafafa !important;border:1px solid #fafafa !important;}
+
+.list_btn {margin-top:20px;text-align:right;}
+.write_tt {width:50%;border:1px solid #d6d6d6;box-shadow:none;}
 </style>
 
 <body>
@@ -122,35 +138,30 @@
 
         <!-- 내용물 자리 시작 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@-->
         <div id="content">
-          <h3>1:1문의</h3>
-          <br><br>
+          <h3 class="board_notice_tt">1:1문의</h3>
 
           <form class="form-horizontal" id="frm" name="frm" method="post" enctype="multipart/form-data">
 
             <!-- class에 사용되는 form-group, row 등은 부트스트랩에서 사용되는 class -->
             <div class="form-group row">
-              <label class="col-sm-1 col-form-label text-center" for="content">제목</label>
+              <label class="col-sm-1 col-form-label text-center q_table_th" for="content">제목</label>
               <div class="col-md-4 ">
-                <input class="form-control" id="askName" name="askName">
+                <input class="form-control write_tt" id="askName" name="askName">
               </div>
             </div>
 
             <div class="form-group row ">
-              <label class="col-sm-1 col-form-label text-center" for="content">문의</label>
+              <label class="col-sm-1 col-form-label text-center q_table_th" for="content">문의</label>
               <div class="col-sm-10 col-xs-12">
                 <textarea rows="20" class="form-control" id="askContent" name="askContent" placeholder="문의내용"></textarea>
               </div>
             </div>
 
-            <div class="form-group row ">
-              <div class="col-lg-12 col-sm-10 text-lg-end text-center">
-                <div class="col-lg-11 col-sm-18 text-lg-end text-right">
-                  <button type="button" class="btn btn-success" id="btnWrite" name="btnWrite">작성
-                  </button>
-                  <button type="button" class="btn btn-success" id="btnCancel" name="btnCancel">취소
-                  </button>
-                </div>
-              </div>
+            <div class="list_btn">
+	            <button type="button" class="btn btn-success" id="btnWrite" name="btnWrite">작성
+	            </button>
+	            <button type="button" class="btn btn-success" id="btnCancel" name="btnCancel">취소
+	            </button>
             </div>
           </form>
 

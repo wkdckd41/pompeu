@@ -90,7 +90,7 @@ xBtn.addEventListener('click', (e) => {
             if (text == "admin") {
                 location.href = "/admin/main/admin-main.html";
             } else if (text == "creator") {
-                location.href = "/creator2/nouse/creator_original_form.html";
+                location.href = "/creator/creator-change/creator-change.html";
             } else if (text == "user") {
                 location.href = "/user/main/user-main.html"
             } else if (text == "fail") {

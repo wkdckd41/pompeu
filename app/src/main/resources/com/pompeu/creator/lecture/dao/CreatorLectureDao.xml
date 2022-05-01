@@ -6,68 +6,46 @@
 
 <mapper namespace="com.pompeu.creator.lecture.dao.CreatorLectureDao">
 
-<!--
-  <resultMap id="lectureListMap" type="lectureList">
-   
-    <id column="lecture_no" property="lectureNo"/>
-    <result column="creatorNo" property="creatorNo"/>
-    <result column="classTitle" property="classTitle"/>
-    <result column="startDate" property="startDate"/>
-    <result column="endDate" property="endDate"/>
-    <result column="status" property="status"/>
-    <result column="register_date" property="status"/>
+  <select id="findAllMyclass" resultType="lectureList" parameterType="int">
         
-    <association property="writer" javaType="creator">
-      <id column="no" property="no"/>
-      <result column="name" property="name"/>
-    </association>
-        
-    <collection property="times" ofType="lectureTime">
-     <id column="no" property="no"/>
-     <result column="lecture_no" property="lectureNo"/>
-     <result column="startTime" property="startTime"/>
-     <result column="endTime" property="endTime"/>
-      <result column="maxMember" property="maxMember"/>
-      <result column="membercount" property="noMember"/>
-    </collection>  
-    
-        le.creator_no creatorNo,
+     select
         le.lecture_no  lectureNo,
         le.name        classTitle,
         le.start_date  startDate,
         le.end_date    endDate,
         le.status,
-        le.register_date,
-        img.upload_img,
-        t.times_check
+        le.register_date registerDate,
+        t.start_time,
+        t.end_time,
+        
+         case when le.status = '1' then '개설신청'
+            when le.status = '2' then '수강대기'
+            when le.status = '3' then '수강중'
+            when le.status = '4' then '수강완료'
+        else  '승인보류' 
+           end 
+        
+     from lecture le
+        left outer join lecture_time as t on t.lecture_no=le.lecture_no
+       where 
+       le.creator_no =#{no}
+       order by register_date desc   
     
     
-  
-    <collection property="img" ofType="lectureImage">
-     <id column="no" property="no"/>
-     <result column="lecture_no" property="lectureNo"/>
-     <result column="startTime" property="startTime"/>
-     <result column="endTime" property="endTime"/>
-      <result column="maxMember" property="maxMember"/>
-      <result column="membercount" property="noMember"/>
-    </collection> 
     
-  
-
-  </resultMap>
-  -->
-
-  <select id="findAllMyclass" resultType="lectureList" parameterType="int">
+   
+    
+    
+    
+    <!--
     select
-	    le.creator_no creatorWriter,
 	    le.lecture_no  lectureNo,
 	    le.name        classTitle,
 	    le.start_date  startDate,
 	    le.end_date    endDate,
 	    le.status,
 	    le.register_date registerDate,
-	    img.upload_img,
-	    t.times_check
+	    t.times_check timesCheck
 	from lecture le
         left outer join (select
                             img.lecture_no lecture_no, 
@@ -78,9 +56,162 @@
                             t.lecture_no, count(*) as times_check
         from lecture_time t group by t.lecture_no) as t on t.lecture_no=le.lecture_no
        where 
-       le.creator_no = 16
-       order by register_date desc
+       le.creator_no =#{no}
+       order by register_date desc	 
+        --> 
+
       
   </select>
+  
+    <!-- 자동 증가된 PK 값을 받고 싶을 때! -->
+  <insert id="insert" parameterType="lecture" keyProperty="no" keyColumn="lecture_no" useGeneratedKeys="true">
+    insert into lecture(location_no,creator_no, ex_no, name, start_date, end_date,lecture_price,lecture_info, register_date,status,in_out_ex, address) 
+    values(#{locationNo},#{creatorNo}, #{exNo}, #{name}, #{startDate}, #{endDate},#{lecturePrice},#{lectureInfo}, #{registerDate},#{status},#{inOutEx}, #{address})
+  </insert>
+  
+ 
+    <insert id="insertImages">
+    insert into lecture_image(lecture_no, image)
+    values
+    <foreach item="image" collection="images" separator=",">
+      (#{lectureNo}, #{image}) 
+    </foreach>
+  </insert>
+ 
+   <insert id="insertTimes"  parameterType="lectureTime">
+    insert into lecture_time(lecture_no ,start_time ,end_time, max_member)
+    values
+    (#{lectureNo}, #{times.startTime},#{times.endTime},#{times.maxMember}) 
+    </insert>
+ 
+ 
+ <!-- 
+   <insert id="insertTimes">
+    insert into lecture_time(lecture_no ,start_time ,end_time, max_member)
+    values
+    <foreach item="lectureTime" collection="times" separator=",">
+      (#{lectureNo}, #{lectureTime.startTime},#{lectureTime.endTime},#{lectureTime.maxMember}) 
+    </foreach>
+   
+    </insert>
+    -->
+        
+  
+    <!--
+    <select id="findByNo" resultMap="contactMap" parameterType="int">
+    select
+        le.lecture_no  lectureNo,
+        le.name        classTitle,
+        le.start_date  startDate,
+        le.end_date    endDate,
+        le.status,
+        le.register_date registerDate,
+        img.upload_img uploadImg,
+        t.times_check timesCheck
+    from lecture le
+        left outer join (select
+                            img.lecture_no lecture_no, 
+                            count(*) as upload_img
+                        from lecture_image img 
+                        group by img.lecture_no) as img on img.lecture_no =le.lecture_no
+        left outer join (select 
+                            t.lecture_no, count(*) as times_check
+        from lecture_time t group by t.lecture_no) as t on t.lecture_no=le.lecture_no
+       where 
+       le.creator_no =#{no}
+  </select>
+  
+
+  <select id="findByEmail" resultMap="contactMap" parameterType="string">
+    select 
+      c.contact_no,
+      c.name,
+      c.email,
+      c.company,
+      t.ct_no,
+      t.tt_no,
+      t.tel
+    from 
+      ml_contact c
+      left outer join ml_cont_tel t on c.contact_no=t.contact_no
+    where 
+      c.email=#{email}
+  </select>
+
+  <select id="findByName" resultMap="contactMap" parameterType="string">
+    select 
+      c.contact_no,
+      c.name,
+      c.email,
+      c.company,
+      t.ct_no,
+      t.tt_no,
+      t.tel
+    from 
+      ml_contact c
+      left outer join ml_cont_tel t on c.contact_no=t.contact_no
+    where 
+      c.name=#{name}
+  </select>
+  
+  <update id="update" parameterType="contact">
+    update ml_contact set 
+      name=#{name}, 
+      email=#{email},
+      company=#{company}
+    where 
+      contact_no=#{no}
+  </update>
+
+  <delete id="delete" parameterType="int">
+    delete from ml_contact 
+    where contact_no=#{no}
+  </delete>
+
+  <select id="findTelByContactNo" 
+          parameterType="int" resultMap="contactTelMap">
+    select 
+      ct_no,
+      contact_no,
+      tt_no,
+      tel
+    from 
+      ml_cont_tel
+    where
+      contact_no=#{no}
+  </select>
+
+  <insert id="insertTel" parameterType="contactTel">
+    insert into ml_cont_tel(contact_no, tt_no, tel)
+    values(#{contactNo}, #{telTypeNo}, #{tel}) 
+  </insert>
+  
+  <insert id="insertTels">
+    insert into ml_cont_tel(contact_no, tt_no, tel)
+    values
+    <foreach collection="tels" item="contactTel" separator=",">
+      (#{contactNo}, #{contactTel.telTypeNo}, #{contactTel.tel}) 
+    </foreach>
+  </insert>
+  
+  <update id="updateTel" parameterType="contactTel">
+    update ml_cont_tel set
+      tt_no=#{telTypeNo},
+      tel=#{tel}
+    where 
+      ct_no=#{no}
+  </update>
+  
+  <delete id="deleteTel" parameterType="int">
+    delete from ml_cont_tel 
+    where ct_no=#{no}
+  </delete>
+  
+  <delete id="deleteTelByContactNo" parameterType="int">
+    delete from ml_cont_tel 
+    where contact_no=#{no}
+  </delete>
+  
+  -->
 
 </mapper>

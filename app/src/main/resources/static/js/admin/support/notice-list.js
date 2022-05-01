@@ -54,7 +54,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
                 + `" value="${rst.no}""></td>
           <td>${rst.no}</td>
           <td>${rst.memberType}</td>
-          <td onclick="moveView(${rst.no});">${rst.name}</td>
+          <td onclick="moveView(${rst.no});" class="admin_table_name">${rst.name}</td>
           <td>${rst.registerDate}</td>`;
             document.querySelector("#tbody1").appendChild(tr);
             count++;
