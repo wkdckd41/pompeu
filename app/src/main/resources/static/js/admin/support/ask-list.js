@@ -47,7 +47,7 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
                     + `" value="${rst.no}""></td>
           <td onclick="moveView(${rst.no});">${rst.no}</td>
           <td onclick="moveView(${rst.no});">${rst.memberType}</td>
-          <td onclick="moveView(${rst.no});">${rst.askName}</td>
+          <td onclick="moveView(${rst.no});" class="admin_table_name">${rst.askName}</td>
           <td>${rst.memberEmail}</td>
           <td>${rst.registerDate}</td>
           <td>${rst.answerCheckName}</td>`;
@@ -100,7 +100,7 @@ function init() {
 
         var param = new URLSearchParams(); // 파라미터를 가지고 가기위해 객체생성을 해준것
 
-        param.set('memberTypeNo', str.substr(0, str.length - 1)); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
+        param.set('memberNo', str.substr(0, str.length - 1)); //meberTypeNo 도메인에 정의되있는 변수명으로 맵핑을해준다 why? 도메인롬북이 읽게하기위해
 
         fetch("/ask/deleteAll", { // 컨트롤러고 가기위한 경로
             method: "POST",
