@@ -24,8 +24,13 @@
     <result column="real_file" property="realFile"/>
   </resultMap>
   
-  <select id="countAll" resultType="int">
-    select count(*) from notice
+  <select id="countAll" parameterType="notice" resultType="int">
+    select count(*) 
+      from notice
+     where 1=1
+     <if test="memberTypeNo != 3">
+          and member_type_no = #{memberTypeNo}
+     </if>  
   </select>
   
   <select id="findAll" resultMap="noticeMap"> <!--   Dao에서 파라미터로 notice객체를 던졌기 때문에 이 쿼리에 파라미터 타입도 notice이다 --> 
@@ -39,7 +44,7 @@
 		  left outer join member_type mt 
 		    on n.member_type_no = mt.member_type_no  
 		 where 1=1
-			 <if test="memberTypeNo != 3">
+			<if test="memberTypeNo != 3">
 	        and n.member_type_no = #{memberTypeNo}
 	    </if>  
 			 order by notice_no desc

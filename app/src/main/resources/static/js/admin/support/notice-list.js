@@ -1,11 +1,15 @@
 var memberTypeNo = 3; // memberTypeNo가 3인 전체조회를 하기 위해서 미리 선언해줌
+var pageNo = 1; //default
+var pageSize = 8; //default
+var totalPageSize = 0; //default
+var bottomSize = 3; //default
 
 $(document).ready(function () {    //html문서가 다 로드된후에 자바스크립트가 자동으로 실행되는 함수
 
     init();
     //alert( "ready!" );
 
-    selectNoticeList(memberTypeNo); // 조회를 하기 위한 함수 호출 (조회를 하기위해 3번을던진다 이용자인지 크리에이터인지 전체인지 구분하기위해)
+    selectNoticeList(memberTypeNo, pageNo); // 조회를 하기 위한 함수 호출 (조회를 하기위해 3번을던진다 이용자인지 크리에이터인지 전체인지 구분하기위해)
 
 });
 
@@ -15,27 +19,24 @@ $(document).ready(function () {    //html문서가 다 로드된후에 자바스
 function selectMemberTypeNo(t_num) {
     memberTypeNo = t_num;
 
-    selectNoticeList(memberTypeNo);
+    selectNoticeList(memberTypeNo, pageNo);
 
     //alert(memberTypeNo);
 }
 
-function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이터를 가지고 조회를 하기위한 함수 선언부
+function selectNoticeList(no, pgNo) { // 함수 호출부에서 전달 받은 데이터를 가지고 조회를 하기위한 함수 선언부
     while (tbody1.hasChildNodes()) {
         tbody1.removeChild(tbody1.firstChild);
     }
     console.log("memberTypeNo : " + no);
 
     var param = new URLSearchParams();
-    console.log("A");
-    param.set('pageNo', 1);
-    console.log("B");
-    param.set('pageSize', 5);
-    console.log("C");
+    
     param.set('memberTypeNo', no);
+    param.set('pageNo', pgNo);
+    param.set('pageSize', pageSize);
 
     console.log(param);
-    console.log("D");
 
     fetch("/notice/list", { // 컨트롤러고 가기위한 경로
         method: "POST",
@@ -59,6 +60,14 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
             document.querySelector("#tbody1").appendChild(tr);
             count++;
         }
+        
+        totalPageSize = result.totalPageSize;
+        console.log("totalPageSize : " + totalPageSize);
+        pageNo = result.pageNo;
+        pageSize = result.pageSize;
+        
+        makePageNavi(totalPageSize, bottomSize, pageNo);
+        
     });
 
     /*
@@ -79,6 +88,85 @@ function selectNoticeList(no) { // 함수 호출부에서 전달 받은 데이�
     */
 
 }
+
+function makePageNavi(totalPageSize, bottomSize, pageNo){
+  var pagination = document.querySelector("#pagination");
+  while (pagination.hasChildNodes()) {
+      pagination.removeChild(pagination.firstChild);
+  }
+  
+  var pageInfo = getPageInfo(totalPageSize, bottomSize, pageNo);
+  
+  var li = document.createElement("li");
+  
+  if(pageInfo.firstBottomNumber==1) li.innerHTML=`<a class="page-link" href="#" style="pointer-events:none;" >&lt;</a>`;
+  else li.innerHTML=`<a class="page-link" href="#" onclick="selectNoticeList(${memberTypeNo}, ${pageInfo.firstBottomNumber - 1})">&lt;</a>`;
+  
+  li.setAttribute("class", "page-item");    
+  document.querySelector("#pagination").appendChild(li);
+  
+  for(var i=pageInfo.firstBottomNumber; i<=pageInfo.lastBottomNumber; i++){
+    li = document.createElement("li");
+    
+    if(i==pageInfo.cursor){
+      console.log("현재페이지 : " + i);
+      li.innerHTML=`<a class="page-link" href="#" style="color: red">`+ i +`</a>`;
+    }else{
+      li.innerHTML=`<a class="page-link" href="#" onclick="selectNoticeList(${memberTypeNo}, ${i})">`+ i +`</a>`;
+    }
+    li.setAttribute("class", "page-item");    
+    document.querySelector("#pagination").appendChild(li);
+  }
+  li = document.createElement("li");
+
+  
+  if(pageInfo.totalSize > pageInfo.lastBottomNumber) li.innerHTML=`<a class="page-link" href="#" onclick="selectNoticeList(${memberTypeNo}, ${pageInfo.lastBottomNumber + 1})">&gt;</a>`;
+  else li.innerHTML=`<a class="page-link" href="#" style="pointer-events:none;" >&gt;</a>`;
+
+  li.setAttribute("class", "page-item");  
+  document.querySelector("#pagination").appendChild(li);
+    
+}
+
+function getPageInfo(totalSize, bottomSize, cursor){
+  console.log("totalSize : " + totalSize);
+  console.log("bottomSize : " + bottomSize);
+  console.log("cursor : " + cursor);
+  
+  console.log("cursor % bottomSize : " + cursor % bottomSize);
+  
+  
+  
+  var firstBottomNumber = 0;
+  if(cursor % bottomSize == 0 && cursor / bottomSize == 1){
+    console.log("A");
+    firstBottomNumber = cursor - (cursor-1);  //하단 최초 숫자
+  }else{
+    console.log("B");
+    firstBottomNumber = cursor - cursor % bottomSize + 1;  //하단 최초 숫자
+  }
+  
+  var lastBottomNumber = 0;
+  if(cursor == bottomSize){
+    lastBottomNumber = cursor;
+  }else{
+    lastBottomNumber = cursor - cursor % bottomSize + bottomSize;  //하단 마지막 숫자
+  }
+
+  console.log("firstBottomNumber : " + firstBottomNumber);
+  console.log("lastBottomNumber : " + lastBottomNumber);
+  
+  if(lastBottomNumber > totalSize) lastBottomNumber = totalSize  //총 갯수보다 큰 경우 방지
+
+  return {
+      firstBottomNumber,
+      lastBottomNumber,
+      totalSize,
+      cursor
+  }
+  
+}
+
 
 function init() {
     $("#btnWrite").on("click", function () {
