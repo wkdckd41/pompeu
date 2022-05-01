@@ -196,6 +196,7 @@
   <script src="/js/creator/layout.js"></script>
   <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
   <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=159964123281fe5e2498f0fd14de35cf&libraries=services"></script>
+   <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
   <script>
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
       mapOption = {
@@ -294,7 +295,18 @@
           console.log(result);
           if (result.status == "success") {
 
-            window.alert('클래스 등록이 완료되었습니다.');
+        	  /* Swal.fire({
+                  icon: 'success',
+                  title: '클래스 등록이 완료되었습니다.',
+              }) 
+              
+              
+            .then(
+            		  location.href = "/creator/lecture/lecture-index.html"
+              );*/
+        	 
+        	  
+        	  //window.alert('클래스 등록이 완료되었습니다.');
 
             location.href = "/creator/lecture/lecture-index.html";
           } else {
