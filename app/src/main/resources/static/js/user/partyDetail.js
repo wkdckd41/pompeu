@@ -127,9 +127,15 @@
     .then(function(result) {
       console.log(result);
       if(result == "null"){
-        alert("로그인을 해주세요");
+         Swal.fire({
+                    icon: 'warning',
+                    title: '로그인 후 이용해주세요',
+                });
               }else{
-     location.href = '/user/party/party-home.html/'
+      Swal.fire({
+                    icon: 'success',
+                    title: '소모임 참여가 완료되었습니다.',
+                });
         
       }
     });
@@ -175,7 +181,10 @@
     })
     .then(function(result) {
       console.log(result);
-        alert("신고 요청이 완료되었습니다.");
+         Swal.fire({
+                    icon: 'success',
+                    title: '신고 신청이 완료되었습니다.',
+                });
     });           
   };
   
