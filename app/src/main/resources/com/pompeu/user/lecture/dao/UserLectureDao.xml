@@ -277,12 +277,11 @@
   
   <select id="creatorPro" resultType="HashMap">
     select  
-          mem.name                  as name,
-          (select img from creator where le.creator_no = cr.creator_no order BY creator_no asc LIMIT  1) as img
-    from 
-          member as mem
-    join creator as cr 
-      on cr.creator_no = mem.member_no
+          mem.name                as name,
+          cr.img                  as img
+    from member as mem
+    join creator as cr
+         on cr.creator_no = mem.member_no
     join lecture as le
           on le.creator_no = cr.creator_no
     where 
