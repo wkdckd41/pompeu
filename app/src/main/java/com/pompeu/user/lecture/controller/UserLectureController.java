@@ -14,6 +14,7 @@ import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.pompeu.domain.Lecture;
+import com.pompeu.domain.LectureWishlist;
 import com.pompeu.domain.Member;
 import com.pompeu.domain.myLectureAsk;
 import com.pompeu.domain.myLectureList;
@@ -50,6 +51,18 @@ public class UserLectureController {
     mylectureask.setUsersNo(member.getNo());
     System.out.println("========");
     return userLectureService.ask(mylectureask);
+  }
+
+  @RequestMapping("/userLecture/wishlistAdd")
+  public Object wishlistAdd(LectureWishlist lecturewishlist, @AuthenticationPrincipal Member member) {
+
+    lecturewishlist.setUsersNo(member.getNo());
+    System.out.println(member.getNo());
+    System.out.println("========");
+    System.out.println("partyuser:"+lecturewishlist.getUsersNo());
+    System.out.println("partyno:"+lecturewishlist.getLectureNo());
+    System.out.println("--------");
+    return userLectureService.wishlist(lecturewishlist);
   }
 
 

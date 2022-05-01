@@ -4,6 +4,7 @@ import java.util.List;
 import com.pompeu.domain.CreatorContent;
 import com.pompeu.domain.Lecture;
 import com.pompeu.domain.LectureIntro;
+import com.pompeu.domain.LectureWishlist;
 import com.pompeu.domain.myLectureAsk;
 import com.pompeu.domain.myLectureList;
 
@@ -14,6 +15,8 @@ public interface UserLectureService {
   int add(myLectureList mylecturelist);
 
   int ask(myLectureAsk mylectureask);
+
+  int wishlist(LectureWishlist lecturewishlist);
 
   Lecture get(int no);
 
