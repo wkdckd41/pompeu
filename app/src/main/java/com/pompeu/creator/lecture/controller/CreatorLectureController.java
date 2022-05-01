@@ -47,16 +47,39 @@ public class CreatorLectureController {
     //return creatorLectureService.list(member.getNo());
   }
 
+  /*
+  @RequestMapping("openRequest")
+  public Object openRequest(@AuthenticationPrincipal Member member) { // 각자 역할에 따른 분리 - 웹기술은 컨트럴러 단에서만 처리 하도록 
+
+    log.debug(member.getNo());
+
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.openRequestList(member.getNo()));
+  }
+
+
+
+  @RequestMapping("openedClass")
+  public Object  openedClass(@AuthenticationPrincipal Member member) { // 각자 역할에 따른 분리 - 웹기술은 컨트럴러 단에서만 처리 하도록 
+
+    log.debug(member.getNo());
+
+    return new ResultMap().setStatus(SUCCESS).setData(creatorLectureService.openedClassList(member.getNo()));
+  }
+   */
+
+
   //클래스 등록
   @RequestMapping("add")
   public Object add(@AuthenticationPrincipal Member member, Lecture lecture , List<MultipartFile> file, LectureTime lectureTime)  {
-    //log.debug(file.toString(),lectureTime.toString()); 
+
+    log.debug("파라미터");
+    log.debug(file.toString(),lectureTime.toString()); 
 
     //강의 시간 데이터 가공 - 시간대 1개 입력가능
 
     lecture.setCreatorNo(member.getNo());
-    log.debug(lecture);
-    log.debug(lectureTime);
+    //log.debug(lecture);
+    // log.debug(lectureTime);
     lecture.setTimes(lectureTime); 
 
     /*
@@ -131,6 +154,7 @@ public class CreatorLectureController {
   }
 
 
+  /*
 
   //클래스 수정
   @RequestMapping("update")
