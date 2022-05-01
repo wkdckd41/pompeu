@@ -36,7 +36,7 @@
       <div class = "box-1" >
         <hr style="border: solid 1px gainsboro; width:80%;">
         
-        <form class="form-horizontal" id="frm" name="frm" method="post" enctype="multipart/form-data">
+        <form class="form-horizontal" id="frm" name="form1" method="post" enctype="multipart/form-data">
         <div class = "registform" style="margin-left:180px;">
              <div class= "form-group row" id="party-title">
               <div class="col-sm-10 col-xs-12">
@@ -104,8 +104,9 @@
           <div class="form-group row">
               <div class="col-lg-12 col-sm-10 text-lg-end text-center">
                   <div class="col-lg-11 col-sm-18 " style="margin-right:120px;">
-                      <button type="button" class="btn btn-primary" id="x-add-btn" name="addBtn">등록</button>
-                      <button type="button" class="btn btn-primary" id="x-cancel-btn" name="cancelBtn" onclick="moveList();">취소</button>
+                      <button class="btn btn-primary" id="x-update-btn" type="button">변경</button>
+                      <button class="btn btn-primary" id="x-delete-btn" type="button">삭제</button>
+                      <button class="btn btn-primary" id="x-cancel-btn" type="button">취소</button>
                   </div>
               </div>
           </div>
@@ -132,7 +133,7 @@
 <script src="/node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="/js/user/layout.js"></script><!-- header footer -->
 <script src="/js/user/partyRegist.js"></script>
-<script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 </body>
 </html>

@@ -41,7 +41,7 @@ var xExTag = document.querySelector("select[name=tagNo]");
 var xAddress = document.querySelector("input[name=address]");
 var xFile = document.querySelector("input[name=file]");
 
-document.querySelector("#x-add-btn").onclick = function() {
+document.querySelector("#x-update-btn").onclick = function() {
   
    if(xTitle.value == "" || 
       xCrew.value == "" ||
@@ -52,14 +52,11 @@ document.querySelector("#x-add-btn").onclick = function() {
       xExTag.value == "" ||
       xAddress.value == "" ||
       xFile.value == "" ) {
-     Swal.fire({
-                    icon: 'warning',
-                    title: '필수 입력 사항을 기입해주세요',
-                });
+    window.alert("필수 입력 항목이 비어있습니다.");
     return;
     }
     
-var fd = new FormData(document.forms.namedItem("frm"));
+var fd = new FormData(document.forms.namedItem("form1"));
 
   
 fetch("/userparty/add",{  
@@ -75,11 +72,6 @@ fetch("/userparty/add",{
  location.href = 'party-home.html'
 };
   
-  
-// 취소버튼
-function moveList() {
-  location.href = 'party-home.html'
-}
 
 // 다음 주소 api
 function sample6_execDaumPostcode() {
@@ -129,4 +121,19 @@ function sample6_execDaumPostcode() {
         }
     }).open();
 }  
- 
+
+  document.querySelector("#x-delete-btn").onclick = function() {
+    fetch(`/board/delete?no=${no}`)
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(result) {
+        if (result.status == "success") {
+          location.href = "?party-home.html";
+          location.href = "?content=/board/index.html";
+        } else {
+          window.alert("게시글 삭제 실패!");
+          console.log(result.data);
+        }
+      });
+  };
