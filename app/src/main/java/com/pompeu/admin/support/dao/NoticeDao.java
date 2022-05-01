@@ -9,7 +9,7 @@ import com.pompeu.domain.Notice;
 @Mapper
 public interface NoticeDao {
 
-  int countAll();
+  int countAll(Notice notice);
 
   List<Notice> findAll( @Param("memberTypeNo") int memberTypeNo, @Param("rowCount") int rowCount, @Param("offset") int offset); // Dao에서 객체를 받음 
 

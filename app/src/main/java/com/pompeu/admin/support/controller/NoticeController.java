@@ -42,13 +42,13 @@ public class NoticeController {
     int totalPageSize = 0;
 
     try { // pageSize 파라미터 값이 있다면 기본 값을 변경한다.
-      if (notice.getPageSize() < 10 || notice.getPageSize() > 100) {
-        notice.setPageSize(10);
+      if (notice.getPageSize() < 8 || notice.getPageSize() > 100) {
+        notice.setPageSize(8);
       }
     } catch (Exception e) {}
 
     //게시글 전체 개수를 알아내서 페이지 개수를 계산한다.
-    int noticeSize = noticeService.size(); 
+    int noticeSize = noticeService.size(notice); 
     totalPageSize = noticeSize / notice.getPageSize(); // 예: 게시글개수 / 페이지당개수 = 16 / 5 = 3 
     if ((noticeSize % notice.getPageSize()) > 0) {
       totalPageSize++;
