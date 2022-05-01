@@ -266,11 +266,11 @@
           l.status                                              as status
     from 
           member as m
-    join creator as cr 
+    left outer join creator as cr 
           on m.member_no = cr.creator_no
-    join lecture as l 
+    left outer join lecture as l 
           on cr.creator_no = l.creator_no
-    join lecture_time as lt 
+    left outer join lecture_time as lt 
           on l.lecture_no = lt.lecture_no 
     where 
       m.member_no=#{no}
@@ -285,11 +285,11 @@
           l.status                                              as status
     from 
           member as m
-    join creator as cr 
+    left outer join creator as cr 
           on m.member_no = cr.creator_no
-    join lecture as l 
+    left outer join lecture as l 
           on cr.creator_no = l.creator_no
-    join lecture_time as lt 
+    left outer join lecture_time as lt 
           on l.lecture_no = lt.lecture_no 
     where 
       m.member_no=#{no} and (l.status=1 or l.status=9)

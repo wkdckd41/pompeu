@@ -31,7 +31,11 @@ console.log(deleteText.innerHTML);
 
 	DBtn.onclick = function() {  
 		if (deleteReally == 0) {
-			window.alert("먼저 안내사항을 읽고 체크박스에 체크해주세요");
+						 Swal.fire({
+                    icon: 'warning',
+                    title: "먼저 안내사항을 읽고 체크박스에 체크해주세요",
+                });
+			//window.alert("먼저 안내사항을 읽고 체크박스에 체크해주세요");
       return;
 		} else {
 			$(".modal").fadeIn();
