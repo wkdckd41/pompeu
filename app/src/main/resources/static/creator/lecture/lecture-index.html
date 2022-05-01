@@ -142,7 +142,7 @@ var tbody = document.querySelector("#x-lecture-table tbody")
         var tr = document.createElement("tr");
       
         tr.innerHTML = `<td>${lectureList.lectureNo}</td>
-        <td>${lectureList.classTitle}</a></td>
+        <td><a href="/user/lecture/lecture-detail.html?no=${lectureList.lectureNo}">${lectureList.classTitle}</a></td>
         <td><span>${lectureList.startDate}</span>~<span>${lectureList.endDate}</span></td>
         <td><span>${lectureList.startTime}</span>~<span>${lectureList.endTime}</span></td>
         <td>${lectureList.statusCheck}</td>
