@@ -134,14 +134,14 @@ var tbody = document.querySelector("#x-lecture-table tbody")
         console.log(result.data);
         return;
       }
-
+       var count = 0;
 
       for (var lectureList of result.data){
         console.log(lectureList);
-
+        count ++;
         var tr = document.createElement("tr");
       
-        tr.innerHTML = `<td>${lectureList.lectureNo}</td>
+        tr.innerHTML = `<td>${count}</td>
         <td><a href="/user/lecture/lecture-detail.html?no=${lectureList.lectureNo}">${lectureList.classTitle}</a></td>
         <td><span>${lectureList.startDate}</span>~<span>${lectureList.endDate}</span></td>
         <td><span>${lectureList.startTime}</span>~<span>${lectureList.endTime}</span></td>
