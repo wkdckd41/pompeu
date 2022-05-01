@@ -25,10 +25,17 @@
 
 
   <select id="countAll" resultType="int">
-    select count(*) from ask
+    select count(*) 
+      from ask a
+      left outer join member m
+        on a.member_no = m.member_no
+    where 1=1
+     <if test="memberTypeNo != 3">
+          and m.member_type_no = #{memberTypeNo}
+     </if>  
   </select>
   
-  <select id="findAll" parameterType="ask" resultMap="askMap"> 
+  <select id="findAll" resultMap="askMap"> 
     select a.ask_no       as ask_no 
         , a.parents_ask_no    as parents_ask_no 
         , a.ask_name          as ask_name 
@@ -59,13 +66,13 @@
       </if>
 
        order by ask_no desc
-       LIMIT 10
+       LIMIT #{offset}, #{rowCount}
         
       
   </select>
   
   <!--일반회원 1:1 문의 목록 -->
-  <select id="userFindAll" resultMap="askMap" parameterType="ask">
+  <select id="userFindAll" resultMap="askMap">
     select a.ask_no       as ask_no 
         , a.parents_ask_no    as parents_ask_no 
         , a.ask_name          as ask_name 
@@ -88,9 +95,11 @@
         on a.member_no = m.member_no
         left outer join member_type mt
         on m.member_type_no = mt.member_type_no
-  
+    where 1=1
+    
+      and a.member_no = #{memberNo}
        order by ask_no desc
-       LIMIT 10
+       LIMIT #{offset}, #{rowCount}
   
      
   </select>
