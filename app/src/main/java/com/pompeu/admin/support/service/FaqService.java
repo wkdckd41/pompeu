@@ -19,4 +19,7 @@ public interface FaqService {
 
   int deleteAll(String str);
 
+  int size(Faq faq);
+
+
 }
