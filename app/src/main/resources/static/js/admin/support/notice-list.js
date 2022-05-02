@@ -117,6 +117,14 @@ function makePageNavi(totalPageSize, bottomSize, pageNo){
     li.setAttribute("class", "page-item");    
     document.querySelector("#pagination").appendChild(li);
   }
+  
+  if(pageInfo.firstBottomNumber > pageInfo.lastBottomNumber){
+    li = document.createElement("li");
+    li.innerHTML=`<a class="page-link" href="#" style="color: red">`+ i +`</a>`;
+    li.setAttribute("class", "page-item");    
+    document.querySelector("#pagination").appendChild(li);
+  }
+  
   li = document.createElement("li");
 
   

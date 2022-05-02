@@ -21,4 +21,6 @@ public interface AskService {
 
   int deleteAll(String str);
 
+  int size(Ask ask);
+
 }

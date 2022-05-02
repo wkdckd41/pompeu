@@ -21,9 +21,13 @@
 
   <select id="countAll" resultType="int">
     select count(*) from faq
+     where 1=1
+     <if test="memberTypeNo != 3">
+          and member_type_no = #{memberTypeNo}
+     </if>  
   </select>
   
-  <select id="findAll" parameterType="faq" resultMap="faqMap">
+  <select id="findAll" resultMap="faqMap">
     select f.faq_no                 as faq_no
       ,  f.member_type_no           as member_type_no
       ,  mt.member_type             as member_type
@@ -39,10 +43,10 @@
           and f.member_type_no = #{memberTypeNo} 
       </if>
       order by faq_no desc
-      LIMIT 10
+       limit #{offset}, #{rowCount}
   </select>    
         
-        <select id="userFindAll" parameterType="faq" resultMap="faqMap">
+        <select id="userFindAll" resultMap="faqMap">
     select f.faq_no                 as faq_no
       ,  f.member_type_no           as member_type_no
       ,  mt.member_type             as member_type
@@ -58,7 +62,7 @@
           and f.member_type_no = #{memberTypeNo} 
       </if>
       order by faq_no desc
-      LIMIT 6
+       limit #{offset}, #{rowCount}
    </select>  
 
   
