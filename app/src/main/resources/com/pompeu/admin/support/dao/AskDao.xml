@@ -65,7 +65,7 @@
           and m.member_type_no = #{memberTypeNo}
       </if>
 
-       order by ask_no desc
+       order by register_date desc
        LIMIT #{offset}, #{rowCount}
         
       
