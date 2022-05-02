@@ -61,7 +61,7 @@ public class AskController {
     resultMap.setPageSize(ask.getPageSize());
     resultMap.setTotalPageSize(totalPageSize);
 
-    resultMap.setAskList(askService.userList(ask));
+    resultMap.setAskList(askService.list(ask));
 
     return resultMap; 
   }
