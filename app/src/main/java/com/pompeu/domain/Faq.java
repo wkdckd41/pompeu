@@ -12,6 +12,8 @@ public class Faq {
   String answer;
   java.sql.Date registerDate;
   java.sql.Date modifyDate;
+  int pageNo;
+  int pageSize;
 
 
 }

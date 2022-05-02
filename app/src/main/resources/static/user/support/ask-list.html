@@ -10,7 +10,7 @@
 
   <title>POMPEU!</title>
   <link rel="stylesheet" href="/css/user_common.css">
-  <link rel="stylesheet" href="/css/user/mypage.css">
+  <link rel="stylesheet" href="/css/form/mypage/mypage.css">
   <script src="https://kit.fontawesome.com/494f2ad211.js" crossorigin="anonymous"></script>
 </head>
 
@@ -139,7 +139,8 @@
           <br>
           <div class="text-center">
             <nav aria-label="Page navigation example">
-              <ul class="pagination">
+              <ul class="pagination" id="pagination" name="pagination">
+                <!-- 
                 <li class="page-item"><a class="page-link" href="#">&lt</a></li>
                 <li class="page-item"><a class="page-link" href="#">1</a></li>
                 <li class="page-item"><a class="page-link" href="#">2</a></li>
@@ -147,6 +148,7 @@
                 <li class="page-item"><a class="page-link" href="#">4</a></li>
                 <li class="page-item"><a class="page-link" href="#">5</a></li>
                 <li class="page-item"><a class="page-link" href="#">&gt</a></li>
+                 -->
               </ul>
             </nav>
           </div>
@@ -166,6 +168,7 @@
   <script src="/js/user/layout.js"></script>
   <script src="/js/user/ask-list.js"></script>
   <script>$("#sidebar").load("/form/mypage/sidebar.html");</script>
+  <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
 
 
 </body>

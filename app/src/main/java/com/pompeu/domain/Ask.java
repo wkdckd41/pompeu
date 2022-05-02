@@ -20,5 +20,7 @@ public class Ask {
   int memberNo;
   String memberName;
   String memberEmail;
+  int pageNo;
+  int pageSize;
 
 }

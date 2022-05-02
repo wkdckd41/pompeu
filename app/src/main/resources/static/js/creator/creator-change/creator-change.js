@@ -69,16 +69,28 @@
     })
     .then(function(result) {
 		  if (cNickName.value ==""){
-			window.alert("중복확인을 하려면 닉네임을 입력해주세요");
+						 Swal.fire({
+                    icon: 'warning',
+                    title: "중복확인을 하려면 닉네임을 입력해주세요",
+                });
+			//window.alert("중복확인을 하려면 닉네임을 입력해주세요");
       return;
 		  } else if(result == 0){
-			window.alert("사용가능한 닉네임입니다");
+			 Swal.fire({
+                    icon: 'success',
+                    title: "사용가능한 닉네임입니다",
+                });
+			//window.alert("사용가능한 닉네임입니다");
 			nickCheck=true;
 			cNickName.style = "background-color:white"
 			cNickName.readOnly = true;
 			return;
 		  } else if (result == 1){
-			window.alert("이미 사용중인 닉네임입니다");
+			 Swal.fire({
+                    icon: 'warning',
+                    title: "이미 사용중인 닉네임입니다",
+                });
+			//window.alert("이미 사용중인 닉네임입니다");
 			nickCheck=false;
 			cNickName.style = "background-color:#f5a0a0";
 			return;
@@ -89,11 +101,19 @@
   UBtn.onclick = function() {
 		
 		if (cNickName.value !="" && nickCheck==false){
-			window.alert("닉네임 중복 체크를 해주세요");
+			 Swal.fire({
+                    icon: 'warning',
+                    title: "닉네임 중복 체크를 해주세요",
+                });
+			//window.alert("닉네임 중복 체크를 해주세요");
 			cNickName.style = "background-color:#f5a0a0";
 			
 				  if (cPassword.value != cPasswordCheck.value ) {
-		      window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
+			 Swal.fire({
+                    icon: 'warning',
+                    title: "비밀번호와 비밀번호 확인 값이 같지 않습니다.",
+                });
+		      //window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
 					cPassword.style = "background-color:#f5a0a0";
 					cPasswordCheck.style = "background-color:#f5a0a0";
 					return;
@@ -107,7 +127,11 @@
 			cNickName.style = "background-color:white";
 			
 				  if (cPassword.value != cPasswordCheck.value ) {
-		      window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
+			 Swal.fire({
+                    icon: 'warning',
+                    title: "비밀번호와 비밀번호 확인 값이 같지 않습니다.",
+                });
+		      //window.alert("비밀번호와 비밀번호 확인 값이 같지 않습니다.");
 					cPassword.style = "background-color:#f5a0a0";
 					cPasswordCheck.style = "background-color:#f5a0a0";
 					return;

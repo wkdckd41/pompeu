@@ -234,15 +234,11 @@
     select  
           le.lecture_no                                         as lectureNo,
           le.lecture_info                                       as lectureInfo,
-          cr.info                                               as info,
-          ma.ask_content                                        as askContent
-          
+          cr.info                                               as info          
     from 
           lecture as le
     join creator as cr 
           on le.creator_no = cr.creator_no
-    join mylecture_ask as ma
-          on ma.lecture_no = le.lecture_no
     where 
       le.lecture_no=#{no}
   </select>
@@ -281,12 +277,11 @@
   
   <select id="creatorPro" resultType="HashMap">
     select  
-          mem.name                  as name,
-          (select img from creator where le.creator_no = cr.creator_no order BY creator_no asc LIMIT  1) as img
-    from 
-          member as mem
-    join creator as cr 
-      on cr.creator_no = mem.member_no
+          mem.name                as name,
+          cr.img                  as img
+    from member as mem
+    join creator as cr
+         on cr.creator_no = mem.member_no
     join lecture as le
           on le.creator_no = cr.creator_no
     where 

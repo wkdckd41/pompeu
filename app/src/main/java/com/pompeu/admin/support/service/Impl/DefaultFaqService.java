@@ -19,14 +19,19 @@ public class DefaultFaqService implements FaqService{
   }
 
   @Override
-  public List<Faq> list(Faq faq) {
-    return faqDao.findAll(faq);
+  public List<Faq> list(Faq faq) { //서비스에서 넘어온 객체
+    return faqDao.findAll(faq.getMemberTypeNo(), faq.getPageSize(), ((faq.getPageNo() - 1) * faq.getPageSize())); //faqDao에 findAll 매서드를 호출하면서 faq 객체를 가지고간다
   }
 
   @Override
-  public List<Faq> userList(Faq faq) {
-    return faqDao.userFindAll(faq);
+  public List<Faq> userList(Faq faq) { //서비스에서 넘어온 객체
+    return faqDao.userFindAll(faq.getMemberTypeNo(), faq.getPageSize(), ((faq.getPageNo() - 1) * faq.getPageSize())); //faqDao에 findAll 매서드를 호출하면서 faq 객체를 가지고간다
   }
+
+  @Override
+  public int size(Faq faq) {
+    return faqDao.countAll(faq);
+  }  
 
   @Override
   public Faq get(int no) {

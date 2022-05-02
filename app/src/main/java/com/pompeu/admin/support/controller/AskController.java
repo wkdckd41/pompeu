@@ -25,22 +25,94 @@ public class AskController {
 
   @RequestMapping("/ask/list")
   public Object list(Ask ask) {
-    return askService.list(ask);
+    log.info("A");
+    log.info("ask.get = " + ask.getMemberNo());
+
+    log.info("memberTypeNo : " + ask.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
+    log.info("pageNo : " + ask.getPageNo());
+    log.info("pageSize : " + ask.getPageSize());
+    int totalPageSize = 0;
+
+    try { // pageSize 파라미터 값이 있다면 기본 값을 변경한다.
+      if (ask.getPageSize() < 8 || ask.getPageSize() > 100) {
+        ask.setPageSize(8);
+      }
+    } catch (Exception e) {}
+
+    //게시글 전체 개수를 알아내서 페이지 개수를 계산한다.
+    int askSize = askService.size(ask); 
+    totalPageSize = askSize / ask.getPageSize(); // 예: 게시글개수 / 페이지당개수 = 16 / 5 = 3 
+    if ((askSize % ask.getPageSize()) > 0) {
+      totalPageSize++;
+    }
+
+    try { // pageNo 파라미터 값이 있다면 기본 값을 변경한다.
+      if (ask.getPageNo() < 1 || ask.getPageNo() > totalPageSize) {// pageNo 유효성 검증
+        ask.setPageNo(1);
+      }
+    } catch (Exception e) {}
+
+    log.info("totalPageSize =" + totalPageSize);
+    log.info("PageNo =" + ask.getPageNo());
+    log.info("PageSize =" + ask.getPageSize());
+
+    ResultMap resultMap = new ResultMap();
+    resultMap.setPageNo(ask.getPageNo());
+    resultMap.setPageSize(ask.getPageSize());
+    resultMap.setTotalPageSize(totalPageSize);
+
+    resultMap.setAskList(askService.userList(ask));
+
+    return resultMap; 
   }
 
 
 
   @RequestMapping("/ask/user-list")
   public Object userList(@AuthenticationPrincipal Member member, Ask ask) {
-
+    log.info("B");
     //  int no = member.getNo();
     //  log.info("no = " + no);
-
     ask.setMemberNo(member.getNo());
-
     log.info("ask.get = " + ask.getMemberNo());
 
-    return askService.userList(ask);
+    log.info("memberTypeNo : " + ask.getMemberTypeNo()); //컨트롤러 까지만 온 데이터
+    log.info("pageNo : " + ask.getPageNo());
+    log.info("pageSize : " + ask.getPageSize());
+    int totalPageSize = 0;
+
+    try { // pageSize 파라미터 값이 있다면 기본 값을 변경한다.
+      if (ask.getPageSize() < 8 || ask.getPageSize() > 100) {
+        ask.setPageSize(8);
+      }
+    } catch (Exception e) {}
+
+    //게시글 전체 개수를 알아내서 페이지 개수를 계산한다.
+    int askSize = askService.size(ask); 
+    totalPageSize = askSize / ask.getPageSize(); // 예: 게시글개수 / 페이지당개수 = 16 / 5 = 3 
+    if ((askSize % ask.getPageSize()) > 0) {
+      totalPageSize++;
+    }
+
+    try { // pageNo 파라미터 값이 있다면 기본 값을 변경한다.
+      if (ask.getPageNo() < 1 || ask.getPageNo() > totalPageSize) {// pageNo 유효성 검증
+        ask.setPageNo(1);
+      }
+    } catch (Exception e) {}
+
+    log.info("totalPageSize =" + totalPageSize);
+    log.info("PageNo =" + ask.getPageNo());
+    log.info("PageSize =" + ask.getPageSize());
+
+    ResultMap resultMap = new ResultMap();
+    resultMap.setPageNo(ask.getPageNo());
+    resultMap.setPageSize(ask.getPageSize());
+    resultMap.setTotalPageSize(totalPageSize);
+
+    resultMap.setAskList(askService.userList(ask));
+
+    return resultMap;  
+
   }
 
   @RequestMapping("/ask/add")

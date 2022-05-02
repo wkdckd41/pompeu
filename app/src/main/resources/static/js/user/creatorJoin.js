@@ -248,56 +248,160 @@ xCreatorBtn.addEventListener('click', (e) => {
         $("#memberPhone").focus();
         return false;
     }
-    if (confirm("회원가입 하시겠습니까?"))
+
+    //  ★ 안될경우 이걸로  
+    //  if (confirm('회원가입 하시겠습니까?')){
+    //       fetch('/user/joinCreator', {
+    //               method: 'POST',
+    //               headers: {
+    //                   'Content-Type': 'application/json'
+    //               },
+    //               body: JSON.stringify({
+    //                   name: xName.value,
+    //                   nickName: xNickName.value,
+    //                   email: xJoinEmail.value,
+    //                   password: xJoinPassword.value,
+    //                   phone: xJoinPhone.value
+    //               })
+    //           })
+    //           .then(function (resp) {
+    //               console.log(resp);
+    //               return resp.text();
+    //           })
+    //           .then(function (text) {
+    //               if (text == 'success') {
+    //                   Swal.fire({
+    //                       icon: 'success',
+    //                       title: '회원가입이 완료되었습니다.',
+    //                   });
+    //                       location.href = '/user/main/user-main.html';
+    //                       location.replace = '/user/login/user-join.html';
+    //               } else {
+    //                   Swal.fire({
+    //                       icon: 'warning',
+    //                       title: '회원가입이 정상적으로 진행되지않았습니다.',
+    //                       text: '내용을 다시 확인해주세요',
+    //                   });
+    //                   return false;
+    //               }
+    //           })
+    //  }
 
 
 
 
-        // Swal.fire({
-        //     title: '회원가입 하시겠습니까?',
-        //     icon: 'info',
-        //     showCancelButton: true,
-        //     confirmButtonColor: '#3085d6',
-        //     cancelButtonColor: '#d33',
-        //     confirmButtonText: '승인',
-        //     cancelButtonText: '취소',
-        //     reverseButtons: true, // 버튼 순서 거꾸로
 
-        // })
-        fetch('http://localhost:8080/user/join', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: xName.value,
-                nickName: xNickName.value,
-                email: xJoinEmail.value,
-                password: xJoinPassword.value,
-                phone: xJoinPhone.value
-            })
-        })
-        .then(function (resp) {
-            console.log(resp);
-            return resp.text();
-        })
-        .then(function (text) {
-            if (text == 'success') {
-                Swal.fire({
-                    icon: 'success',
-                    title: '회원가입이 완료되었습니다.',
-                });
-                location.href = '/user/main/user-main.html';
-                location.replace = '/user/login/user-join.html';
-            } else {
-                Swal.fire({
-                    icon: 'warning',
-                    title: '회원가입이 정상적으로 진행되지않았습니다.',
-                    text: '내용을 다시 확인해주세요',
-                });
-            }
-        })
-})
+
+
+
+
+    Swal.fire({
+        title: '회원가입 하시겠습니까?',
+        icon: 'info',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: '가입',
+        cancelButtonText: '취소',
+        reverseButtons: false, // 버튼 순서 거꾸로
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+            fetch('/user/joinCreator', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name: xName.value,
+                        nickName: xNickName.value,
+                        email: xJoinEmail.value,
+                        password: xJoinPassword.value,
+                        phone: xJoinPhone.value
+                    })
+                })
+                .then(function (resp) {
+                    console.log(resp);
+                    return resp.text();
+                })
+                .then(function (text) {
+                    if (text == 'success') {
+                        Swal.fire({
+                            icon: 'success',
+                            title: '회원가입이 완료되었습니다.',
+                        });
+                        setTimeout(function () {
+                            location.href = '/user/main/user-main.html';
+                            location.replace = '/user/login/user-join.html';
+                        }, 2000)
+                    } else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: '회원가입이 정상적으로 진행되지않았습니다.',
+                            text: '내용을 다시 확인해주세요',
+                        });
+                        return false;
+                    }
+                })
+        }
+    })
+
+
+});
+
+
+
+
+
+
+
+
+
+// Swal.fire({
+//     title: '회원가입 하시겠습니까?',
+//     icon: 'info',
+//     showCancelButton: true,
+//     confirmButtonColor: '#3085d6',
+//     cancelButtonColor: '#d33',
+//     confirmButtonText: '승인',
+//     cancelButtonText: '취소',
+//     reverseButtons: true, // 버튼 순서 거꾸로
+
+// })
+//         fetch('/user/joinCreator', {
+//             method: 'POST',
+//             headers: {
+//                 'Content-Type': 'application/json'
+//             },
+//             body: JSON.stringify({
+//                 name: xName.value,
+//                 nickName: xNickName.value,
+//                 email: xJoinEmail.value,
+//                 password: xJoinPassword.value,
+//                 phone: xJoinPhone.value
+//             })
+//         })
+//         .then(function (resp) {
+//             console.log(resp);
+//             return resp.text();
+//         })
+//         .then(function (text) {
+//             if (text == 'success') {
+//                 Swal.fire({
+//                     icon: 'success',
+//                     title: '회원가입이 완료되었습니다.',
+//                 });
+//                 location.href = '/user/main/user-main.html';
+//                 location.replace = '/user/login/user-join.html';
+//             } else {
+//                 Swal.fire({
+//                     icon: 'warning',
+//                     title: '회원가입이 정상적으로 진행되지않았습니다.',
+//                     text: '내용을 다시 확인해주세요',
+//                 });
+//             }
+//         })
+// })
 
 
 // xCreatorBtn.addEventListener('click', (e) => {

@@ -26,14 +26,19 @@ public class DefaultAskService implements AskService{
 
   @Override
   public List<Ask> list(Ask ask) {
-    return askDao.findAll(ask);
+    return askDao.findAll(ask.getMemberTypeNo(), ask.getPageSize(), ((ask.getPageNo() - 1) * ask.getPageSize()));
   }
 
   @Override
   public List<Ask> userList(Ask ask) {
     System.out.println("service no : " + ask.getMemberNo());
-    return askDao.userFindAll(ask);
+    return askDao.userFindAll(ask.getMemberNo(), ask.getMemberTypeNo(), ask.getPageSize(), ((ask.getPageNo() - 1) * ask.getPageSize()));
   }
+
+  @Override
+  public int size(Ask ask) {
+    return askDao.countAll(ask);
+  }  
 
   @Override
   public Ask get(int no) {
