@@ -255,6 +255,7 @@ document.querySelector("#btn-regist").onclick = function() {
   .then(function(result) {
     console.log(result);
   
+  
   location.href = '/user/payment/myorder.html/'
   
   });
@@ -286,7 +287,7 @@ document.querySelector("#btn-ask").onclick = function() {
 var zzimCheck = 0;
   var xHeart = document.querySelector("#x-heart");
     
-  // 소모임 찜하기
+
   document.querySelector("#x-btn-zzim").onclick = function() {
     console.log("wishlist");
     console.log(no);
