@@ -127,9 +127,9 @@
   <insert id="wishlistAdd" parameterType="Lecture">
         insert into lecture_wishlist(users_no,lecture_no) 
         values(#{usersNo},#{lectureNo})
-      </insert>  
-  
-   <select id="findEverything" resultType="HashMap">
+  </insert>  
+      
+  <select id="findEverything" resultType="HashMap">
     select
           ex.name                    as exName,
           le.name                    as name,
@@ -160,7 +160,7 @@
   </select>
   
   
-   <select id="findOut" resultType="HashMap">
+  <select id="findOut" resultType="HashMap">
     select  
           ex.name                    as exName,
           le.name                    as name,
@@ -190,7 +190,7 @@
   </select>
   
   
-   <select id="findIn" resultType="HashMap">
+  <select id="findIn" resultType="HashMap">
     select  
           ex.name                    as exName,
           le.name                    as name,
@@ -343,7 +343,5 @@
     where 
           le.lecture_no=#{no}
   </select>
-  
-  
-  
+
 </mapper>
