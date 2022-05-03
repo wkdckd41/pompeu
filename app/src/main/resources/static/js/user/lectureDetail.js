@@ -46,56 +46,57 @@ var askContent = document.querySelector("#ask-content");
 var addingAsk;
  
 fetch(`/userLecture/findLecture?no=${no}`)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(result) {
-    console.log("AAA");
-    console.log(result);
-    
-    lectureInfo.innerHTML = result[0].lectureInfo;
-    info.innerHTML = result[0].info;
+.then(function(response) {
+  return response.json();
 })
-   
+.then(function(result) {
+  console.log("AAA");
+  console.log(result);
+  
+lectureInfo.innerHTML = result[0].lectureInfo;
+info.innerHTML = result[0].info;
+})
+
 
 var userContent = document.querySelector("#user-content");
- 
-  fetch(`/userLecture/userContent?no=${no}`)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(result) {
-    console.log("AAA");
-    console.log(result);
-    
-    $("#user-con").html(htmlGenerator2(result));
+  
+fetch(`/userLecture/userContent?no=${no}`)
+.then(function(response) {
+  return response.json();
 })
-
-var creatorContent = document.querySelector("#creator-content");
- 
-  fetch(`/userLecture/creatorContent?no=${no}`)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(result) {
-    console.log("AAA");
-    console.log(result);
-    
-    $("#creator-content").html(htmlGenerator4(result));
+.then(function(result) {
+  console.log("AAA");
+  console.log(result);
+  
+$("#user-con").html(htmlGenerator2(result));
 })
 
 
 var creatorContent = document.querySelector("#creator-content");
  
-  fetch(`/userLecture/creatorPro?no=${no}`)
-  .then(function(response) {
-    return response.json();
-  })
-  .then(function(result) {
-    console.log("AAA");
-    console.log(result);
+fetch(`/userLecture/creatorContent?no=${no}`)
+.then(function(response) {
+  return response.json();
+})
+.then(function(result) {
+  console.log("AAA");
+  console.log(result);
+  
+$("#creator-content").html(htmlGenerator4(result));
+})
+
+
+var creatorContent = document.querySelector("#creator-content");
+ 
+fetch(`/userLecture/creatorPro?no=${no}`)
+.then(function(response) {
+  return response.json();
+})
+.then(function(result) {
+  console.log("AAA");
+  console.log(result);
     
-   $("#creator-con").html(htmlGenerator3(result));
+$("#creator-con").html(htmlGenerator3(result));
 })
      
      
@@ -127,7 +128,7 @@ var lectureName = document.querySelector("#lecture-name");
 var maxMember = document.querySelector("#max-member");
 var lecturePrice = document.querySelector("#lecture-price");
 
- fetch(`/userLecture/registLecture?no=${no}`)
+fetch(`/userLecture/registLecture?no=${no}`)
 .then(function(response) {
   return response.json();
 })
@@ -222,21 +223,22 @@ var regionSi = document.querySelector(".region-si");
     
 var lectureAsk = document.querySelector("#lecture-ask");
     
-  document.querySelector("#btn-ask").onclick = function() {
+document.querySelector("#btn-ask").onclick = function() {
   if (lectureAsk.value == "") {
     window.alert("필수 입력 항목이 비어 있습니다.");
     return;
   }
-      fetch(`/userLecture/addAsk?no=${no}&content=${lectureAsk.value}`)
-    .then(function(response) {
-      return response.text();
-    })
-    .then(function(text) {
-      console.log(text);
+  fetch(`/userLecture/addAsk?no=${no}&content=${lectureAsk.value}`)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(text) {
+    console.log(text);
       
-      location.reload();
-    });
+  location.reload();
+  });
 };
+
 
 var selectedTimeNo;
 
@@ -254,24 +256,21 @@ document.querySelector("#btn-regist").onclick = function() {
   })
   .then(function(result) {
     console.log(result);
-  
-  
+
   location.href = '/user/payment/myorder.html/'
-  
   });
 };
-
 
 
 var contentAsk = document.querySelector("#lecture-ask");
 
 document.querySelector("#btn-ask").onclick = function() {
-    if (lectureAsk.value == "") {
-    window.alert("필수 입력 항목이 비어 있습니다.");
-    return;
-  }
+  if (lectureAsk.value == "") {
+  window.alert("필수 입력 항목이 비어 있습니다.");
+  return;
+}
     
-  askText = contentAsk.value;
+askText = contentAsk.value;
   
   fetch(`/userLecture/addAsk?lectureNo=${addingAsk}&askContent=${askText}`)
   .then(function(response) {
@@ -285,30 +284,25 @@ document.querySelector("#btn-ask").onclick = function() {
 };
 
 var zzimCheck = 0;
-  var xHeart = document.querySelector("#x-heart");
-    
+var xHeart = document.querySelector("#x-heart");
 
-  document.querySelector("#x-btn-zzim").onclick = function() {
-    console.log("wishlist");
-    console.log(no);
-    
-    if (zzimCheck == 0) {
-      xHeart.style.color = "red";
-      zzimCheck = 1;
-    } else if (zzimCheck == 1) {
-      xHeart.style.color = "black";
-      zzimCheck = 0;
-    }
+document.querySelector("#x-btn-zzim").onclick = function() {
+  console.log("wishlist");
+  console.log(no);
   
-    fetch(`/userLecture/wishlistAdd?lectureNo=${no}`)
-    .then(function(response) {
-      return response.text();
-    })
-    .then(function(result) {
-      console.log(result);
-     });
-  };
-  
-  
-  
-  
+  if (zzimCheck == 0) {
+    xHeart.style.color = "red";
+    zzimCheck = 1;
+  } else if (zzimCheck == 1) {
+    xHeart.style.color = "black";
+    zzimCheck = 0;
+  }
+
+  fetch(`/userLecture/wishlistAdd?lectureNo=${no}`)
+  .then(function(response) {
+    return response.text();
+  })
+  .then(function(result) {
+    console.log(result);
+   });
+};
