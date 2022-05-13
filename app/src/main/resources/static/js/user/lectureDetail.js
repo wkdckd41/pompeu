@@ -40,8 +40,8 @@ if (no == null) {
 console.log(no);
 
 
-var lectureInfo = document.querySelector("#lecture-introduce");
-var info = document.querySelector("#teacher-introduce");
+var lectureInfo = document.querySelector(".lecture-introduce");
+var info = document.querySelector(".teacher-introduce");
 var askContent = document.querySelector("#ask-content");
 var addingAsk;
  
@@ -86,7 +86,7 @@ $("#creator-content").html(htmlGenerator4(result));
 })
 
 
-var creatorContent = document.querySelector("#creator-content");
+var creatorContent = document.querySelector(".creator-content");
  
 fetch(`/userLecture/creatorPro?no=${no}`)
 .then(function(response) {
@@ -123,10 +123,10 @@ fetch(`/userLecture/addImage?no=${no}`)
 })
 
 
-var exercise = document.querySelector("#exercise");
-var lectureName = document.querySelector("#lecture-name");
-var maxMember = document.querySelector("#max-member");
-var lecturePrice = document.querySelector("#lecture-price");
+var exercise = document.querySelector(".exercise");
+var lectureName = document.querySelector(".lecture-name");
+var maxMember = document.querySelector(".max-member");
+var lecturePrice = document.querySelector(".lecture-price");
 
 fetch(`/userLecture/registLecture?no=${no}`)
 .then(function(response) {

@@ -45,12 +45,12 @@
               <hr style="border: solid 1px gainsboro; width:90%; margin-top:15px;margin-bottom:-10px;"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">클래스 소개</h4>
-                <span id="lecture-introduce" style="line-height: 30px; width:10px;"></span>
+                <span class="lecture-introduce" style="line-height: 30px; width:10px;"></span>
               </div>
               <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold">강사 소개</h4>
-                <span id="teacher-introduce" style="line-height: 30px; width:10px;"></span>
+                <span class="teacher-introduce" style="line-height: 30px; width:10px;"></span>
               </div>
               <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
@@ -86,9 +86,9 @@
               <hr style="border: solid 1px gainsboro; width:90%; margin-top:30px; margin-bottom:-10px"><br>
               <div style="margin-left:30px;">
                 <h4 style="font-weight: bold; position: relative;">문의</h4>
-                <button type="button" id="btn-ask">문의하기</button>
-                <textarea id="lecture-ask"></textarea>
-                <div id="creator-content"></div>
+                <button type="button" class="btn-ask">문의하기</button>
+                <textarea class="lecture-ask"></textarea>
+                <div class="creator-content"></div>
               </div>
             </div>
           </form>
@@ -98,17 +98,17 @@
         <div class="box-3">
           <div class ="box-title2 shadow">
             <div class ="party-text">
-            <span id="exercise"></span><br>
+            <span class="exercise"></span><br>
             <hr style="border: solid 1px gainsboro; width:100%; margin-top:3px"><br>
-            <div id="lecture-name"></div>
+            <div class="lecture-name"></div>
             <div style="display:flex; margin-top:10px;">
               <div style="display: flex;">
                 <div class="creator-con" id="creator-con"></div>
               </div>
-              <div id="max-member" style="margin-left:140px; margin-top:10px;"></div>
+              <div class="max-member" style="margin-left:140px; margin-top:10px;"></div>
             </div>
             <hr style="border: solid 1px gainsboro; width:100%; margin-top:10px"><br>
-            <div id="lecture-price"></div>
+            <div class="lecture-price"></div>
             <div class="time-box" id="time-box" ></div>
             </div>
             <hr style="border: solid 1px gainsboro; width:100%;">
@@ -159,7 +159,7 @@
 
 <script id="tr-template4" type="text/x-handlebars-template">
 {{#each this}} 
-  <div class="creator" id="creator-content2">{{askContent}}</div>
+  <div class="creator" class="creator-content2">{{askContent}}</div>
 {{/each}}
 </script>
 
