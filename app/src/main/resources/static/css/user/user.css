@@ -114,7 +114,7 @@ h5 {
    float:left;
 }
 
-#region-summary {
+.region-summary {
    background-color:#FFE5CC;
    height:10px;
    border-radius:5px;
@@ -400,30 +400,30 @@ border: 1px solid black;
   text-transform: uppercase;
 }
 
-#lecture-name {
+.lecture-name {
   font-size:23px;
   font-weight:bold;
   margin-top:-30px;
   
 }
-#lecture-name2 {
+.lecture-name2 {
   font-size:17px;
   font-weight:bold;
   margin-top:5px;
   margin-bottom:5px;
 }
 
-#exercise2 {
+.exercise2 {
 	background-color:#04CF5C;
 	border-radius:5px;
 }
 
-#lecture-price {
+.lecture-price {
   margin-top:-30px;
   font-size:21px;
 }
 
-#lecture-price2 {
+.lecture-price2 {
   margin-top:-30px;
   font-size:14px;
 }
@@ -607,7 +607,7 @@ border: 1px solid black;
 }
 
 
-#btn-ask {
+.btn-ask {
   width: 80px;
   height: 30px;
   border-radius: 5px;
@@ -665,7 +665,7 @@ border: 1px solid black;
     color: #ffffff;
 }
 
-#lecture-ask {
+.lecture-ask {
 	border: 1px solid black;
 	width:380px;
   min-height:150px;
@@ -678,7 +678,7 @@ border: 1px solid black;
   border-radius:5px;
 }
 
-#creator-content2 {
+.creator-content2 {
   border:2px solid black;
 	width:380px;
 	margin-top: 15spx;
@@ -729,7 +729,7 @@ border: 1.5px solid black;
 	text-align:center;
 }
 
-#lecture-introduce {
+.lecture-introduce {
 	line-height: 20px;
 	min-width: 30px;
 }
